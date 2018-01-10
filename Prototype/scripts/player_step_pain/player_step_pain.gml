@@ -1,0 +1,1 @@
+/// @description execute player pain animation and stat decrease
