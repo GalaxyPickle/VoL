@@ -5,10 +5,12 @@
 
 var starting = argument[0];
 var attack_mode = argument[1];
+// attack_mode
 // 0 = default, queue empty
 // 1 = default, queue populated
 // 2 = charge attack, queue empty
 // 3 = charge attack, queue populated
+var enemy_in_range = argument[2];
 
 var vel_x = 0;
 
@@ -28,6 +30,20 @@ if on_ground {
 }
 else {	// air attacks!
 	
+}
+
+// check for enemy in range
+if enemy_in_range {
+	
+	// 1. check for collision with basic attack vs hitbox of enemy
+	// if false
+	// 2. check for collision with sweet spot vs hitbox of enemy
+	// if false
+	// 3. check for collisions with basic attack vs headbox of enemy
+	// if false
+	// 4. check for collisions with sweet spot vs headbox of enemy
+	
+	// apply any damage to enemy with script
 }
 
 // cancel out stamina regen

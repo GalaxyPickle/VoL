@@ -28,11 +28,14 @@ if alarm[0] == -1
 // logic for hitboxes, attack combos, and which state to be in
 ///////////////////////////////////////////////////////////////////////////////
 
-nearest_enemy = instance_exists(o_reptilian_large) ? instance_nearest(x, y, o_reptilian_large) : noone;
-
 var attack_mode = 0;
 var starting = false;
-var hit = false;
+var enemy_in_range = false;
+
+nearest_enemy = instance_exists(o_reptilian_large) ? instance_nearest(x, y, o_reptilian_large) : noone;
+
+if distance_to_object(nearest_enemy) <= 200
+	enemy_in_range = true;
 
 // if idling, accept the first item from the input queue
 if current_state == states.idle {
@@ -66,7 +69,7 @@ switch (current_state) {
 		break;
 	
 	case states.attack:
-		player_step_attack(starting, attack_mode);
+		player_step_attack(starting, attack_mode, enemy_in_range);
 		break;
 	
 	case states.dodge:

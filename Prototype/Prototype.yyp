@@ -818,6 +818,25 @@
             }
         },
         {
+            "Key": "5c71e96e-50d2-4b98-9807-e529ff9f4508",
+            "Value": {
+                "id": "9a4f791d-53e7-422f-82d9-1bec0de21bea",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "scripts\/apply_damage_other\/apply_damage_other.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "5d21a110-8de4-4771-9f78-999c9c8b9bb2",
             "Value": {
                 "id": "f21f035a-d9df-4a80-8632-e6cec26ece65",
@@ -1899,6 +1918,7 @@
         "dbe2b287-8883-41a0-aaff-5b74f4c819a4",
         "3f1039d7-c5c5-4fb5-8f7a-cba15a366009",
         "4f7c72a5-3a79-4c73-b9f0-9e269a342ed4",
+        "5c71e96e-50d2-4b98-9807-e529ff9f4508",
         "199e2e79-56e1-4631-9f3b-e78428cb373e",
         "4799ce4d-3ad8-4dff-869e-6fc7dc117332"
     ],
