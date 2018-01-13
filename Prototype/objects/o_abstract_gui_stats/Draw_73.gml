@@ -41,7 +41,7 @@ if global.hitboxes {
 	if current_state == states.attack {	
 		
 		// get array of triangle points from preset data
-		var a = current_attack[ floor(image_index) ];	
+		var a = current_point_array[ floor(image_index) ];	
 		if array_length_1d(a) > 0 {
 			
 			var basic = a[0];
@@ -67,13 +67,6 @@ if global.hitboxes {
 			}
 		}
 	}
-
-	/////////////////////////////////////
-	// reset drawing color
-	/////////////////////////////////////
-	
-	draw_set_color(c_white);
-	draw_set_alpha(1);
 }
 
 if global.text {
@@ -102,3 +95,10 @@ if global.text {
 	}
 	
 }
+
+/////////////////////////////////////
+// reset drawing color
+/////////////////////////////////////
+	
+draw_set_color(c_white);
+draw_set_alpha(1);

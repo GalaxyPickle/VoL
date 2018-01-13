@@ -60,19 +60,19 @@ attack_air_1_point_array = [];
 
 // current attack is current attack's the point array, set in the logic of the entity script called
 //	to determine which point array to check collisions for and draw in debug mode
-current_attack = attack_ground_1_point_array;
+current_point_array = attack_ground_1_point_array;
 
 // these are the velocities and damages of the respective attack
 attack_ground_1_stats = [
 	[10, -10],	// velocity of attack to opponent if poise broken (default facing right)
-	10,			// default health damage of the attack
+	[10, 20],	// default vitality dmg / sweet spot dmg (headshots are x2 current health dmg)
 	10,			// default stamina cost of the attack
-	10,			// default poise damage of the attack
+	10,			// default poise dmg of the attack
 	10,			// default special amount increase from a successful attack
 	];
 attack_ground_2_stats = [
 	[10, -10],
-	10,
+	[10, 20],
 	10,
 	10,
 	10,
@@ -80,11 +80,14 @@ attack_ground_2_stats = [
 	
 attack_air_1_stats = [
 	[10, -10],
-	10,
+	[10, 20],
 	10,
 	10,
 	10,
 	];
+	
+// current attack stats
+current_attack_stats = attack_ground_1_stats;
 
 ////////////////////////////////////
 // input constants
@@ -124,39 +127,72 @@ collision_tile_map_id = layer_tilemap_get_id(layer_id);
 ////////////////////////////////////
 
 nearest_enemy = noone;
+enemy_in_range = false;
+enemy_range = 150; // pixels away for "enemy in range" to trigger
+
+just_hit = false;
+invincible = false;
+dead = false;
+
 jump_stamina_cost = 30;
 
-health_ = [
-	"Health",
+// VITALITY
+vitality_max = 500;			// max health
+vitality = vitality_max;	// current health
+vitality_regen = .01;		// health regen rate per frame
+
+// STAMINA
+stamina_max = 100;
+stamina = stamina_max;
+stamina_regen = .4;
+
+// POISE
+poise_max = 100;
+poise = poise_max;
+poise_regen = .4;
+
+// SPECIAL
+special_max = 100;
+special = 0;
+special_regen = .1;
+
+////////////////////////////////
+// GUI stat listing
+////////////////////////////////
+
+// list of stats for easy updating each step
+// these arrays are set to the values of the above variables because
+//	the above vars are easier to read/use than the arrays below
+vitality_ = [
+	"Vitality",
 	c_red,
-	500,	// current health  
-	500,	// absolute total health
-	.1,		// health regen rate (per frame)
+	vitality,		// current health
+	vitality_max,	// absolute total health
+	vitality_regen,	// health regen rate (per frame)
 	];
 stamina_ = [
 	"Stamina",
 	c_green,
-	100,		// current stamina
-	100,		// absolute total stamina
-	.7,			// stamina regen rate (per frame)
+	stamina,		// current stamina
+	stamina_max,	// absolute total stamina
+	stamina_regen,	// stamina regen rate (per frame)
 	];
 poise_ = [
 	"Poise",
 	c_orange,
-	100,		// current poise
-	100,		// absolute total poise
-	.7,			// poise regen rate (per frame)
+	poise,			// current poise
+	poise_max,		// absolute total poise
+	poise_regen,	// poise regen rate (per frame)
 	];
 special_ = [
 	"Special",
 	c_silver,
-	0,		// current special ability charge
-	100,	// special needed to activate one instance
-	0,		// special regen rate?
-	1,		// special increase upon successful completion of attack or whatever else
+	special,		// current special ability charge
+	special_max,	// special needed to activate one instance
+	special_regen,	// special regen rate?
 	];
 
-stat_array = [health_, stamina_, poise_, special_];
+stat_array = [vitality_, stamina_, poise_, special_];
 
 ////////////////////////////////////////
 // state machine

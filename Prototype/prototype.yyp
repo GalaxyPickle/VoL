@@ -153,6 +153,25 @@
             }
         },
         {
+            "Key": "052932a9-cca4-4adb-b83a-0d6aefb8b28a",
+            "Value": {
+                "id": "5346c443-5844-4615-8e6f-107dc52ef28b",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "views\/052932a9-cca4-4adb-b83a-0d6aefb8b28a.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "07e85a53-b887-4b75-b07e-6b0779565a4c",
             "Value": {
                 "id": "2328e574-5faa-4eb0-af76-843385d90d93",
@@ -305,6 +324,25 @@
             }
         },
         {
+            "Key": "1a2af693-33ff-4250-bba3-9265c00e06af",
+            "Value": {
+                "id": "b8d937b9-3d0c-4ebe-ae4c-6f4544c2f9db",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/s_default\/s_default.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "1e88f744-c020-458e-b6ca-416265a38ae0",
             "Value": {
                 "id": "84a22a09-7fa8-4908-a1da-71b75ada2609",
@@ -340,6 +378,25 @@
                 ],
                 "resourcePath": "scripts\/player_step_attack\/player_step_attack.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "2b2c187d-c146-43b6-898d-758e9ae8708a",
+            "Value": {
+                "id": "61767c37-4091-4369-b0ac-be80b0e2c48f",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "objects\/o_damage_popup\/o_damage_popup.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -1908,6 +1965,7 @@
         "5d21a110-8de4-4771-9f78-999c9c8b9bb2",
         "4ce36839-8e2f-4e5d-888b-95780638ea12",
         "e7de50f6-34d9-479f-a6e5-7cd467cfa732",
+        "5c71e96e-50d2-4b98-9807-e529ff9f4508",
         "020090b2-0815-4be1-8550-db47730f8e95",
         "268c875e-deb8-4a98-9918-a171e330e92a",
         "54283d16-482d-4a70-b69e-ac5082b34614",
@@ -1918,7 +1976,6 @@
         "dbe2b287-8883-41a0-aaff-5b74f4c819a4",
         "3f1039d7-c5c5-4fb5-8f7a-cba15a366009",
         "4f7c72a5-3a79-4c73-b9f0-9e269a342ed4",
-        "5c71e96e-50d2-4b98-9807-e529ff9f4508",
         "199e2e79-56e1-4631-9f3b-e78428cb373e",
         "4799ce4d-3ad8-4dff-869e-6fc7dc117332"
     ],

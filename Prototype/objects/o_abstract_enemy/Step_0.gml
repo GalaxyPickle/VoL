@@ -8,11 +8,14 @@ event_inherited();
 // logic for hitboxes, attack combos, and which state to be in
 ///////////////////////////////////////////////////////////////////////////////
 
-nearest_enemy = instance_exists(o_player) ? instance_nearest(x, y, o_player) : noone;
-
 var attack_mode = 0;
 var starting = false;
-var hit = false;
+
+nearest_enemy = instance_exists(o_player) ? instance_nearest(x, y, o_player) : noone;
+
+enemy_in_range = false;
+if distance_to_object(nearest_enemy) <= enemy_range
+	enemy_in_range = true;
 
 ///////////////////////////////////////////////////////////////////////////////
 // now we can do the real FSM
