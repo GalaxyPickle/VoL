@@ -23,4 +23,10 @@ switch (current_state) {
 	case states.special: current_state_string = "special";
 		break;
 }
-draw_variables = [ ["x: ", x], ["y: ", y], ["state: ", current_state_string], ];
+draw_variables = [ 
+	["x: ", x], 
+	["y: ", y], 
+	["state: ", current_state_string],
+	["enemy distance: ", distance_to_object(nearest_enemy)],
+	["enemy in range: ", enemy_in_range ? "true" : "false"],
+	];

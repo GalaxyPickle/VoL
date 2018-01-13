@@ -21,18 +21,21 @@ if ds_queue_size(input_queue) < queue_max {
 }
 
 // first off, restart dequeue alarm every .3 seconds
-if alarm[0] == -1
-	alarm[0] = room_speed / 3;
+if alarm[1] == -1
+	alarm[1] = room_speed / 3;
 	
 ///////////////////////////////////////////////////////////////////////////////
 // logic for hitboxes, attack combos, and which state to be in
 ///////////////////////////////////////////////////////////////////////////////
 
-nearest_enemy = instance_exists(o_reptilian_large) ? instance_nearest(x, y, o_reptilian_large) : noone;
-
 var attack_mode = 0;
 var starting = false;
-var hit = false;
+
+nearest_enemy = instance_exists(o_reptilian_large) ? instance_nearest(x, y, o_reptilian_large) : noone;
+
+enemy_in_range = false;
+if distance_to_object(nearest_enemy) <= enemy_range
+	enemy_in_range = true;
 
 // if idling, accept the first item from the input queue
 if current_state == states.idle {

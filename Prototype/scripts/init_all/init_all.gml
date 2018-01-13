@@ -1,4 +1,4 @@
-///@description initalize all global variables and macros
+/// @description initalize all global variables and macros
 
 ///////////////////////////////////////////
 // universal vars
@@ -8,7 +8,7 @@
 #macro WINDOW_WIDTH 1280
 #macro WINDOW_HEIGHT 720
 
-#macro ZOOM 1
+#macro ZOOM 3
 
 #macro GAME_WIDTH WINDOW_WIDTH / ZOOM
 #macro GAME_HEIGHT WINDOW_HEIGHT / ZOOM
@@ -26,6 +26,9 @@ global.hitboxes = true;
 
 // initialize camera stuff
 init_camera_and_view();
+
+// initialize audio stuff
+init_audio();
 
 // initialize player values
 init_player();

@@ -1,7 +1,7 @@
-/// @description called every player step, mother function to call all player step functions
+/// @description mother function to call every step for entity
 
 //////////////////////////
-// hitbox vars
+// 0. hitbox vars
 //////////////////////////
 
 var vel_x = 0, vel_y = 1;
@@ -53,14 +53,47 @@ move_and_contact_tiles(collision_tile_map_id, TILE_SIZE, velocity);
 // 3. deal with game stat stuff
 /////////////////////////////////////////////////////////////////////////////
 
-stat_array = [health_, stamina_, poise_, special_];
-
-for (var i = 0; i < array_length_1d(stat_array); i++) {
-	
-	var current = stat_array[@ i];
-	if current[@ 2] < current[@ 3]	// if current (ex) health is less than max health
-		current[@ 2] += current[@ 4];	// regen
+if just_hit {
+	invincible = true;
+	alarm[0] = room_speed / 3; // 1/3 second invinciblity
+	just_hit = false;
 }
+
+// vitality
+if vitality < 0
+	dead = true;
+// stamina
+if stamina < 0
+	stamina = 0;
+// poise
+if poise < 0
+	poise = 0;
+// special
+if special < 0
+	special = 0;
+
+if !invincible {
+	// vitality
+	if vitality < vitality_max
+		vitality += vitality_regen;
+	// stamina
+	if stamina < stamina_max
+		stamina += stamina_regen;
+	// poise
+	if poise < poise_max
+		poise += poise_regen;
+	// special
+	if special < special_max
+		special += special_regen;
+}
+
+// set array for gui debug info
+vitality_[2] = vitality;
+stamina_[2] = stamina;
+poise_[2] = poise;
+special_[2] = special;
+
+stat_array = [vitality_, stamina_, poise_, special_];
 
 /////////////////////////////////////////////////////////////////////////////
 // 4. lastly, set sprite direction

@@ -18,9 +18,9 @@ if on_ground {
 	}
 	
 	// jumping
-	if keyboard_check_pressed(key_jump) && stamina_[2] >= jump_stamina_cost {
+	if keyboard_check_pressed(key_jump) && stamina >= jump_stamina_cost {
 		velocity[vector2_y] = -jump_speed_y;
-		stamina_[2] -= jump_stamina_cost;
+		stamina -= jump_stamina_cost;
 	}
 }
 else {

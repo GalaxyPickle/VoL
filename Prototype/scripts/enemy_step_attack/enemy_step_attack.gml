@@ -12,6 +12,7 @@ var attack_mode = argument[1];
 
 var vel_x = 0;
 
+// if stamina is less than the current attack (ground 1 for now)
 if stamina_[2] < attack_ground_1_stats[2]
 	exit;
 

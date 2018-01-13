@@ -15,6 +15,9 @@ head_hitbox_offset = 28;
 // movement sprites
 sprite_rest = s_player_rest;
 sprite_run = s_player_run;
+
+sprite_set_speed(s_player_run, .2, spritespeed_framespergameframe);
+
 sprite_jump = s_player_jump;
 
 // other event sprites
@@ -24,6 +27,9 @@ sprite_special = s_enemy_default;
 
 // attack sprites
 sprite_attack_ground_1 = s_player_attack_ground_1;
+
+sprite_set_speed(s_player_attack_ground_1, .3, spritespeed_framespergameframe);
+
 sprite_attack_ground_2 = s_player_attack_ground_2;
 
 sprite_attack_air_1 = s_enemy_default;
@@ -69,24 +75,24 @@ attack_ground_2_point_array = [];
 // these are the velocities and damages of the respective attack
 attack_ground_1_stats = [
 	[10, -10],	// velocity of attack to opponent if poise broken (default facing right)
-	50,			// default health damage of the attack
+	[50, 80],	// default health damage of the attack
 	25,			// default stamina cost of the attack
-	60,			// default poise damage of the attack
+	10,			// default poise damage of the attack
 	2,			// default special amount increase from a successful attack
 	];
 attack_ground_2_stats = [
 	[10, -10],
-	70,
+	[70, 100],
 	35,
-	100,
+	20,
 	3,
 	];
 	
 attack_air_1_stats = [
 	[10, -10],
-	30,
+	[30, 60],
 	10,
-	10,
+	15,
 	5,
 	];
 
@@ -121,35 +127,25 @@ horizontal_friction = PLAYER_FRICTION;
 nearest_enemy = noone;
 jump_stamina_cost = 10;
 
-health_ = [
-	"Health",
-	c_red,
-	500,	// current health  
-	500,	// absolute total health
-	.01,		// health regen rate (per frame)
-	];
-stamina_ = [
-	"Stamina",
-	c_green,
-	100,		// current stamina
-	100,		// absolute total stamina
-	.5,			// stamina regen rate (per frame)
-	];
-poise_ = [
-	"Poise",
-	c_orange,
-	100,		// current poise
-	100,		// absolute total poise
-	.7,			// poise regen rate (per frame)
-	];
-special_ = [
-	"Special",
-	c_silver,
-	0,		// current special ability charge
-	100,	// special needed to activate one instance
-	0,		// special regen rate?
-	1,		// special increase upon successful completion of attack or whatever else
-	];
+// VITALITY
+vitality_max = 500;			// max health
+vitality = vitality_max;	// current health
+vitality_regen = .1;		// health regen rate per frame
+
+// STAMINA
+stamina_max = 100;
+stamina = stamina_max;
+stamina_regen = 10;
+
+// POISE
+poise_max = 100;
+poise = poise_max;
+poise_regen = .7;
+
+// SPECIAL
+special_max = 100;
+special = 0;
+special_regen = 0;
 
 ////////////////////////////////////
 // input buffer

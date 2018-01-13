@@ -15,9 +15,11 @@ if keyboard_check_pressed(key_text) {
 
 if global.debug {
 	show_debug_overlay(true);
+	audio_debug(true);
 }
 else {
-	show_debug_overlay(false);	
+	show_debug_overlay(false);
+	audio_debug(false);
 }
 
 // update debug values
