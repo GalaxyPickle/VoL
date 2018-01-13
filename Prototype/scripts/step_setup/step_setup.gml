@@ -1,4 +1,4 @@
-/// @description called every player step, mother function to call all player step functions
+/// @description mother function to call every step for entity
 
 //////////////////////////
 // 0. hitbox vars

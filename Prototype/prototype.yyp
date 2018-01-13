@@ -723,6 +723,25 @@
             }
         },
         {
+            "Key": "52d5e818-bce2-4e38-bd1e-64069387e8d0",
+            "Value": {
+                "id": "93a28279-4714-467e-b5fd-b36851bbf6dc",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "scripts\/init_audio\/init_audio.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "53792ec4-ae36-4936-8bd7-b0996d840929",
             "Value": {
                 "id": "9f31fd31-e0d2-49d9-926f-0aef7ca28b12",
@@ -1540,6 +1559,25 @@
             }
         },
         {
+            "Key": "c0a72257-2fd0-4f3c-b1f8-83d0295470d1",
+            "Value": {
+                "id": "2180c9d2-d0e0-47bc-94c5-869d19102cc4",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sounds\/a_test\/a_test.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "c156596e-a4a1-42f3-ac40-15906b766239",
             "Value": {
                 "id": "4eaef525-c038-4f25-b054-c31078a4aeed",
@@ -1651,25 +1689,6 @@
                 ],
                 "resourcePath": "sprites\/s_reptilian_attack_ground_1\/s_reptilian_attack_ground_1.yy",
                 "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "d6e32537-6f6f-47f0-b27f-2e3e84c19432",
-            "Value": {
-                "id": "57f6a3d0-91aa-4c26-8464-a761fcb631e7",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "views\/d6e32537-6f6f-47f0-b27f-2e3e84c19432.yy",
-                "resourceType": "GMFolder"
             }
         },
         {
@@ -1801,7 +1820,7 @@
                 "resourceCreationConfigs": [
                     "default"
                 ],
-                "resourcePath": "scripts\/initialize_variables\/initialize_variables.yy",
+                "resourcePath": "scripts\/init_all\/init_all.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1961,6 +1980,7 @@
     "script_order": [
         "e1d5b9ef-2f91-4942-a8d5-4ffecd2d933e",
         "67bfc700-43b0-41d6-9fc6-5c9b3210c66f",
+        "52d5e818-bce2-4e38-bd1e-64069387e8d0",
         "44efdb6a-935c-42c0-aaad-8563727d5014",
         "5d21a110-8de4-4771-9f78-999c9c8b9bb2",
         "4ce36839-8e2f-4e5d-888b-95780638ea12",

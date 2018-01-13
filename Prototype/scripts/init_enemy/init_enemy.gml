@@ -1,4 +1,4 @@
-///@description initialize player constants / globals
+///@description initialize enemy constants / globals
 
 ///////////////////////////////
 // enemy default constants / globals

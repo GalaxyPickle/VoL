@@ -1,4 +1,4 @@
-/// @description set up the automatic variables after setting custom variables for each object
+/// @description reset auto vars after set lower level
 
 // list of stats for easy updating each step
 // these arrays are set to the values of the above variables because

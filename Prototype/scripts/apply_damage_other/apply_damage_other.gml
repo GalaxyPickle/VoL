@@ -1,7 +1,10 @@
+/// @function apply_damage_other(attack_stats, o_other, sweetspot, headshot)
 /// @description pass array of stats to apply damage to opponent on successful hit
 
-// @param attack_stats
-// @param o_entity_receiving
+/// @param attack_stats
+/// @param o_entity_receiving
+///	@param sweetspot
+/// @param headshot
 
 var attack_stats = argument[0];
 var o_other = argument[1];

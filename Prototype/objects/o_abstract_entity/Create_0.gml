@@ -47,7 +47,13 @@ sprite_attack_air_1 = s_enemy_default;
 sprite_death = s_enemy_default;
 
 ////////////////////////////////////
-// attack collisions and stats
+// sounds!
+////////////////////////////////////
+
+sound_idle = a_test;
+
+////////////////////////////////////
+// attack stats
 ////////////////////////////////////
 
 // these are arrays that hold triangle points that coordinate with the attacks
@@ -58,11 +64,10 @@ attack_ground_2_point_array = [];
 
 attack_air_1_point_array = [];
 
-// current attack is current attack's the point array, set in the logic of the entity script called
-//	to determine which point array to check collisions for and draw in debug mode
+// determine which point array to check collisions for and draw in debug mode
 current_point_array = attack_ground_1_point_array;
 
-// these are the velocities and damages of the respective attack
+// these are the velocities and buffs/debuffs of the respective attack
 attack_ground_1_stats = [
 	[10, -10],	// velocity of attack to opponent if poise broken (default facing right)
 	[10, 20],	// default vitality dmg / sweet spot dmg (headshots are x2 current health dmg)
@@ -123,7 +128,7 @@ var layer_id = layer_get_id("collisionTiles");
 collision_tile_map_id = layer_tilemap_get_id(layer_id);
 
 ////////////////////////////////////
-// game stats
+// entity stats
 ////////////////////////////////////
 
 nearest_enemy = noone;
@@ -159,10 +164,10 @@ special_regen = .1;
 ////////////////////////////////
 // GUI stat listing
 ////////////////////////////////
-
 // list of stats for easy updating each step
 // these arrays are set to the values of the above variables because
 //	the above vars are easier to read/use than the arrays below
+
 vitality_ = [
 	"Vitality",
 	c_red,

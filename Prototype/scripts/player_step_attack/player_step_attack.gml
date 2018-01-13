@@ -1,6 +1,6 @@
 /// @description code for player attacking executed every step
 
-/// @param starting_attack
+/// @param {starting}
 /// @param attack_mode
 
 var starting = argument[0];
