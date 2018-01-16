@@ -1,6 +1,6 @@
 /// @description parent class for health, stamina, poise, and special
 
-enemy = true;
+NPC = true;
 
 ////////////////////////////////////
 // HITBOXES
@@ -31,6 +31,7 @@ head_hitbox_offset = 32;
 sprite_rest = s_enemy_default;
 sprite_run = s_enemy_default;
 sprite_jump = s_enemy_default;
+sprite_walljump = s_enemy_default;
 
 // other event sprites
 sprite_pain = s_enemy_default;
@@ -50,7 +51,30 @@ sprite_death = s_enemy_default;
 // sounds!
 ////////////////////////////////////
 
-sound_idle = a_test;
+// movement
+sound_idle = a_test;					// not moving
+sound_run = a_test;						// moving L/R
+sound_jump = a_test;					// one-shot when leaving ground
+sound_land = a_test;					// one-shot when hitting ground
+
+// recovery and stuff
+sound_take_damage = a_test;				// an "OOF!" or hurt sound when hit
+sound_poise_break = a_test;				// a REALLY hurt sound when collapsing back
+sound_recovery = a_test;				// healing sound?
+sound_dodge = a_test;					// dodge sound
+sound_death = a_test;					// DEATH sound
+
+// attack sounds
+sound_attack_contact = a_test;			// sound weapon makes when any attack hits "a wet slice"
+
+sound_attack_ground_1 = a_test;			// woosh of weapon sound
+sound_attack_charge_ground_1 = a_test;	// the charged up woosh of weapon sound
+
+sound_attack_ground_2 = a_test;
+sound_attack_charge_ground_2 = a_test;
+
+sound_attack_air_1 = a_test;
+sound_attack_charge_air_1 = a_test;
 
 ////////////////////////////////////
 // attack stats
@@ -113,12 +137,16 @@ key_special = false;
 ////////////////////////////////////
 
 jump_speed_y = ENEMY_JUMP_SPEED_Y;
+jump_speed_x = ENEMY_JUMP_SPEED_X;
 max_velocity_x = ENEMY_MAX_VELOCITY_X;
 max_velocity_y = ENEMY_MAX_VELOCITY_Y;
 horizontal_acceleration = ENEMY_ACCELERATION;
 horizontal_friction = ENEMY_FRICTION;
 
 on_ground = false;
+on_wall_left = false;
+on_wall_right = false;
+
 x_direction = 0; // 1 = right, 0 = no input/last direction, -1 = left
 
 velocity = [0,0];
@@ -131,11 +159,20 @@ collision_tile_map_id = layer_tilemap_get_id(layer_id);
 // entity stats
 ////////////////////////////////////
 
-nearest_enemy = noone;
-enemy_in_range = false;
-enemy_range = 150; // pixels away for "enemy in range" to trigger
+enemy_list = [o_reptilian_large];	// list of all enemies this entity has in the game
+nearest_enemy = [];					// list of all enemies in "enemy_range"
+									//	when an enemy is farther away it is removed from list
+									//	+ vise versa
+
+enemy_range = 100; // pixels away for "enemy in range" to trigger
+sight_range = 1000;
+
+pause_input_start = false;
+pause_input = false;	// during moves or something you can pause movement
 
 just_hit = false;
+starting = false;
+
 invincible = false;
 dead = false;
 
@@ -149,12 +186,12 @@ vitality_regen = .01;		// health regen rate per frame
 // STAMINA
 stamina_max = 100;
 stamina = stamina_max;
-stamina_regen = .4;
+stamina_regen = .1;
 
 // POISE
 poise_max = 100;
 poise = poise_max;
-poise_regen = .4;
+poise_regen = .1;
 
 // SPECIAL
 special_max = 100;
@@ -207,9 +244,6 @@ stat_array = [vitality_, stamina_, poise_, special_];
 enum states 
 {
 	idle,	// PLAYER + not doing anything, default setting usually turns immediately to patrol
-	patrol,	// just walking around checking things out
-	follow,	// found the player, now is following him
-	flee,	// run the heck away because I am a fool
 	attack,	// PLAYER + execute an attack towards the opponent
 	dodge,	// PLAYER + dodge an expected attack
 	pain,	// PLAYER + stunned, IE lost poise and knocked off balance

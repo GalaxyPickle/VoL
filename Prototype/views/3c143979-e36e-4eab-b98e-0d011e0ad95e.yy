@@ -8,7 +8,7 @@
         "56dc2565-902e-47f4-99fc-3849111ea9c1"
     ],
     "filterType": "GMSprite",
-    "folderName": "enemy",
+    "folderName": "NPC",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

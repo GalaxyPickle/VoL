@@ -16,8 +16,6 @@ head_hitbox_offset = 28;
 sprite_rest = s_player_rest;
 sprite_run = s_player_run;
 
-sprite_set_speed(s_player_run, .2, spritespeed_framespergameframe);
-
 sprite_jump = s_player_jump;
 
 // other event sprites
@@ -27,8 +25,6 @@ sprite_special = s_enemy_default;
 
 // attack sprites
 sprite_attack_ground_1 = s_player_attack_ground_1;
-
-sprite_set_speed(s_player_attack_ground_1, .3, spritespeed_framespergameframe);
 
 sprite_attack_ground_2 = s_player_attack_ground_2;
 
@@ -115,6 +111,7 @@ key_special = KEY_SPECIAL;
 ////////////////////////////////////
 
 jump_speed_y = PLAYER_JUMP_SPEED_Y;
+jump_speed_x = PLAYER_JUMP_SPEED_X;
 max_velocity_x = PLAYER_MAX_VELOCITY_X;
 max_velocity_y = PLAYER_MAX_VELOCITY_Y;
 horizontal_acceleration = PLAYER_ACCELERATION;

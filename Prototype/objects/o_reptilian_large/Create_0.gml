@@ -1,5 +1,4 @@
 /// @description set custom sprites and stuff
-// You can write your code in this editor
 
 // Inherit the parent event
 event_inherited();
@@ -15,7 +14,7 @@ head_hitbox_offset = 40;
 // movement sprites
 sprite_rest = s_reptilian_rest;
 sprite_run = s_reptilian_run;
-sprite_jump = s_enemy_default;
+sprite_jump = s_reptilian_jump;
 
 // other event sprites
 sprite_pain = s_enemy_default;
@@ -30,3 +29,29 @@ sprite_attack_air_1 = s_enemy_default;
 
 // death/fail sprites
 sprite_death = s_enemy_default;
+
+///////////////////////////////////////////////
+// set custom stats for big reptilian
+///////////////////////////////////////////////
+
+jump_stamina_cost = 20;
+
+// VITALITY
+vitality_max = 2000;			// max health
+vitality = vitality_max;		// current health
+vitality_regen = .1;			// health regen rate per frame
+
+// STAMINA
+stamina_max = 500;
+stamina = stamina_max;
+stamina_regen = .4;
+
+// POISE
+poise_max = 100;
+poise = poise_max;
+poise_regen = .01;
+
+// SPECIAL
+special_max = 200;
+special = 0;
+special_regen = .1;

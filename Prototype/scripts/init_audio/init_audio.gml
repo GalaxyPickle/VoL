@@ -1,7 +1,7 @@
 /// @description setup all audio
 
 // enable audio debug
-audio_debug(true);
+//audio_debug(true);
 
 // set the fallof model to be (i think) normalish
 audio_falloff_set_model(audio_falloff_exponent_distance);

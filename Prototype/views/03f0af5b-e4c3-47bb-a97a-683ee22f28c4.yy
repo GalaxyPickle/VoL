@@ -7,7 +7,7 @@
         "e37b1054-504f-46f5-9e22-8c97a8ed503a"
     ],
     "filterType": "GMObject",
-    "folderName": "enemy",
+    "folderName": "NPC",
     "isDefaultView": false,
     "localisedFolderName": ""
 }
