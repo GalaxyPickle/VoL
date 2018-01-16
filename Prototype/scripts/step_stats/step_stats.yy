@@ -1,8 +1,8 @@
 {
-    "id": "3f1039d7-c5c5-4fb5-8f7a-cba15a366009",
+    "id": "47958522-fdb2-443f-a989-af05e3de3e72",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "enemy_step_dodge",
+    "name": "step_stats",
     "IsCompatibility": false,
     "IsDnD": false
 }

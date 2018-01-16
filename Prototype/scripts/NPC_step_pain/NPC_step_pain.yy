@@ -1,8 +1,8 @@
 {
-    "id": "4f7c72a5-3a79-4c73-b9f0-9e269a342ed4",
+    "id": "bba37c77-89a9-4a56-8e08-26680b7f62ae",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "enemy_step_recover",
+    "name": "NPC_step_pain",
     "IsCompatibility": false,
     "IsDnD": false
 }

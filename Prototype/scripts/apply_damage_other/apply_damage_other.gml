@@ -47,15 +47,16 @@ o_other.poise -= poise_damage;
 // and apply special increase to self
 special += self_special_increase;
 
-// if the enemy's poise is broken, launch them with the attack vector
-//	and make them go into 'pain' state
-if o_other.poise <= 0
-	o_other.velocity = [ image_xscale * velocity_break[0], velocity_break[1] ];
-	
 // lastly, set enemy to invincible so they don't get hit every frame for a million damage
 o_other.just_hit = true;
 
-
+// if the enemy's poise is broken, launch them with the attack vector
+//	and make them go into 'pain' state
+if o_other.poise <= 0 {
+	o_other.velocity = [ image_xscale * velocity_break[0], velocity_break[1] ];
+	o_other.current_state = states.pain;
+	o_other.starting = true;
+}
 
 // show the damage popup!!!!
 // get the tilemap id

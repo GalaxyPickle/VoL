@@ -1,8 +1,8 @@
 {
-    "id": "dbe2b287-8883-41a0-aaff-5b74f4c819a4",
+    "id": "d83f791f-3fa4-468e-bb15-32e9a8c2ebfb",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "enemy_step_pain",
+    "name": "step_combat",
     "IsCompatibility": false,
     "IsDnD": false
 }

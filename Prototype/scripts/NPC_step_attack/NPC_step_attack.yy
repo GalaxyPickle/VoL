@@ -1,8 +1,8 @@
 {
-    "id": "3eab35a3-78cb-4847-aaa9-121103c44db2",
+    "id": "dd072547-e4d1-476d-8a97-9daabaaeed53",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "enemy_step_movement",
+    "name": "NPC_step_attack",
     "IsCompatibility": false,
     "IsDnD": false
 }

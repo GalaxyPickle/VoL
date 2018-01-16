@@ -1,4 +1,4 @@
-/// @description player movement script (rough)
+/// @description player movement script
 
 var x_input = x_direction * horizontal_acceleration;
 var vector2_x = 0;

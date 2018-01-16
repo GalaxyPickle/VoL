@@ -1,4 +1,4 @@
-/// @description player movement script (rough)
+/// @description NPC movement
 
 var x_input = x_direction * horizontal_acceleration;
 var vector2_x = 0;
@@ -18,12 +18,17 @@ if on_ground {
 	}
 	
 	// jumping
-	if key_jump && stamina_[2] >= jump_stamina_cost {
+	if key_jump && stamina >= jump_stamina_cost {
 		velocity[vector2_y] = -jump_speed_y;
-		stamina_[2] -= jump_stamina_cost;
+		stamina -= jump_stamina_cost;
 	}
 }
 else {
 	// set jump sprite
 	sprite_index = sprite_jump;
+	
+	// short hop
+	if !key_jump && velocity[vector2_y] <= -(jump_speed_y / 3) {
+		velocity[vector2_y] = -(jump_speed_y / 3);
+	}
 }

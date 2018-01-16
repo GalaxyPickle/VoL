@@ -1,8 +1,8 @@
 {
-    "id": "43ad0629-8653-4b41-885c-d131cccec6c7",
+    "id": "fb772de4-1d40-426a-8f02-3d61814c69a3",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "enemy_step_attack",
+    "name": "player_step_queue",
     "IsCompatibility": false,
     "IsDnD": false
 }

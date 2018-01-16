@@ -4,14 +4,15 @@
     "mvc": "1.1",
     "name": "b153cb61-e8be-4bdb-b943-87b9c8148b23",
     "children": [
-        "3eab35a3-78cb-4847-aaa9-121103c44db2",
-        "43ad0629-8653-4b41-885c-d131cccec6c7",
-        "dbe2b287-8883-41a0-aaff-5b74f4c819a4",
-        "3f1039d7-c5c5-4fb5-8f7a-cba15a366009",
-        "4f7c72a5-3a79-4c73-b9f0-9e269a342ed4"
+        "b4f5db68-e0b5-4e2a-858a-ccd50236acdb",
+        "dd072547-e4d1-476d-8a97-9daabaaeed53",
+        "bba37c77-89a9-4a56-8e08-26680b7f62ae",
+        "562822ce-bd35-4dc6-85d8-99a38f64a716",
+        "f609378f-8bd3-4031-aa82-1e6a5413f78d",
+        "d6038354-d6bc-46be-93a0-f1aa09fc2ba3"
     ],
     "filterType": "GMScript",
-    "folderName": "enemy",
+    "folderName": "NPC",
     "isDefaultView": false,
     "localisedFolderName": ""
 }
