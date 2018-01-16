@@ -12,6 +12,12 @@ if just_hit {
 	just_hit = false;
 }
 
+if pause_input_start {
+	pause_input = true;
+	alarm[1] = room_speed / 3;	// 1/3 second pause input from entity
+	pause_input_start = false;
+}
+
 // vitality
 if vitality < 0
 	dead = true;
@@ -47,3 +53,16 @@ poise_[2] = poise;
 special_[2] = special;
 
 stat_array = [vitality_, stamina_, poise_, special_];
+
+/////////////////////////////////////////////////////////////////////////////
+// lastly, set sprite direction
+/////////////////////////////////////////////////////////////////////////////
+
+if current_state == states.idle {
+	if !pause_input {
+		if x_direction == -1
+			image_xscale = -1;
+		if x_direction == 1
+			image_xscale = 1;
+	}
+}

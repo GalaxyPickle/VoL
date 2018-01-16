@@ -4,6 +4,7 @@
 
 ///@param tile_map_id
 ///@param collision_point_arrays (x, y positions to check for collision)
+
 var tile_map_id = argument[0];
 var point_arrays = argument[1];
 

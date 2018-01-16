@@ -23,8 +23,14 @@ hitbox_head_bottom = y + velocity[vel_y] - head_hitbox_offset + sprite_get_heigh
 // starting state
 starting = false;
 
-on_ground = tile_collide_at_points(collision_tile_map_id, 
+on_ground = tile_collide_at_points(collision_tile_map_id,
 	[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]);
+	
+on_wall_left = tile_collide_at_points(collision_tile_map_id,
+	[ [bbox_left-1, bbox_top], [bbox_left-1, bbox_top + abs(bbox_bottom - bbox_top) / 2] ]);
+
+on_wall_right = tile_collide_at_points(collision_tile_map_id,
+	[ [bbox_right, bbox_top], [bbox_right, bbox_top + abs(bbox_bottom - bbox_top) / 2] ]);
 
 // apply friction
 if on_ground {
@@ -39,65 +45,11 @@ if on_ground {
 	}
 }
 
+x = round(x);
+y = round(y);
+
 // apply gravity
 velocity[vel_y] += GRAVITY;
 
 // move and contact tiles!
 move_and_contact_tiles(collision_tile_map_id, TILE_SIZE, velocity);
-
-/////////////////////////////////////////////////////////////////////////////
-// 3. deal with game stat stuff
-/////////////////////////////////////////////////////////////////////////////
-
-if just_hit {
-	invincible = true;
-	alarm[0] = room_speed / 3; // 1/3 second invinciblity
-	just_hit = false;
-}
-
-// vitality
-if vitality < 0
-	dead = true;
-// stamina
-if stamina < 0
-	stamina = 0;
-// poise
-if poise < 0
-	poise = 0;
-// special
-if special < 0
-	special = 0;
-
-if !invincible {
-	// vitality
-	if vitality < vitality_max
-		vitality += vitality_regen;
-	// stamina
-	if stamina < stamina_max
-		stamina += stamina_regen;
-	// poise
-	if poise < poise_max
-		poise += poise_regen;
-	// special
-	if special < special_max
-		special += special_regen;
-}
-
-// set array for gui debug info
-vitality_[2] = vitality;
-stamina_[2] = stamina;
-poise_[2] = poise;
-special_[2] = special;
-
-stat_array = [vitality_, stamina_, poise_, special_];
-
-/////////////////////////////////////////////////////////////////////////////
-// 4. lastly, set sprite direction
-/////////////////////////////////////////////////////////////////////////////
-
-if current_state == states.idle {
-	if x_direction == -1
-		image_xscale = -1;
-	if x_direction == 1
-		image_xscale = 1;
-}

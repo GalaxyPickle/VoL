@@ -25,8 +25,8 @@ if ds_queue_size(input_queue) < queue_max {
 }
 
 // first off, restart dequeue alarm every .3 seconds
-if alarm[1] == -1
-	alarm[1] = room_speed / 3;
+if alarm[11] == -1
+	alarm[11] = room_speed / 3;
 	
 // if idling, accept the first item from the input queue
 if current_state == states.idle {

@@ -5,6 +5,7 @@
 //////////////////////////////
 
 #macro PLAYER_JUMP_SPEED_Y		14
+#macro PLAYER_JUMP_SPEED_X		5
 #macro PLAYER_MAX_VELOCITY_X	8
 #macro PLAYER_MAX_VELOCITY_Y	TILE_SIZE
 #macro PLAYER_ACCELERATION		.5

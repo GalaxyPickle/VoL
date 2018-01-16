@@ -21,4 +21,7 @@ draw_variables = [
 	["x: ", x], 
 	["y: ", y], 
 	["state: ", current_state_string],
+	["on ground: ", on_ground ? "true" : "false"],
+	["on wall L: ", on_wall_left ? "true" : "false"],
+	["on wall R: ", on_wall_right ? "true" : "false"],
 	];

@@ -15,15 +15,10 @@ if keyboard_check_pressed(key_text) {
 
 if global.debug {
 	show_debug_overlay(true);
-	audio_debug(true);
 }
 else {
 	show_debug_overlay(false);
-	audio_debug(false);
 }
 
 // update debug values
 debug_message[0] = "FPS: " + string(fps);
-
-nearest_enemy = instance_nearest(p.x, p.y, enemy);
-debug_message[1] = "enemy X: " + string(nearest_enemy.x) + " enemy Y: " + string(nearest_enemy.y);

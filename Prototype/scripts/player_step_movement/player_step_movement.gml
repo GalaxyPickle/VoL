@@ -7,7 +7,7 @@ var vector2_y = 1;
 // horizontal movement
 velocity[vector2_x] = clamp( velocity[vector2_x] + x_input, -max_velocity_x, max_velocity_x);
 
-// jumping
+// ground movement
 if on_ground {
 	// set ground sprites
 	if x_direction != 0 {
@@ -21,6 +21,34 @@ if on_ground {
 	if keyboard_check_pressed(key_jump) && stamina >= jump_stamina_cost {
 		velocity[vector2_y] = -jump_speed_y;
 		stamina -= jump_stamina_cost;
+	}
+}
+else if on_wall_left {
+	// make player face away from the wall
+	sprite_index = sprite_walljump;
+	
+	// jumping
+	if keyboard_check_pressed(key_jump) && stamina >= jump_stamina_cost {
+		
+		velocity = [jump_speed_y, -jump_speed_y / 2];
+		stamina -= jump_stamina_cost;
+		
+		image_xscale = 1;
+		pause_input_start = true;
+	}
+}
+else if on_wall_right {
+	// make player face away from the wall
+	sprite_index = sprite_walljump;
+	
+	// jumping
+	if keyboard_check_pressed(key_jump) && stamina >= jump_stamina_cost {
+		
+		velocity = [-jump_speed_y, -jump_speed_y / 2];
+		stamina -= jump_stamina_cost;
+		
+		image_xscale = -1;
+		pause_input_start = true;
 	}
 }
 else {

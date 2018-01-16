@@ -31,6 +31,7 @@ head_hitbox_offset = 32;
 sprite_rest = s_enemy_default;
 sprite_run = s_enemy_default;
 sprite_jump = s_enemy_default;
+sprite_walljump = s_enemy_default;
 
 // other event sprites
 sprite_pain = s_enemy_default;
@@ -136,12 +137,16 @@ key_special = false;
 ////////////////////////////////////
 
 jump_speed_y = ENEMY_JUMP_SPEED_Y;
+jump_speed_x = ENEMY_JUMP_SPEED_X;
 max_velocity_x = ENEMY_MAX_VELOCITY_X;
 max_velocity_y = ENEMY_MAX_VELOCITY_Y;
 horizontal_acceleration = ENEMY_ACCELERATION;
 horizontal_friction = ENEMY_FRICTION;
 
 on_ground = false;
+on_wall_left = false;
+on_wall_right = false;
+
 x_direction = 0; // 1 = right, 0 = no input/last direction, -1 = left
 
 velocity = [0,0];
@@ -159,7 +164,11 @@ nearest_enemy = [];					// list of all enemies in "enemy_range"
 									//	when an enemy is farther away it is removed from list
 									//	+ vise versa
 
-enemy_range = 150; // pixels away for "enemy in range" to trigger
+enemy_range = 100; // pixels away for "enemy in range" to trigger
+sight_range = 1000;
+
+pause_input_start = false;
+pause_input = false;	// during moves or something you can pause movement
 
 just_hit = false;
 starting = false;
