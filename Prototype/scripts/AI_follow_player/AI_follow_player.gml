@@ -27,7 +27,8 @@ for (var i = 0; i < array_length_1d(enemy_list); i++) {
 					// JUMP Y
 					if enemy.y + enemy_range < y
 						key_jump = true;
-					else
+					
+					if !on_ground && enemy.y - enemy_range > y
 						key_jump = false;
 				}
 				else {

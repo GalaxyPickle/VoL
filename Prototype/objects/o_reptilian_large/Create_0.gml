@@ -17,7 +17,7 @@ sprite_run = s_reptilian_run;
 sprite_jump = s_reptilian_jump;
 
 // other event sprites
-sprite_pain = s_enemy_default;
+sprite_pain = s_reptilian_pain;
 sprite_dodge = s_enemy_default;
 sprite_special = s_enemy_default;
 

@@ -33,8 +33,8 @@ else if on_wall_left {
 		velocity = [jump_speed_y, -jump_speed_y / 2];
 		stamina -= jump_stamina_cost;
 		
-		image_xscale = 1;
 		pause_input_start = true;
+		image_xscale = 1;
 	}
 }
 else if on_wall_right {
@@ -47,8 +47,8 @@ else if on_wall_right {
 		velocity = [-jump_speed_y, -jump_speed_y / 2];
 		stamina -= jump_stamina_cost;
 		
-		image_xscale = -1;
 		pause_input_start = true;
+		image_xscale = -1;
 	}
 }
 else {
