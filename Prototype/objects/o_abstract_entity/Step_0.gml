@@ -9,4 +9,4 @@ step_stats();
 // 3. deal with nearest enemy list
 step_combat();
 
-// 4.
+// 4. ???

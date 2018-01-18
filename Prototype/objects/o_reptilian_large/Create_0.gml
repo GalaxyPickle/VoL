@@ -22,8 +22,8 @@ sprite_dodge = s_enemy_default;
 sprite_special = s_enemy_default;
 
 // attack sprites
-sprite_attack_ground_1 = s_enemy_default;
-sprite_attack_ground_2 = s_enemy_default;
+sprite_attack_ground_1 = s_reptilian_attack_ground_1;
+sprite_attack_ground_2 = s_reptilian_attack_ground_2;
 
 sprite_attack_air_1 = s_enemy_default;
 
@@ -88,15 +88,15 @@ attack_ground_2_point_array = [
 // these are the velocities and damages of the respective attack
 attack_ground_1_stats = [
 	[10, -5],	// velocity of attack to opponent if poise broken (default facing right)
-	[50, 80],	// default health damage of the attack (basic, sweet)
-	25,			// default stamina cost of the attack
-	10,			// default poise damage of the attack
+	[70, 100],	// default health damage of the attack (basic, sweet)
+	35,			// default stamina cost of the attack
+	20,			// default poise damage of the attack
 	2,			// default special amount increase from a successful attack
 	];
 attack_ground_2_stats = [
-	[10, -10],
-	[70, 100],
-	25,
+	[20, -3],
+	[100, 120],
+	35,
 	20,
 	3,
 	];
@@ -113,24 +113,24 @@ attack_air_1_stats = [
 // set custom stats for big reptilian
 ///////////////////////////////////////////////
 
-jump_stamina_cost = 20;
+jump_stamina_cost = 15;
 
 // VITALITY
-vitality_max = 2000;			// max health
+vitality_max = 1000;			// max health
 vitality = vitality_max;		// current health
 vitality_regen = .1;			// health regen rate per frame
 
 // STAMINA
-stamina_max = 500;
+stamina_max = 250;
 stamina = stamina_max;
-stamina_regen = .4;
+stamina_regen = .6;
 
 // POISE
 poise_max = 65;
 poise = poise_max;
-poise_regen = .01;
+poise_regen = .08;
 
 // SPECIAL
-special_max = 200;
+special_max = 300;
 special = 0;
 special_regen = .1;

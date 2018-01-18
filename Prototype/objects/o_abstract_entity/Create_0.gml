@@ -174,6 +174,7 @@ just_hit = false;
 starting = false;
 combo = false;
 
+move = false;
 invincible = false;
 dead = false;
 
@@ -253,3 +254,11 @@ enum states
 }
 
 current_state = states.idle;
+
+////////////////////////////////////
+// input buffer
+////////////////////////////////////
+
+// holds next input choices for AI or player
+// can be attack, dodge, or special
+input_queue = ds_queue_create();

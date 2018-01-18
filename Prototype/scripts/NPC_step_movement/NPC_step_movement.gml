@@ -1,6 +1,6 @@
 /// @description NPC movement
 
-var x_input = x_direction * horizontal_acceleration;
+var x_input = move * x_direction * horizontal_acceleration;
 var vector2_x = 0;
 var vector2_y = 1;
 
@@ -10,7 +10,7 @@ velocity[vector2_x] = clamp( velocity[vector2_x] + x_input, -max_velocity_x, max
 // jumping
 if on_ground {
 	// set ground sprites
-	if x_direction != 0 {
+	if move {
 		sprite_index = sprite_run;
 	}
 	else {

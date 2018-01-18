@@ -31,7 +31,7 @@ on_wall_right = tile_collide_at_points(collision_tile_map_id,
 
 // apply friction
 if on_ground {
-	if x_direction == 0 && current_state == states.idle {
+	if (x_direction == 0 || !move) && current_state == states.idle {
 		velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction);
 	}
 	else if current_state == states.attack {

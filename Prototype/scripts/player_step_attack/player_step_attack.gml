@@ -20,11 +20,20 @@ if on_ground {
 		sprite = sprite_attack_ground_2;
 	}
 }
+else {
+	// AIR ATTACK!!!!!!!
+	current_point_array = attack_air_1_point_array;
+	current_attack_stats = attack_air_1_stats;
+	sprite = sprite_attack_air_1;
+}
 	
 // exit immediately if stamina is not enough
 if stamina < current_attack_stats[2] && starting {
 	combo = false;
 	current_state = states.idle;
+	
+	sprite_index = sprite_rest;
+	
 	exit;
 }
 

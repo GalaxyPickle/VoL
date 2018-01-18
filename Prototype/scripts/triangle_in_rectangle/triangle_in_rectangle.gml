@@ -28,7 +28,8 @@ var sy2 = argument[9];
 // todo if collisions aren't reliable is to also check midpoint of each line of the triangle
 if point_in_rectangle(x1, y1, sx1, sy1, sx2, sy2) ||
 	point_in_rectangle(x2, y2, sx1, sy1, sx2, sy2) ||
-	point_in_rectangle(x3, y3, sx1, sy1, sx2, sy2)
+	point_in_rectangle(x3, y3, sx1, sy1, sx2, sy2) ||
+	rectangle_in_triangle(sx1, sy1, sx2, sy2, x1, y1, x2, y2, x3, y3)
 	
 	return true;
 else

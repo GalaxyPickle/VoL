@@ -1,3 +1,3 @@
-/// @description invinciblity for rolling and getting hit
+/// @description invinciblity reset to false
 
 invincible = false;

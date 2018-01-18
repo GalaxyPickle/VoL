@@ -4,6 +4,8 @@ event_inherited();
 
 enemy = false;
 
+move = true;
+
 ////////////////////////////////////
 // sprite setting
 ////////////////////////////////////
@@ -17,9 +19,10 @@ sprite_rest = s_player_rest;
 sprite_run = s_player_run;
 
 sprite_jump = s_player_jump;
+sprite_walljump = s_player_walljump;
 
 // other event sprites
-sprite_pain = s_enemy_default;
+sprite_pain = s_player_pain;
 sprite_dodge = s_enemy_default;
 sprite_special = s_enemy_default;
 
@@ -153,17 +156,9 @@ stamina_regen = .5;
 // POISE
 poise_max = 40;
 poise = poise_max;
-poise_regen = .7;
+poise_regen = .08;
 
 // SPECIAL
-special_max = 100;
+special_max = 30;
 special = 0;
 special_regen = 0;
-
-////////////////////////////////////
-// input buffer
-////////////////////////////////////
-
-input_queue = ds_queue_create();
-
-alarm[0] = -1;
