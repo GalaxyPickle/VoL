@@ -2,7 +2,7 @@
     "id": "120d4149-61e4-4d96-aedf-1f63dbcd4226",
     "modelName": "GMSprite",
     "mvc": "1.12",
-    "name": "s_player_roll",
+    "name": "s_player_dodge",
     "For3D": false,
     "HTile": false,
     "VTile": false,

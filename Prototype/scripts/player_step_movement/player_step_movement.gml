@@ -23,32 +23,24 @@ if on_ground {
 		stamina -= jump_stamina_cost;
 	}
 }
-else if on_wall_left {
+// wall jumping
+else if on_wall_left || on_wall_right {
 	// make player face away from the wall
 	sprite_index = sprite_walljump;
 	
 	// jumping
 	if keyboard_check_pressed(key_jump) && stamina >= jump_stamina_cost {
 		
-		velocity = [jump_speed_y, -jump_speed_y / 2];
+		// make player face opposite direction after jumping
+		if on_wall_left
+			image_xscale = 1;
+		if on_wall_right
+			image_xscale = -1;
+			
+		velocity = [jump_speed_y * image_xscale, -jump_speed_y / 2];
 		stamina -= jump_stamina_cost;
 		
 		pause_input_start = true;
-		image_xscale = 1;
-	}
-}
-else if on_wall_right {
-	// make player face away from the wall
-	sprite_index = sprite_walljump;
-	
-	// jumping
-	if keyboard_check_pressed(key_jump) && stamina >= jump_stamina_cost {
-		
-		velocity = [-jump_speed_y, -jump_speed_y / 2];
-		stamina -= jump_stamina_cost;
-		
-		pause_input_start = true;
-		image_xscale = -1;
 	}
 }
 else {

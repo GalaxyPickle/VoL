@@ -172,6 +172,7 @@ pause_input = false;	// during moves or something you can pause movement
 
 just_hit = false;
 starting = false;
+combo = false;
 
 invincible = false;
 dead = false;

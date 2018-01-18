@@ -224,7 +224,7 @@
                 "resourceCreationConfigs": [
                     "default"
                 ],
-                "resourcePath": "sprites\/s_player_roll\/s_player_roll.yy",
+                "resourcePath": "sprites\/s_player_dodge\/s_player_dodge.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -339,6 +339,25 @@
                     "default"
                 ],
                 "resourcePath": "sprites\/s_default\/s_default.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "1e3ba1ed-ac76-4d99-9114-e240972a6b34",
+            "Value": {
+                "id": "788b8524-81dc-4a8e-9793-a82ad55a2397",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/s_bbox_reptilian_attack_ground_1\/s_bbox_reptilian_attack_ground_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1179,6 +1198,25 @@
             }
         },
         {
+            "Key": "7a8a44d4-499c-46d1-b8e6-bcae3e6e1453",
+            "Value": {
+                "id": "26a82025-6653-440e-8b85-7e08fd26248f",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/s_bbox_reptilian_attack_ground_2\/s_bbox_reptilian_attack_ground_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "7c62606f-104b-4383-a428-735ff9ad2e5b",
             "Value": {
                 "id": "1357face-a371-4d39-9b55-ec978d68c435",
@@ -1863,6 +1901,25 @@
             }
         },
         {
+            "Key": "d19bcaf5-209c-4db1-a022-ec694adfeb30",
+            "Value": {
+                "id": "9df2166d-eb93-4edb-85de-5775c68b8162",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/s_player_pain\/s_player_pain.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d3119d1d-57af-4f38-bad6-09dc4c0f3a40",
             "Value": {
                 "id": "0716b736-166f-4237-b99b-ea176ed99ddd",
@@ -2072,6 +2129,25 @@
             }
         },
         {
+            "Key": "e2631f06-a0c5-4423-abc5-c17cb128fb6a",
+            "Value": {
+                "id": "dc591022-3861-4233-bcfa-469431af105e",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/s_reptilian_attack_ground_2\/s_reptilian_attack_ground_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "e299d39f-4228-421e-bb01-91bef3a724a7",
             "Value": {
                 "id": "296e602d-3d0b-4d1c-9831-bc75996819a4",
@@ -2239,6 +2315,25 @@
                     "default"
                 ],
                 "resourcePath": "sprites\/s_player_attack_ground_1\/s_player_attack_ground_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "fd609e3c-6c43-4495-a4d7-a8362bfffbd2",
+            "Value": {
+                "id": "40023fd5-f093-4112-8cff-1deb4286f7f2",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/s_reptilian_dodge\/s_reptilian_dodge.yy",
                 "resourceType": "GMSprite"
             }
         },

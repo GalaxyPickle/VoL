@@ -20,9 +20,6 @@ hitbox_head_bottom = y + velocity[vel_y] - head_hitbox_offset + sprite_get_heigh
 // 1. secondly, deal with any residual movement
 ////////////////////////////////////////////////////////////////////////////
 
-// starting state
-starting = false;
-
 on_ground = tile_collide_at_points(collision_tile_map_id,
 	[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]);
 	
