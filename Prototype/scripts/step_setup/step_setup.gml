@@ -50,3 +50,9 @@ velocity[vel_y] += GRAVITY;
 
 // move and contact tiles!
 move_and_contact_tiles(collision_tile_map_id, TILE_SIZE, velocity);
+
+//////////////////////////////////
+// set emitter position
+//////////////////////////////////
+
+audio_emitter_position(s_emit, x, y, 0);

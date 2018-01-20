@@ -51,6 +51,10 @@ sprite_death = s_enemy_default;
 // sounds!
 ////////////////////////////////////
 
+s_emit = audio_emitter_create();
+audio_emitter_position(s_emit, x, y, 0);
+audio_emitter_falloff(s_emit, 100, 300, 1);
+
 // movement
 sound_idle = a_test;					// not moving
 sound_run = a_test;						// moving L/R
