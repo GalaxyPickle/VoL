@@ -21,6 +21,9 @@ if on_ground {
 	if key_jump && stamina >= jump_stamina_cost {
 		velocity[vector2_y] = -jump_speed_y;
 		stamina -= jump_stamina_cost;
+		
+		// sound
+		audio_play_sound_on(s_emit, sound_jump, false, 1);
 	}
 }
 else {

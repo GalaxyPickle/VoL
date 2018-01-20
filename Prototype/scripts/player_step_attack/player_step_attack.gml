@@ -12,11 +12,15 @@ if on_ground {
 	if !combo {
 		current_point_array = attack_ground_1_point_array;
 		current_attack_stats = attack_ground_1_stats;
+		current_attack_sound = sound_attack_ground_1;
+		
 		sprite = sprite_attack_ground_1;
 	}
 	else { // combo = ground 2 attack!
 		current_point_array = attack_ground_2_point_array;
 		current_attack_stats = attack_ground_2_stats;
+		current_attack_sound = sound_attack_ground_2;
+		
 		sprite = sprite_attack_ground_2;
 	}
 }
@@ -24,6 +28,8 @@ else {
 	// AIR ATTACK!!!!!!!
 	current_point_array = attack_air_1_point_array;
 	current_attack_stats = attack_air_1_stats;
+	current_attack_sound = sound_attack_air_1;
+	
 	sprite = sprite_attack_air_1;
 }
 	
@@ -48,6 +54,9 @@ if starting {
 		velocity[vel_x] = ground_launch_velocity;
 		
 	image_index = 0;
+	
+	// play sound
+	audio_play_sound_on(s_emit, current_attack_sound, false, 1);
 }
 
 

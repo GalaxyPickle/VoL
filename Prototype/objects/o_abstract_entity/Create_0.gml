@@ -51,9 +51,9 @@ sprite_death = s_enemy_default;
 // sounds!
 ////////////////////////////////////
 
-s_emit = audio_emitter_create();
-audio_emitter_position(s_emit, x, y, 0);
-audio_emitter_falloff(s_emit, 100, 300, 1);
+s_emit = audio_emitter_create();			// create sound emitter for position-based sound
+audio_emitter_position(s_emit, x, y, 0);	// set emitter position to entity starting point
+audio_emitter_falloff(s_emit, 500, 2000, 1);// make sounds die completely at 1000px away, starting at 100px
 
 // movement
 sound_idle = a_test;					// not moving
@@ -69,8 +69,6 @@ sound_dodge = a_test;					// dodge sound
 sound_death = a_test;					// DEATH sound
 
 // attack sounds
-sound_attack_contact = a_test;			// sound weapon makes when any attack hits "a wet slice"
-
 sound_attack_ground_1 = a_test;			// woosh of weapon sound
 sound_attack_charge_ground_1 = a_test;	// the charged up woosh of weapon sound
 
@@ -79,6 +77,8 @@ sound_attack_charge_ground_2 = a_test;
 
 sound_attack_air_1 = a_test;
 sound_attack_charge_air_1 = a_test;
+
+current_attack_sound = sound_attack_ground_1;
 
 ////////////////////////////////////
 // attack stats

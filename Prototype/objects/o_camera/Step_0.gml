@@ -22,3 +22,6 @@ var vm = matrix_build_lookat(
 	0, 1, 0);	// set the camera to point towards the canvas
 	
 camera_set_view_mat(camera, vm);
+
+// set sound listener to be at camera position
+audio_listener_position(x, y, 0);

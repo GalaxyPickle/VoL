@@ -37,6 +37,33 @@ sprite_attack_air_1 = s_enemy_default;
 sprite_death = s_enemy_default;
 
 ////////////////////////////////////
+// sounds!
+////////////////////////////////////
+
+// movement
+sound_idle = a_test;						// not moving
+sound_run = a_player_footstep;				// moving L/R
+sound_jump = a_player_jump;					// one-shot when leaving ground
+sound_land = a_player_land;					// one-shot when hitting ground
+
+// recovery and stuff
+sound_take_damage = a_player_hit;				// an "OOF!" or hurt sound when hit
+sound_poise_break = a_player_pain;				// a REALLY hurt sound when collapsing back
+sound_recovery = a_test;				// healing sound?
+sound_dodge = a_test;					// dodge sound
+sound_death = a_test;					// DEATH sound
+
+// attack sounds
+sound_attack_ground_1 = a_sword_slice_1;			// woosh of weapon sound
+sound_attack_charge_ground_1 = a_test;	// the charged up woosh of weapon sound
+
+sound_attack_ground_2 = a_sword_slice_2;
+sound_attack_charge_ground_2 = a_test;
+
+sound_attack_air_1 = a_test;
+sound_attack_charge_air_1 = a_test;
+
+////////////////////////////////////
 // attack point arrays and stats
 ////////////////////////////////////
 

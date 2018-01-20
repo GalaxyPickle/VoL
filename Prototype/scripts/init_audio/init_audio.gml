@@ -10,3 +10,9 @@ audio_channel_num(128);
 
 audio_master_gain(1);
 
+// load FX & music
+audio_group_load(audiogroup_music);
+audio_group_load(audiogroup_FX);
+
+// set listener orientation to hear right sounds from right, etc
+audio_listener_orientation(0, 0, -1000, 0, 1, 0);

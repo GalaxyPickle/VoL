@@ -21,6 +21,9 @@ if on_ground {
 	if keyboard_check_pressed(key_jump) && stamina >= jump_stamina_cost {
 		velocity[vector2_y] = -jump_speed_y;
 		stamina -= jump_stamina_cost;
+		
+		// sound
+		audio_play_sound_on(s_emit, sound_jump, false, 1);
 	}
 }
 // wall jumping
@@ -41,6 +44,9 @@ else if on_wall_left || on_wall_right {
 		stamina -= jump_stamina_cost;
 		
 		pause_input_start = true;
+		
+		// sound
+		audio_play_sound_on(s_emit, a_player_jump, false, 1);
 	}
 }
 else {
