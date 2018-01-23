@@ -13,25 +13,28 @@ for (var i = 0; i < array_length_1d(enemy_list); i++) {
 			if distance_to_object(enemy) < sight_range {
 				
 				////////////////////////////////
-				// follow player
+				// face player
 				////////////////////////////////
+				
+				// X
+				if enemy.x < x
+					x_direction = -1;
+				else if enemy.x > x
+					x_direction = 1;
 				
 				if distance_to_object(enemy) > enemy_range {
 					
-					// X
-					if enemy.x < x
-						x_direction = -1;
-					else if enemy.x > x
-						x_direction = 1;
+					move = true
 						
 					// JUMP Y
 					if enemy.y + enemy_range < y
 						key_jump = true;
-					else
+					
+					if !on_ground && enemy.y - enemy_range > y
 						key_jump = false;
 				}
 				else {
-					x_direction = 0;	
+					move = false;
 				}
 				
 				////////////////////////////////

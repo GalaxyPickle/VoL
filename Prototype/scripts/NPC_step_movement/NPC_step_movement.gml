@@ -1,6 +1,6 @@
 /// @description NPC movement
 
-var x_input = x_direction * horizontal_acceleration;
+var x_input = move * x_direction * horizontal_acceleration;
 var vector2_x = 0;
 var vector2_y = 1;
 
@@ -10,8 +10,13 @@ velocity[vector2_x] = clamp( velocity[vector2_x] + x_input, -max_velocity_x, max
 // jumping
 if on_ground {
 	// set ground sprites
-	if x_direction != 0 {
+	if move {
 		sprite_index = sprite_run;
+		
+		if play_sound_footstep {
+			if !audio_is_playing(sound_step)
+				sound_step = audio_play_sound_on(s_emit, sound_run, false, 1);
+		}
 	}
 	else {
 		sprite_index = sprite_rest;
@@ -21,6 +26,9 @@ if on_ground {
 	if key_jump && stamina >= jump_stamina_cost {
 		velocity[vector2_y] = -jump_speed_y;
 		stamina -= jump_stamina_cost;
+		
+		// sound
+		audio_play_sound_on(s_emit, sound_jump, false, 1);
 	}
 }
 else {

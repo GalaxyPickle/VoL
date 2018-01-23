@@ -12,6 +12,11 @@ if on_ground {
 	// set ground sprites
 	if x_direction != 0 {
 		sprite_index = sprite_run;
+		
+		if play_sound_footstep {
+			if !audio_is_playing(sound_step)
+				sound_step = audio_play_sound_on(s_emit, sound_run, false, 1);
+		}
 	}
 	else {
 		sprite_index = sprite_rest;
@@ -21,34 +26,32 @@ if on_ground {
 	if keyboard_check_pressed(key_jump) && stamina >= jump_stamina_cost {
 		velocity[vector2_y] = -jump_speed_y;
 		stamina -= jump_stamina_cost;
+		
+		// sound
+		audio_play_sound_on(s_emit, sound_jump, false, 1);
 	}
 }
-else if on_wall_left {
+// wall jumping
+else if on_wall_left || on_wall_right {
 	// make player face away from the wall
 	sprite_index = sprite_walljump;
 	
 	// jumping
 	if keyboard_check_pressed(key_jump) && stamina >= jump_stamina_cost {
 		
-		velocity = [jump_speed_y, -jump_speed_y / 2];
+		// make player face opposite direction after jumping
+		if on_wall_left
+			image_xscale = 1;
+		if on_wall_right
+			image_xscale = -1;
+			
+		velocity = [jump_speed_y * image_xscale, -jump_speed_y / 2];
 		stamina -= jump_stamina_cost;
 		
-		image_xscale = 1;
 		pause_input_start = true;
-	}
-}
-else if on_wall_right {
-	// make player face away from the wall
-	sprite_index = sprite_walljump;
-	
-	// jumping
-	if keyboard_check_pressed(key_jump) && stamina >= jump_stamina_cost {
 		
-		velocity = [-jump_speed_y, -jump_speed_y / 2];
-		stamina -= jump_stamina_cost;
-		
-		image_xscale = -1;
-		pause_input_start = true;
+		// sound
+		audio_play_sound_on(s_emit, a_player_jump, false, 1);
 	}
 }
 else {

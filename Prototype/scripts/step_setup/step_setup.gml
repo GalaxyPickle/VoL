@@ -20,9 +20,6 @@ hitbox_head_bottom = y + velocity[vel_y] - head_hitbox_offset + sprite_get_heigh
 // 1. secondly, deal with any residual movement
 ////////////////////////////////////////////////////////////////////////////
 
-// starting state
-starting = false;
-
 on_ground = tile_collide_at_points(collision_tile_map_id,
 	[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]);
 	
@@ -34,7 +31,7 @@ on_wall_right = tile_collide_at_points(collision_tile_map_id,
 
 // apply friction
 if on_ground {
-	if x_direction == 0 && current_state == states.idle {
+	if (x_direction == 0 || !move) && current_state == states.idle {
 		velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction);
 	}
 	else if current_state == states.attack {
@@ -53,3 +50,9 @@ velocity[vel_y] += GRAVITY;
 
 // move and contact tiles!
 move_and_contact_tiles(collision_tile_map_id, TILE_SIZE, velocity);
+
+//////////////////////////////////
+// set emitter position
+//////////////////////////////////
+
+audio_emitter_position(s_emit, x, y, 0);

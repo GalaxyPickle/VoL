@@ -26,16 +26,39 @@ if ds_queue_size(input_queue) < queue_max {
 
 // first off, restart dequeue alarm every .3 seconds
 if alarm[11] == -1
-	alarm[11] = room_speed / 3;
+	alarm[11] = room_speed / 2;
 	
 // if idling, accept the first item from the input queue
-if current_state == states.idle {
-	if !ds_queue_empty(input_queue) {
+if current_state == states.idle && !ds_queue_empty(input_queue) {
 		
-		if (on_ground && stamina_[2] >= attack_ground_1_stats[2]) ||
-			(!on_ground && stamina_[2] >= attack_air_1_stats[2]) {
+	// case for attack, dodge, special input
+	switch ds_queue_head(input_queue) {
+			
+		//////////////////////////
+		// ATTACK INPUT
+		//////////////////////////
+		case states.attack:
+				
 			current_state = ds_queue_dequeue(input_queue);
 			starting = true;
-		}
+				
+			break;
+			
+		//////////////////////////
+		// DODGE INPUT
+		//////////////////////////
+		case states.dodge:
+				
+			break;
+			
+		//////////////////////////
+		// SPECIAL INPUT
+		//////////////////////////
+		case states.special:
+			if special < special_max
+				break;
+				
+					
+			break;
 	}
 }

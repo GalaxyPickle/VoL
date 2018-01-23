@@ -24,4 +24,6 @@ draw_variables = [
 	["on ground: ", on_ground ? "true" : "false"],
 	["on wall L: ", on_wall_left ? "true" : "false"],
 	["on wall R: ", on_wall_right ? "true" : "false"],
+	["emit X: ", audio_emitter_get_x(s_emit)],
+	["emit Y: ", audio_emitter_get_y(s_emit)],
 	];

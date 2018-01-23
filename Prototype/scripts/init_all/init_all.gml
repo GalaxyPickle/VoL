@@ -20,9 +20,9 @@
 #macro GRAVITY .5
 
 // debug mode stuff
-global.debug = true;
-global.text = true;
-global.hitboxes = true;
+global.debug = false;
+global.text = false;
+global.hitboxes = false;
 
 // initialize camera stuff
 init_camera_and_view();

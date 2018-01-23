@@ -23,22 +23,30 @@ attack_ground_1_stats = [
 */
 var velocity_break = attack_stats[0];
 
-// if sweetspot, choose sweetspot dmg
+// if sweetspot, choose sweetspot dmg / poise
 var damage = attack_stats[1];
 var vitality_damage = 0;
+var poise_damage = 0;
+// mah special increase!!
+var self_special_increase = 0;
 
-if sweet
+if sweet {
 	vitality_damage = damage[1];
-else
+	poise_damage = attack_stats[3] * 2;
+	self_special_increase = attack_stats[4] * 2;
+}
+else {
 	vitality_damage = damage[0];
+	poise_damage = attack_stats[3];
+	self_special_increase = attack_stats[4];
+}
 
 // and if headshot, double damage chosen
-if headshot
+if headshot {
 	vitality_damage *= 2;
-	
-var poise_damage = attack_stats[3];
-
-var self_special_increase = attack_stats[4];
+	poise_damage *= 2;
+	self_special_increase *= 2;
+}
 
 // now apply the damage to enemy
 o_other.vitality -= vitality_damage;

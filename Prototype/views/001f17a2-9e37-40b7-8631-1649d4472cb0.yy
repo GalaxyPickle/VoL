@@ -12,7 +12,7 @@
         "5d21a110-8de4-4771-9f78-999c9c8b9bb2"
     ],
     "filterType": "GMScript",
-    "folderName": "initializers",
+    "folderName": "initialize",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

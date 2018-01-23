@@ -51,11 +51,19 @@ sprite_death = s_enemy_default;
 // sounds!
 ////////////////////////////////////
 
+s_emit = audio_emitter_create();			// create sound emitter for position-based sound
+audio_emitter_position(s_emit, x, y, 0);	// set emitter position to entity starting point
+audio_emitter_falloff(s_emit, 500, 2000, 1);// make sounds die completely at 1000px away, starting at 100px
+
 // movement
 sound_idle = a_test;					// not moving
 sound_run = a_test;						// moving L/R
 sound_jump = a_test;					// one-shot when leaving ground
 sound_land = a_test;					// one-shot when hitting ground
+
+sound_step = a_test;
+play_sound_footstep = false;
+footstep_time = room_speed / 4;
 
 // recovery and stuff
 sound_take_damage = a_test;				// an "OOF!" or hurt sound when hit
@@ -65,8 +73,6 @@ sound_dodge = a_test;					// dodge sound
 sound_death = a_test;					// DEATH sound
 
 // attack sounds
-sound_attack_contact = a_test;			// sound weapon makes when any attack hits "a wet slice"
-
 sound_attack_ground_1 = a_test;			// woosh of weapon sound
 sound_attack_charge_ground_1 = a_test;	// the charged up woosh of weapon sound
 
@@ -75,6 +81,8 @@ sound_attack_charge_ground_2 = a_test;
 
 sound_attack_air_1 = a_test;
 sound_attack_charge_air_1 = a_test;
+
+current_attack_sound = sound_attack_ground_1;
 
 ////////////////////////////////////
 // attack stats
@@ -172,7 +180,9 @@ pause_input = false;	// during moves or something you can pause movement
 
 just_hit = false;
 starting = false;
+combo = false;
 
+move = false;
 invincible = false;
 dead = false;
 
@@ -252,3 +262,11 @@ enum states
 }
 
 current_state = states.idle;
+
+////////////////////////////////////
+// input buffer
+////////////////////////////////////
+
+// holds next input choices for AI or player
+// can be attack, dodge, or special
+input_queue = ds_queue_create();
