@@ -61,6 +61,10 @@ sound_run = a_test;						// moving L/R
 sound_jump = a_test;					// one-shot when leaving ground
 sound_land = a_test;					// one-shot when hitting ground
 
+sound_step = a_test;
+play_sound_footstep = false;
+footstep_time = room_speed / 4;
+
 // recovery and stuff
 sound_take_damage = a_test;				// an "OOF!" or hurt sound when hit
 sound_poise_break = a_test;				// a REALLY hurt sound when collapsing back

@@ -1,3 +1,3 @@
 
-// debug info
-show_debug_overlay(true);
+// flush texture page
+draw_texture_flush();

@@ -12,6 +12,11 @@ if on_ground {
 	// set ground sprites
 	if x_direction != 0 {
 		sprite_index = sprite_run;
+		
+		if play_sound_footstep {
+			if !audio_is_playing(sound_step)
+				sound_step = audio_play_sound_on(s_emit, sound_run, false, 1);
+		}
 	}
 	else {
 		sprite_index = sprite_rest;

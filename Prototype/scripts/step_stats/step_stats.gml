@@ -6,6 +6,7 @@
 
 starting = false;
 
+// slight invincibility after being hit
 if just_hit {
 	invincible = true;
 	alarm[0] = room_speed / 3; // 1/3 second invinciblity
@@ -17,10 +18,18 @@ if just_hit {
 	audio_play_sound_on(s_emit, sound_take_damage, false, 1);
 }
 
+// player pause input after walljump etc.
 if pause_input_start {
 	pause_input = true;
 	alarm[1] = room_speed / 3;	// 1/3 second pause input from entity
 	pause_input_start = false;
+}
+
+// footstep sound timer
+play_sound_footstep = false;
+if alarm[2] == -1 {
+	play_sound_footstep = true;
+	alarm[2] = footstep_time;
 }
 
 // vitality
