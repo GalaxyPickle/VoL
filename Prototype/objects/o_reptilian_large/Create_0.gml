@@ -6,6 +6,7 @@ event_inherited();
 ////////////////////////////////////
 // sprite setting
 ////////////////////////////////////
+#region
 
 sprite_hitbox = s_hitbox_reptilian_upright;
 sprite_hitbox_head = s_hitbox_reptilian_head;
@@ -30,9 +31,11 @@ sprite_attack_air_1 = s_enemy_default;
 // death/fail sprites
 sprite_death = s_enemy_default;
 
+#endregion
 ////////////////////////////////////
 // sounds!
 ////////////////////////////////////
+#region
 
 // movement
 sound_idle = a_test;							// not moving
@@ -59,9 +62,11 @@ sound_attack_charge_ground_2 = a_test;
 sound_attack_air_1 = a_claw_slice_2;
 sound_attack_charge_air_1 = a_test;
 
+#endregion
 ////////////////////////////////////
 // attack point arrays and stats
 ////////////////////////////////////
+#region
 
 // frames = 7; criticals = 3-4
 var g1_frame3_basic = [ -16, 0, 40, 28, 96, -20 ];
@@ -110,9 +115,20 @@ attack_ground_2_point_array = [
 	[]
 	];
 
+#endregion
+//////////////////////////////////
+// physics values
+//////////////////////////////////
+#region
+
+jump_speed_y = 14;
+max_velocity_x = 9;
+
+#endregion
 //////////////////////////////////
 // attack properties
 //////////////////////////////////
+#region
 
 // these are the velocities and damages of the respective attack
 attack_ground_1_stats = [
@@ -138,9 +154,11 @@ attack_air_1_stats = [
 	5,
 	];
 
+#endregion
 ///////////////////////////////////////////////
 // set custom stats for big reptilian
 ///////////////////////////////////////////////
+#region
 
 jump_stamina_cost = 15;
 
@@ -163,3 +181,5 @@ poise_regen = .08;
 special_max = 300;
 special = 0;
 special_regen = .1;
+
+#endregion

@@ -42,9 +42,6 @@ if on_ground {
 	}
 }
 
-x = round(x);
-y = round(y);
-
 // apply gravity
 velocity[vel_y] += GRAVITY;
 

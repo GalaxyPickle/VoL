@@ -7,6 +7,7 @@ camera = camera_create();
 
 // set camera view matrices
 magic_number = -10;
+glide_rate = 5;
 
 var vm = matrix_build_lookat(
 	x, y, magic_number,	// camera 3D pos in space

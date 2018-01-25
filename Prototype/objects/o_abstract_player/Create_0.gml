@@ -9,6 +9,7 @@ move = true;
 ////////////////////////////////////
 // sprite setting
 ////////////////////////////////////
+#region
 
 sprite_hitbox = s_hitbox_player_upright;
 sprite_hitbox_head = s_hitbox_player_head;
@@ -36,9 +37,11 @@ sprite_attack_air_1 = s_enemy_default;
 // death/fail sprites
 sprite_death = s_enemy_default;
 
+#endregion
 ////////////////////////////////////
 // sounds!
 ////////////////////////////////////
+#region
 
 // movement
 sound_idle = a_test;						// not moving
@@ -63,9 +66,11 @@ sound_attack_charge_ground_2 = a_test;
 sound_attack_air_1 = a_test;
 sound_attack_charge_air_1 = a_test;
 
+#endregion
 ////////////////////////////////////
 // attack point arrays and stats
 ////////////////////////////////////
+#region
 
 // frames = 6; criticals = 2-3
 var g1_frame2_basic = [ -37, -5, 21, 21, 53, -32 ];
@@ -110,9 +115,11 @@ attack_ground_2_point_array = [
 	[]
 	];
 
+#endregion
 //////////////////////////////////
 // attack properties
 //////////////////////////////////
+#region
 
 // these are the velocities and damages of the respective attack
 attack_ground_1_stats = [
@@ -138,9 +145,11 @@ attack_air_1_stats = [
 	5,
 	];
 
+#endregion
 ////////////////////////////////////
 // input constants
 ////////////////////////////////////
+#region
 
 key_right = KEY_RIGHT;
 key_left = KEY_LEFT;
@@ -156,19 +165,17 @@ key_special = KEY_SPECIAL;
 // physics & collisions constants
 ////////////////////////////////////
 
-jump_speed_y = PLAYER_JUMP_SPEED_Y;
-jump_speed_x = PLAYER_JUMP_SPEED_X;
-max_velocity_x = PLAYER_MAX_VELOCITY_X;
-max_velocity_y = PLAYER_MAX_VELOCITY_Y;
-horizontal_acceleration = PLAYER_ACCELERATION;
-horizontal_friction = PLAYER_FRICTION;
+jump_speed_y = 14;
+max_velocity_x = 8;
 
+#endregion
 ////////////////////////////////////
 // game stats
 ////////////////////////////////////
+#region
 
 nearest_enemy = noone;
-jump_stamina_cost = 10;
+jump_stamina_cost = 5;
 
 // VITALITY
 vitality_max = 500;			// max health
@@ -189,3 +196,18 @@ poise_regen = .08;
 special_max = 30;
 special = 0;
 special_regen = 0;
+
+#endregion
+////////////////////////////////////
+// game stats
+////////////////////////////////////
+#region
+
+script_movement = player_step_movement;
+script_attack = player_step_attack;
+script_dodge = player_step_dodge;
+script_pain = player_step_pain;
+script_recover = player_step_recover;
+script_special = player_step_special;
+
+#endregion

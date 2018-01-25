@@ -5,6 +5,7 @@ NPC = true;
 ////////////////////////////////////
 // HITBOXES
 ////////////////////////////////////
+#region
 
 // hitbox NOT COLLISIONS WITH TERRAIN sprite
 sprite_hitbox = s_enemy_default;
@@ -23,9 +24,11 @@ hitbox_head_bottom = y;
 // how far up to set the head hitbox of each entity
 head_hitbox_offset = 32;
 
+#endregion
 ////////////////////////////////////
 // sprite setting
 ////////////////////////////////////
+#region
 
 // movement sprites
 sprite_rest = s_enemy_default;
@@ -47,9 +50,11 @@ sprite_attack_air_1 = s_enemy_default;
 // death/fail sprites
 sprite_death = s_enemy_default;
 
+#endregion
 ////////////////////////////////////
 // sounds!
 ////////////////////////////////////
+#region
 
 s_emit = audio_emitter_create();			// create sound emitter for position-based sound
 audio_emitter_position(s_emit, x, y, 0);	// set emitter position to entity starting point
@@ -84,9 +89,11 @@ sound_attack_charge_air_1 = a_test;
 
 current_attack_sound = sound_attack_ground_1;
 
+#endregion
 ////////////////////////////////////
 // attack stats
 ////////////////////////////////////
+#region
 
 // these are arrays that hold triangle points that coordinate with the attacks
 //	of each animation for a specific frame. Each enemy has them set upon
@@ -126,9 +133,11 @@ attack_air_1_stats = [
 // current attack stats
 current_attack_stats = attack_ground_1_stats;
 
+#endregion
 ////////////////////////////////////
 // input constants
 ////////////////////////////////////
+#region
 
 key_right = false;
 key_left = false;
@@ -140,16 +149,17 @@ key_attack = false;
 key_dodge = false;
 key_special = false;
 
+#endregion
 ////////////////////////////////////
 // physics & collisions constants
 ////////////////////////////////////
+#region
 
-jump_speed_y = ENEMY_JUMP_SPEED_Y;
-jump_speed_x = ENEMY_JUMP_SPEED_X;
-max_velocity_x = ENEMY_MAX_VELOCITY_X;
-max_velocity_y = ENEMY_MAX_VELOCITY_Y;
-horizontal_acceleration = ENEMY_ACCELERATION;
-horizontal_friction = ENEMY_FRICTION;
+jump_speed_y = 10;
+max_velocity_x = 5;
+max_velocity_y = TILE_SIZE - 1;
+horizontal_acceleration = ACCELERATION;
+horizontal_friction = FRICTION;
 
 on_ground = false;
 on_wall_left = false;
@@ -163,9 +173,11 @@ velocity = [0,0];
 var layer_id = layer_get_id("collisionTiles");
 collision_tile_map_id = layer_tilemap_get_id(layer_id);
 
+#endregion
 ////////////////////////////////////
 // entity stats
 ////////////////////////////////////
+#region
 
 enemy_list = [o_reptilian_large];	// list of all enemies this entity has in the game
 nearest_enemy = [];					// list of all enemies in "enemy_range"
@@ -208,9 +220,11 @@ special_max = 100;
 special = 0;
 special_regen = .1;
 
+#endregion
 ////////////////////////////////
 // GUI stat listing
 ////////////////////////////////
+#region
 // list of stats for easy updating each step
 // these arrays are set to the values of the above variables because
 //	the above vars are easier to read/use than the arrays below
@@ -246,9 +260,18 @@ special_ = [
 
 stat_array = [vitality_, stamina_, poise_, special_];
 
+#endregion
 ////////////////////////////////////////
-// state machine
+// state machine + input queue
 ////////////////////////////////////////
+#region
+
+script_movement = NPC_step_movement;
+script_attack = NPC_step_attack;
+script_dodge = NPC_step_dodge;
+script_pain = NPC_step_pain;
+script_recover = NPC_step_recover;
+script_special = NPC_step_special;
 
 // set up the FSM states for enemies and the player(s)
 enum states 
@@ -263,10 +286,8 @@ enum states
 
 current_state = states.idle;
 
-////////////////////////////////////
-// input buffer
-////////////////////////////////////
-
 // holds next input choices for AI or player
 // can be attack, dodge, or special
 input_queue = ds_queue_create();
+
+#endregion
