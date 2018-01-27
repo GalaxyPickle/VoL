@@ -2,8 +2,15 @@
 
 ////////////////////////////
 // setup
+////////////////////////////
 
 camera = camera_create();
+
+// view setup
+window_set_size(WINDOW_WIDTH, WINDOW_HEIGHT);
+surface_resize(application_surface, WINDOW_WIDTH, WINDOW_HEIGHT);
+display_set_gui_size(WINDOW_WIDTH, WINDOW_HEIGHT);
+display_reset(0, false);
 
 // set camera view matrices
 magic_number = -10;

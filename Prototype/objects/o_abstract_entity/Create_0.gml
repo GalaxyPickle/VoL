@@ -61,31 +61,31 @@ audio_emitter_position(s_emit, x, y, 0);	// set emitter position to entity start
 audio_emitter_falloff(s_emit, 500, 2000, 1);// make sounds die completely at 1000px away, starting at 100px
 
 // movement
-sound_idle = a_test;					// not moving
-sound_run = a_test;						// moving L/R
-sound_jump = a_test;					// one-shot when leaving ground
-sound_land = a_test;					// one-shot when hitting ground
+sound_idle = a_player_footstep;					// not moving
+sound_run = a_player_footstep;						// moving L/R
+sound_jump = a_player_footstep;					// one-shot when leaving ground
+sound_land = a_player_footstep;					// one-shot when hitting ground
 
-sound_step = a_test;
-play_sound_footstep = false;
+sound_step = a_player_footstep;
+play_sound_footstep = a_player_footstep;
 footstep_time = room_speed / 4;
 
 // recovery and stuff
-sound_take_damage = a_test;				// an "OOF!" or hurt sound when hit
-sound_poise_break = a_test;				// a REALLY hurt sound when collapsing back
-sound_recovery = a_test;				// healing sound?
-sound_dodge = a_test;					// dodge sound
-sound_death = a_test;					// DEATH sound
+sound_take_damage = a_player_footstep;				// an "OOF!" or hurt sound when hit
+sound_poise_break = a_player_footstep;				// a REALLY hurt sound when collapsing back
+sound_recovery = a_player_footstep;				// healing sound?
+sound_dodge = a_player_footstep;					// dodge sound
+sound_death = a_player_footstep;					// DEATH sound
 
 // attack sounds
-sound_attack_ground_1 = a_test;			// woosh of weapon sound
-sound_attack_charge_ground_1 = a_test;	// the charged up woosh of weapon sound
+sound_attack_ground_1 = a_player_footstep;			// woosh of weapon sound
+sound_attack_charge_ground_1 = a_player_footstep;	// the charged up woosh of weapon sound
 
-sound_attack_ground_2 = a_test;
-sound_attack_charge_ground_2 = a_test;
+sound_attack_ground_2 = a_player_footstep;
+sound_attack_charge_ground_2 = a_player_footstep;
 
-sound_attack_air_1 = a_test;
-sound_attack_charge_air_1 = a_test;
+sound_attack_air_1 = a_player_footstep;
+sound_attack_charge_air_1 = a_player_footstep;
 
 current_attack_sound = sound_attack_ground_1;
 
@@ -198,7 +198,12 @@ move = false;
 invincible = false;
 dead = false;
 
-jump_stamina_cost = 30;
+// stamina costs for non attack moves
+jump_stamina_cost = 0;
+dodge_stamina_cost = 30;
+
+// launch x velocities for non attack moves
+dodge_launch = TILE_SIZE / 2;
 
 // VITALITY
 vitality_max = 500;			// max health
@@ -276,12 +281,13 @@ script_special = NPC_step_special;
 // set up the FSM states for enemies and the player(s)
 enum states 
 {
-	idle,	// PLAYER + not doing anything, default setting usually turns immediately to patrol
-	attack,	// PLAYER + execute an attack towards the opponent
-	dodge,	// PLAYER + dodge an expected attack
-	pain,	// PLAYER + stunned, IE lost poise and knocked off balance
-	recover,// PLAYER + use a healing ability or something
-	special	// PLAYER + SPECIAL
+	idle,		// not doing anything, default setting for movement
+	attack,		// execute an attack towards the opponent
+	dodge,		// dodge an expected attack
+	pain,		// stunned, IE lost poise and knocked off balance
+	recover,	// use a healing ability or something
+	special,	// SPECIAL
+	death		// death animation then keep as sprite or end game if player
 }
 
 current_state = states.idle;

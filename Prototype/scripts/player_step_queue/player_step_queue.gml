@@ -48,6 +48,9 @@ if current_state == states.idle && !ds_queue_empty(input_queue) {
 		// DODGE INPUT
 		//////////////////////////
 		case states.dodge:
+		
+			current_state = ds_queue_dequeue(input_queue);
+			starting = true;
 				
 			break;
 			
@@ -55,9 +58,6 @@ if current_state == states.idle && !ds_queue_empty(input_queue) {
 		// SPECIAL INPUT
 		//////////////////////////
 		case states.special:
-			if special < special_max
-				break;
-				
 					
 			break;
 	}

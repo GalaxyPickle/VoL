@@ -6,7 +6,7 @@ if !view_enabled {
 	view_enabled = true;
 }
 
-// make sure the roomspeed is 60
+// make sure the roomspeed is the proper amount
 if room_speed != ROOM_SPEED
 	room_speed = ROOM_SPEED
 

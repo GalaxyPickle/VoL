@@ -24,7 +24,7 @@ sprite_walljump = s_player_walljump;
 
 // other event sprites
 sprite_pain = s_player_pain;
-sprite_dodge = s_enemy_default;
+sprite_dodge = s_player_dodge;
 sprite_special = s_enemy_default;
 
 // attack sprites
@@ -44,7 +44,7 @@ sprite_death = s_enemy_default;
 #region
 
 // movement
-sound_idle = a_test;						// not moving
+sound_idle = a_player_footstep;						// not moving
 sound_run = a_player_footstep;				// moving L/R
 sound_jump = a_player_jump;					// one-shot when leaving ground
 sound_land = a_player_land;					// one-shot when hitting ground
@@ -52,19 +52,19 @@ sound_land = a_player_land;					// one-shot when hitting ground
 // recovery and stuff
 sound_take_damage = a_player_hit;				// an "OOF!" or hurt sound when hit
 sound_poise_break = a_player_pain;				// a REALLY hurt sound when collapsing back
-sound_recovery = a_test;				// healing sound?
-sound_dodge = a_test;					// dodge sound
-sound_death = a_test;					// DEATH sound
+sound_recovery = a_player_footstep;				// healing sound?
+sound_dodge = a_player_footstep;					// dodge sound
+sound_death = a_player_footstep;					// DEATH sound
 
 // attack sounds
 sound_attack_ground_1 = a_sword_slice_1;			// woosh of weapon sound
-sound_attack_charge_ground_1 = a_test;	// the charged up woosh of weapon sound
+sound_attack_charge_ground_1 = a_player_footstep;	// the charged up woosh of weapon sound
 
 sound_attack_ground_2 = a_sword_slice_2;
-sound_attack_charge_ground_2 = a_test;
+sound_attack_charge_ground_2 = a_player_footstep;
 
-sound_attack_air_1 = a_test;
-sound_attack_charge_air_1 = a_test;
+sound_attack_air_1 = a_player_footstep;
+sound_attack_charge_air_1 = a_player_footstep;
 
 #endregion
 ////////////////////////////////////
@@ -125,14 +125,14 @@ attack_ground_2_point_array = [
 attack_ground_1_stats = [
 	[10, -5],	// velocity of attack to opponent if poise broken (default facing right)
 	[50, 80],	// default health damage of the attack (basic, sweet)
-	25,			// default stamina cost of the attack
+	15,			// default stamina cost of the attack
 	10,			// default poise damage of the attack
 	2,			// default special amount increase from a successful attack
 	];
 attack_ground_2_stats = [
 	[10, -10],
 	[70, 100],
-	25,
+	15,
 	20,
 	3,
 	];
@@ -174,8 +174,8 @@ max_velocity_x = 8;
 ////////////////////////////////////
 #region
 
-nearest_enemy = noone;
-jump_stamina_cost = 5;
+dodge_launch = TILE_SIZE - 8;
+dodge_stamina_cost = 15;
 
 // VITALITY
 vitality_max = 500;			// max health
@@ -199,7 +199,7 @@ special_regen = 0;
 
 #endregion
 ////////////////////////////////////
-// game stats
+// scripts
 ////////////////////////////////////
 #region
 

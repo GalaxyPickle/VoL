@@ -1,6 +1,8 @@
 /// @description smooth movement follow player
 
 // smooth camera glide to follow (default player) pos
+if follow == noone
+	follow = instance_exists(o_player) ? o_player : noone;
 x += (x_to - x) / glide_rate;
 y += (y_to - y) / glide_rate;
 

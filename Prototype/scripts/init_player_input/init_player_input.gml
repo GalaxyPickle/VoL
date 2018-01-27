@@ -5,8 +5,8 @@
 //////////////////////////////
 
 // input controls
-#macro ESCAPE vk_escape
-#macro ENTER vk_enter
+#macro KEY_ESCAPE vk_escape
+#macro KEY_ENTER vk_enter
 
 // movement controls
 #macro KEY_LEFT		vk_left

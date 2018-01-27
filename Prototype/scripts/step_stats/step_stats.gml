@@ -6,18 +6,6 @@
 
 starting = false;
 
-// slight invincibility after being hit
-if just_hit {
-	invincible = true;
-	alarm[0] = room_speed / 3; // 1/3 second invinciblity
-	just_hit = false;
-	
-	starting = true;
-	
-	// sound
-	audio_play_sound_on(s_emit, sound_take_damage, false, 1);
-}
-
 // player pause input after walljump etc.
 if pause_input_start {
 	pause_input = true;

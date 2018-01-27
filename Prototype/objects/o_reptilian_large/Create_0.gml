@@ -160,7 +160,9 @@ attack_air_1_stats = [
 ///////////////////////////////////////////////
 #region
 
-jump_stamina_cost = 15;
+draw_my_healthbars = true;
+
+jump_stamina_cost = 0;
 
 // VITALITY
 vitality_max = 1000;			// max health
@@ -173,7 +175,7 @@ stamina = stamina_max;
 stamina_regen = .6;
 
 // POISE
-poise_max = 65;
+poise_max = 45;
 poise = poise_max;
 poise_regen = .08;
 

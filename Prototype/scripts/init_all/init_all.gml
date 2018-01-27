@@ -27,7 +27,9 @@ global.debug = false;
 global.text = false;
 global.hitboxes = false;
 
+// player game stuff
 global.pause = false;
+global.gameover = false;
 
 // initialize camera stuff
 init_camera_and_view();
