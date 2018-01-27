@@ -11,36 +11,3 @@ player_step_queue();
 ///////////////////////////////////////////////////////////////////////////////
 // logic for hitboxes, attack combos, and which state to be in
 ///////////////////////////////////////////////////////////////////////////////
-
-
-
-///////////////////////////////////////////////////////////////////////////////
-// now we can do the real FSM
-///////////////////////////////////////////////////////////////////////////////
-
-switch (current_state) {
-	
-	case states.idle:
-		player_step_movement();
-		break;
-	
-	case states.attack:
-		player_step_attack();
-		break;
-	
-	case states.dodge:
-		player_step_dodge();
-		break;
-		
-	case states.pain:
-		player_step_pain();
-		break;
-	
-	case states.recover:
-		player_step_recover();
-		break;
-		
-	case states.special:
-		player_step_special();
-		break;
-}

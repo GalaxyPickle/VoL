@@ -4,13 +4,6 @@
 // CAMERA & SURFACE
 ///////////////////////////////////////////////
 
-// smooth panning rate in pixels per frame (smaller is faster)
-#macro CAMERA_GLIDE_RATE 5
-
-if surface_exists(application_surface) {
-	surface_resize(application_surface, GAME_WIDTH, GAME_HEIGHT);
-	//application_surface_enable(false);
-}
 /*
 
 // set window to center of screen of computer

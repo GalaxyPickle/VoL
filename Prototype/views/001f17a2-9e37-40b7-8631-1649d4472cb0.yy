@@ -8,8 +8,7 @@
         "67bfc700-43b0-41d6-9fc6-5c9b3210c66f",
         "8eee0958-8647-4f3b-8e9c-0519b177c619",
         "52d5e818-bce2-4e38-bd1e-64069387e8d0",
-        "44efdb6a-935c-42c0-aaad-8563727d5014",
-        "5d21a110-8de4-4771-9f78-999c9c8b9bb2"
+        "44efdb6a-935c-42c0-aaad-8563727d5014"
     ],
     "filterType": "GMScript",
     "folderName": "initialize",

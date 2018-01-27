@@ -24,6 +24,7 @@ else {
 debug_message[0] = "FPS: " + string(fps);
 
 // listener position
+/*
 l = audio_listener_get_data(0);
 debug_message[1] = "Listener Position: " + string( l[? "x"] ) + " " + string( l[? "y"] );
 ds_map_destroy(l);

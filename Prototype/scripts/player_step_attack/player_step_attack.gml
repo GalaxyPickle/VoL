@@ -6,31 +6,33 @@ var ground_launch_velocity = image_xscale * TILE_SIZE - 1;
 var sprite = 0;
 
 // set current attack based on combo info
-if on_ground {
+if starting {
+	if on_ground {
 	
-	// no combo = ground 1 attack
-	if !combo {
-		current_point_array = attack_ground_1_point_array;
-		current_attack_stats = attack_ground_1_stats;
-		current_attack_sound = sound_attack_ground_1;
+		// no combo = ground 1 attack
+		if !combo {
+			current_point_array = attack_ground_1_point_array;
+			current_attack_stats = attack_ground_1_stats;
+			current_attack_sound = sound_attack_ground_1;
 		
-		sprite = sprite_attack_ground_1;
-	}
-	else { // combo = ground 2 attack!
-		current_point_array = attack_ground_2_point_array;
-		current_attack_stats = attack_ground_2_stats;
-		current_attack_sound = sound_attack_ground_2;
+			sprite = sprite_attack_ground_1;
+		}
+		else { // combo = ground 2 attack!
+			current_point_array = attack_ground_2_point_array;
+			current_attack_stats = attack_ground_2_stats;
+			current_attack_sound = sound_attack_ground_2;
 		
-		sprite = sprite_attack_ground_2;
+			sprite = sprite_attack_ground_2;
+		}
 	}
-}
-else {
-	// AIR ATTACK!!!!!!!
-	current_point_array = attack_air_1_point_array;
-	current_attack_stats = attack_air_1_stats;
-	current_attack_sound = sound_attack_air_1;
+	else {
+		// AIR ATTACK!!!!!!!
+		current_point_array = attack_air_1_point_array;
+		current_attack_stats = attack_air_1_stats;
+		current_attack_sound = sound_attack_air_1;
 	
-	sprite = sprite_attack_air_1;
+		sprite = sprite_attack_air_1;
+	}
 }
 	
 // exit immediately if stamina is not enough
@@ -42,9 +44,6 @@ if stamina < current_attack_stats[2] && starting {
 	
 	exit;
 }
-
-// set proper sprite AFTER exiting to ensure no weird animations
-sprite_index = sprite;
 	
 // if starting, take out stamina and start animation
 if starting {
@@ -52,7 +51,9 @@ if starting {
 	
 	if on_ground
 		velocity[vel_x] = ground_launch_velocity;
-		
+	
+	// set proper sprite AFTER exiting to ensure no weird animations
+	sprite_index = sprite;
 	image_index = 0;
 	
 	// play sound

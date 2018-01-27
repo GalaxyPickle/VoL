@@ -11,6 +11,9 @@ var o_other = argument[1];
 var sweet = argument[2];
 var headshot = argument[3];
 
+if o_other.invincible
+	exit;
+
 // get the attack stats from the array passed in as damage
 /*
 attack_ground_1_stats = [
@@ -47,7 +50,7 @@ if headshot {
 	poise_damage *= 2;
 	self_special_increase *= 2;
 }
-
+	
 // now apply the damage to enemy
 o_other.vitality -= vitality_damage;
 o_other.poise -= poise_damage;
@@ -60,10 +63,14 @@ o_other.just_hit = true;
 
 // if the enemy's poise is broken, launch them with the attack vector
 //	and make them go into 'pain' state
-if o_other.poise <= 0 {
+if o_other.poise <= 0 || headshot {
 	o_other.velocity = [ image_xscale * velocity_break[0], velocity_break[1] ];
 	o_other.current_state = states.pain;
 	o_other.starting = true;
+}
+else {	// just launch them a little after being hit
+	o_other.velocity = [ image_xscale * TILE_SIZE - 1, 0 ]; 
+	
 }
 
 // show the damage popup!!!!
@@ -75,3 +82,4 @@ damage_popup.draw_array = [
 	sweet ? "SWEETSPOT!" : "no sweetspot",
 	headshot ? "HEADSHOT!" : "no headshot"
 	];
+	

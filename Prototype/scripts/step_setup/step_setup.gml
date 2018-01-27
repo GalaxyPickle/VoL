@@ -34,16 +34,17 @@ if on_ground {
 	if (x_direction == 0 || !move) && current_state == states.idle {
 		velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction);
 	}
-	else if current_state == states.attack {
-		velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction);
-	}
 	else if current_state == states.pain {
-		velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction);
-	}
+	velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction / 2);
 }
-
-x = round(x);
-y = round(y);
+}
+// apply friction even in air for other states
+if current_state == states.attack {
+	velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction);
+}
+else if current_state == states.dodge {
+	velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction / 5);
+}
 
 // apply gravity
 velocity[vel_y] += GRAVITY;

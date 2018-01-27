@@ -5,6 +5,7 @@ NPC = true;
 ////////////////////////////////////
 // HITBOXES
 ////////////////////////////////////
+#region
 
 // hitbox NOT COLLISIONS WITH TERRAIN sprite
 sprite_hitbox = s_enemy_default;
@@ -23,9 +24,11 @@ hitbox_head_bottom = y;
 // how far up to set the head hitbox of each entity
 head_hitbox_offset = 32;
 
+#endregion
 ////////////////////////////////////
 // sprite setting
 ////////////////////////////////////
+#region
 
 // movement sprites
 sprite_rest = s_enemy_default;
@@ -47,46 +50,50 @@ sprite_attack_air_1 = s_enemy_default;
 // death/fail sprites
 sprite_death = s_enemy_default;
 
+#endregion
 ////////////////////////////////////
 // sounds!
 ////////////////////////////////////
+#region
 
 s_emit = audio_emitter_create();			// create sound emitter for position-based sound
 audio_emitter_position(s_emit, x, y, 0);	// set emitter position to entity starting point
 audio_emitter_falloff(s_emit, 500, 2000, 1);// make sounds die completely at 1000px away, starting at 100px
 
 // movement
-sound_idle = a_test;					// not moving
-sound_run = a_test;						// moving L/R
-sound_jump = a_test;					// one-shot when leaving ground
-sound_land = a_test;					// one-shot when hitting ground
+sound_idle = a_player_footstep;					// not moving
+sound_run = a_player_footstep;						// moving L/R
+sound_jump = a_player_footstep;					// one-shot when leaving ground
+sound_land = a_player_footstep;					// one-shot when hitting ground
 
-sound_step = a_test;
-play_sound_footstep = false;
+sound_step = a_player_footstep;
+play_sound_footstep = a_player_footstep;
 footstep_time = room_speed / 4;
 
 // recovery and stuff
-sound_take_damage = a_test;				// an "OOF!" or hurt sound when hit
-sound_poise_break = a_test;				// a REALLY hurt sound when collapsing back
-sound_recovery = a_test;				// healing sound?
-sound_dodge = a_test;					// dodge sound
-sound_death = a_test;					// DEATH sound
+sound_take_damage = a_player_footstep;				// an "OOF!" or hurt sound when hit
+sound_poise_break = a_player_footstep;				// a REALLY hurt sound when collapsing back
+sound_recovery = a_player_footstep;				// healing sound?
+sound_dodge = a_player_footstep;					// dodge sound
+sound_death = a_player_footstep;					// DEATH sound
 
 // attack sounds
-sound_attack_ground_1 = a_test;			// woosh of weapon sound
-sound_attack_charge_ground_1 = a_test;	// the charged up woosh of weapon sound
+sound_attack_ground_1 = a_player_footstep;			// woosh of weapon sound
+sound_attack_charge_ground_1 = a_player_footstep;	// the charged up woosh of weapon sound
 
-sound_attack_ground_2 = a_test;
-sound_attack_charge_ground_2 = a_test;
+sound_attack_ground_2 = a_player_footstep;
+sound_attack_charge_ground_2 = a_player_footstep;
 
-sound_attack_air_1 = a_test;
-sound_attack_charge_air_1 = a_test;
+sound_attack_air_1 = a_player_footstep;
+sound_attack_charge_air_1 = a_player_footstep;
 
 current_attack_sound = sound_attack_ground_1;
 
+#endregion
 ////////////////////////////////////
 // attack stats
 ////////////////////////////////////
+#region
 
 // these are arrays that hold triangle points that coordinate with the attacks
 //	of each animation for a specific frame. Each enemy has them set upon
@@ -126,9 +133,11 @@ attack_air_1_stats = [
 // current attack stats
 current_attack_stats = attack_ground_1_stats;
 
+#endregion
 ////////////////////////////////////
 // input constants
 ////////////////////////////////////
+#region
 
 key_right = false;
 key_left = false;
@@ -140,16 +149,17 @@ key_attack = false;
 key_dodge = false;
 key_special = false;
 
+#endregion
 ////////////////////////////////////
 // physics & collisions constants
 ////////////////////////////////////
+#region
 
-jump_speed_y = ENEMY_JUMP_SPEED_Y;
-jump_speed_x = ENEMY_JUMP_SPEED_X;
-max_velocity_x = ENEMY_MAX_VELOCITY_X;
-max_velocity_y = ENEMY_MAX_VELOCITY_Y;
-horizontal_acceleration = ENEMY_ACCELERATION;
-horizontal_friction = ENEMY_FRICTION;
+jump_speed_y = 10;
+max_velocity_x = 5;
+max_velocity_y = TILE_SIZE - 1;
+horizontal_acceleration = ACCELERATION;
+horizontal_friction = FRICTION;
 
 on_ground = false;
 on_wall_left = false;
@@ -163,9 +173,11 @@ velocity = [0,0];
 var layer_id = layer_get_id("collisionTiles");
 collision_tile_map_id = layer_tilemap_get_id(layer_id);
 
+#endregion
 ////////////////////////////////////
 // entity stats
 ////////////////////////////////////
+#region
 
 enemy_list = [o_reptilian_large];	// list of all enemies this entity has in the game
 nearest_enemy = [];					// list of all enemies in "enemy_range"
@@ -186,7 +198,12 @@ move = false;
 invincible = false;
 dead = false;
 
-jump_stamina_cost = 30;
+// stamina costs for non attack moves
+jump_stamina_cost = 0;
+dodge_stamina_cost = 30;
+
+// launch x velocities for non attack moves
+dodge_launch = TILE_SIZE / 2;
 
 // VITALITY
 vitality_max = 500;			// max health
@@ -208,9 +225,11 @@ special_max = 100;
 special = 0;
 special_regen = .1;
 
+#endregion
 ////////////////////////////////
 // GUI stat listing
 ////////////////////////////////
+#region
 // list of stats for easy updating each step
 // these arrays are set to the values of the above variables because
 //	the above vars are easier to read/use than the arrays below
@@ -246,27 +265,35 @@ special_ = [
 
 stat_array = [vitality_, stamina_, poise_, special_];
 
+#endregion
 ////////////////////////////////////////
-// state machine
+// state machine + input queue
 ////////////////////////////////////////
+#region
+
+script_movement = NPC_step_movement;
+script_attack = NPC_step_attack;
+script_dodge = NPC_step_dodge;
+script_pain = NPC_step_pain;
+script_recover = NPC_step_recover;
+script_special = NPC_step_special;
 
 // set up the FSM states for enemies and the player(s)
 enum states 
 {
-	idle,	// PLAYER + not doing anything, default setting usually turns immediately to patrol
-	attack,	// PLAYER + execute an attack towards the opponent
-	dodge,	// PLAYER + dodge an expected attack
-	pain,	// PLAYER + stunned, IE lost poise and knocked off balance
-	recover,// PLAYER + use a healing ability or something
-	special	// PLAYER + SPECIAL
+	idle,		// not doing anything, default setting for movement
+	attack,		// execute an attack towards the opponent
+	dodge,		// dodge an expected attack
+	pain,		// stunned, IE lost poise and knocked off balance
+	recover,	// use a healing ability or something
+	special,	// SPECIAL
+	death		// death animation then keep as sprite or end game if player
 }
 
 current_state = states.idle;
 
-////////////////////////////////////
-// input buffer
-////////////////////////////////////
-
 // holds next input choices for AI or player
 // can be attack, dodge, or special
 input_queue = ds_queue_create();
+
+#endregion
