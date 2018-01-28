@@ -419,6 +419,25 @@
             }
         },
         {
+            "Key": "1bd94830-fb64-448a-9841-ea8bb4d6a648",
+            "Value": {
+                "id": "be189e6c-0776-4ce7-887f-25f882d30775",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/s_music\/s_music.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "1e3ba1ed-ac76-4d99-9114-e240972a6b34",
             "Value": {
                 "id": "788b8524-81dc-4a8e-9793-a82ad55a2397",
@@ -511,6 +530,25 @@
                 ],
                 "resourcePath": "sprites\/s_mushroom_parent_rest\/s_mushroom_parent_rest.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "242e7d51-e226-40d9-806e-f8ff7c9906a7",
+            "Value": {
+                "id": "818e91e7-ba06-4a26-bc34-42e412a22aae",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "views\/242e7d51-e226-40d9-806e-f8ff7c9906a7.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -853,6 +891,25 @@
                 ],
                 "resourcePath": "sprites\/s_player_concept\/s_player_concept.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "4330c157-9a09-4147-a05f-3bff2182a1cf",
+            "Value": {
+                "id": "2b06b912-0753-4ff1-a01b-577721f4151c",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "objects\/o_music\/o_music.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -1882,6 +1939,25 @@
             }
         },
         {
+            "Key": "867150ff-4b3c-408d-882d-5c2b7e35985c",
+            "Value": {
+                "id": "3b08496b-63a5-4bff-aa11-5cf0318540dd",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/s_player_attack_air_1\/s_player_attack_air_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "8914d125-90d1-4161-aa16-47ad0ecbfb68",
             "Value": {
                 "id": "5a4d4f10-e289-4f41-8262-394a3200b08f",
@@ -2771,6 +2847,25 @@
                     "default"
                 ],
                 "resourcePath": "sounds\/a_claw_slice_1\/a_claw_slice_1.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "d1850822-a982-451d-ad85-a23c66bae84a",
+            "Value": {
+                "id": "75d4387e-2015-4f71-aa08-3e78f57d334f",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sounds\/a_song_cavern_exploration\/a_song_cavern_exploration.yy",
                 "resourceType": "GMSound"
             }
         },

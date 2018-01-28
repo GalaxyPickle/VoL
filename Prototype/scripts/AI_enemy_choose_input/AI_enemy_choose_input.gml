@@ -1,6 +1,7 @@
 /// @description try to beat up the player and dodge like a pr0
 
 var next_choice = -1;
+var next_input_chance = .010;
 
 // for every enemy in my list...
 for (var i = 0; i < array_length_1d(enemy_list); i++) {
@@ -17,7 +18,8 @@ for (var i = 0; i < array_length_1d(enemy_list); i++) {
 				
 			if distance_to_object(enemy) < enemy_range {
 				
-				if distance_to_point(x, enemy.y) < 50 {
+				if distance_to_point(x, enemy.y) < 50 
+					&& irandom(room_speed) < room_speed * next_input_chance {
 					// attack1!!!!!
 					next_choice = states.attack;
 				}

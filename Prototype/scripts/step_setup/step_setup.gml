@@ -20,14 +20,23 @@ hitbox_head_bottom = y + velocity[vel_y] - head_hitbox_offset + sprite_get_heigh
 // 1. secondly, deal with any residual movement
 ////////////////////////////////////////////////////////////////////////////
 
+// on ground?
 on_ground = tile_collide_at_points(collision_tile_map_id,
 	[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]);
 	
+// sliding on walls?
 on_wall_left = tile_collide_at_points(collision_tile_map_id,
 	[ [bbox_left-1, bbox_top], [bbox_left-1, bbox_top + abs(bbox_bottom - bbox_top) / 2] ]);
-
 on_wall_right = tile_collide_at_points(collision_tile_map_id,
 	[ [bbox_right, bbox_top], [bbox_right, bbox_top + abs(bbox_bottom - bbox_top) / 2] ]);
+
+// stuck on little rock or wall by foot?
+on_wall_bottom_left = tile_collide_at_points(collision_tile_map_id,
+	[ [bbox_left-1, bbox_bottom - TILE_SIZE / 2] ]);
+on_wall_bottom_right = tile_collide_at_points(collision_tile_map_id,
+	[ [bbox_right, bbox_bottom - TILE_SIZE / 2] ]);
+	
+on_wall = on_wall_left || on_wall_right || on_wall_bottom_left || on_wall_bottom_right;
 
 // apply friction
 if on_ground {

@@ -26,10 +26,12 @@
 global.debug = false;
 global.text = false;
 global.hitboxes = false;
+global.godmode = false;
 
 // player game stuff
 global.pause = false;
 global.gameover = false;
+global.mute = false;
 
 // initialize camera stuff
 init_camera_and_view();

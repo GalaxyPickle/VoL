@@ -2,6 +2,8 @@
 
 // set timer to countdown showing fail screen
 if global.gameover {
+	audio_pause_all();
+	
 	if alarm[0] == -1 {
 		alarm[0] = gameover_display_time;
 		

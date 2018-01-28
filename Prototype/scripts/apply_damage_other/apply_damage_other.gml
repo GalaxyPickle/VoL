@@ -11,7 +11,7 @@ var o_other = argument[1];
 var sweet = argument[2];
 var headshot = argument[3];
 
-if o_other.invincible
+if o_other.invincible || (o_other == instance_nearest(x, y, o_player) && global.godmode)
 	exit;
 
 // get the attack stats from the array passed in as damage

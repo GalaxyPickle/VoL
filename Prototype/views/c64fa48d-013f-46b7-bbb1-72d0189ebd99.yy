@@ -7,7 +7,7 @@
         
     ],
     "filterType": "GMSound",
-    "folderName": "menu",
+    "folderName": "GUI",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

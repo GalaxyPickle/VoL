@@ -16,3 +16,6 @@ audio_group_load(audiogroup_FX);
 
 // set listener orientation to hear right sounds from right, etc
 audio_listener_orientation(0, 0, -1000, 0, 1, 0);
+
+// music master index
+global.music = 0;

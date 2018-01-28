@@ -162,8 +162,13 @@ horizontal_acceleration = ACCELERATION;
 horizontal_friction = FRICTION;
 
 on_ground = false;
+on_wall = false;
+
 on_wall_left = false;
 on_wall_right = false;
+
+on_wall_bottom_left = false;
+on_wall_bottom_right = false;
 
 x_direction = 0; // 1 = right, 0 = no input/last direction, -1 = left
 
