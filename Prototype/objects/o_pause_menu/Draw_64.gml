@@ -3,7 +3,7 @@
 if global.gameover {
 	// draw the screenshot and make it greyed out
 	draw_sprite_ext(pause_screenshot, 0, 0, 0, 1, 1, 0, c_white, 1);
-	draw_set_alpha(1);
+	draw_set_alpha(.75);
 	draw_rectangle_color(0, 0, surface_get_width(application_surface),
 		surface_get_height(application_surface), c_black, c_black, c_red, c_red, false);
 	draw_set_alpha(1);
@@ -34,6 +34,7 @@ anim_n = reach_tween(anim_n, anim, tween_amount);
 // draw the menu
 draw_set_color(c_white);
 draw_set_font(f_menu);
+draw_set_alpha(1);
 for (var i = 0; i < array_length_1d(menu); i++) {
 	
 	// draw golden current option selected

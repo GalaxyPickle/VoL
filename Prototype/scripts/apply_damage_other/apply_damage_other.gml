@@ -11,7 +11,8 @@ var o_other = argument[1];
 var sweet = argument[2];
 var headshot = argument[3];
 
-if o_other.invincible || (o_other == instance_nearest(x, y, o_player) && global.godmode)
+if o_other.invincible || o_other.dead || 
+	(o_other == instance_nearest(x, y, o_player) && global.godmode)
 	exit;
 
 // get the attack stats from the array passed in as damage
@@ -69,7 +70,7 @@ if o_other.poise <= 0 || headshot {
 	o_other.starting = true;
 }
 else {	// just launch them a little after being hit
-	o_other.velocity = [ image_xscale * TILE_SIZE - 1, 0 ]; 
+	o_other.velocity = [ image_xscale * TILE_SIZE * 2, 0 ]; 
 	
 }
 

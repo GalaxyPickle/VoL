@@ -23,7 +23,7 @@
 #macro FRICTION .5
 
 // debug mode stuff
-global.debug = false;
+global.debug = true;
 global.text = false;
 global.hitboxes = false;
 global.godmode = false;

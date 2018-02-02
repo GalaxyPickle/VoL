@@ -11,9 +11,13 @@ helper_text =
 	"F1 - Toggle Debug Info",
 	"F2 - Restart Gameroom",
 	"F3 - Godmode Toggle",
+	"",
 	"H - toggle hitboxes",
 	"T - toggle text",
-	"Controls: Arrows to move & jump",
+	"",
+	"Movement: ARROW KEYS",
+	"Attack: F",
+	"Dodge: D",
 ];
 
 

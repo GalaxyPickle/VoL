@@ -1,5 +1,4 @@
-/// @description FSM and AI
-// You can write your code in this editor
+/// @description AI
 
 // Inherit the parent event
 event_inherited();
@@ -8,12 +7,15 @@ event_inherited();
 // AI
 ///////////////////////////////////////////////////////////////////////////////
 
-AI_follow_player();
+if !dead
+	AI_follow_player();
 
 //////////////////////////////////////////////////////////////////////////////
 // get input for dodge, attack, and special
 //////////////////////////////////////////////////////////////////////////////
-
 var AI_next_choice = AI_enemy_choose_input();
+
+if dead
+	AI_next_choice = -1;
 
 NPC_step_queue(AI_next_choice);

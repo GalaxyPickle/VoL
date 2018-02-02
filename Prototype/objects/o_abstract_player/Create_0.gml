@@ -29,10 +29,10 @@ sprite_special = s_enemy_default;
 
 // attack sprites
 sprite_attack_ground_1 = s_player_attack_ground_1;
-
 sprite_attack_ground_2 = s_player_attack_ground_2;
 
-sprite_attack_air_1 = s_enemy_default;
+sprite_attack_air_1 = s_player_attack_air_1;
+sprite_attack_air_2 = s_player_attack_air_2;
 
 // death/fail sprites
 sprite_death = s_enemy_default;
@@ -63,8 +63,11 @@ sound_attack_charge_ground_1 = a_player_footstep;	// the charged up woosh of wea
 sound_attack_ground_2 = a_sword_slice_2;
 sound_attack_charge_ground_2 = a_player_footstep;
 
-sound_attack_air_1 = a_player_footstep;
+sound_attack_air_1 = a_sword_slice_1;
 sound_attack_charge_air_1 = a_player_footstep;
+
+sound_attack_air_2 = a_sword_slice_2;
+sound_attack_charge_air_2 = a_player_footstep;
 
 #endregion
 ////////////////////////////////////
@@ -72,6 +75,7 @@ sound_attack_charge_air_1 = a_player_footstep;
 ////////////////////////////////////
 #region
 
+// ground 1
 // frames = 6; criticals = 2-3
 var g1_frame2_basic = [ -37, -5, 21, 21, 53, -32 ];
 var g1_frame2_sweet = [ 
@@ -95,7 +99,8 @@ attack_ground_1_point_array = [
 	[],
 	[]
 	];
-	
+
+// ground 2
 // frames = 7; critical = 3
 var g2_frame3_basic = [ -16, 28, 53, -16, 8, -60 ];
 var g2_frame3_sweet = [
@@ -110,6 +115,46 @@ attack_ground_2_point_array = [
 	[],
 	[ g2_frame3_basic, g2_frame3_sweet],
 	[],
+	[],
+	[],
+	[]
+	];
+
+// air 1
+// frames = 5; critical = 1-2
+var a1_frame1_basic = [ -16, 4, 6, -10, 48, -8 ];
+var a1_frame1_sweet = [
+	[ 40, -4, 48, -10, 72, -8 ]
+	];
+	
+var a1_frame2_basic = [ 40, -8, 8, 4, -56, -12 ];
+var a1_frame2_sweet = [
+	[ 48, 4, 10, 10, -54, 4 ],
+	[ 10, 10, -54, 4, -64, -10 ],
+	[ -54, 4, -64, -10, -56, -12 ]
+	];
+
+attack_air_1_point_array = [
+	[ a1_frame1_basic, a1_frame1_sweet ],
+	[ a1_frame2_basic, a1_frame2_sweet ],
+	[],
+	[],
+	[],
+	];
+	
+// air 2
+// frames = 6; critical = 3
+var a2_frame3_basic = [ 26, 20, 48, 48, 64, 32 ];
+var a2_frame3_sweet = [
+	[ 32, 42, 36, 56, 64, 58 ],
+	[ 36, 56, 64, 58, 75, 45 ],
+	[ 64, 58, 75, 45, 64, 24 ]
+	];
+
+attack_air_2_point_array = [
+	[],
+	[],
+	[ a2_frame3_basic, a2_frame3_sweet ],
 	[],
 	[],
 	[]
@@ -138,11 +183,18 @@ attack_ground_2_stats = [
 	];
 	
 attack_air_1_stats = [
-	[10, -10],
+	[5, 2],
 	[30, 60],
 	10,
 	15,
 	5,
+	];
+attack_air_2_stats = [
+	[5, 5],
+	[50, 70],
+	10,
+	30,
+	7,
 	];
 
 #endregion
@@ -165,7 +217,7 @@ key_special = KEY_SPECIAL;
 // physics & collisions constants
 ////////////////////////////////////
 
-jump_speed_y = 14;
+jump_speed_y = 12.5;
 max_velocity_x = 8;
 
 #endregion
@@ -174,8 +226,8 @@ max_velocity_x = 8;
 ////////////////////////////////////
 #region
 
-dodge_launch = TILE_SIZE - 8;
-dodge_stamina_cost = 15;
+dodge_launch = TILE_SIZE - 12;
+dodge_stamina_cost = 10;
 
 // VITALITY
 vitality_max = 500;			// max health
@@ -183,7 +235,7 @@ vitality = vitality_max;	// current health
 vitality_regen = .1;		// health regen rate per frame
 
 // STAMINA
-stamina_max = 100;
+stamina_max = 999;
 stamina = stamina_max;
 stamina_regen = .5;
 

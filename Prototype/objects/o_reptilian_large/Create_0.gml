@@ -68,15 +68,15 @@ sound_attack_charge_air_1 = a_test;
 ////////////////////////////////////
 #region
 
-// frames = 7; criticals = 3-4
-var g1_frame3_basic = [ -16, 0, 40, 28, 96, -20 ];
-var g1_frame3_sweet = [ 
+// frames = 10; criticals = 6-7
+var g1_frame6_basic = [ -16, 0, 40, 28, 96, -20 ];
+var g1_frame6_sweet = [ 
 	[ -8, 40, 48, 42, 96, 16 ],
 	[ 48, 42, 96, 16, 112, -24 ],
 	[ 96, 16, 112, -24, 96, -24 ]
 	];
-var g1_frame4_basic = [ 32, 8, 102, -20, 72, -50 ];
-var g1_frame4_sweet = [
+var g1_frame7_basic = [ 32, 8, 102, -20, 72, -50 ];
+var g1_frame7_sweet = [
 	[ 112, 0, 112, -32, 80, -64 ],
 	[ 112, -32, 80, -64, 72, -50 ],
 	];
@@ -84,8 +84,11 @@ var g1_frame4_sweet = [
 attack_ground_1_point_array = [
 	[],
 	[],
-	[ g1_frame3_basic, g1_frame3_sweet ],
-	[ g1_frame4_basic, g1_frame4_sweet ],
+	[],
+	[],
+	[],
+	[ g1_frame6_basic, g1_frame6_sweet ],
+	[ g1_frame7_basic, g1_frame7_sweet ],
 	[],
 	[],
 	[]
@@ -183,5 +186,13 @@ poise_regen = .08;
 special_max = 300;
 special = 0;
 special_regen = .1;
+
+#endregion
+///////////////////////////////////////////////
+// scripts
+///////////////////////////////////////////////
+#region
+
+
 
 #endregion

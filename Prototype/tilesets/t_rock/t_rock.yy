@@ -5,11 +5,36 @@
     "name": "t_rock",
     "auto_tile_sets": [
         {
+            "id": "88f2ff4b-e32c-44a8-8243-bb89f8a56ad0",
+            "modelName": "GMAutoTileSet",
+            "mvc": "1.0",
+            "closed_edge": false,
+            "name": "basic autotile",
+            "tiles": [
+                47,
+                38,
+                40,
+                28,
+                36,
+                24,
+                5,
+                4,
+                34,
+                10,
+                16,
+                8,
+                20,
+                2,
+                1,
+                0
+            ]
+        },
+        {
             "id": "1f259a59-05ec-45a8-903b-c2f23abfd4c9",
             "modelName": "GMAutoTileSet",
             "mvc": "1.0",
             "closed_edge": true,
-            "name": "autotile_1",
+            "name": "weird autotile",
             "tiles": [
                 47,
                 1,
@@ -58,31 +83,6 @@
                 44,
                 45,
                 46
-            ]
-        },
-        {
-            "id": "88f2ff4b-e32c-44a8-8243-bb89f8a56ad0",
-            "modelName": "GMAutoTileSet",
-            "mvc": "1.0",
-            "closed_edge": true,
-            "name": "autotile_2",
-            "tiles": [
-                47,
-                38,
-                40,
-                28,
-                36,
-                24,
-                5,
-                4,
-                34,
-                10,
-                16,
-                8,
-                20,
-                2,
-                1,
-                0
             ]
         }
     ],

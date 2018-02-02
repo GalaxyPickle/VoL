@@ -5,6 +5,7 @@ if keyboard_check_pressed(key_debug) {
 	global.debug = !global.debug;
 }
 if keyboard_check_pressed(key_room_restart) {
+	audio_stop_all();
 	room_restart();	
 }
 if keyboard_check_pressed(key_godmode) {

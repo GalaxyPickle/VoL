@@ -22,3 +22,6 @@ camera_set_view_mat(camera, vm);
 
 // set sound listener to be at camera position
 audio_listener_position(x, y, 0);
+
+// apply parallax effect for all bg layers
+parallax_all_bg();

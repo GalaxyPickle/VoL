@@ -46,6 +46,7 @@ sprite_attack_ground_1 = s_enemy_default;
 sprite_attack_ground_2 = s_enemy_default;
 
 sprite_attack_air_1 = s_enemy_default;
+sprite_attack_air_2 = s_enemy_default;
 
 // death/fail sprites
 sprite_death = s_enemy_default;
@@ -87,6 +88,9 @@ sound_attack_charge_ground_2 = a_player_footstep;
 sound_attack_air_1 = a_player_footstep;
 sound_attack_charge_air_1 = a_player_footstep;
 
+sound_attack_air_2 = a_player_footstep;
+sound_attack_charge_air_2 = a_player_footstep;
+
 current_attack_sound = sound_attack_ground_1;
 
 #endregion
@@ -102,6 +106,7 @@ attack_ground_1_point_array = [];
 attack_ground_2_point_array = [];
 
 attack_air_1_point_array = [];
+attack_air_2_point_array = [];
 
 // determine which point array to check collisions for and draw in debug mode
 current_point_array = attack_ground_1_point_array;
@@ -123,7 +128,14 @@ attack_ground_2_stats = [
 	];
 	
 attack_air_1_stats = [
-	[10, -10],
+	[5, 0],
+	[10, 20],
+	10,
+	10,
+	10,
+	];
+attack_air_2_stats = [
+	[10, 10],
 	[10, 20],
 	10,
 	10,
@@ -155,8 +167,6 @@ key_special = false;
 ////////////////////////////////////
 #region
 
-jump_speed_y = 10;
-max_velocity_x = 5;
 max_velocity_y = TILE_SIZE - 1;
 horizontal_acceleration = ACCELERATION;
 horizontal_friction = FRICTION;
@@ -175,7 +185,7 @@ x_direction = 0; // 1 = right, 0 = no input/last direction, -1 = left
 velocity = [0,0];
 
 // get the tilemap id
-var layer_id = layer_get_id("collisionTiles");
+var layer_id = layer_get_id("layer_tile_collision");
 collision_tile_map_id = layer_tilemap_get_id(layer_id);
 
 #endregion
@@ -202,6 +212,9 @@ combo = false;
 move = false;
 invincible = false;
 dead = false;
+
+jump_speed_y = 10;
+max_velocity_x = 5;
 
 // stamina costs for non attack moves
 jump_stamina_cost = 0;
