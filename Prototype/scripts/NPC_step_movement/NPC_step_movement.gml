@@ -33,7 +33,7 @@ if on_ground {
 }
 else {
 	// set jump sprite
-	sprite_index = sprite_jump;
+	sprite_index = sprite_air;
 	
 	// short hop
 	if !key_jump && velocity[vector2_y] <= -(jump_speed_y / 3) {

@@ -2,7 +2,7 @@
 
 // set timer to countdown showing fail screen
 if global.gameover {
-	audio_pause_all();
+	audio_stop_all();
 	
 	if alarm[0] == -1 {
 		alarm[0] = gameover_display_time;
@@ -28,6 +28,7 @@ if global.pause && keyboard_check_released(KEY_ENTER) {
 			break;
 			
 		case 1: // quit
+			audio_stop_all();
 			room_goto(r_main_menu);
 			break;
 	}

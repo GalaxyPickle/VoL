@@ -3,6 +3,7 @@
 event_inherited();
 
 enemy = false;
+enemy_list = [o_reptilian_large];
 
 move = true;
 
@@ -19,7 +20,7 @@ head_hitbox_offset = 28;
 sprite_rest = s_player_rest;
 sprite_run = s_player_run;
 
-sprite_jump = s_player_jump;
+sprite_air = s_player_jump;
 sprite_walljump = s_player_walljump;
 
 // other event sprites
@@ -170,14 +171,14 @@ attack_air_2_point_array = [
 attack_ground_1_stats = [
 	[10, -5],	// velocity of attack to opponent if poise broken (default facing right)
 	[50, 80],	// default health damage of the attack (basic, sweet)
-	15,			// default stamina cost of the attack
+	0,			// default stamina cost of the attack
 	10,			// default poise damage of the attack
 	2,			// default special amount increase from a successful attack
 	];
 attack_ground_2_stats = [
 	[10, -10],
 	[70, 100],
-	15,
+	0,
 	20,
 	3,
 	];
@@ -185,14 +186,14 @@ attack_ground_2_stats = [
 attack_air_1_stats = [
 	[5, 2],
 	[30, 60],
-	10,
+	0,
 	15,
 	5,
 	];
 attack_air_2_stats = [
 	[5, 5],
 	[50, 70],
-	10,
+	0,
 	30,
 	7,
 	];
@@ -227,7 +228,7 @@ max_velocity_x = 8;
 #region
 
 dodge_launch = TILE_SIZE - 12;
-dodge_stamina_cost = 10;
+dodge_stamina_cost = 0;
 
 // VITALITY
 vitality_max = 500;			// max health
@@ -235,7 +236,7 @@ vitality = vitality_max;	// current health
 vitality_regen = .1;		// health regen rate per frame
 
 // STAMINA
-stamina_max = 999;
+stamina_max = 100;
 stamina = stamina_max;
 stamina_regen = .5;
 
@@ -245,7 +246,7 @@ poise = poise_max;
 poise_regen = .08;
 
 // SPECIAL
-special_max = 30;
+special_max = 100;
 special = 0;
 special_regen = 0;
 
@@ -261,5 +262,6 @@ script_dodge = player_step_dodge;
 script_pain = player_step_pain;
 script_recover = player_step_recover;
 script_special = player_step_special;
+script_death = player_step_death;
 
 #endregion

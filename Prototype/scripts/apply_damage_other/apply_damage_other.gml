@@ -1,14 +1,14 @@
-/// @function apply_damage_other(attack_stats, o_other, sweetspot, headshot)
+/// @function apply_damage_other(attack_stats, o_other, sweetshotspot, headshot)
 /// @description pass array of stats to apply damage to opponent on successful hit
 
 /// @param attack_stats
 /// @param o_entity_receiving
-///	@param sweetspot
+///	@param sweetshotspot
 /// @param headshot
 
 var attack_stats = argument[0];
 var o_other = argument[1];
-var sweet = argument[2];
+var sweetspot = argument[2];
 var headshot = argument[3];
 
 if o_other.invincible || o_other.dead || 
@@ -27,14 +27,14 @@ attack_ground_1_stats = [
 */
 var velocity_break = attack_stats[0];
 
-// if sweetspot, choose sweetspot dmg / poise
+// if sweetshotspot, choose sweetshotspot dmg / poise
 var damage = attack_stats[1];
 var vitality_damage = 0;
 var poise_damage = 0;
 // mah special increase!!
 var self_special_increase = 0;
 
-if sweet {
+if sweetspot {
 	vitality_damage = damage[1];
 	poise_damage = attack_stats[3] * 2;
 	self_special_increase = attack_stats[4] * 2;
@@ -76,11 +76,10 @@ else {	// just launch them a little after being hit
 
 // show the damage popup!!!!
 // get the tilemap id
-var layer_id = layer_get_id("popups");
-var damage_popup = instance_create_layer(o_other.x, o_other.y, layer_id, o_damage_popup);
-damage_popup.draw_array = [
-	-vitality_damage, -poise_damage, 
-	sweet ? "SWEETSPOT!" : "no sweetspot",
-	headshot ? "HEADSHOT!" : "no headshot"
-	];
-	
+var layer_id = layer_get_id("layer_instance_popups");
+var damage_popup = instance_create_layer(o_other.x, o_other.hitbox_head_top + 15, layer_id, o_damage_popup);
+
+damage_popup.origin = o_other;
+damage_popup.damage = vitality_damage;
+damage_popup.headshot = headshot;
+damage_popup.sweetspot = sweetspot;

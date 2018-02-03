@@ -2,16 +2,27 @@
 
 origin = noone;
 
-vitality_damage_number = 0;
-poise_damage_number = 0;
+starting = true;
+flash = false;
+fade = false;
 
+damage = 0;
 sweetspot = false;
 headshot = false;
 
-range = 20;
+size_base = .1;
+size = size_base;
+size_target = 1;
 alpha = 1;
+y_target = y;
 
-x += random_range(-range, range);
-y += random_range(-range, range);
+placement_range = 20;
+rotation = random_range(-30, 30);
+size_cap = 5;
+damage_size_max = 200;
+flash_time = room_speed / 30;
 
-draw_array = [ 0, 0, "no sweetspot!", "no headshot!" ];
+xx = random_range(-placement_range, placement_range);
+yy = random_range(-placement_range, 0);
+
+alarm[1] = room_speed;

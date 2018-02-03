@@ -15,7 +15,7 @@ head_hitbox_offset = 40;
 // movement sprites
 sprite_rest = s_reptilian_rest;
 sprite_run = s_reptilian_run;
-sprite_jump = s_reptilian_jump;
+sprite_air = s_reptilian_jump;
 
 // other event sprites
 sprite_pain = s_reptilian_pain;
@@ -30,6 +30,7 @@ sprite_attack_air_1 = s_enemy_default;
 
 // death/fail sprites
 sprite_death = s_enemy_default;
+sprite_corpse = s_reptilian_corpse;
 
 #endregion
 ////////////////////////////////////
@@ -137,14 +138,14 @@ max_velocity_x = 9;
 attack_ground_1_stats = [
 	[10, -5],	// velocity of attack to opponent if poise broken (default facing right)
 	[70, 100],	// default health damage of the attack (basic, sweet)
-	35,			// default stamina cost of the attack
+	0,			// default stamina cost of the attack
 	20,			// default poise damage of the attack
 	2,			// default special amount increase from a successful attack
 	];
 attack_ground_2_stats = [
 	[20, -3],
 	[100, 120],
-	35,
+	0,
 	20,
 	3,
 	];
@@ -152,7 +153,7 @@ attack_ground_2_stats = [
 attack_air_1_stats = [
 	[10, -10],
 	[30, 60],
-	10,
+	0,
 	15,
 	5,
 	];

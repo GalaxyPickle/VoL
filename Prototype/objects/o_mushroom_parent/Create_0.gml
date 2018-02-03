@@ -15,7 +15,7 @@ head_hitbox_offset = 40;
 // movement sprites
 sprite_rest = s_mushroom_parent_rest;
 sprite_run = s_mushroom_parent_run;
-sprite_jump = s_mushroom_parent_rest;
+sprite_air = s_mushroom_parent_rest;
 
 // other event sprites
 sprite_pain = s_mushroom_parent_rest;

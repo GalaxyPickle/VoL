@@ -29,6 +29,8 @@ global.hitboxes = false;
 global.godmode = false;
 
 // player game stuff
+randomize();
+
 global.pause = false;
 global.gameover = false;
 global.mute = false;

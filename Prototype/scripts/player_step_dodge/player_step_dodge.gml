@@ -6,7 +6,7 @@ var vel_x = 0;
 if stamina < dodge_stamina_cost && starting {
 	
 	if !on_ground
-		sprite_index = sprite_jump;
+		sprite_index = sprite_air;
 	else sprite_index = sprite_rest;
 	
 	current_state = states.idle;

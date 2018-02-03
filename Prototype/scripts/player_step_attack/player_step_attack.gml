@@ -45,16 +45,27 @@ if starting {
 }
 
 // can still move if in air
-if !on_ground {
+if !on_ground && 
+	( current_attack_stats != attack_ground_1_stats && 
+	current_attack_stats != attack_ground_2_stats ) {
 	var x_input = x_direction * horizontal_acceleration;
 	var vec2_x = 0;
 	// horizontal movement
 	velocity[vec2_x] = clamp( velocity[vec2_x] + x_input, -max_velocity_x, max_velocity_x);	
 }
 	
-// exit immediately if stamina is not enough or landing
+// exit immediately if stamina is not enough or landing or into air from ground
 if (stamina < current_attack_stats[2] && starting) ||
-	( (current_attack_stats = attack_air_1_stats || current_attack_stats = attack_air_2_stats) && on_ground ) 
+	(
+		on_ground &&
+		(current_attack_stats == attack_air_1_stats || 
+		current_attack_stats == attack_air_2_stats) 
+	) ||
+	( 
+		!on_ground && 
+		(current_attack_stats == attack_ground_1_stats || 
+		current_attack_stats == attack_ground_2_stats )
+	)
 {
 	combo = false;
 	current_state = states.idle;
@@ -62,7 +73,7 @@ if (stamina < current_attack_stats[2] && starting) ||
 	if on_ground
 		sprite_index = sprite_rest;
 	else
-		sprite_index = sprite_jump;
+		sprite_index = sprite_air;
 	
 	exit;
 }
@@ -89,6 +100,9 @@ for (var i = 0; i < array_length_1d(nearest_enemy); i++) {
 	
 	var enemy = nearest_enemy[i];
 	
+	if enemy == undefined || enemy == pointer_null || enemy == noone
+		exit;
+	
 	// returns [found?, sweetspot?, headshot?]
 	var hit_array = check_attack_collision(enemy);
 	
@@ -97,7 +111,7 @@ for (var i = 0; i < array_length_1d(nearest_enemy); i++) {
 		var sweetspot = hit_array[1];
 		var headshot = hit_array[2];
 	
-		// apply any damage to enemy with script
+		// apply any damage to near enemies
 		if found && !enemy.invincible
 			apply_damage_other(current_attack_stats, enemy, sweetspot, headshot);
 	}
