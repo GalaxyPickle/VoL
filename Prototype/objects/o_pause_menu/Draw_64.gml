@@ -11,6 +11,8 @@ if global.gameover {
 	draw_set_font(f_menu_big);
 	draw_set_color(c_white);
 	draw_text(300, 300, "GAME OVER");
+	draw_set_font(f_menu);
+	draw_text(400, 500, "Score: " + string(score));
 	
 	exit;
 }

@@ -4,15 +4,20 @@
 // universal vars
 /////////////////////////////////////////
 
+#macro DEV_NAME "pre-alpha"
+#macro VERSION "1.1"
+
 // game resolution
-#macro WINDOW_WIDTH 1280
-#macro WINDOW_HEIGHT 720
+#macro WINDOW_WIDTH 1280 //display_get_width()
+#macro WINDOW_HEIGHT 720 //display_get_height()
 
 #macro ZOOM 2
 #macro ROOM_SPEED 60
 
 #macro GAME_WIDTH WINDOW_WIDTH / ZOOM
 #macro GAME_HEIGHT WINDOW_HEIGHT / ZOOM
+
+window_center();
 
 // tile size
 #macro TILE_SIZE 32
@@ -34,6 +39,7 @@ randomize();
 global.pause = false;
 global.gameover = false;
 global.mute = false;
+score = 0;
 
 // initialize camera stuff
 init_camera_and_view();

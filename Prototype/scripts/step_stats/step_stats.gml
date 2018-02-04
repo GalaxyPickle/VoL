@@ -54,7 +54,7 @@ stamina_[2] = stamina;
 poise_[2] = poise;
 special_[2] = special;
 
-stat_array = [vitality_, poise_, special_];
+stat_array = [vitality_, special_];
 
 /////////////////////////////////////////////////////////////////////////////
 // lastly, set sprite direction

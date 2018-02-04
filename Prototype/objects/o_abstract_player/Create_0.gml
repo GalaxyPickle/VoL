@@ -2,8 +2,10 @@
 
 event_inherited();
 
-enemy = false;
+NPC = false;
 enemy_list = [o_reptilian_large];
+
+draw_my_healthbars = false;
 
 move = true;
 
@@ -233,7 +235,7 @@ dodge_stamina_cost = 0;
 // VITALITY
 vitality_max = 500;			// max health
 vitality = vitality_max;	// current health
-vitality_regen = .1;		// health regen rate per frame
+vitality_regen = .05;		// health regen rate per frame
 
 // STAMINA
 stamina_max = 100;

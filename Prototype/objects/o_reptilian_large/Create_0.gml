@@ -19,7 +19,7 @@ sprite_air = s_reptilian_jump;
 
 // other event sprites
 sprite_pain = s_reptilian_pain;
-sprite_dodge = s_enemy_default;
+sprite_dodge = s_reptilian_dodge;
 sprite_special = s_enemy_default;
 
 // attack sprites
@@ -50,8 +50,8 @@ footstep_time = room_speed / 3;
 sound_take_damage = a_enemy_hit;				// an "OOF!" or hurt sound when hit
 sound_poise_break = a_reptilian_pain;			// a REALLY hurt sound when collapsing back
 sound_recovery = a_test;						// healing sound?
-sound_dodge = a_test;							// dodge sound
-sound_death = a_test;							// DEATH sound
+sound_dodge = a_player_footstep;							// dodge sound
+sound_death = a_reptilian_death;					// DEATH sound
 
 // attack sounds
 sound_attack_ground_1 = a_claw_slice_1;			// woosh of weapon sound
@@ -127,6 +127,7 @@ attack_ground_2_point_array = [
 
 jump_speed_y = 14;
 max_velocity_x = 9;
+dodge_launch = TILE_SIZE - 20;
 
 #endregion
 //////////////////////////////////
@@ -169,7 +170,7 @@ draw_my_healthbars = true;
 jump_stamina_cost = 0;
 
 // VITALITY
-vitality_max = 1000;			// max health
+vitality_max = 2000;			// max health
 vitality = vitality_max;		// current health
 vitality_regen = .1;			// health regen rate per frame
 

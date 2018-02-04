@@ -74,12 +74,21 @@ else {	// just launch them a little after being hit
 	
 }
 
-// show the damage popup!!!!
+if !NPC {
+	score += vitality_damage * (headshot ? 2 : 1);	
+}
+
 // get the tilemap id
 var layer_id = layer_get_id("layer_instance_popups");
-var damage_popup = instance_create_layer(o_other.x, o_other.hitbox_head_top + 15, layer_id, o_damage_popup);
 
-damage_popup.origin = o_other;
+// show the particle explosion!!!!
+// var particle_blast = instance_create_layer(o_other.x, o_other.hitbox_head_top + irandom(bbox_top - bbox_bottom), layer_id, o_particle_blast);
+	
+
+	
+// show the damage popup!!!!
+var damage_popup = instance_create_layer(o_other.x, o_other.hitbox_head_top, layer_id, o_damage_popup);
+
 damage_popup.damage = vitality_damage;
 damage_popup.headshot = headshot;
 damage_popup.sweetspot = sweetspot;

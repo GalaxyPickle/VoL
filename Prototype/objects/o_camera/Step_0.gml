@@ -3,13 +3,26 @@
 // smooth camera glide to follow (default player) pos
 if follow == noone
 	follow = instance_exists(o_player) ? o_player : noone;
-x += (x_to - x) / glide_rate;
-y += (y_to - y) / glide_rate;
+else {
+	// camera shake when player is hit
+	if follow.current_state == states.pain
+		shaking = true;	
+	else shaking = false;
+}
 
-if (follow != noone) {
-	// set camera to follow player
-	x_to = follow.x;
-	y_to = follow.y;
+if !shaking {
+	x += (x_to - x) / glide_rate;
+	y += (y_to - y) / glide_rate;
+
+	if (follow != noone) {
+		// set camera to follow player
+		x_to = follow.x;
+		y_to = follow.y;
+	}
+}
+else {
+   x = follow.x + irandom_range(-shake_rate, shake_rate);
+   y = follow.y + irandom_range(-shake_rate, shake_rate);
 }
 
 // update matrix for camera

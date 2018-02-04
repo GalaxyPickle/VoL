@@ -5,7 +5,8 @@ if starting {
 	velocity = [0, 0];
 }
 
+sprite_index = sprite_death;
+
 if image_index >= image_number - 1 {
 	instance_destroy();
-	layer_sprite_create("layer_instance_corpse", x, bbox_bottom, sprite_corpse);
 }

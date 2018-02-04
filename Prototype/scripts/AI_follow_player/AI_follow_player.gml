@@ -1,5 +1,8 @@
 /// @description just follows the player including jumps
 
+if current_state != states.idle
+	exit;
+
 // for every enemy in my list...
 for (var i = 0; i < array_length_1d(enemy_list); i++) {
 	

@@ -210,6 +210,25 @@
             }
         },
         {
+            "Key": "0fd13f57-26ec-46ab-ba68-606b00eeebc9",
+            "Value": {
+                "id": "5d0f5f13-ab4e-4c70-bbd8-6998bdd1b74d",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sounds\/a_reptilian_death\/a_reptilian_death.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "120d4149-61e4-4d96-aedf-1f63dbcd4226",
             "Value": {
                 "id": "0eba152d-d47a-4f90-aa7f-97d5a47acbdb",
@@ -263,6 +282,25 @@
                     "default"
                 ],
                 "resourcePath": "sprites\/s_player_attack_ground_2\/s_player_attack_ground_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "13e25701-f6c9-4b66-9fab-ed5264d76a8f",
+            "Value": {
+                "id": "608a6b0f-5346-4d04-9d9c-c3aab4a0ee54",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/s_mushroom_parent_icon\/s_mushroom_parent_icon.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1122,6 +1160,25 @@
             }
         },
         {
+            "Key": "4e3f02e0-4126-4183-a41d-61be8e921fd9",
+            "Value": {
+                "id": "36966977-7d1c-4982-a11d-8ce7249137a7",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/s_reptilian_jump\/s_reptilian_jump.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "50236200-cedc-4204-b6c9-0c5d87b6c279",
             "Value": {
                 "id": "6f5437ae-5597-4967-a199-431c9994a29f",
@@ -1537,6 +1594,25 @@
                 ],
                 "resourcePath": "objects\/o_abstract_parent\/o_abstract_parent.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "5ebc321f-d40c-4a20-af04-118578c5754a",
+            "Value": {
+                "id": "357b6975-55a8-4c9a-bb46-8467801f76c5",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "views\/5ebc321f-d40c-4a20-af04-118578c5754a.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -2186,6 +2262,25 @@
             }
         },
         {
+            "Key": "9590980a-d831-4fd2-9b24-638db5cfda40",
+            "Value": {
+                "id": "4736839e-18f9-4042-9d60-9c46b67cfc28",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sounds\/a_explosion_headshot\/a_explosion_headshot.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "975fe782-c481-4430-a8f9-cf7e151fce17",
             "Value": {
                 "id": "2efed8f5-fa2c-48f6-be96-b005369003b7",
@@ -2506,6 +2601,25 @@
                 ],
                 "resourcePath": "views\/ab4e651e-9604-477f-8b6a-1da8d93c0ac9.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "ac47c0ea-4e3e-4a87-b69f-9d1dc20009e9",
+            "Value": {
+                "id": "a94881e7-e2a9-4b1b-9be6-842cfc0c9499",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "objects\/o_particle_blast\/o_particle_blast.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -3093,7 +3207,7 @@
                 "resourceCreationConfigs": [
                     "default"
                 ],
-                "resourcePath": "sprites\/s_reptilian_jump\/s_reptilian_jump.yy",
+                "resourcePath": "sprites\/s_reptilian_dodge\/s_reptilian_dodge.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -3816,25 +3930,6 @@
                     "default"
                 ],
                 "resourcePath": "sprites\/s_player_attack_ground_1\/s_player_attack_ground_1.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "fd609e3c-6c43-4495-a4d7-a8362bfffbd2",
-            "Value": {
-                "id": "40023fd5-f093-4112-8cff-1deb4286f7f2",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "sprites\/s_reptilian_dodge\/s_reptilian_dodge.yy",
                 "resourceType": "GMSprite"
             }
         },

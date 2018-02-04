@@ -8,6 +8,9 @@ if starting {
 	if size_target > size_cap
 		size_target = size_cap;
 	
+	if headshot
+		audio_play_sound(a_explosion_headshot, 1, 0);
+		
 	starting = false;
 }
 
@@ -17,7 +20,7 @@ if fade
 if alpha < 0
 	instance_destroy();
 	
-y_target = lerp(y_target, y_target - placement_range, 1 / 30);
+y = lerp(y, yy, 1 / 10);
 size = lerp(size, size_target, 1 / 5);
 
 if alarm[0] < 0
