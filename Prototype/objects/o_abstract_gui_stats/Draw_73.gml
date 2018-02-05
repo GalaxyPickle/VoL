@@ -1,5 +1,7 @@
 /// @description draw debug and healthbars
 
+draw_set_font(f_debug);
+
 if global.hitboxes {
 	debug_draw_hitboxes();
 }
@@ -9,10 +11,3 @@ if global.text {
 
 if draw_my_healthbars
 	draw_stat_bars();
-
-/////////////////////////////////////
-// reset drawing color
-/////////////////////////////////////
-	
-draw_set_color(c_white);
-draw_set_alpha(1);

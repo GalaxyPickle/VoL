@@ -3,6 +3,9 @@
 global.gameover = false;
 global.pause = false;
 
+title = "Veins of Light";
+subtitle = DEV_NAME + " " + VERSION;
+
 // array of options
 menu[0] = "Start";
 menu[1] = "Load";

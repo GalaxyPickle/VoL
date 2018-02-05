@@ -5,9 +5,9 @@
 }←1225f6b0-ac20-43bd-a82e-be73fa0b6f4f|{
     "targets": 29263750006690030,
     "mipsToGenerate": 0,
-    "border": 1,
-    "scaled": false,
-    "autocrop": true
+    "border": 8,
+    "scaled": true,
+    "autocrop": false
 }←7fa50043-cea6-4cd0-9521-a8ba8c6ea9f0|{
     "audioGroups": {
         "Additions": [

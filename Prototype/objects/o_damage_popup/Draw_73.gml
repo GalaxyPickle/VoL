@@ -1,23 +1,30 @@
-/// @description draw damage popup next to entity
+/// @description draw damage popup
 
-draw_set_alpha(alpha);
-draw_set_font(f_debug);
+var draw_font = f_menu;
 
-var separation = 15;
-var distance = 100;
+var upixelH = shader_get_uniform(sh_outline, "pixelH");
+var upixelW = shader_get_uniform(sh_outline, "pixelW");
+var texelW = 2 * texture_get_texel_width(font_get_texture(draw_font));
+var texelH = 2 * texture_get_texel_height(font_get_texture(draw_font));
 
-if array_length_1d(draw_array) > 0 {
+if shader_is_compiled(sh_outline) {
+	shader_set(sh_outline);
+	shader_set_uniform_f(upixelW, texelW);
+	shader_set_uniform_f(upixelH, texelH);
 
-	// draw all damage numbers or stats in array
-	for (var i = 0; i < array_length_1d(draw_array); i++) {
-		
-		draw_set_color(c_yellow);
-		if i == 0 draw_set_color(c_red);
-		if i == 1 draw_set_color(c_orange);
-		
-		draw_text(x - distance, y - distance + i * separation, string(draw_array[i]));
+	draw_set_font(draw_font);
+	
+	if damage >= damage_size_max {
+		if flash
+			flash_color = c_white;
+		else flash_color = c_red;
 	}
+	else flash_color = c_red;
+	
+	draw_text_transformed_color(
+		x, --y, "-" + string(damage), size, size, rotation,
+		flash_color, flash_color, flash_color, flash_color, alpha);
+	
+	shader_reset();
 }
-
-draw_set_color(c_white);
-draw_set_alpha(1);
+else show_debug_message("sh_outline failed");

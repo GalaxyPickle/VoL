@@ -16,3 +16,13 @@ for (var i = 0; i < array_length_1d(menu); i++) {
 }
 
 current_option = anim;
+
+// draw main menu name now
+draw_set_color(c_white);
+draw_set_font(f_menu_big);
+
+var title_start = 300, s = 10;
+
+draw_text(title_start, s, title);
+draw_set_font(f_menu);
+draw_text_color(title_start + s, s + 100, subtitle, c_gray, c_gray, c_gray, c_gray, 1);

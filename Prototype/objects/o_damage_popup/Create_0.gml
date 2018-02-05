@@ -1,17 +1,27 @@
 /// @description set damage number, draw, end.
 
-origin = noone;
+starting = true;
+flash = false;
+fade = false;
 
-vitality_damage_number = 0;
-poise_damage_number = 0;
-
+damage = 0;
 sweetspot = false;
 headshot = false;
 
-range = 20;
+size_base = .2;
+size = size_base;
+size_target = .6;
 alpha = 1;
 
-x += random_range(-range, range);
-y += random_range(-range, range);
+placement_range = 5;
+rotation = random_range(-5, 5);
+size_cap = 2;
+damage_size_max = 200;
+flash_time = room_speed / 30;
 
-draw_array = [ 0, 0, "no sweetspot!", "no headshot!" ];
+flash_color = c_white;
+
+x += random_range(-placement_range, placement_range);
+yy = y - 20;
+
+alarm[1] = room_speed;

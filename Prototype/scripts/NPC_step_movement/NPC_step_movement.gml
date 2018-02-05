@@ -7,10 +7,10 @@ var vector2_y = 1;
 // horizontal movement
 velocity[vector2_x] = clamp( velocity[vector2_x] + x_input, -max_velocity_x, max_velocity_x);
 
-// jumping
+// ground moving
 if on_ground {
 	// set ground sprites
-	if move {
+	if move && !on_wall {
 		sprite_index = sprite_run;
 		
 		if play_sound_footstep {
@@ -33,7 +33,7 @@ if on_ground {
 }
 else {
 	// set jump sprite
-	sprite_index = sprite_jump;
+	sprite_index = sprite_air;
 	
 	// short hop
 	if !key_jump && velocity[vector2_y] <= -(jump_speed_y / 3) {

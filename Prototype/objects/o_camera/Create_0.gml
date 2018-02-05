@@ -16,6 +16,9 @@ display_reset(0, false);
 magic_number = -10;
 glide_rate = 5;
 
+shake_rate = 5;
+shaking = false;
+
 var vm = matrix_build_lookat(
 	x, y, magic_number,	// camera 3D pos in space
 	x, y, 0,	// camera distance from canvas

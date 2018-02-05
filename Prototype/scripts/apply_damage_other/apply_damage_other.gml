@@ -1,17 +1,18 @@
-/// @function apply_damage_other(attack_stats, o_other, sweetspot, headshot)
+/// @function apply_damage_other(attack_stats, o_other, sweetshotspot, headshot)
 /// @description pass array of stats to apply damage to opponent on successful hit
 
 /// @param attack_stats
 /// @param o_entity_receiving
-///	@param sweetspot
+///	@param sweetshotspot
 /// @param headshot
 
 var attack_stats = argument[0];
 var o_other = argument[1];
-var sweet = argument[2];
+var sweetspot = argument[2];
 var headshot = argument[3];
 
-if o_other.invincible
+if o_other.invincible || o_other.dead || 
+	(o_other == instance_nearest(x, y, o_player) && global.godmode)
 	exit;
 
 // get the attack stats from the array passed in as damage
@@ -26,14 +27,14 @@ attack_ground_1_stats = [
 */
 var velocity_break = attack_stats[0];
 
-// if sweetspot, choose sweetspot dmg / poise
+// if sweetshotspot, choose sweetshotspot dmg / poise
 var damage = attack_stats[1];
 var vitality_damage = 0;
 var poise_damage = 0;
 // mah special increase!!
 var self_special_increase = 0;
 
-if sweet {
+if sweetspot {
 	vitality_damage = damage[1];
 	poise_damage = attack_stats[3] * 2;
 	self_special_increase = attack_stats[4] * 2;
@@ -69,17 +70,32 @@ if o_other.poise <= 0 || headshot {
 	o_other.starting = true;
 }
 else {	// just launch them a little after being hit
-	o_other.velocity = [ image_xscale * TILE_SIZE - 1, 0 ]; 
+	o_other.velocity = [ image_xscale * TILE_SIZE, 0 ]; 
 	
 }
 
-// show the damage popup!!!!
+if !NPC {
+	score += vitality_damage * (headshot ? 2 : 1);	
+}
+
 // get the tilemap id
-var layer_id = layer_get_id("popups");
-var damage_popup = instance_create_layer(o_other.x, o_other.y, layer_id, o_damage_popup);
-damage_popup.draw_array = [
-	-vitality_damage, -poise_damage, 
-	sweet ? "SWEETSPOT!" : "no sweetspot",
-	headshot ? "HEADSHOT!" : "no headshot"
-	];
-	
+var layer_id = layer_get_id("layer_instance_popups");
+
+/////////////////////////////////////////////////////////////
+// show the particle explosion!!!!
+/*
+if headshot
+	var part_top = o_other.hitbox_head_top;
+else var part_top = o_other.y;
+
+var particle_blast = instance_create_layer(o_other.x, 
+	part_top, layer_id, o_particle_blast);
+*/
+
+/////////////////////////////////////////////////////////////
+// show the damage popup!!!!
+var damage_popup = instance_create_layer(o_other.x, o_other.hitbox_head_top, layer_id, o_damage_popup);
+
+damage_popup.damage = vitality_damage;
+damage_popup.headshot = headshot;
+damage_popup.sweetspot = sweetspot;

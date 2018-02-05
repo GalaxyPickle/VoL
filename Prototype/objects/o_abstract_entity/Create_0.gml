@@ -33,7 +33,7 @@ head_hitbox_offset = 32;
 // movement sprites
 sprite_rest = s_enemy_default;
 sprite_run = s_enemy_default;
-sprite_jump = s_enemy_default;
+sprite_air = s_enemy_default;
 sprite_walljump = s_enemy_default;
 
 // other event sprites
@@ -46,9 +46,11 @@ sprite_attack_ground_1 = s_enemy_default;
 sprite_attack_ground_2 = s_enemy_default;
 
 sprite_attack_air_1 = s_enemy_default;
+sprite_attack_air_2 = s_enemy_default;
 
 // death/fail sprites
 sprite_death = s_enemy_default;
+sprite_corpse = s_enemy_default;
 
 #endregion
 ////////////////////////////////////
@@ -87,6 +89,9 @@ sound_attack_charge_ground_2 = a_player_footstep;
 sound_attack_air_1 = a_player_footstep;
 sound_attack_charge_air_1 = a_player_footstep;
 
+sound_attack_air_2 = a_player_footstep;
+sound_attack_charge_air_2 = a_player_footstep;
+
 current_attack_sound = sound_attack_ground_1;
 
 #endregion
@@ -102,6 +107,7 @@ attack_ground_1_point_array = [];
 attack_ground_2_point_array = [];
 
 attack_air_1_point_array = [];
+attack_air_2_point_array = [];
 
 // determine which point array to check collisions for and draw in debug mode
 current_point_array = attack_ground_1_point_array;
@@ -110,22 +116,29 @@ current_point_array = attack_ground_1_point_array;
 attack_ground_1_stats = [
 	[10, -10],	// velocity of attack to opponent if poise broken (default facing right)
 	[10, 20],	// default vitality dmg / sweet spot dmg (headshots are x2 current health dmg)
-	10,			// default stamina cost of the attack
+	0,			// default stamina cost of the attack
 	10,			// default poise dmg of the attack
 	10,			// default special amount increase from a successful attack
 	];
 attack_ground_2_stats = [
 	[10, -10],
 	[10, 20],
-	10,
+	0,
 	10,
 	10,
 	];
 	
 attack_air_1_stats = [
-	[10, -10],
+	[5, 0],
 	[10, 20],
+	0,
 	10,
+	10,
+	];
+attack_air_2_stats = [
+	[10, 10],
+	[10, 20],
+	0,
 	10,
 	10,
 	];
@@ -155,22 +168,25 @@ key_special = false;
 ////////////////////////////////////
 #region
 
-jump_speed_y = 10;
-max_velocity_x = 5;
 max_velocity_y = TILE_SIZE - 1;
 horizontal_acceleration = ACCELERATION;
 horizontal_friction = FRICTION;
 
 on_ground = false;
+on_wall = false;
+
 on_wall_left = false;
 on_wall_right = false;
+
+on_wall_bottom_left = false;
+on_wall_bottom_right = false;
 
 x_direction = 0; // 1 = right, 0 = no input/last direction, -1 = left
 
 velocity = [0,0];
 
 // get the tilemap id
-var layer_id = layer_get_id("collisionTiles");
+var layer_id = layer_get_id("layer_tile_collision");
 collision_tile_map_id = layer_tilemap_get_id(layer_id);
 
 #endregion
@@ -179,7 +195,7 @@ collision_tile_map_id = layer_tilemap_get_id(layer_id);
 ////////////////////////////////////
 #region
 
-enemy_list = [o_reptilian_large];	// list of all enemies this entity has in the game
+enemy_list = [];	// list of all enemies this entity has in the game
 nearest_enemy = [];					// list of all enemies in "enemy_range"
 									//	when an enemy is farther away it is removed from list
 									//	+ vise versa
@@ -189,6 +205,7 @@ sight_range = 1000;
 
 pause_input_start = false;
 pause_input = false;	// during moves or something you can pause movement
+pause_input_length = room_speed / 6; // 1 second
 
 just_hit = false;
 starting = false;
@@ -198,9 +215,12 @@ move = false;
 invincible = false;
 dead = false;
 
+jump_speed_y = 10;
+max_velocity_x = 5;
+
 // stamina costs for non attack moves
 jump_stamina_cost = 0;
-dodge_stamina_cost = 30;
+dodge_stamina_cost = 0;
 
 // launch x velocities for non attack moves
 dodge_launch = TILE_SIZE / 2;
@@ -263,7 +283,7 @@ special_ = [
 	special_regen,	// special regen rate?
 	];
 
-stat_array = [vitality_, stamina_, poise_, special_];
+stat_array = [vitality_, poise_, special_];
 
 #endregion
 ////////////////////////////////////////
@@ -277,6 +297,7 @@ script_dodge = NPC_step_dodge;
 script_pain = NPC_step_pain;
 script_recover = NPC_step_recover;
 script_special = NPC_step_special;
+script_death = NPC_step_death;
 
 // set up the FSM states for enemies and the player(s)
 enum states 

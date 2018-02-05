@@ -4,6 +4,8 @@
 // CAMERA & SURFACE
 ///////////////////////////////////////////////
 
+global.ss = surface_create(GAME_WIDTH, GAME_HEIGHT);
+
 /*
 
 // set window to center of screen of computer

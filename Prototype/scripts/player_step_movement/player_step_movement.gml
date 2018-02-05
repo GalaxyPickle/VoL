@@ -5,7 +5,8 @@ var vector2_x = 0;
 var vector2_y = 1;
 
 // horizontal movement
-velocity[vector2_x] = clamp( velocity[vector2_x] + x_input, -max_velocity_x, max_velocity_x);
+if !pause_input
+	velocity[vector2_x] = clamp( velocity[vector2_x] + x_input, -max_velocity_x, max_velocity_x);
 
 // ground movement
 if on_ground {
@@ -45,7 +46,7 @@ else if on_wall_left || on_wall_right {
 		if on_wall_right
 			image_xscale = -1;
 			
-		velocity = [jump_speed_y * image_xscale, -jump_speed_y / 2];
+		velocity = [jump_speed_y * image_xscale, -jump_speed_y];
 		stamina -= jump_stamina_cost;
 		
 		pause_input_start = true;
@@ -56,7 +57,7 @@ else if on_wall_left || on_wall_right {
 }
 else {
 	// set jump sprite
-	sprite_index = sprite_jump;
+	sprite_index = sprite_air;
 	
 	if keyboard_check_released(key_jump) && velocity[vector2_y] <= -(jump_speed_y / 3) {
 		velocity[vector2_y] = -(jump_speed_y / 3);

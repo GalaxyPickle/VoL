@@ -23,7 +23,9 @@ var spacing = 5;		// how far apart to draw stat bars
 // loop through 4 stats and draw them
 ///////////////////////////////
 
-for (var i = 0; i < array_length_1d(stat_array); i++) {
+draw_set_alpha(1);
+
+for (var i = 0; i < 1/*array_length_1d(stat_array)*/; i++) {
 	
 	var current_array = stat_array[i];
 

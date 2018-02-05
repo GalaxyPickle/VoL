@@ -6,7 +6,8 @@
     "children": [
         "199e2e79-56e1-4631-9f3b-e78428cb373e",
         "4799ce4d-3ad8-4dff-869e-6fc7dc117332",
-        "d3119d1d-57af-4f38-bad6-09dc4c0f3a40"
+        "d3119d1d-57af-4f38-bad6-09dc4c0f3a40",
+        "79e07765-6a7d-440c-afe8-c2c11a23a15c"
     ],
     "filterType": "GMScript",
     "folderName": "collision",

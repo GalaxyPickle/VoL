@@ -9,7 +9,7 @@ starting = false;
 // player pause input after walljump etc.
 if pause_input_start {
 	pause_input = true;
-	alarm[1] = room_speed / 3;	// 1/3 second pause input from entity
+	alarm[1] = pause_input_length;
 	pause_input_start = false;
 }
 
@@ -54,7 +54,7 @@ stamina_[2] = stamina;
 poise_[2] = poise;
 special_[2] = special;
 
-stat_array = [vitality_, stamina_, poise_, special_];
+stat_array = [vitality_, special_];
 
 /////////////////////////////////////////////////////////////////////////////
 // lastly, set sprite direction

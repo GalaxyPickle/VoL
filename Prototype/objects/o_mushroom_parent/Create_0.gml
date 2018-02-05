@@ -15,7 +15,7 @@ head_hitbox_offset = 40;
 // movement sprites
 sprite_rest = s_mushroom_parent_rest;
 sprite_run = s_mushroom_parent_run;
-sprite_jump = s_mushroom_parent_rest;
+sprite_air = s_mushroom_parent_rest;
 
 // other event sprites
 sprite_pain = s_mushroom_parent_rest;
@@ -88,11 +88,12 @@ max_velocity_x = 5;
 
 #endregion
 ///////////////////////////////////////////////
-// set custom stats for big reptilian
+// set custom stats for big MUSHROOM person
 ///////////////////////////////////////////////
 #region
 
 enemy_range = 20; // pixels away for "enemy in range" to trigger
+sight_range = 200;
 jump_stamina_cost = 5;
 
 // VITALITY

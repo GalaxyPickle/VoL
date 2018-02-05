@@ -25,4 +25,8 @@ switch (current_state) {
 	case states.special:
 		script_execute(script_special);
 		break;
+		
+	case states.death:
+		script_execute(script_death);
+		break;
 }
