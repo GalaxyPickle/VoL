@@ -1,22 +1,37 @@
 /// @description debug overlay buttons
 
-if keyboard_check_pressed(vk_f1) {
+// debug toggle buttons
+if keyboard_check_pressed(key_debug) {
 	global.debug = !global.debug;
 }
+if keyboard_check_pressed(key_room_restart) {
+	score = 0;
+	audio_stop_all();
+	room_restart();	
+}
+if keyboard_check_pressed(key_godmode) {
+	global.godmode = !global.godmode;
+}
 
+// debug hitbox and stats
+if keyboard_check_pressed(key_hitbox) {
+	global.hitboxes = !global.hitboxes;
+}
+if keyboard_check_pressed(key_text) {
+	global.text = !global.text;	
+}
+
+// show debug overlay
 if global.debug {
 	show_debug_overlay(true);
 }
 else {
-	show_debug_overlay(false);	
-}
-
-if keyboard_check_pressed(vk_f2) {
-	room_restart();	
+	show_debug_overlay(false);
 }
 
 // update debug values
-debug_message[0] = "FPS: " + string(fps);
-
-nearest_enemy = instance_nearest(p.x, p.y, enemy);
-debug_message[1] = "enemy: " + string(nearest_enemy.x) + ", " + string(nearest_enemy.y);
+debug_message = 
+[
+	"FPS: " + string(fps),
+	"GODMODE: " + (global.godmode ? "ACTIVE" : "INACTIVE"),
+];

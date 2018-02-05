@@ -1,51 +1,86 @@
-/// @description called every player step, mother function to call all player step functions
+/// @description mother function to call every step for entity
 
-//////////////////////////////////////////////////////////////////////////////
-// 1. get direction
-//////////////////////////////////////////////////////////////////////////////
-
-// direction
-x_direction = keyboard_check(key_right) - keyboard_check(key_left);
+//////////////////////////
+// 0. hitbox vars
+//////////////////////////
 
 var vel_x = 0, vel_y = 1;
 
-////////////////////////////////////////////////////////////////////////////
-// 2. secondly, deal with any residual movement
-///////////////////////////////////////////////////////////////////////////
+hitbox_left = x + velocity[vel_x] - sprite_get_xoffset(sprite_hitbox);
+hitbox_right = x + velocity[vel_x] + sprite_get_width(sprite_hitbox) - sprite_get_xoffset(sprite_hitbox);
+hitbox_top = y + velocity[vel_y] - sprite_get_yoffset(sprite_hitbox);
+hitbox_bottom = y + velocity[vel_y] + sprite_get_height(sprite_hitbox) - sprite_get_yoffset(sprite_hitbox);
 
-on_ground = tile_collide_at_points(collision_tile_map_id, 
+hitbox_head_left = x + velocity[vel_x] - sprite_get_xoffset(sprite_hitbox_head);
+hitbox_head_right = x + velocity[vel_x] + sprite_get_width(sprite_hitbox_head) - sprite_get_xoffset(sprite_hitbox_head);
+hitbox_head_top = y + velocity[vel_y] - head_hitbox_offset - sprite_get_yoffset(sprite_hitbox_head);
+hitbox_head_bottom = y + velocity[vel_y] - head_hitbox_offset + sprite_get_height(sprite_hitbox_head) - sprite_get_yoffset(sprite_hitbox_head);
+
+////////////////////////////////////////////////////////////////////////////
+// 1. collision checks
+////////////////////////////////////////////////////////////////////////////
+
+// on ground?
+on_ground = tile_collide_at_points(collision_tile_map_id,
 	[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]);
+	
+// sliding on walls?
+on_wall_left = tile_collide_at_points(collision_tile_map_id,
+	[ [bbox_left-1, bbox_top], [bbox_left-1, bbox_top + abs(bbox_bottom - bbox_top) / 2] ]);
+on_wall_right = tile_collide_at_points(collision_tile_map_id,
+	[ [bbox_right, bbox_top], [bbox_right, bbox_top + abs(bbox_bottom - bbox_top) / 2] ]);
+
+// stuck on little rock or wall by foot?
+on_wall_bottom_left = tile_collide_at_points(collision_tile_map_id,
+	[ [bbox_left-1, bbox_bottom - TILE_SIZE / 2] ]);
+on_wall_bottom_right = tile_collide_at_points(collision_tile_map_id,
+	[ [bbox_right, bbox_bottom - TILE_SIZE / 2] ]);
+	
+on_wall = on_wall_left || on_wall_right || on_wall_bottom_left || on_wall_bottom_right;
+
+////////////////////////////////////////////////////////////////////////////
+// 2. physics stuff
+////////////////////////////////////////////////////////////////////////////
 
 // apply friction
-if x_direction == 0 &&
-	(current_state == states.idle || current_state == states.patrol ||
-	current_state == states.follow || current_state == states.flee) {
+if on_ground {
+	if (x_direction == 0 || !move) && current_state == states.idle {
+		velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction);
+	}
+	else if current_state == states.pain {
+	velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction / 2);
+	}
+}
+// apply friction even in air for other states
+if current_state == states.attack && on_ground {
 	velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction);
 }
-else if (current_state == states.attack) {
-	velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction);
+else if current_state == states.dodge {
+	velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction / 10);
+}
+
+// keep away from other entities
+if true {
+	var o = object_index;
+	// if close by, shoot away from the entity
+	if o != self && distance_to_point(o.x, o.y) < 5 && 
+	( (!move && !o.move) ) {
+		if x < o.x
+			velocity[vel_x] += -1;
+		else if x > o.x
+			velocity[vel_x] += 1;
+	}
 }
 
 // apply gravity
-velocity[vel_y] += GRAVITY;
+if velocity[vel_y] < max_velocity_y
+	velocity[vel_y] += GRAVITY;
 
 // move and contact tiles!
 move_and_contact_tiles(collision_tile_map_id, TILE_SIZE, velocity);
 
-/////////////////////////////////////////////////////////////////////////////
-// 3. deal with game stat stuff
-/////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////
+// set emitter position
+//////////////////////////////////
 
-stat_array = [health_, stamina_, poise_, special_];
-
-/////////////////////////////////////////////////////////////////////////////
-// 4. lastly, set sprite direction
-/////////////////////////////////////////////////////////////////////////////
-
-if current_state == states.idle || current_state == states.patrol ||
-	current_state == states.follow || current_state == states.flee {
-	if x_direction == -1
-		image_xscale = -1;
-	if x_direction == 1
-		image_xscale = 1;
-}
+audio_emitter_position(s_emit, x, y, 0);

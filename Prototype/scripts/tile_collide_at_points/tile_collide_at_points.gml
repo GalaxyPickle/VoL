@@ -3,7 +3,8 @@
 ///@credit HeartBeast (https://www.youtube.com/watch?v=YObbsg2Hbcw)
 
 ///@param tile_map_id
-///@param array of point_arrays (x, y positions to check for collision)
+///@param collision_point_arrays (x, y positions to check for collision)
+
 var tile_map_id = argument[0];
 var point_arrays = argument[1];
 

@@ -2,11 +2,22 @@
 
 ////////////////////////////
 // setup
+////////////////////////////
 
 camera = camera_create();
 
+// view setup
+window_set_size(WINDOW_WIDTH, WINDOW_HEIGHT);
+surface_resize(application_surface, WINDOW_WIDTH, WINDOW_HEIGHT);
+display_set_gui_size(WINDOW_WIDTH, WINDOW_HEIGHT);
+display_reset(0, false);
+
 // set camera view matrices
 magic_number = -10;
+glide_rate = 5;
+
+shake_rate = 5;
+shaking = false;
 
 var vm = matrix_build_lookat(
 	x, y, magic_number,	// camera 3D pos in space

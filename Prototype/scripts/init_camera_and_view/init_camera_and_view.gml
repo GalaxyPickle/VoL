@@ -4,8 +4,7 @@
 // CAMERA & SURFACE
 ///////////////////////////////////////////////
 
-// smooth panning rate in pixels per frame (smaller is faster)
-#macro CAMERA_GLIDE_RATE 5
+global.ss = surface_create(GAME_WIDTH, GAME_HEIGHT);
 
 /*
 

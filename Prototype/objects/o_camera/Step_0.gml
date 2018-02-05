@@ -1,18 +1,28 @@
 /// @description smooth movement follow player
 
 // smooth camera glide to follow (default player) pos
-x += (x_to - x) / CAMERA_GLIDE_RATE;
-y += (y_to - y) / CAMERA_GLIDE_RATE;
+if follow == noone
+	follow = instance_exists(o_player) ? o_player : noone;
+else {
+	// camera shake when player is hit
+	if follow.current_state == states.pain
+		shaking = true;	
+	else shaking = false;
+}
 
-if (follow != noone) {
-	
-	// WIP
-	// force camera to keep player in view if too slow
-	//
+if !shaking {
+	x += (x_to - x) / glide_rate;
+	y += (y_to - y) / glide_rate;
 
-	// set camera to follow player
-	x_to = follow.x;
-	y_to = follow.y;
+	if (follow != noone) {
+		// set camera to follow player
+		x_to = follow.x;
+		y_to = follow.y;
+	}
+}
+else {
+   x = follow.x + irandom_range(-shake_rate, shake_rate);
+   y = follow.y + irandom_range(-shake_rate, shake_rate);
 }
 
 // update matrix for camera
@@ -22,3 +32,9 @@ var vm = matrix_build_lookat(
 	0, 1, 0);	// set the camera to point towards the canvas
 	
 camera_set_view_mat(camera, vm);
+
+// set sound listener to be at camera position
+audio_listener_position(x, y, 0);
+
+// apply parallax effect for all bg layers
+parallax_all_bg();

@@ -4,7 +4,26 @@
     "mvc": "1.0",
     "name": "o_reptilian_large",
     "eventList": [
-        
+        {
+            "id": "046f5b5c-92bc-4c8b-b490-265f88f959ee",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "f0e88f29-1e5e-4152-9292-f0c6e44e5f9d"
+        },
+        {
+            "id": "66bbd208-8d00-4ec2-bbd6-6e9f989629aa",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 3,
+            "m_owner": "f0e88f29-1e5e-4152-9292-f0c6e44e5f9d"
+        }
     ],
     "maskSpriteId": "2ffcda5f-a76f-4237-a11b-0c5667202c15",
     "overriddenProperties": null,

@@ -6,12 +6,6 @@ var current_state_string = "";
 switch (current_state) {
 	case states.idle: current_state_string = "idle";
 		break;
-	case states.patrol: current_state_string = "patrol";
-		break;
-	case states.follow: current_state_string = "follow";
-		break;
-	case states.flee: current_state_string = "flee";
-		break;
 	case states.attack: current_state_string = "attack";
 		break;
 	case states.dodge: current_state_string = "dodge";
@@ -23,4 +17,17 @@ switch (current_state) {
 	case states.special: current_state_string = "special";
 		break;
 }
-draw_variables = [ ["x: ", x], ["y: ", y], ["state: ", current_state_string], ];
+draw_variables = [ 
+	["x: ", x], 
+	["y: ", y], 
+	["state: ", current_state_string],
+	["on ground: ", on_ground ? "true" : "false"],
+	["on wall: ", on_wall ? "true" : "false"],
+	["nearest enemies: ", nearest_enemy]
+	];
+	/*
+	["on wall L: ", on_wall_left ? "true" : "false"],
+	["on wall R: ", on_wall_right ? "true" : "false"],
+	["foot tile L: ", on_wall_bottom_left ? "true" : "false"],
+	["foot tile R: ", on_wall_bottom_right ? "true" : "false"],
+	];
