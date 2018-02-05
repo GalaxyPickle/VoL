@@ -28,7 +28,7 @@ window_center();
 #macro FRICTION .5
 
 // debug mode stuff
-global.debug = true;
+global.debug = false;
 global.text = false;
 global.hitboxes = false;
 global.godmode = false;

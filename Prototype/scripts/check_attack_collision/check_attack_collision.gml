@@ -3,7 +3,7 @@
 /// @param o_enemy
 var enemy = argument[0];
 
-if enemy == noone
+if enemy == noone || enemy == undefined || enemy == pointer_null
 	exit;
 
 var sweetspot = false;

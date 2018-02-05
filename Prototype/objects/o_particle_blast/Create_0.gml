@@ -1,43 +1,23 @@
-/// @description setup for BLASTING
+stream = part_system_create()
+//part_system_depth(stream,1000)
 
-// create the particle system
-part_system_blast = part_system_create();
+p_type = part_type_create()
+part_type_sprite(stream,pt_shape_square,0,0,1)
+part_type_size(stream,0.01,2,0.01,0)
+part_type_alpha2(stream,1,0)
+part_type_color2(stream,c_white,c_red)
 
-// create a particle piece
-blast_particle = part_type_create();
+part_type_direction(stream,0,0,0,0)
+part_type_speed(stream,5,10,0,0)
+part_type_life(stream,60,120)
 
-// set size and shape and variety
-part_type_shape(blast_particle, pt_shape_square);
-part_type_scale(blast_particle,1,1);
-part_type_size(blast_particle, 0.10, 0.15, -0.001, 0);
+part_system_automatic_draw(stream,false);
 
-// set fade color over time
-part_type_color2(blast_particle, c_red, c_yellow);
+alarm[0] = room_speed;
 
-// set alpha fade over time
-part_type_alpha2(blast_particle, 1, 0.75);
-
-// set starting speed
-part_type_speed(blast_particle, 0.1, 0.5, 0, 0);
-
-// set direction on start
-part_type_direction(first_particle, 0, 359, 0, 0);
-
-// set gravity
-part_type_gravity(first_particle, 0.02, -90);
-
-// set rotation over time
-part_type_orientation(first_particle, 0, 359, random_range(-10, 10), 0, true);
-
-// set lifetime of particles
-part_type_life(first_particle, 100, 150);
-
-// set blending into other particles
-part_type_blend(first_particle,true);
-
-part_emitter_region(MouseParticle,green_mouse_emitter,x,x,y,y,0,0);
- 
-if x != old_x || old_y != y
-{
-    part_emitter_burst(MouseParticle,green_mouse_emitter,green_mouse_particle,5);
-}
+p_emitter = part_emitter_create(stream);
+part_emitter_region(stream, p_emitter, 
+	x - camera_get_view_x(view_camera[0]), x - camera_get_view_x(view_camera[0]), 
+	y - camera_get_view_y(view_camera[0]), y - camera_get_view_y(view_camera[0]), 
+	ps_shape_ellipse, ps_distr_gaussian);
+part_emitter_burst(stream, p_emitter, p_type, 30 + irandom(30));

@@ -2281,6 +2281,25 @@
             }
         },
         {
+            "Key": "96cc4b86-56e1-43e0-9a7f-1ce6072f8c08",
+            "Value": {
+                "id": "3304c807-65fd-48ff-aff1-c78bcdfa5373",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "objects\/o_particle_blast_old\/o_particle_blast_old.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "975fe782-c481-4430-a8f9-cf7e151fce17",
             "Value": {
                 "id": "2efed8f5-fa2c-48f6-be96-b005369003b7",
@@ -3725,6 +3744,25 @@
             }
         },
         {
+            "Key": "e954c83e-05b0-40ba-923d-8165f4341b4b",
+            "Value": {
+                "id": "ff402f7b-2cf6-40ac-bc90-a45b38276d43",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "objects\/o_effects_manager\/o_effects_manager.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "ead9ecdc-16ed-44a2-b3ba-4ecfa4965a83",
             "Value": {
                 "id": "50d26cb0-90f0-4dd9-b818-aa0e42e9381b",
@@ -3980,7 +4018,6 @@
         "44efdb6a-935c-42c0-aaad-8563727d5014",
         "e7de50f6-34d9-479f-a6e5-7cd467cfa732",
         "5c71e96e-50d2-4b98-9807-e529ff9f4508",
-        "79e07765-6a7d-440c-afe8-c2c11a23a15c",
         "1964554d-323c-4bad-bb31-dd497a30a6ae",
         "4ce36839-8e2f-4e5d-888b-95780638ea12",
         "47958522-fdb2-443f-a989-af05e3de3e72",
@@ -4006,6 +4043,7 @@
         "199e2e79-56e1-4631-9f3b-e78428cb373e",
         "4799ce4d-3ad8-4dff-869e-6fc7dc117332",
         "d3119d1d-57af-4f38-bad6-09dc4c0f3a40",
+        "79e07765-6a7d-440c-afe8-c2c11a23a15c",
         "c08e5920-c1df-4950-8fa0-c14aa3b9035a",
         "39ec3f98-ef18-4bd4-8e5f-789ffb868e3b",
         "8914d125-90d1-4161-aa16-47ad0ecbfb68",

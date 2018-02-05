@@ -94,14 +94,13 @@ if starting {
 	audio_play_sound_on(s_emit, current_attack_sound, false, 1);
 }
 
-
 // check for enemy in range
 for (var i = 0; i < array_length_1d(nearest_enemy); i++) {
 	
 	var enemy = nearest_enemy[i];
 	
 	if enemy == undefined || enemy == pointer_null || enemy == noone
-		exit;
+		continue;
 	
 	// returns [found?, sweetspot?, headshot?]
 	var hit_array = check_attack_collision(enemy);

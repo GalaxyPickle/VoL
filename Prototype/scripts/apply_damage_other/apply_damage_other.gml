@@ -70,7 +70,7 @@ if o_other.poise <= 0 || headshot {
 	o_other.starting = true;
 }
 else {	// just launch them a little after being hit
-	o_other.velocity = [ image_xscale * TILE_SIZE * 2, 0 ]; 
+	o_other.velocity = [ image_xscale * TILE_SIZE, 0 ]; 
 	
 }
 
@@ -81,11 +81,18 @@ if !NPC {
 // get the tilemap id
 var layer_id = layer_get_id("layer_instance_popups");
 
+/////////////////////////////////////////////////////////////
 // show the particle explosion!!!!
-// var particle_blast = instance_create_layer(o_other.x, o_other.hitbox_head_top + irandom(bbox_top - bbox_bottom), layer_id, o_particle_blast);
-	
+/*
+if headshot
+	var part_top = o_other.hitbox_head_top;
+else var part_top = o_other.y;
 
-	
+var particle_blast = instance_create_layer(o_other.x, 
+	part_top, layer_id, o_particle_blast);
+*/
+
+/////////////////////////////////////////////////////////////
 // show the damage popup!!!!
 var damage_popup = instance_create_layer(o_other.x, o_other.hitbox_head_top, layer_id, o_damage_popup);
 
