@@ -6,11 +6,11 @@ if !global.pause
 
 var ds_grid = menu_pages[page], ds_height = ds_grid_height(ds_grid);
 var y_buffer = 32, x_buffer = 16;
-var start_y = gheight / 2 - (ds_height - 1) / 2 * y_buffer, start_x = GAME_WIDTH / 2;
+var start_y = gheight / 2 - (ds_height - 1) / 2 * y_buffer, start_x = global.game_width / 2;
 	
 // draw pause menu "back"
 var c = c_black;
-draw_rectangle_color(0, 0, GAME_WIDTH, GAME_HEIGHT, c, c, c, c, false);
+draw_rectangle_color(0, 0, global.game_width, global.game_height, c, c, c, c, false);
 
 
 // draw elements on left side

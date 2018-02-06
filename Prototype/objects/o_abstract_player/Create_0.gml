@@ -3,10 +3,16 @@
 event_inherited();
 
 NPC = false;
+
+// set a light source on the player
+light_source = instance_create_layer(x, y, "layer_instance_lights", o_light_source);
+light_source.owner = self;
+light_source.tilemap = collision_tile_map_id;
+light_source.radius = 350;
+
 enemy_list = [o_reptilian_large];
 
 draw_my_healthbars = false;
-
 move = true;
 
 ////////////////////////////////////
@@ -206,15 +212,15 @@ attack_air_2_stats = [
 ////////////////////////////////////
 #region
 
-key_right = KEY_RIGHT;
-key_left = KEY_LEFT;
-key_up = KEY_UP;
-key_down = KEY_DOWN;
-key_jump = KEY_JUMP;
+key_right = global.key_right;
+key_left = global.key_left;
+key_up = global.key_up;
+key_down = global.key_down;
+key_jump = global.key_jump;
 
-key_attack = KEY_ATTACK;
-key_dodge = KEY_DODGE;
-key_special = KEY_SPECIAL;
+key_attack = global.key_attack;
+key_dodge = global.key_dodge;
+key_special = global.key_special;
 
 ////////////////////////////////////
 // physics & collisions constants

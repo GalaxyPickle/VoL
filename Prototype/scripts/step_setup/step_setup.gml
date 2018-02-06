@@ -74,7 +74,7 @@ if true {
 
 // apply gravity
 if velocity[vel_y] < max_velocity_y
-	velocity[vel_y] += GRAVITY;
+	velocity[vel_y] += global.GRAVITY;
 
 // move and contact tiles!
 move_and_contact_tiles(collision_tile_map_id, TILE_SIZE, velocity);

@@ -5,6 +5,7 @@ global.pause = false;
 
 title = "Veins of Light";
 subtitle = DEV_NAME + " " + VERSION;
+start_room = r_boss_level_test;
 
 // array of options
 menu[0] = "Start";

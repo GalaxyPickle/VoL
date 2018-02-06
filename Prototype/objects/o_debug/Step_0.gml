@@ -34,4 +34,6 @@ debug_message =
 [
 	"FPS: " + string(fps),
 	"GODMODE: " + (global.godmode ? "ACTIVE" : "INACTIVE"),
+	"Camera view y: " + string(o_camera.y - global.game_height),
+	"Camera view x: " + string(o_camera.x - global.game_width),
 ];

@@ -1,5 +1,6 @@
 /// @description draw shaders and self
 
+// draw an outline around me
 var upixelH = shader_get_uniform(sh_outline, "pixelH");
 var upixelW = shader_get_uniform(sh_outline, "pixelW");
 var texelW = 1 * texture_get_texel_width(sprite_get_texture(sprite_index, image_index));

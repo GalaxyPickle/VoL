@@ -16,8 +16,10 @@ helper_text =
 	"T - toggle text",
 	"",
 	"Movement: ARROW KEYS",
+	"Jump: Space",
 	"Attack: F",
 	"Dodge: D",
+	"Special: S",
 ];
 
 

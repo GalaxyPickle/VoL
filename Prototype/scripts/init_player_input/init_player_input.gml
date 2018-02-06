@@ -5,18 +5,18 @@
 //////////////////////////////
 
 // input controls
-#macro KEY_ESCAPE vk_escape
-#macro KEY_ENTER vk_enter
+global.key_back = vk_escape;
+global.key_enter = vk_enter;
 
 // movement controls
-#macro KEY_LEFT		vk_left
-#macro KEY_RIGHT	vk_right
-#macro KEY_UP		vk_up
-#macro KEY_DOWN		vk_down
+global.key_left = vk_left;
+global.key_right = vk_right;
+global.key_up = vk_up;
+global.key_down = vk_down;
 
-#macro KEY_JUMP		vk_up
+global.key_jump = vk_up;
 
 // combat controls
-#macro KEY_ATTACK	ord("F")
-#macro KEY_DODGE	ord("D")
-#macro KEY_SPECIAL	ord("S")
+global.key_attack = ord("F");
+global.key_dodge = ord("D");
+global.key_special = ord("S");

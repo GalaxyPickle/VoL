@@ -1,5 +1,6 @@
 /// @description draw damage popup
 
+/*
 var draw_font = f_menu;
 
 var upixelH = shader_get_uniform(sh_outline, "pixelH");

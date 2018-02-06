@@ -28,7 +28,7 @@ draw_rectangle(0, 0, surface_get_width(application_surface),
 	surface_get_height(application_surface), false);
 
 // player surfs with arrows and clamp movment to options
-anim += keyboard_check_pressed(KEY_DOWN) - keyboard_check_pressed(KEY_UP);
+anim += keyboard_check_pressed(global.key_down) - keyboard_check_pressed(global.key_up);
 anim = clamp(anim, 0, array_length_1d(menu) - 1);
 
 anim_n = reach_tween(anim_n, anim, tween_amount);

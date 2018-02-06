@@ -33,6 +33,7 @@ sprite_set_speed(s_reptilian_attack_ground_2, .3, spritespeed_framespergameframe
 //////////////////////////////////////////////
 
 // movement sprites
+sprite_set_speed(s_mushroom_parent_rest, .03, spritespeed_framespergameframe);
 sprite_set_speed(s_mushroom_parent_run, .3, spritespeed_framespergameframe);
 
 // attack sprites

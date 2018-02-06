@@ -2,13 +2,14 @@
 
 // get all parallax layer ids
 var bg0_id = layer_get_id("layer_bg");
-var bg1_id = layer_get_id("layer_bg_front");
+var bg1_id = layer_get_id("layer_asset_bg_back");
+var bg2_id = layer_get_id("layer_asset_bg_middle");
+var bg3_id = layer_get_id("layer_asset_bg_front");
 
-var bg0_shift = 5;
-var bg1_shift = 2;
+var parallax_list = [bg0_id, bg1_id, bg2_id, bg3_id];
 
-layer_x(bg0_id, x / bg0_shift);
-layer_y(bg0_id, y / bg0_shift);
+var parallax_start = 5;
 
-layer_x(bg1_id, (x - xstart) / bg1_shift);
-layer_y(bg1_id, (y - ystart) / bg1_shift);
+for (var i = 0; i < array_length_1d(parallax_list); i++) {
+	layer_x( parallax_list[i], (x - xstart) / (parallax_start - i / array_length_1d(parallax_list)) );
+}

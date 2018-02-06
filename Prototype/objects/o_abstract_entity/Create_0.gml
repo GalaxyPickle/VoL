@@ -169,8 +169,8 @@ key_special = false;
 #region
 
 max_velocity_y = TILE_SIZE - 1;
-horizontal_acceleration = ACCELERATION;
-horizontal_friction = FRICTION;
+horizontal_acceleration = global.ACCELERATION;
+horizontal_friction = global.FRICTION;
 
 on_ground = false;
 on_wall = false;
