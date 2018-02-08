@@ -8,7 +8,7 @@ NPC = false;
 light_source = instance_create_layer(x, y, "layer_instance_lights", o_light_source);
 light_source.owner = self;
 light_source.tilemap = collision_tile_map_id;
-light_source.radius = 350;
+light_source.radius = 400;
 
 enemy_list = [o_reptilian_large];
 
@@ -27,13 +27,15 @@ head_hitbox_offset = 28;
 // movement sprites
 sprite_rest = s_player_rest;
 sprite_run = s_player_run;
+sprite_recover = s_player_air;
 
-sprite_air = s_player_jump;
-sprite_walljump = s_player_walljump;
+sprite_air = s_player_air;
+sprite_walljump = s_player_air_mirror;
+sprite_jump = s_player_roll;
 
 // other event sprites
 sprite_pain = s_player_pain;
-sprite_dodge = s_player_dodge;
+sprite_dodge = s_player_roll;
 sprite_special = s_enemy_default;
 
 // attack sprites
@@ -235,7 +237,7 @@ max_velocity_x = 8;
 ////////////////////////////////////
 #region
 
-dodge_launch = TILE_SIZE - 12;
+dodge_launch = TILE_SIZE - 16;
 dodge_stamina_cost = 0;
 
 // VITALITY

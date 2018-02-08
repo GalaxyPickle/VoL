@@ -9,7 +9,7 @@
         "a57a7dd1-1903-4549-bf14-e835e1bfb661"
     ],
     "filterType": "GMSprite",
-    "folderName": "sprites",
+    "folderName": "decoration",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

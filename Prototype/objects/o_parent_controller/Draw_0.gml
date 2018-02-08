@@ -1,4 +1,4 @@
-/// @description cast shadows!!!
+/// @description draw the object!!!
 
 for (var i = 0; i < array_length_1d(object_list); i++) {
 

@@ -3,6 +3,7 @@
 key_debug = vk_f1;
 key_room_restart = vk_f2;
 key_godmode = vk_f3;
+
 key_hitbox = ord("H");
 key_text = ord("T");
 

@@ -24,6 +24,10 @@ if ds_queue_size(input_queue) < queue_max {
 		ds_queue_enqueue(input_queue, states.special);
 }
 
+if !ds_queue_empty(input_queue) && just_landed {
+	ds_queue_clear(input_queue);	
+}
+
 // first off, restart dequeue alarm every .3 seconds
 if alarm[11] == -1
 	alarm[11] = room_speed / 2;

@@ -80,17 +80,16 @@ if !NPC {
 
 // get the tilemap id
 var layer_id = layer_get_id("layer_instance_popups");
+var particle_layer = layer_get_id("layer_instance_particles");
 
 /////////////////////////////////////////////////////////////
 // show the particle explosion!!!!
-/*
 if headshot
 	var part_top = o_other.hitbox_head_top;
 else var part_top = o_other.y;
 
 var particle_blast = instance_create_layer(o_other.x, 
-	part_top, layer_id, o_particle_blast);
-*/
+	part_top, particle_layer, o_particle_blast);
 
 /////////////////////////////////////////////////////////////
 // show the damage popup!!!!

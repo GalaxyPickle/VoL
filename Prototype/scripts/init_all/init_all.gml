@@ -5,7 +5,7 @@
 /////////////////////////////////////////
 
 #macro DEV_NAME "pre-alpha"
-#macro VERSION "1.1"
+#macro VERSION "1.2"
 
 // game resolution
 global.window_width = 1280;

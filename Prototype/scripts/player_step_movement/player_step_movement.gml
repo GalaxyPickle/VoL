@@ -10,6 +10,13 @@ if !pause_input
 
 // ground movement
 if on_ground {
+	
+	if just_landed {
+		pause_input_start = true;
+		sprite_index = sprite_recover;
+		current_state = states.recover;
+	}
+	
 	// set ground sprites
 	if x_direction != 0 {
 		sprite_index = sprite_run;

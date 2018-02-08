@@ -1,23 +1,41 @@
-stream = part_system_create()
-//part_system_depth(stream,1000)
+// make a particle system
+FirstParticleSystem = part_system_create();
 
-p_type = part_type_create()
-part_type_sprite(stream,pt_shape_square,0,0,1)
-part_type_size(stream,0.01,2,0.01,0)
-part_type_alpha2(stream,1,0)
-part_type_color2(stream,c_white,c_red)
+// make a particle type to use with the system
+first_particle = part_type_create();
 
-part_type_direction(stream,0,0,0,0)
-part_type_speed(stream,5,10,0,0)
-part_type_life(stream,60,120)
+// set the shape of the particle
+part_type_shape(first_particle, pt_shape_square);
+// set the scale of the particle
+part_type_scale(first_particle, 1, 1);
+// set the size over time
+part_type_size(first_particle, 0.05, 0.1, -0.005, 0);
+// set the color over time
+part_type_color1(first_particle, c_red);
+// set the alpha over time
+part_type_alpha2(first_particle, 1, 0.7);
+// set the speed over time
+part_type_speed(first_particle, .5, 2, 0, 0);
+// set the direction in degrees
+part_type_direction(first_particle, 60, 120, 0, 0);
+// set the gravity and direction in degrees
+part_type_gravity(first_particle, 0.05, -90);
+// orientation???
+part_type_orientation(first_particle, 0, 359, 10, 0, true);
+// particle life in game frames
+part_type_life(first_particle, 80, 120);
+// blend the particles
+part_type_blend(first_particle, true);
 
-part_system_automatic_draw(stream,false);
-
-alarm[0] = room_speed;
-
-p_emitter = part_emitter_create(stream);
-part_emitter_region(stream, p_emitter, 
-	x - camera_get_view_x(view_camera[0]), x - camera_get_view_x(view_camera[0]), 
-	y - camera_get_view_y(view_camera[0]), y - camera_get_view_y(view_camera[0]), 
+// create an emitter
+first_emitter = part_emitter_create(FirstParticleSystem);
+// set the emitter region
+part_emitter_region(FirstParticleSystem, first_emitter,
+	x - 5, x + 5, y - 5, y + 5,
 	ps_shape_ellipse, ps_distr_gaussian);
-part_emitter_burst(stream, p_emitter, p_type, 30 + irandom(30));
+
+// make a burst from the emitter
+part_emitter_burst(FirstParticleSystem, first_emitter, first_particle, 10 + random(10));
+
+part_system_automatic_update(FirstParticleSystem, false);
+part_system_automatic_draw(FirstParticleSystem, false);

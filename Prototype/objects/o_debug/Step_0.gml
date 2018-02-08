@@ -7,7 +7,7 @@ if keyboard_check_pressed(key_debug) {
 if keyboard_check_pressed(key_room_restart) {
 	score = 0;
 	audio_stop_all();
-	room_restart();	
+	room_restart();
 }
 if keyboard_check_pressed(key_godmode) {
 	global.godmode = !global.godmode;
@@ -18,7 +18,7 @@ if keyboard_check_pressed(key_hitbox) {
 	global.hitboxes = !global.hitboxes;
 }
 if keyboard_check_pressed(key_text) {
-	global.text = !global.text;	
+	global.text = !global.text;
 }
 
 // show debug overlay

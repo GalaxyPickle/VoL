@@ -38,6 +38,10 @@ on_wall_bottom_right = tile_collide_at_points(collision_tile_map_id,
 	
 on_wall = on_wall_left || on_wall_right || on_wall_bottom_left || on_wall_bottom_right;
 
+if on_ground && yprevious < y {
+	just_landed = true;	
+}
+
 ////////////////////////////////////////////////////////////////////////////
 // 2. physics stuff
 ////////////////////////////////////////////////////////////////////////////

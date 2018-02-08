@@ -12,7 +12,8 @@ display_reset(0, false);
 
 // set camera view matrices
 magic_number = -10;
-glide_rate = 5;
+// less = faster
+glide_rate = 2;
 
 shake_rate = 5;
 shaking = false;

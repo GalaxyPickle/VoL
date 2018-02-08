@@ -6,12 +6,12 @@ var light_object = argument0;
 
 with (light_object) {
 
-	if( !surface_exists(surf) ){
-		surf = surface_create(other.camera_width, other.camera_height);
+	if( !surface_exists(other.surf) ){
+		other.surf = surface_create(other.camera_width, other.camera_height);
 	}
 
 	// set target surface
-	surface_set_target(surf);
+	surface_set_target(other.surf);
 	draw_clear_alpha(0,0);
 
 	/*
@@ -59,6 +59,6 @@ with (light_object) {
 	surface_reset_target();
 	shader_set(sh_light_radius);
 	shader_set_uniform_f( LightPosRadius, x, y, radius, 0.0 );
-	draw_surface( surf, other.camera_x, other.camera_y );
+	draw_surface( other.surf, other.camera_x, other.camera_y );
 	shader_reset();
 }

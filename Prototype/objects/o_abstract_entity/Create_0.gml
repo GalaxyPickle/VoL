@@ -35,6 +35,8 @@ sprite_rest = s_enemy_default;
 sprite_run = s_enemy_default;
 sprite_air = s_enemy_default;
 sprite_walljump = s_enemy_default;
+sprite_jump = s_enemy_default;
+sprite_recover = s_enemy_default;
 
 // other event sprites
 sprite_pain = s_enemy_default;
@@ -173,6 +175,7 @@ horizontal_acceleration = global.ACCELERATION;
 horizontal_friction = global.FRICTION;
 
 on_ground = false;
+just_landed = false;
 on_wall = false;
 
 on_wall_left = false;
