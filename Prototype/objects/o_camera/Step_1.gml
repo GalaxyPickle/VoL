@@ -23,3 +23,11 @@ if window_get_width() != global.window_width ||
 	display_set_gui_size(global.window_width, global.window_height);
 	display_reset(0, false);
 }
+
+application_surface_enable(false);
+
+if surface_get_width(application_surface) != global.window_width ||
+	surface_get_height(application_surface) != global.window_height 
+{
+	surface_resize(application_surface, global.window_width, global.window_height);	
+}

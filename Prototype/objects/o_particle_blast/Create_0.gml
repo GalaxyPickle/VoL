@@ -36,6 +36,3 @@ part_emitter_region(FirstParticleSystem, first_emitter,
 
 // make a burst from the emitter
 part_emitter_burst(FirstParticleSystem, first_emitter, first_particle, 10 + random(10));
-
-part_system_automatic_update(FirstParticleSystem, false);
-part_system_automatic_draw(FirstParticleSystem, false);

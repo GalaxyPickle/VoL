@@ -25,10 +25,10 @@ window_center();
 // physics stuff
 global.GRAVITY = 0.5;
 global.FRICTION = 0.5;
-global.ACCELERATION = .5;
+global.ACCELERATION = 0.5;
 
 // debug mode stuff
-global.debug = false;
+global.debug = true;
 global.text = false;
 global.hitboxes = false;
 global.godmode = false;
@@ -39,7 +39,11 @@ randomize();
 global.pause = false;
 global.gameover = false;
 global.mute = false;
+
 score = 0;
+
+// settinggs
+global.shader_outline = false;
 
 // initialize surfaces for drawing
 init_surfaces();

@@ -6,10 +6,10 @@
     "For3D": false,
     "HTile": false,
     "VTile": false,
-    "bbox_bottom": 97,
-    "bbox_left": 38,
-    "bbox_right": 83,
-    "bbox_top": 29,
+    "bbox_bottom": 68,
+    "bbox_left": 0,
+    "bbox_right": 45,
+    "bbox_top": 0,
     "bboxmode": 0,
     "colkind": 1,
     "coltolerance": 0,
@@ -55,13 +55,6 @@
                     "mvc": "1.0",
                     "FrameId": "f81e8cc7-9e42-4405-a077-8dcf9c1952e9",
                     "LayerId": "66113e5a-b766-4a55-b999-aa532279b2d2"
-                },
-                {
-                    "id": "65769162-a533-4771-aa00-37b64c2abd8f",
-                    "modelName": "GMSpriteImage",
-                    "mvc": "1.0",
-                    "FrameId": "f81e8cc7-9e42-4405-a077-8dcf9c1952e9",
-                    "LayerId": "4bb6b72d-10b9-4e47-bf50-f63d2dfc2127"
                 },
                 {
                     "id": "f379d8e9-76c4-438c-a7d4-379bdada7f03",
@@ -161,20 +154,13 @@
                     "mvc": "1.0",
                     "FrameId": "4e70f39c-72c0-4399-abc5-52e059be7c10",
                     "LayerId": "ea30ac97-ae42-427a-b4c5-81cae0d34de5"
-                },
-                {
-                    "id": "2cc8af2f-470b-43be-95d6-d91caf711d53",
-                    "modelName": "GMSpriteImage",
-                    "mvc": "1.0",
-                    "FrameId": "4e70f39c-72c0-4399-abc5-52e059be7c10",
-                    "LayerId": "4bb6b72d-10b9-4e47-bf50-f63d2dfc2127"
                 }
             ]
         }
     ],
     "gridX": 0,
     "gridY": 0,
-    "height": 128,
+    "height": 69,
     "layers": [
         {
             "id": "0d3fb154-26c5-414f-8a66-fa5e4b4f3732",
@@ -277,17 +263,6 @@
                     "visible": true
                 }
             ]
-        },
-        {
-            "id": "4bb6b72d-10b9-4e47-bf50-f63d2dfc2127",
-            "modelName": "GMImageLayer",
-            "mvc": "1.0",
-            "SpriteId": "1939f549-4c4e-4131-b57e-10567b43a5e7",
-            "blendMode": 0,
-            "isLocked": false,
-            "name": "cape lol",
-            "opacity": 100,
-            "visible": false
         }
     ],
     "origin": 4,
@@ -298,9 +273,9 @@
     "sepmasks": false,
     "swatchColours": null,
     "swfPrecision": 2.525,
-    "textureGroupId": "1225f6b0-ac20-43bd-a82e-be73fa0b6f4f",
+    "textureGroupId": "f3ddbf6d-1392-448c-89e0-ee773126a8b2",
     "type": 0,
-    "width": 128,
-    "xorig": 64,
-    "yorig": 64
+    "width": 46,
+    "xorig": 23,
+    "yorig": 34
 }

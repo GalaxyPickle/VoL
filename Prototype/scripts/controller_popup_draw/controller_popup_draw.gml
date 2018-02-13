@@ -8,6 +8,23 @@ var popup_object = argument0;
 with (popup_object) {
 			
 	var draw_font = f_menu;
+	
+	if !global.shader_outline {
+		draw_set_font(draw_font);
+	
+		if damage >= damage_size_max {
+			if flash
+				flash_color = c_white;
+			else flash_color = c_red;
+		}
+		else flash_color = c_red;
+	
+		draw_text_transformed_color(
+			x, --y, "-" + string(damage), size, size, rotation,
+			flash_color, flash_color, flash_color, flash_color, alpha);	
+		
+		exit;
+	}
 
 	var upixelH = shader_get_uniform(sh_outline, "pixelH");
 	var upixelW = shader_get_uniform(sh_outline, "pixelW");

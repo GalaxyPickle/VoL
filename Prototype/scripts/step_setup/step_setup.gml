@@ -49,7 +49,11 @@ if on_ground && yprevious < y {
 // apply friction
 if on_ground {
 	if (x_direction == 0 || !move) && current_state == states.idle {
-		velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction);
+		velocity[vel_x] = 0;
+		//velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction);
+	}
+	else if ( x_direction != 0 && sign(x_direction) != sign(velocity[vel_x]) ) {
+		velocity[vel_x] = 0;
 	}
 	else if current_state == states.pain {
 	velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction / 2);
