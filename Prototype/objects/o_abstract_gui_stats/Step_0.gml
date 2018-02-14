@@ -21,6 +21,7 @@ draw_variables = [
 	["x: ", x], 
 	["y: ", y], 
 	["state: ", current_state_string],
+	["AI state: ", NPC ? AI_goal : "NaN"],
 	["on ground: ", on_ground ? "true" : "false"],
 	["on wall: ", on_wall ? "true" : "false"],
 	["nearest enemies: ", nearest_enemy]

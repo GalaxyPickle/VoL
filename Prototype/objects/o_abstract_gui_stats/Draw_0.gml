@@ -1,9 +1,15 @@
 /// @description draw shaders and self
 
+if !global.shader_outline {
+	draw_self();
+	exit;
+}
+
+// draw an outline around me
 var upixelH = shader_get_uniform(sh_outline, "pixelH");
 var upixelW = shader_get_uniform(sh_outline, "pixelW");
-var texelW = 1 * texture_get_texel_width(sprite_get_texture(sprite_index, image_index));
-var texelH = 1 * texture_get_texel_height(sprite_get_texture(sprite_index, image_index));
+var texelW = texture_get_texel_width(sprite_get_texture(s_player_air, 0));
+var texelH = texture_get_texel_height(sprite_get_texture(s_player_air, 0));
 
 if shader_is_compiled(sh_outline) {
 	shader_set(sh_outline);

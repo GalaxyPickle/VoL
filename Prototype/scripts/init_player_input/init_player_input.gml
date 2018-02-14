@@ -1,22 +1,55 @@
 ///@description initialize player constants / globals
 
 ///////////////////////////////
-// player constants / globals
+// keyboard input
 //////////////////////////////
 
 // input controls
-#macro KEY_ESCAPE vk_escape
-#macro KEY_ENTER vk_enter
+global.key_escape = vk_escape;
+global.key_enter = vk_enter;
 
 // movement controls
-#macro KEY_LEFT		vk_left
-#macro KEY_RIGHT	vk_right
-#macro KEY_UP		vk_up
-#macro KEY_DOWN		vk_down
+global.key_left = vk_left;
+global.key_right = vk_right;
+global.key_up = vk_up;
+global.key_down = vk_down;
 
-#macro KEY_JUMP		vk_up
+global.key_jump = vk_space;
 
 // combat controls
-#macro KEY_ATTACK	ord("F")
-#macro KEY_DODGE	ord("D")
-#macro KEY_SPECIAL	ord("S")
+global.key_attack = ord("F");
+global.key_dodge = ord("D");
+global.key_special = ord("S");
+
+///////////////////////////////
+// gamepad input
+//////////////////////////////
+
+// navigation
+global.gp_key_escape = gp_select;
+global.gp_key_enter = gp_start;
+
+// movement
+global.gp_key_horizontal = gp_axislh;
+global.gp_key_vertical = gp_axislv;
+
+global.gp_key_jump = gp_face1;
+
+// combat
+global.gp_key_attack = gp_shoulderr;
+global.gp_key_dodge = gp_face2;
+global.gp_key_special = gp_face4;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

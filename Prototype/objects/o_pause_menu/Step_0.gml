@@ -19,7 +19,7 @@ if global.gameover {
 	exit;
 }
 
-if global.pause && keyboard_check_released(KEY_ENTER) {
+if global.pause && keyboard_check_released(global.key_enter) {
 	
 	switch current_option {	
 		case 0:	// resume game
@@ -34,7 +34,7 @@ if global.pause && keyboard_check_released(KEY_ENTER) {
 	}
 }
 
-if keyboard_check_pressed(KEY_ESCAPE) {
+if keyboard_check_pressed(global.key_escape) {
 	global.pause = !global.pause;
 	
 	// if paused take a screenshot of the game and set it as the bg

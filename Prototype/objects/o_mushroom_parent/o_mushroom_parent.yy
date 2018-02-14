@@ -5,16 +5,6 @@
     "name": "o_mushroom_parent",
     "eventList": [
         {
-            "id": "7d5edaae-9b78-4530-a6e7-db7032a747e5",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 3,
-            "m_owner": "3794c01b-eb74-4ed1-b86c-f6ab991d5073"
-        },
-        {
             "id": "dd2980a5-762e-4817-ab6f-6f59eddc217a",
             "modelName": "GMEvent",
             "mvc": "1.0",

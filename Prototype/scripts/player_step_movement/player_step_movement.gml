@@ -4,12 +4,28 @@ var x_input = x_direction * horizontal_acceleration;
 var vector2_x = 0;
 var vector2_y = 1;
 
+if gamepad_input {
+	var jump_key_pressed = keyboard_check_pressed(key_jump) || gamepad_button_check_pressed(0, gp_jump);
+	var jump_key_released = keyboard_check_pressed(key_jump) || gamepad_button_check_released(0, gp_jump);
+}
+else {
+	var jump_key_pressed = keyboard_check_pressed(key_jump);
+	var jump_key_released = keyboard_check_pressed(key_jump);
+}
+
 // horizontal movement
 if !pause_input
 	velocity[vector2_x] = clamp( velocity[vector2_x] + x_input, -max_velocity_x, max_velocity_x);
 
 // ground movement
 if on_ground {
+	
+	if just_landed {
+		pause_input_start = true;
+		sprite_index = sprite_recover;
+		current_state = states.recover;
+	}
+	
 	// set ground sprites
 	if x_direction != 0 {
 		sprite_index = sprite_run;
@@ -24,7 +40,7 @@ if on_ground {
 	}
 	
 	// jumping
-	if keyboard_check_pressed(key_jump) && stamina >= jump_stamina_cost {
+	if jump_key_pressed && stamina >= jump_stamina_cost {
 		velocity[vector2_y] = -jump_speed_y;
 		stamina -= jump_stamina_cost;
 		
@@ -38,7 +54,7 @@ else if on_wall_left || on_wall_right {
 	sprite_index = sprite_walljump;
 	
 	// jumping
-	if keyboard_check_pressed(key_jump) && stamina >= jump_stamina_cost {
+	if jump_key_pressed && stamina >= jump_stamina_cost {
 		
 		// make player face opposite direction after jumping
 		if on_wall_left
@@ -59,7 +75,7 @@ else {
 	// set jump sprite
 	sprite_index = sprite_air;
 	
-	if keyboard_check_released(key_jump) && velocity[vector2_y] <= -(jump_speed_y / 3) {
+	if jump_key_released && velocity[vector2_y] <= -(jump_speed_y / 3) {
 		velocity[vector2_y] = -(jump_speed_y / 3);
 	}
 }

@@ -3,10 +3,20 @@
 event_inherited();
 
 NPC = false;
+gamepad_input = false;
+
+// set a light source on the player
+light_source = instance_create_layer(x, y, "layer_instance_lights", o_light_source);
+light_source.owner = self;
+light_source.tilemap = collision_tile_map_id;
+light_source.radius = 400;
+
 enemy_list = [o_reptilian_large];
 
-draw_my_healthbars = false;
+sprite_special_effect = s_player_laser_front;
+special_damage = 500;
 
+draw_my_healthbars = false;
 move = true;
 
 ////////////////////////////////////
@@ -21,14 +31,16 @@ head_hitbox_offset = 28;
 // movement sprites
 sprite_rest = s_player_rest;
 sprite_run = s_player_run;
+sprite_recover = s_player_air;
 
-sprite_air = s_player_jump;
-sprite_walljump = s_player_walljump;
+sprite_air = s_player_air;
+sprite_walljump = s_player_air_mirror;
+sprite_jump = s_player_roll;
 
 // other event sprites
 sprite_pain = s_player_pain;
-sprite_dodge = s_player_dodge;
-sprite_special = s_enemy_default;
+sprite_dodge = s_player_roll;
+sprite_special = s_player_attack_special;
 
 // attack sprites
 sprite_attack_ground_1 = s_player_attack_ground_1;
@@ -60,6 +72,9 @@ sound_dodge = a_player_footstep;					// dodge sound
 sound_death = a_player_footstep;					// DEATH sound
 
 // attack sounds
+sound_special_warmup = a_sword_laser_warmup;
+sound_special = a_laser_blast;
+
 sound_attack_ground_1 = a_sword_slice_1;			// woosh of weapon sound
 sound_attack_charge_ground_1 = a_player_footstep;	// the charged up woosh of weapon sound
 
@@ -170,19 +185,27 @@ attack_air_2_point_array = [
 #region
 
 // these are the velocities and damages of the respective attack
+special_stats = [
+	[TILE_SIZE - 2, -10],
+	[500, 700],
+	0,
+	100,
+	0
+	];
+
 attack_ground_1_stats = [
 	[10, -5],	// velocity of attack to opponent if poise broken (default facing right)
 	[50, 80],	// default health damage of the attack (basic, sweet)
 	0,			// default stamina cost of the attack
 	10,			// default poise damage of the attack
-	2,			// default special amount increase from a successful attack
+	10,			// default special amount increase from a successful attack
 	];
 attack_ground_2_stats = [
 	[10, -10],
 	[70, 100],
 	0,
 	20,
-	3,
+	15,
 	];
 	
 attack_air_1_stats = [
@@ -190,14 +213,14 @@ attack_air_1_stats = [
 	[30, 60],
 	0,
 	15,
-	5,
+	25,
 	];
 attack_air_2_stats = [
 	[5, 5],
 	[50, 70],
 	0,
 	30,
-	7,
+	35,
 	];
 
 #endregion
@@ -206,15 +229,31 @@ attack_air_2_stats = [
 ////////////////////////////////////
 #region
 
-key_right = KEY_RIGHT;
-key_left = KEY_LEFT;
-key_up = KEY_UP;
-key_down = KEY_DOWN;
-key_jump = KEY_JUMP;
+// keyboard
+key_enter = global.key_enter;
+key_escape = global.key_escape;
 
-key_attack = KEY_ATTACK;
-key_dodge = KEY_DODGE;
-key_special = KEY_SPECIAL;
+key_right = global.key_right;
+key_left = global.key_left;
+key_up = global.key_up;
+key_down = global.key_down;
+
+key_jump = global.key_jump;
+key_attack = global.key_attack;
+key_dodge = global.key_dodge;
+key_special = global.key_special;
+
+// gamepad
+gp_enter = global.gp_key_enter;
+gp_escape = global.gp_key_escape;
+
+gp_horizontal = global.gp_key_horizontal;
+gp_vertical = global.gp_key_vertical;
+
+gp_jump = global.gp_key_jump;
+gp_attack = global.gp_key_attack;
+gp_dodge = global.gp_key_dodge;
+gp_special = global.gp_key_special;
 
 ////////////////////////////////////
 // physics & collisions constants
@@ -229,7 +268,7 @@ max_velocity_x = 8;
 ////////////////////////////////////
 #region
 
-dodge_launch = TILE_SIZE - 12;
+dodge_launch = TILE_SIZE - 16;
 dodge_stamina_cost = 0;
 
 // VITALITY
@@ -248,9 +287,9 @@ poise = poise_max;
 poise_regen = .08;
 
 // SPECIAL
-special_max = 100;
+special_max = 500;
 special = 0;
-special_regen = 0;
+special_regen = .05;
 
 #endregion
 ////////////////////////////////////

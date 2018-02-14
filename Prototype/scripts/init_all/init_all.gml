@@ -5,17 +5,17 @@
 /////////////////////////////////////////
 
 #macro DEV_NAME "pre-alpha"
-#macro VERSION "1.1"
+#macro VERSION "1.2"
 
 // game resolution
-#macro WINDOW_WIDTH 1280 //display_get_width()
-#macro WINDOW_HEIGHT 720 //display_get_height()
+global.window_width = 1280;
+global.window_height = 720;
 
-#macro ZOOM 2
-#macro ROOM_SPEED 60
+global.zoom = 2;
+global.game_speed = 60;
 
-#macro GAME_WIDTH WINDOW_WIDTH / ZOOM
-#macro GAME_HEIGHT WINDOW_HEIGHT / ZOOM
+global.game_width = global.window_width / global.zoom;
+global.game_height = global.window_height / global.zoom;
 
 window_center();
 
@@ -23,26 +23,34 @@ window_center();
 #macro TILE_SIZE 32
 
 // physics stuff
-#macro GRAVITY .5
-#macro ACCELERATION .5
-#macro FRICTION .5
+global.GRAVITY = 0.5;
+global.FRICTION = 0.5;
+global.ACCELERATION = 0.5;
 
 // debug mode stuff
-global.debug = false;
+global.debug = true;
 global.text = false;
 global.hitboxes = false;
 global.godmode = false;
 
-// player game stuff
+// make all random calls different each game run
 randomize();
 
 global.pause = false;
 global.gameover = false;
 global.mute = false;
-score = 0;
 
-// initialize camera stuff
-init_camera_and_view();
+score = 0;
+global.special = false;
+
+// settings
+global.shader_outline = false;
+if gamepad_is_supported()
+	global.gamepad = true;
+else global.gamepad = false;
+
+// initialize surfaces for drawing
+init_surfaces();
 
 // set sprite speed based on room speed
 init_sprites();
@@ -52,3 +60,8 @@ init_audio();
 
 // initialize player input values
 init_player_input();
+
+// init premade particle systems
+init_particle_system();
+
+// init the light system??

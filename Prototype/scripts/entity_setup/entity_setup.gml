@@ -33,3 +33,30 @@ special_ = [
 	];
 
 stat_array = [vitality_, stamina_, poise_, special_];
+
+///////////////////////////////////
+// NPC
+///////////////////////////////////
+if !NPC
+	exit;
+	
+// set proper AI scripts or stats for AI type
+switch AI {
+	case AI_type.enemy_boss: script_AI_goal = script_enemy_boss;
+		break;
+	case AI_type.enemy_aggressive: script_AI_goal = script_enemy_aggressive;
+		break;
+	case AI_type.enemy_cautious: script_AI_goal = script_enemy_cautious;
+		break;
+	case AI_type.friendly_follow: script_AI_goal = script_friendly_follow;
+		break;
+	case AI_type.friendly_meander: script_AI_goal = script_friendly_meander;
+		break;
+}
+
+
+
+
+
+
+

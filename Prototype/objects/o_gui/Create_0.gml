@@ -10,3 +10,10 @@ alpha = 1;
 alpha_default = 1;
 
 flash_max = 0.005;
+
+///////////// special
+
+special_full = false;
+flash_special = false;
+flash_special_time = room_speed / 20;
+alarm[0] = flash_special_time;

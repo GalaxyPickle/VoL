@@ -3,6 +3,7 @@
 key_debug = vk_f1;
 key_room_restart = vk_f2;
 key_godmode = vk_f3;
+
 key_hitbox = ord("H");
 key_text = ord("T");
 
@@ -16,8 +17,10 @@ helper_text =
 	"T - toggle text",
 	"",
 	"Movement: ARROW KEYS",
+	"Jump: Space",
 	"Attack: F",
 	"Dodge: D",
+	"Special: S",
 ];
 
 
