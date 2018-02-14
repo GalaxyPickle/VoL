@@ -16,11 +16,13 @@ helper_text =
 	"H - toggle hitboxes",
 	"T - toggle text",
 	"",
-	"Movement: ARROW KEYS",
-	"Jump: Space",
-	"Attack: F",
-	"Dodge: D",
-	"Special: S",
+	"Movement: Arrow Keys - Gamepad Joystick",
+	"Jump: Key Space - Button A",
+	"Attack: Key F - RBumper",
+	"Dodge: Key D - Button B",
+	"Special: Key S - Button Y",
+	"",
+	"*only xbox 360 gamepad supported",
 ];
 
 

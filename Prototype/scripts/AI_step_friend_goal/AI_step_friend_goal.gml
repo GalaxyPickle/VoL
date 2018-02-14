@@ -1,5 +1,8 @@
 /// @description either wander or follow player
 
+// set AI_goal_object
+AI_get_nearest_goal_object();
+
 // for every enemy in my list...
 for (var i = 0; i < array_length_1d(enemy_list); i++) {
 	
@@ -11,7 +14,7 @@ for (var i = 0; i < array_length_1d(enemy_list); i++) {
 			////////////////////////////////
 			// wander or follow player
 			////////////////////////////////
-			
+			AI_goal = AI_states.seek;
 				
 			////////////////////////////////
 			// end

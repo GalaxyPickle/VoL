@@ -36,5 +36,6 @@ debug_message =
 	"GODMODE: " + (global.godmode ? "active" : "inactive"),
 	"Camera view y: " + string(o_camera.y - global.game_height),
 	"Camera view x: " + string(o_camera.x - global.game_width),
+	"",
 	"Gamepad: " + (gamepad_is_connected(0) ? "connected" : "disconnected"),
 ];

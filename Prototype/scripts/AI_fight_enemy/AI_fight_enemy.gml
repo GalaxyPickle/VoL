@@ -10,6 +10,13 @@ if object_get_parent(object_get_parent(AI_goal_object)) == o_abstract_parent
 ////////////////////////////////
 move = false;
 
+// X
+// face the goal object always 
+if AI_goal_object.x < x
+	x_direction = -1;
+else if AI_goal_object.x > x
+	x_direction = 1;
+
 // first off, what is higher priority? my health or killing player?
 //	obviously, killing player!!!
 if on_ground {
@@ -22,7 +29,7 @@ if on_ground {
 			NPC_step_queue(states.dodge);
 		}
 		else {
-			if roll_chance(.5) {
+			if roll_chance(.4) {
 				NPC_step_queue(states.attack);	
 			}
 		}

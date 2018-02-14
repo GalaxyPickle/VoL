@@ -14,7 +14,7 @@ global.key_right = vk_right;
 global.key_up = vk_up;
 global.key_down = vk_down;
 
-global.key_jump = vk_space;
+global.key_jump = vk_up;
 
 // combat controls
 global.key_attack = ord("F");

@@ -5,11 +5,11 @@
 /////////////////////////////////////////
 
 #macro DEV_NAME "pre-alpha"
-#macro VERSION "1.2"
+#macro VERSION "0.1.3"
 
 // game resolution
-global.window_width = 1280;
-global.window_height = 720;
+global.window_width = 1440; //1280
+global.window_height = 850; //720
 
 global.zoom = 2;
 global.game_speed = 60;

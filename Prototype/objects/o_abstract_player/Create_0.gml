@@ -9,7 +9,7 @@ gamepad_input = false;
 light_source = instance_create_layer(x, y, "layer_instance_lights", o_light_source);
 light_source.owner = self;
 light_source.tilemap = collision_tile_map_id;
-light_source.radius = 400;
+light_source.radius = 350;
 
 enemy_list = [o_reptilian_large];
 
