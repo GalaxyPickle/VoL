@@ -1,42 +1,33 @@
-/// @description try to beat up the player and dodge like a pr0
+/// @description boss choose what state to be in
 
-var next_choice = -1;
-var next_input_chance = .010;
+// set AI_goal_object
+AI_get_nearest_goal_object();
 
-// for every enemy in my list...
-for (var i = 0; i < array_length_1d(enemy_list); i++) {
+////////////////////////////////
+// determine what goal to have
+////////////////////////////////
+
+// if I don't have a goal object (no one to fight or follow)
+//	then either sit still or wander in one direction
+if AI_goal_object == noone {
+	if roll_chance(.30)
+		AI_goal = AI_states.wait;
+	else AI_goal = AI_states.wander;
+}
+else {
 	
-	// for every instance in the room of the current enemy...
-	if instance_exists(enemy_list[i]) {
-		for (var j = 0; j < instance_number(enemy_list[i]); j++) {
-		
-			var enemy = instance_find(enemy_list[i], j);
-				
-			////////////////////////////////
-			// attack player?
-			////////////////////////////////
-				
-			if distance_to_object(enemy) < enemy_range {
-				
-				if distance_to_point(x, enemy.y) < 50 {
-					
-					if irandom(room_speed) < room_speed * next_input_chance {
-						// attack1!!!!!
-						next_choice = states.attack;	
-					}
-					else if enemy.current_state == states.attack && irandom(room_speed) < 5 {
-						
-						next_choice = states.dodge;	
-					}
-				}
-			}
-				
-			////////////////////////////////
-			// end
-			////////////////////////////////
-		}
+	if roll_chance(.20) {
+		AI_goal = AI_states.spice;
+	}
+	else if distance_to_object(AI_goal_object) < attack_range {
+		AI_goal = AI_states.fight;	
+	}
+	else if distance_to_object(AI_goal_object) > attack_range {
+		AI_goal = AI_states.seek;	
 	}
 }
-
-// return -1 status on no choice
-return next_choice;
+				
+////////////////////////////////
+// end
+////////////////////////////////
+		

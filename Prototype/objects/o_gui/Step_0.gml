@@ -15,3 +15,11 @@ else if flash
 if player.vitality <= player.vitality_max / 2
 	flash_health = true;
 else flash_health = false;
+
+// flash special timer
+if player.special >= player.special_max
+	special_full = true;
+else special_full = false;
+
+if special_full && alarm[0] < 0
+	alarm[0] = flash_special_time;

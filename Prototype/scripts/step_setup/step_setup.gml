@@ -43,23 +43,23 @@ if on_ground && yprevious < y {
 }
 
 ////////////////////////////////////////////////////////////////////////////
-// 2. physics stuff
+// 2. FRICTIONS + physics
 ////////////////////////////////////////////////////////////////////////////
 
 // apply friction
 if on_ground {
 	if (x_direction == 0 || !move) && current_state == states.idle {
 		velocity[vel_x] = 0;
-		//velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction);
 	}
-	else if ( x_direction != 0 && sign(x_direction) != sign(velocity[vel_x]) ) {
+	else if ( x_direction != 0 && sign(x_direction) != sign(velocity[vel_x]) ) &&
+		current_state == states.idle {
 		velocity[vel_x] = 0;
 	}
 	else if current_state == states.pain {
-	velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction / 2);
+		velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction / 2);
 	}
 }
-// apply friction even in air for other states
+// friction regardless of on ground or not
 if current_state == states.attack && on_ground {
 	velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction);
 }
@@ -67,11 +67,15 @@ else if current_state == states.dodge {
 	velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction / 10);
 }
 
+//////////////////////////
+// Physics 2
+//////////////////////////
+
 // keep away from other entities
 if true {
 	var o = object_index;
 	// if close by, shoot away from the entity
-	if o != self && distance_to_point(o.x, o.y) < 5 && 
+	if o != self && distance_to_point(o.x, o.y) < 10 && 
 	( (!move && !o.move) ) {
 		if x < o.x
 			velocity[vel_x] += -1;

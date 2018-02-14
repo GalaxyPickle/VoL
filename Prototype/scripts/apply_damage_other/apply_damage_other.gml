@@ -3,7 +3,7 @@
 
 /// @param attack_stats
 /// @param o_entity_receiving
-///	@param sweetshotspot
+///	@param sweetspot
 /// @param headshot
 
 var attack_stats = argument[0];
@@ -94,9 +94,25 @@ var particle_blast = instance_create_layer(o_other.x,
 */
 
 /////////////////////////////////////////////////////////////
-// show the damage popup!!!!
-var damage_popup = instance_create_layer(o_other.x, o_other.hitbox_head_top, layer_id, o_damage_popup);
+if vitality_damage > 0 {
+	// show the damage popup!!!!
+	var damage_popup = instance_create_layer(o_other.x, o_other.hitbox_head_top, layer_id, o_damage_popup);
+	damage_popup.damage = vitality_damage;
+	damage_popup.positive = false;
+	damage_popup.headshot = headshot;
+	damage_popup.sweetspot = sweetspot;
+}
 
-damage_popup.damage = vitality_damage;
-damage_popup.headshot = headshot;
-damage_popup.sweetspot = sweetspot;
+if self_special_increase > 0 {
+	// show the special popup!
+	var special_popup = instance_create_layer(x, hitbox_head_top, layer_id, o_damage_popup);
+	special_popup.damage = self_special_increase;
+	special_popup.base_color = c_silver;
+	special_popup.positive = true;
+}
+
+
+
+
+
+

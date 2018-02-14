@@ -2,6 +2,8 @@
 
 /// @param popup_object
 
+/*
+
 var popup_object = argument0;
 
 // if there is an instance...

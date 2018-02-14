@@ -4,4 +4,7 @@
 // get input for dodge, attack, and special
 //////////////////////////////////////////////////////////////////////////////
 
+if special >= special_max
+	global.special = true;
+
 player_step_queue();

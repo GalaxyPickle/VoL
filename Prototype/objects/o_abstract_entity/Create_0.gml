@@ -42,6 +42,7 @@ sprite_recover = s_enemy_default;
 sprite_pain = s_enemy_default;
 sprite_dodge = s_enemy_default;
 sprite_special = s_enemy_default;
+sprite_special_effect = s_enemy_default;
 
 // attack sprites
 sprite_attack_ground_1 = s_enemy_default;
@@ -82,6 +83,9 @@ sound_dodge = a_player_footstep;					// dodge sound
 sound_death = a_player_footstep;					// DEATH sound
 
 // attack sounds
+sound_special_warmup = a_player_footstep;
+sound_special = a_player_footstep;
+
 sound_attack_ground_1 = a_player_footstep;			// woosh of weapon sound
 sound_attack_charge_ground_1 = a_player_footstep;	// the charged up woosh of weapon sound
 
@@ -115,6 +119,14 @@ attack_air_2_point_array = [];
 current_point_array = attack_ground_1_point_array;
 
 // these are the velocities and buffs/debuffs of the respective attack
+special_stats = [
+	[10, -10],
+	[50, 100],
+	0,
+	20,
+	0
+	];
+
 attack_ground_1_stats = [
 	[10, -10],	// velocity of attack to opponent if poise broken (default facing right)
 	[10, 20],	// default vitality dmg / sweet spot dmg (headshots are x2 current health dmg)
@@ -199,11 +211,11 @@ collision_tile_map_id = layer_tilemap_get_id(layer_id);
 #region
 
 enemy_list = [];	// list of all enemies this entity has in the game
-nearest_enemy = [];					// list of all enemies in "enemy_range"
+nearest_enemy = [];					// list of all enemies in "attack_range"
 									//	when an enemy is farther away it is removed from list
 									//	+ vise versa
 
-enemy_range = 100; // pixels away for "enemy in range" to trigger
+attack_range = 100; // pixels away for "enemy in range" to trigger
 sight_range = 1000;
 
 pause_input_start = false;
@@ -217,6 +229,9 @@ combo = false;
 move = false;
 invincible = false;
 dead = false;
+
+start_special = false;
+special_damage = 100;
 
 jump_speed_y = 10;
 max_velocity_x = 5;

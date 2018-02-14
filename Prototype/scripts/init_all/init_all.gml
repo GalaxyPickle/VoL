@@ -41,9 +41,13 @@ global.gameover = false;
 global.mute = false;
 
 score = 0;
+global.special = false;
 
-// settinggs
+// settings
 global.shader_outline = false;
+if gamepad_is_supported()
+	global.gamepad = true;
+else global.gamepad = false;
 
 // initialize surfaces for drawing
 init_surfaces();
