@@ -28,7 +28,7 @@ global.FRICTION = 0.5;
 global.ACCELERATION = 0.5;
 
 // debug mode stuff
-global.debug = true;
+global.debug = false;
 global.text = false;
 global.hitboxes = false;
 global.godmode = false;

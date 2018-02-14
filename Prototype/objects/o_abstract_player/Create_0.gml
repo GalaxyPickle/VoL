@@ -60,7 +60,7 @@ sprite_death = s_enemy_default;
 
 // movement
 sound_idle = a_player_footstep;						// not moving
-sound_run = a_player_footstep;				// moving L/R
+sound_run = a_reptilian_footstep;				// moving L/R
 sound_jump = a_player_jump;					// one-shot when leaving ground
 sound_land = a_player_land;					// one-shot when hitting ground
 
