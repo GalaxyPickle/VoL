@@ -138,14 +138,14 @@ dodge_launch = TILE_SIZE - 16;
 // these are the velocities and damages of the respective attack
 attack_ground_1_stats = [
 	[10, -5],	// velocity of attack to opponent if poise broken (default facing right)
-	[70, 100],	// default health damage of the attack (basic, sweet)
+	[10, 20],	// default health damage of the attack (basic, sweet)
 	0,			// default stamina cost of the attack
 	20,			// default poise damage of the attack
 	10,			// default special amount increase from a successful attack
 	];
 attack_ground_2_stats = [
 	[20, -3],
-	[100, 120],
+	[20, 30],
 	0,
 	20,
 	15,
@@ -153,7 +153,7 @@ attack_ground_2_stats = [
 	
 attack_air_1_stats = [
 	[10, -10],
-	[30, 60],
+	[20, 30],
 	0,
 	15,
 	25,
