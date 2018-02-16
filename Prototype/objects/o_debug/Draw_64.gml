@@ -1,6 +1,7 @@
 /// @description show controls and stuff
 
 var spacing = 10;
+draw_set_alpha(1);
 
 if global.debug {
 	draw_set_font(f_debug);

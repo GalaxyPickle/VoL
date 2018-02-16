@@ -13,6 +13,8 @@ helper_text =
 	"F2 - Restart Gameroom",
 	"F3 - Godmode Toggle",
 	"",
+	"Left Click - Teleport Player",
+	"",
 	"H - toggle hitboxes",
 	"T - toggle text",
 	"",
@@ -22,7 +24,6 @@ helper_text =
 	"Dodge: Key D - Button B",
 	"Special: Key S - Button Y",
 	"",
-	"*only xbox 360 gamepad supported",
 ];
 
 

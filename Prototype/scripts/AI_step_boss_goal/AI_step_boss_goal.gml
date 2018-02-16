@@ -15,7 +15,6 @@ if AI_goal_object == noone {
 	else AI_goal = AI_states.wander;
 }
 else {
-	
 	if roll_chance(.20) {
 		AI_goal = AI_states.spice;
 	}

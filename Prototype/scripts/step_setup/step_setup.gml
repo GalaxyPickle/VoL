@@ -38,8 +38,32 @@ on_wall_bottom_right = tile_collide_at_points(collision_tile_map_id,
 	
 on_wall = on_wall_left || on_wall_right || on_wall_bottom_left || on_wall_bottom_right;
 
-if on_ground && yprevious < y {
-	just_landed = true;	
+if on_ground {
+	
+	if show_recover_cloud {
+		// show cloud on landing
+		particle_fluffy_burst(x, bbox_bottom, pt_shape_cloud, 
+			sprite_height / 15 < 1 ? 1 : sprite_height / 15, 
+			c_white, c_white, 50, 0, 2, 10);
+		particle_fluffy_burst(x, bbox_bottom, pt_shape_cloud, 
+			sprite_height / 15 < 1 ? 1 : sprite_height / 15, 
+			c_white, c_white, 50, 180, 2, 10);
+			
+		show_recover_cloud = false;
+	}
+	
+	if !recovered {
+		just_landed = true;
+		recovered = true;
+	}
+	else just_landed = false;
+}
+else {
+	recovered = true;
+	if velocity[vel_y] >= TILE_SIZE / 2 {
+		recovered = false;	
+	}
+	show_recover_cloud = true;
 }
 
 ////////////////////////////////////////////////////////////////////////////

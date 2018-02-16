@@ -10,6 +10,6 @@ instance_create_layer(x, y, helper_layer, o_gui);
 instance_create_layer(x, y, helper_layer, o_pause_menu);
 
 // make other controllers
-instance_create_layer(x, y, helper_layer, o_particle_controller);
+//instance_create_layer(x, y, helper_layer, o_particle_controller);
 instance_create_layer(x, y, helper_layer, o_popup_controller);
 instance_create_layer(x, y, helper_layer, o_light_controller);

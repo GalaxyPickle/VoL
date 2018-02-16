@@ -9,11 +9,12 @@ positive = true;
 sweetspot = false;
 headshot = false;
 
-size_base = .8;
+size_base = .3;
 size = size_base;
-size_target = 1;
+size_target = .5;
 size_cap = 2;
-damage_size_max = 200;
+damage_size_max = 500;
+damage_size_flash = 225;
 
 alpha = 1;
 placement_range = 5;

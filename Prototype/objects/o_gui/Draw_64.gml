@@ -64,10 +64,8 @@ if special_full {
 	if flash_special
 		alpha_t = 0;
 	
-	draw_text_color(40, 90, "SWORD CHARGED", c_red, c_silver, c_red, c_silver, alpha_t);	
+	draw_text_color(40, 90, "SWORD CHARGED", c_red, c_silver, c_red, c_silver, alpha_t);
 }
-
-
 
 
 

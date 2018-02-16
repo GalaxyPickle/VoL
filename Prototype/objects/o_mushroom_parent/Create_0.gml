@@ -4,9 +4,7 @@
 event_inherited();
 
 draw_my_healthbars = false;
-//AI = AI_type.friendly_follow;
-
-enemy_list = [o_player];
+AI = AI_type.friendly_follow;
 
 ////////////////////////////////////
 // sprite setting
