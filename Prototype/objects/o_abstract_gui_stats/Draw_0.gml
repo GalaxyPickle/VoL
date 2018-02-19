@@ -1,5 +1,7 @@
 /// @description draw shaders and self
 
+event_inherited();
+
 if !global.shader_outline {
 	draw_self();
 	exit;

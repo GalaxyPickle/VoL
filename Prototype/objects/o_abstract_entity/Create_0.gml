@@ -1,5 +1,12 @@
 /// @description parent class for health, stamina, poise, and special
 
+event_inherited();
+
+///////////////////////////////////
+// interaction type
+///////////////////////////////////
+interactable = false;
+
 NPC = true;
 
 ////////////////////////////////////
@@ -63,7 +70,7 @@ sprite_corpse = s_enemy_default;
 
 s_emit = audio_emitter_create();			// create sound emitter for position-based sound
 audio_emitter_position(s_emit, x, y, 0);	// set emitter position to entity starting point
-audio_emitter_falloff(s_emit, 500, 2000, 1);// make sounds die completely at 1000px away, starting at 100px
+audio_emitter_falloff(s_emit, 100, 1000, 1);// make sounds die completely at 1000px away, starting at 100px
 
 // movement
 sound_idle = a_empty;					// not moving
@@ -182,7 +189,7 @@ key_special = false;
 ////////////////////////////////////
 #region
 
-max_velocity_y = TILE_SIZE - 1;
+max_velocity_y = TILE_SIZE * 3 / 4;
 horizontal_acceleration = global.ACCELERATION;
 horizontal_friction = global.FRICTION;
 

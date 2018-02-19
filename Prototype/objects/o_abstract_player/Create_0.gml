@@ -259,7 +259,7 @@ gp_special = global.gp_key_special;
 // physics & collisions constants
 ////////////////////////////////////
 
-jump_speed_y = 13;
+jump_speed_y = 10;
 max_velocity_x = 8;
 
 #endregion

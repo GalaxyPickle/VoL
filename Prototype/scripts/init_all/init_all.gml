@@ -23,7 +23,7 @@ window_center();
 #macro TILE_SIZE 32
 
 // physics stuff
-global.GRAVITY = 0.5;
+global.GRAVITY = 0.4;
 global.FRICTION = 0.5;
 global.ACCELERATION = 0.5;
 
@@ -42,6 +42,10 @@ global.mute = false;
 
 score = 0;
 global.special = false;
+
+// player object
+global.player = noone;
+global.chatbox_up = false;
 
 // settings
 global.shader_outline = false;
@@ -64,4 +68,5 @@ init_player_input();
 // init premade particle systems
 init_particle_system();
 
-// init the light system??
+// init the messages for glyphs and character dialogue
+init_messages();

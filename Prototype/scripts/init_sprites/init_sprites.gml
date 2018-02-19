@@ -56,9 +56,14 @@ sprite_set_speed(s_worm_crawl, .09, spritespeed_framespergameframe);
 
 
 
+//////////////////////////////////////////////
+// GLYPHS
+//////////////////////////////////////////////
 
-
-
+sprite_set_speed(s_glyph_lore_intro_A, .05, spritespeed_framespergameframe);
+sprite_set_speed(s_glyph_lore_intro_B, .05, spritespeed_framespergameframe);
+sprite_set_speed(s_glyph_lore_intro_C, .05, spritespeed_framespergameframe);
+sprite_set_speed(s_glyph_lore_intro_D, .05, spritespeed_framespergameframe);
 
 
 

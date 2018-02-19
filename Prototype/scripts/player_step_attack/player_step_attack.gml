@@ -7,6 +7,11 @@ var sprite = 0;
 
 // set current attack based on combo info
 if starting {
+	if alarm[10] > -1
+		combo = true;
+	else
+		combo = false;
+	
 	if on_ground {
 	
 		// no combo = ground 1 attack
@@ -122,13 +127,8 @@ stamina -= stamina_regen;
 // end attack_mode if sprite current sub-frame == total sub-frames for sprite
 if image_index >= image_number - 1 {
 	
-	// line up combo if next input is attack
-	if ds_queue_head(input_queue) == states.attack &&
-		(current_attack_stats == attack_ground_1_stats ||
-		current_attack_stats == attack_air_1_stats)
-		combo = true;
-	else
-		combo = false;
+	if !combo
+		alarm[10] = room_speed / 4;
 	
 	// reset state to idle for next input or no input
 	current_state = states.idle;

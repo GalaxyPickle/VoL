@@ -23,6 +23,7 @@ var showborder = false;	// show black 1px border?
 ///////////////////////////////
 // loop through 4 stats and draw them
 ///////////////////////////////
+draw_set_alpha(1);
 
 if flash_health
 	draw_set_alpha(alpha);

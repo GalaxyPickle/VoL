@@ -6,11 +6,13 @@ var vector2_y = 1;
 
 if gamepad_input {
 	var jump_key_pressed = keyboard_check_pressed(key_jump) || gamepad_button_check_pressed(0, gp_jump);
-	var jump_key_released = keyboard_check_pressed(key_jump) || gamepad_button_check_released(0, gp_jump);
+	var jump_key_released = keyboard_check_released(key_jump) || gamepad_button_check_released(0, gp_jump);
+	var jump_key_held = keyboard_check(key_jump) || gamepad_button_check(0, gp_jump);
 }
 else {
 	var jump_key_pressed = keyboard_check_pressed(key_jump);
 	var jump_key_released = keyboard_check_pressed(key_jump);
+	var jump_key_held = keyboard_check(key_jump);
 }
 
 // horizontal movement
@@ -40,7 +42,7 @@ if on_ground {
 	}
 	
 	// jumping
-	if jump_key_pressed && stamina >= jump_stamina_cost {
+	if jump_key_pressed {
 		velocity[vector2_y] = -jump_speed_y;
 		stamina -= jump_stamina_cost;
 		
@@ -54,7 +56,7 @@ else if on_wall_left || on_wall_right {
 	sprite_index = sprite_walljump;
 	
 	// jumping
-	if jump_key_pressed && stamina >= jump_stamina_cost {
+	if jump_key_pressed {
 		
 		// make player face opposite direction after jumping
 		if on_wall_left
@@ -63,7 +65,6 @@ else if on_wall_left || on_wall_right {
 			image_xscale = -1;
 			
 		velocity = [jump_speed_y * image_xscale, -jump_speed_y];
-		stamina -= jump_stamina_cost;
 		
 		pause_input_start = true;
 		
@@ -71,11 +72,12 @@ else if on_wall_left || on_wall_right {
 		audio_play_sound_on(s_emit, a_player_jump, false, 1);
 	}
 }
-else {
+
+if !on_ground {
 	// set jump sprite
 	sprite_index = sprite_air;
 	
-	if jump_key_released && velocity[vector2_y] <= -(jump_speed_y / 3) {
-		velocity[vector2_y] = -(jump_speed_y / 3);
+	if !jump_key_held {
+		velocity[vector2_y] += jump_speed_y / TILE_SIZE;
 	}
 }

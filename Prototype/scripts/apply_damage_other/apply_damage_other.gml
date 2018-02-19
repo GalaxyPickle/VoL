@@ -70,7 +70,7 @@ if o_other.poise <= 0 || headshot {
 	o_other.starting = true;
 }
 else {	// just launch them a little after being hit
-	o_other.velocity = [ image_xscale * TILE_SIZE, 0 ]; 
+	o_other.velocity = [ image_xscale * velocity_break[0] / 2, 0 ]; 
 	
 }
 

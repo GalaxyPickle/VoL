@@ -1,5 +1,9 @@
 /// @description reset auto vars after set lower level
 
+/////////////////////////////
+// interactable stuff
+/////////////////////////////
+
 // list of stats for easy updating each step
 // these arrays are set to the values of the above variables because
 //	the above vars are easier to read/use than the arrays below
