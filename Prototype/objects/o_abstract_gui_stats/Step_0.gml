@@ -17,17 +17,14 @@ switch (current_state) {
 	case states.special: current_state_string = "special";
 		break;
 }
-draw_variables = [ 
+draw_variables = 
+[ 
 	["x: ", x], 
 	["y: ", y], 
 	["state: ", current_state_string],
+	["AI state: ", NPC ? AI_goal : "NaN"],
 	["on ground: ", on_ground ? "true" : "false"],
 	["on wall: ", on_wall ? "true" : "false"],
-	["nearest enemies: ", nearest_enemy]
-	];
-	/*
-	["on wall L: ", on_wall_left ? "true" : "false"],
-	["on wall R: ", on_wall_right ? "true" : "false"],
-	["foot tile L: ", on_wall_bottom_left ? "true" : "false"],
-	["foot tile R: ", on_wall_bottom_right ? "true" : "false"],
-	];
+	["just landed: ", just_landed ? "true" : "false"],
+	["nearest enemies: ", nearest_enemy],
+];

@@ -7,7 +7,7 @@ if keyboard_check_pressed(key_debug) {
 if keyboard_check_pressed(key_room_restart) {
 	score = 0;
 	audio_stop_all();
-	room_restart();	
+	room_restart();
 }
 if keyboard_check_pressed(key_godmode) {
 	global.godmode = !global.godmode;
@@ -18,7 +18,7 @@ if keyboard_check_pressed(key_hitbox) {
 	global.hitboxes = !global.hitboxes;
 }
 if keyboard_check_pressed(key_text) {
-	global.text = !global.text;	
+	global.text = !global.text;
 }
 
 // show debug overlay
@@ -33,5 +33,18 @@ else {
 debug_message = 
 [
 	"FPS: " + string(fps),
-	"GODMODE: " + (global.godmode ? "ACTIVE" : "INACTIVE"),
+	"GODMODE: " + (global.godmode ? "active" : "inactive"),
+	"Camera view y: " + string(o_camera.y - global.game_height),
+	"Camera view x: " + string(o_camera.x - global.game_width),
+	"",
+	"Gamepad: " + (gamepad_is_connected(0) ? "connected" : "disconnected"),
 ];
+
+
+// mouse click teleport player
+if instance_exists(o_player) {
+	if mouse_check_button_pressed(mb_left) {
+		o_player.x = mouse_x;
+		o_player.y = mouse_y;
+	}
+}

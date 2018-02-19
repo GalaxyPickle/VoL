@@ -1,5 +1,12 @@
 /// @description parent class for health, stamina, poise, and special
 
+event_inherited();
+
+///////////////////////////////////
+// interaction type
+///////////////////////////////////
+interactable = false;
+
 NPC = true;
 
 ////////////////////////////////////
@@ -35,11 +42,14 @@ sprite_rest = s_enemy_default;
 sprite_run = s_enemy_default;
 sprite_air = s_enemy_default;
 sprite_walljump = s_enemy_default;
+sprite_jump = s_enemy_default;
+sprite_recover = s_enemy_default;
 
 // other event sprites
 sprite_pain = s_enemy_default;
 sprite_dodge = s_enemy_default;
 sprite_special = s_enemy_default;
+sprite_special_effect = s_enemy_default;
 
 // attack sprites
 sprite_attack_ground_1 = s_enemy_default;
@@ -60,37 +70,40 @@ sprite_corpse = s_enemy_default;
 
 s_emit = audio_emitter_create();			// create sound emitter for position-based sound
 audio_emitter_position(s_emit, x, y, 0);	// set emitter position to entity starting point
-audio_emitter_falloff(s_emit, 500, 2000, 1);// make sounds die completely at 1000px away, starting at 100px
+audio_emitter_falloff(s_emit, 100, 1000, 1);// make sounds die completely at 1000px away, starting at 100px
 
 // movement
-sound_idle = a_player_footstep;					// not moving
-sound_run = a_player_footstep;						// moving L/R
-sound_jump = a_player_footstep;					// one-shot when leaving ground
-sound_land = a_player_footstep;					// one-shot when hitting ground
+sound_idle = a_empty;					// not moving
+sound_run = a_empty;						// moving L/R
+sound_jump = a_empty;					// one-shot when leaving ground
+sound_land = a_empty;					// one-shot when hitting ground
 
-sound_step = a_player_footstep;
-play_sound_footstep = a_player_footstep;
+sound_step = a_empty;
+play_sound_footstep = a_empty;
 footstep_time = room_speed / 4;
 
 // recovery and stuff
-sound_take_damage = a_player_footstep;				// an "OOF!" or hurt sound when hit
-sound_poise_break = a_player_footstep;				// a REALLY hurt sound when collapsing back
-sound_recovery = a_player_footstep;				// healing sound?
-sound_dodge = a_player_footstep;					// dodge sound
-sound_death = a_player_footstep;					// DEATH sound
+sound_take_damage = a_empty;				// an "OOF!" or hurt sound when hit
+sound_poise_break = a_empty;				// a REALLY hurt sound when collapsing back
+sound_recovery = a_empty;				// healing sound?
+sound_dodge = a_empty;					// dodge sound
+sound_death = a_empty;					// DEATH sound
 
 // attack sounds
-sound_attack_ground_1 = a_player_footstep;			// woosh of weapon sound
-sound_attack_charge_ground_1 = a_player_footstep;	// the charged up woosh of weapon sound
+sound_special_warmup = a_empty;
+sound_special = a_empty;
 
-sound_attack_ground_2 = a_player_footstep;
-sound_attack_charge_ground_2 = a_player_footstep;
+sound_attack_ground_1 = a_empty;			// woosh of weapon sound
+sound_attack_charge_ground_1 = a_empty;	// the charged up woosh of weapon sound
 
-sound_attack_air_1 = a_player_footstep;
-sound_attack_charge_air_1 = a_player_footstep;
+sound_attack_ground_2 = a_empty;
+sound_attack_charge_ground_2 = a_empty;
 
-sound_attack_air_2 = a_player_footstep;
-sound_attack_charge_air_2 = a_player_footstep;
+sound_attack_air_1 = a_empty;
+sound_attack_charge_air_1 = a_empty;
+
+sound_attack_air_2 = a_empty;
+sound_attack_charge_air_2 = a_empty;
 
 current_attack_sound = sound_attack_ground_1;
 
@@ -113,6 +126,14 @@ attack_air_2_point_array = [];
 current_point_array = attack_ground_1_point_array;
 
 // these are the velocities and buffs/debuffs of the respective attack
+special_stats = [
+	[10, -10],
+	[50, 100],
+	0,
+	20,
+	0
+	];
+
 attack_ground_1_stats = [
 	[10, -10],	// velocity of attack to opponent if poise broken (default facing right)
 	[10, 20],	// default vitality dmg / sweet spot dmg (headshots are x2 current health dmg)
@@ -168,16 +189,18 @@ key_special = false;
 ////////////////////////////////////
 #region
 
-max_velocity_y = TILE_SIZE - 1;
-horizontal_acceleration = ACCELERATION;
-horizontal_friction = FRICTION;
+max_velocity_y = TILE_SIZE * 3 / 4;
+horizontal_acceleration = global.ACCELERATION;
+horizontal_friction = global.FRICTION;
 
 on_ground = false;
-on_wall = false;
+just_landed = false;
+recovered = false;
+show_recover_cloud = false;
 
+on_wall = false;
 on_wall_left = false;
 on_wall_right = false;
-
 on_wall_bottom_left = false;
 on_wall_bottom_right = false;
 
@@ -195,12 +218,12 @@ collision_tile_map_id = layer_tilemap_get_id(layer_id);
 ////////////////////////////////////
 #region
 
-enemy_list = [];	// list of all enemies this entity has in the game
-nearest_enemy = [];					// list of all enemies in "enemy_range"
+enemy_list = [];					// list of all enemies this entity has in the game
+nearest_enemy = [];					// list of all enemies in "attack_range"
 									//	when an enemy is farther away it is removed from list
 									//	+ vise versa
 
-enemy_range = 100; // pixels away for "enemy in range" to trigger
+attack_range = 100; // pixels away for "enemy in range" to trigger
 sight_range = 1000;
 
 pause_input_start = false;
@@ -214,6 +237,9 @@ combo = false;
 move = false;
 invincible = false;
 dead = false;
+
+start_special = false;
+special_damage = 100;
 
 jump_speed_y = 10;
 max_velocity_x = 5;

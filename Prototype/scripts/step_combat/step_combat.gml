@@ -3,7 +3,7 @@
 // slight invincibility after being hit
 if just_hit {
 	invincible = true;
-	alarm[0] = room_speed / 3; // 1/3 second invinciblity
+	alarm[0] = room_speed / 2; // 1/3 second invinciblity
 	just_hit = false;
 	
 	starting = true;
@@ -24,7 +24,7 @@ for (var i = 0; i < array_length_1d(enemy_list); i++) {
 			// if the enemy is in range, add it to my nearest_enemy array
 			var enemy = instance_find(enemy_list[i], j);
 			
-			if distance_to_object(enemy) < enemy_range
+			if distance_to_object(enemy) < attack_range
 				nearest_enemy[j] = enemy;
 		}
 	}

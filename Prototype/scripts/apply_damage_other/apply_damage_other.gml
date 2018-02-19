@@ -3,7 +3,7 @@
 
 /// @param attack_stats
 /// @param o_entity_receiving
-///	@param sweetshotspot
+///	@param sweetspot
 /// @param headshot
 
 var attack_stats = argument[0];
@@ -70,7 +70,7 @@ if o_other.poise <= 0 || headshot {
 	o_other.starting = true;
 }
 else {	// just launch them a little after being hit
-	o_other.velocity = [ image_xscale * TILE_SIZE, 0 ]; 
+	o_other.velocity = [ image_xscale * velocity_break[0] / 2, 0 ]; 
 	
 }
 
@@ -80,22 +80,39 @@ if !NPC {
 
 // get the tilemap id
 var layer_id = layer_get_id("layer_instance_popups");
+var particle_layer = layer_get_id("layer_instance_particles");
 
+/*
 /////////////////////////////////////////////////////////////
 // show the particle explosion!!!!
-/*
 if headshot
 	var part_top = o_other.hitbox_head_top;
 else var part_top = o_other.y;
 
 var particle_blast = instance_create_layer(o_other.x, 
-	part_top, layer_id, o_particle_blast);
+	part_top, particle_layer, o_particle_blast);
 */
 
 /////////////////////////////////////////////////////////////
-// show the damage popup!!!!
-var damage_popup = instance_create_layer(o_other.x, o_other.hitbox_head_top, layer_id, o_damage_popup);
+if vitality_damage > 0 {
+	// show the damage popup!!!!
+	var damage_popup = instance_create_layer(o_other.x, o_other.hitbox_head_top, layer_id, o_damage_popup);
+	damage_popup.damage = vitality_damage;
+	damage_popup.positive = false;
+	damage_popup.headshot = headshot;
+	damage_popup.sweetspot = sweetspot;
+}
 
-damage_popup.damage = vitality_damage;
-damage_popup.headshot = headshot;
-damage_popup.sweetspot = sweetspot;
+if self_special_increase > 0 {
+	// show the special popup!
+	var special_popup = instance_create_layer(x, hitbox_head_top, layer_id, o_damage_popup);
+	special_popup.damage = self_special_increase;
+	special_popup.base_color = c_silver;
+	special_popup.positive = true;
+}
+
+
+
+
+
+

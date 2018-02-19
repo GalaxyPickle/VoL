@@ -1,9 +1,9 @@
 /// @description draw player health and stamina
 
-var height = 15;			// height of stat bars
-var spacing_y = 2;		// how far apart to draw stat bars
-var y_start_spacing = 10;
-var x_start_spacing = 100;
+var height = 10;			// height of stat bars
+var spacing_y = 30;		// how far apart to draw stat bars
+var y_start_spacing = 20;
+var x_start_spacing = 130;
 
 // healthbar vars
 var x1 = x_start_spacing;
@@ -23,6 +23,7 @@ var showborder = false;	// show black 1px border?
 ///////////////////////////////
 // loop through 4 stats and draw them
 ///////////////////////////////
+draw_set_alpha(1);
 
 if flash_health
 	draw_set_alpha(alpha);
@@ -49,22 +50,25 @@ for (var i = 0; i < array_length_1d(player.stat_array); i++) {
 	draw_text(x1 + 1, y1 + 1, string(floor(current_array[2])) + "/" + string(floor(current_array[3])));
 	*/
 }
+// draw score
+draw_set_font(f_menu);
+draw_set_alpha(1);
 
-var draw_font = f_menu;
+draw_set_color(c_red);
+draw_text( 40, 10, string(floor(player.vitality / player.vitality_max * 100)) + "%" );
+// draw special
+draw_set_color(c_silver);
+draw_text( 40, 50, string(floor(player.special / player.special_max * 100)) + "%" );
 
-var upixelH = shader_get_uniform(sh_outline, "pixelH");
-var upixelW = shader_get_uniform(sh_outline, "pixelW");
-var texelW = 2 * texture_get_texel_width(font_get_texture(draw_font));
-var texelH = 2 * texture_get_texel_height(font_get_texture(draw_font));
-
-if shader_is_compiled(sh_outline) {
-	shader_set(sh_outline);
-	shader_set_uniform_f(upixelW, texelW);
-	shader_set_uniform_f(upixelH, texelH);
-
-	draw_set_font(f_menu);
-	draw_text_color(10, 10, score, c_white, c_white, c_white, c_white, 1);
+if special_full {
+	var alpha_t = 1;
+	if flash_special
+		alpha_t = 0;
 	
-	shader_reset();
+	draw_text_color(40, 90, "SWORD CHARGED", c_red, c_silver, c_red, c_silver, alpha_t);
 }
-else show_debug_message("sh_outline failed");
+
+
+
+
+

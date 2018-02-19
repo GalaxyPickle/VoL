@@ -3,27 +3,26 @@
 ////////////////////////////
 // setup
 ////////////////////////////
-
 camera = camera_create();
-
 // view setup
-window_set_size(WINDOW_WIDTH, WINDOW_HEIGHT);
-surface_resize(application_surface, WINDOW_WIDTH, WINDOW_HEIGHT);
-display_set_gui_size(WINDOW_WIDTH, WINDOW_HEIGHT);
+window_set_size(global.window_width, global.window_height);
+surface_resize(application_surface, global.window_width, global.window_height);
+display_set_gui_size(global.window_width, global.window_height);
 display_reset(0, false);
 
 // set camera view matrices
 magic_number = -10;
-glide_rate = 5;
+// less = faster
+glide_rate = 2;
 
-shake_rate = 5;
+shake_rate = 3;
 shaking = false;
 
 var vm = matrix_build_lookat(
 	x, y, magic_number,	// camera 3D pos in space
 	x, y, 0,	// camera distance from canvas
 	0, 1, 0);	// set the camera to point towards the canvas
-var pm = matrix_build_projection_ortho(GAME_WIDTH, GAME_HEIGHT, 1, 9999);
+var pm = matrix_build_projection_ortho(global.game_width, global.game_height, 1, 9999);
 
 camera_set_view_mat(camera, vm);
 camera_set_proj_mat(camera, pm);

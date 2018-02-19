@@ -31,5 +31,5 @@
         "minor": 1,
         "revision": 0
     },
-    "option_mac_vsync": false
+    "option_mac_vsync": true
 }

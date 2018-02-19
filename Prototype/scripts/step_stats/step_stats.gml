@@ -23,6 +23,8 @@ if alarm[2] == -1 {
 // vitality
 if vitality < 0
 	dead = true;
+if vitality > vitality_max
+	vitality = vitality_max;
 // stamina
 if stamina < 0
 	stamina = 0;
@@ -32,6 +34,8 @@ if poise < 0
 // special
 if special < 0
 	special = 0;
+if special >= special_max
+	special = special_max;
 
 if !invincible {
 	// vitality

@@ -127,7 +127,7 @@ attack_ground_2_point_array = [
 
 jump_speed_y = 14;
 max_velocity_x = 9;
-dodge_launch = TILE_SIZE - 20;
+dodge_launch = TILE_SIZE - 16;
 
 #endregion
 //////////////////////////////////
@@ -138,25 +138,25 @@ dodge_launch = TILE_SIZE - 20;
 // these are the velocities and damages of the respective attack
 attack_ground_1_stats = [
 	[10, -5],	// velocity of attack to opponent if poise broken (default facing right)
-	[70, 100],	// default health damage of the attack (basic, sweet)
+	[10, 20],	// default health damage of the attack (basic, sweet)
 	0,			// default stamina cost of the attack
 	20,			// default poise damage of the attack
-	2,			// default special amount increase from a successful attack
+	10,			// default special amount increase from a successful attack
 	];
 attack_ground_2_stats = [
 	[20, -3],
-	[100, 120],
+	[20, 30],
 	0,
 	20,
-	3,
+	15,
 	];
 	
 attack_air_1_stats = [
 	[10, -10],
-	[30, 60],
+	[20, 30],
 	0,
 	15,
-	5,
+	25,
 	];
 
 #endregion
@@ -167,6 +167,7 @@ attack_air_1_stats = [
 
 draw_my_healthbars = true;
 
+attack_range = 110;
 jump_stamina_cost = 0;
 
 // VITALITY
@@ -185,16 +186,16 @@ poise = poise_max;
 poise_regen = .08;
 
 // SPECIAL
-special_max = 300;
+special_max = 500;
 special = 0;
 special_regen = .1;
 
 #endregion
 ///////////////////////////////////////////////
-// scripts
+// AI scripts
 ///////////////////////////////////////////////
 #region
 
-
+AI = AI_type.enemy_boss;
 
 #endregion

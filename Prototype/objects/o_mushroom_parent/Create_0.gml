@@ -3,6 +3,9 @@
 // Inherit the parent event
 event_inherited();
 
+draw_my_healthbars = false;
+AI = AI_type.friendly_follow;
+
 ////////////////////////////////////
 // sprite setting
 ////////////////////////////////////
@@ -92,7 +95,7 @@ max_velocity_x = 5;
 ///////////////////////////////////////////////
 #region
 
-enemy_range = 20; // pixels away for "enemy in range" to trigger
+attack_range = 20; // pixels away for "enemy in range" to trigger
 sight_range = 200;
 jump_stamina_cost = 5;
 

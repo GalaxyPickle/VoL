@@ -9,8 +9,7 @@
         "1964554d-323c-4bad-bb31-dd497a30a6ae",
         "4b695003-d722-42c6-915a-903ae2b3616a",
         "9f9c4420-fbbc-4e2f-b6b3-1ac9a32cdfb2",
-        "b153cb61-e8be-4bdb-b943-87b9c8148b23",
-        "582e0dd3-d771-4680-b38f-af11b723e25d"
+        "b153cb61-e8be-4bdb-b943-87b9c8148b23"
     ],
     "filterType": "GMScript",
     "folderName": "entity",

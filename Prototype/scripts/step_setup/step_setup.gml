@@ -38,20 +38,56 @@ on_wall_bottom_right = tile_collide_at_points(collision_tile_map_id,
 	
 on_wall = on_wall_left || on_wall_right || on_wall_bottom_left || on_wall_bottom_right;
 
+if on_ground {
+	
+	if show_recover_cloud {
+		audio_play_sound_on(s_emit, sound_land, false, 1);
+		// show cloud on landing
+		particle_fluffy_burst(x, bbox_bottom, pt_shape_cloud, 
+			sprite_height / 15 < 1 ? 1 : sprite_height / 15, 
+			c_white, c_white, 50, 0, 2, 10);
+		particle_fluffy_burst(x, bbox_bottom, pt_shape_cloud, 
+			sprite_height / 15 < 1 ? 1 : sprite_height / 15, 
+			c_white, c_white, 50, 180, 2, 10);	
+		show_recover_cloud = false;
+	}
+	
+	if !recovered {
+		just_landed = true;
+		recovered = true;
+	}
+	else just_landed = false;
+}
+else {
+	recovered = true;
+	if velocity[vel_y] >= TILE_SIZE * 3 / 4 {
+		recovered = false;	
+	}
+	show_recover_cloud = true;
+}
+
 ////////////////////////////////////////////////////////////////////////////
-// 2. physics stuff
+// 2. FRICTIONS + physics
 ////////////////////////////////////////////////////////////////////////////
 
 // apply friction
 if on_ground {
-	if (x_direction == 0 || !move) && current_state == states.idle {
-		velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction);
+	if current_state == states.idle && invincible {
+		velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction / 10);
+	}
+	else if (x_direction == 0 || !move) && current_state == states.idle {
+		velocity[vel_x] = 0;
+	}
+	else if ( x_direction != 0 && sign(x_direction) != sign(velocity[vel_x]) ) &&
+		current_state == states.idle 
+	{
+		velocity[vel_x] = 0;
 	}
 	else if current_state == states.pain {
-	velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction / 2);
+		velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction / 2);
 	}
 }
-// apply friction even in air for other states
+// friction regardless of on ground or not
 if current_state == states.attack && on_ground {
 	velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction);
 }
@@ -59,11 +95,18 @@ else if current_state == states.dodge {
 	velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction / 10);
 }
 
+// CLAMP IT
+clamp(velocity[vel_x], -TILE_SIZE + 2, TILE_SIZE - 2);
+
+//////////////////////////
+// Physics 2
+//////////////////////////
+
 // keep away from other entities
 if true {
 	var o = object_index;
 	// if close by, shoot away from the entity
-	if o != self && distance_to_point(o.x, o.y) < 5 && 
+	if o != self && distance_to_point(o.x, o.y) < 10 && 
 	( (!move && !o.move) ) {
 		if x < o.x
 			velocity[vel_x] += -1;
@@ -73,8 +116,8 @@ if true {
 }
 
 // apply gravity
-if velocity[vel_y] < max_velocity_y
-	velocity[vel_y] += GRAVITY;
+if velocity[vel_y] < max_velocity_y && !on_ground
+	velocity[vel_y] += global.GRAVITY;
 
 // move and contact tiles!
 move_and_contact_tiles(collision_tile_map_id, TILE_SIZE, velocity);
