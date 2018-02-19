@@ -1,6 +1,8 @@
 /// @description step state for SPECIAL
 
-if special < special_max && sprite_index != sprite_special {
+// end special mode if sprite current sub-frame == total sub-frames for sprite
+//	exit immediately if special is not ready
+if image_index >= image_number - 1 || (starting && special < special_max) {
 	current_state = states.idle;
 	exit;
 }
@@ -69,9 +71,4 @@ if start_special {
 			}
 		}
 	}
-}
-
-// end special mode if sprite current sub-frame == total sub-frames for sprite
-if image_index >= image_number - 1 {
-	current_state = states.idle;
 }

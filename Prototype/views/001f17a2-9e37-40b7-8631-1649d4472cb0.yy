@@ -9,10 +9,11 @@
         "52d5e818-bce2-4e38-bd1e-64069387e8d0",
         "44efdb6a-935c-42c0-aaad-8563727d5014",
         "efaa9049-e811-400a-8b42-82785b513c06",
-        "0127fbd8-5bfb-411f-b00c-fc3c060d0559"
+        "0127fbd8-5bfb-411f-b00c-fc3c060d0559",
+        "49f481f1-25ca-4653-8c77-4e6af68b8647"
     ],
     "filterType": "GMScript",
-    "folderName": "initialize",
+    "folderName": "init",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

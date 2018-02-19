@@ -23,7 +23,7 @@ script_AI_goal = script_enemy_aggressive;
 
 AI_goal_object = noone;
 
-AI = AI_type.enemy_aggressive;
+AI = AI_type.friendly_meander;
 
 enum AI_states {
 	wander,

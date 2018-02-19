@@ -3,7 +3,7 @@
 // slight invincibility after being hit
 if just_hit {
 	invincible = true;
-	alarm[0] = room_speed / 3; // 1/3 second invinciblity
+	alarm[0] = room_speed / 2; // 1/3 second invinciblity
 	just_hit = false;
 	
 	starting = true;

@@ -6,7 +6,7 @@
     "For3D": false,
     "HTile": false,
     "VTile": false,
-    "bbox_bottom": 191,
+    "bbox_bottom": 415,
     "bbox_left": 0,
     "bbox_right": 255,
     "bbox_top": 0,
@@ -76,7 +76,7 @@
     ],
     "gridX": 32,
     "gridY": 32,
-    "height": 192,
+    "height": 512,
     "layers": [
         {
             "id": "efec6b92-967a-4599-9d13-5747ef0d69c6",
@@ -96,7 +96,7 @@
             "SpriteId": "efc96220-1280-400f-8b19-69f9857bb551",
             "blendMode": 0,
             "isLocked": false,
-            "name": "colors",
+            "name": "tiles",
             "opacity": 100,
             "visible": true
         }
@@ -109,7 +109,7 @@
     "sepmasks": false,
     "swatchColours": null,
     "swfPrecision": 2.525,
-    "textureGroupId": "1225f6b0-ac20-43bd-a82e-be73fa0b6f4f",
+    "textureGroupId": "46d544c0-c96e-4bf5-bf26-0b1afd5a95ee",
     "type": 0,
     "width": 256,
     "xorig": -31,

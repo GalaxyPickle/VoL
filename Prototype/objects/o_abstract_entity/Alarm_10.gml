@@ -1,1 +1,1 @@
-/// @description choose next AI input
+/// @description reset combo timer

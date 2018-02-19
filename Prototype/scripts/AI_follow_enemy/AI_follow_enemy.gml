@@ -1,6 +1,9 @@
 /// @description just follows the player including jumps
 
 var goal = AI_goal_object;
+
+if goal == noone
+	exit;
 ////////////////////////////////
 // face player
 ////////////////////////////////

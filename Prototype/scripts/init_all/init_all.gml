@@ -5,11 +5,11 @@
 /////////////////////////////////////////
 
 #macro DEV_NAME "pre-alpha"
-#macro VERSION "1.2"
+#macro VERSION "0.1.3"
 
 // game resolution
-global.window_width = 1280;
-global.window_height = 720;
+global.window_width = 1440; //1280
+global.window_height = 850; //720
 
 global.zoom = 2;
 global.game_speed = 60;
@@ -23,12 +23,12 @@ window_center();
 #macro TILE_SIZE 32
 
 // physics stuff
-global.GRAVITY = 0.5;
+global.GRAVITY = 0.4;
 global.FRICTION = 0.5;
 global.ACCELERATION = 0.5;
 
 // debug mode stuff
-global.debug = true;
+global.debug = false;
 global.text = false;
 global.hitboxes = false;
 global.godmode = false;
@@ -42,6 +42,10 @@ global.mute = false;
 
 score = 0;
 global.special = false;
+
+// player object
+global.player = noone;
+global.chatbox_up = false;
 
 // settings
 global.shader_outline = false;
@@ -64,4 +68,5 @@ init_player_input();
 // init premade particle systems
 init_particle_system();
 
-// init the light system??
+// init the messages for glyphs and character dialogue
+init_messages();

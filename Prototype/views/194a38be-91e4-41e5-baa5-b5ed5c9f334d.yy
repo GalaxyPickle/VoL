@@ -4,7 +4,8 @@
     "mvc": "1.1",
     "name": "194a38be-91e4-41e5-baa5-b5ed5c9f334d",
     "children": [
-        "97b478c9-100d-43c0-82c5-1db47d64c77b"
+        "c7fe1055-6850-483d-b9f5-193884eff0f8",
+        "4e978452-a5e8-4a5e-bb02-df127a9383f2"
     ],
     "filterType": "GMSound",
     "folderName": "NPC",

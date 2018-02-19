@@ -9,9 +9,9 @@ gamepad_input = false;
 light_source = instance_create_layer(x, y, "layer_instance_lights", o_light_source);
 light_source.owner = self;
 light_source.tilemap = collision_tile_map_id;
-light_source.radius = 400;
+light_source.radius = 300;
 
-enemy_list = [o_reptilian_large];
+enemy_list = [o_reptilian_large, o_worm];
 
 sprite_special_effect = s_player_laser_front;
 special_damage = 500;
@@ -31,7 +31,7 @@ head_hitbox_offset = 28;
 // movement sprites
 sprite_rest = s_player_rest;
 sprite_run = s_player_run;
-sprite_recover = s_player_air;
+sprite_recover = s_player_recover;
 
 sprite_air = s_player_air;
 sprite_walljump = s_player_air_mirror;
@@ -60,7 +60,7 @@ sprite_death = s_enemy_default;
 
 // movement
 sound_idle = a_player_footstep;						// not moving
-sound_run = a_player_footstep;				// moving L/R
+sound_run = a_reptilian_footstep;				// moving L/R
 sound_jump = a_player_jump;					// one-shot when leaving ground
 sound_land = a_player_land;					// one-shot when hitting ground
 
@@ -259,7 +259,7 @@ gp_special = global.gp_key_special;
 // physics & collisions constants
 ////////////////////////////////////
 
-jump_speed_y = 12.5;
+jump_speed_y = 10;
 max_velocity_x = 8;
 
 #endregion
@@ -269,7 +269,6 @@ max_velocity_x = 8;
 #region
 
 dodge_launch = TILE_SIZE - 16;
-dodge_stamina_cost = 0;
 
 // VITALITY
 vitality_max = 500;			// max health
@@ -289,7 +288,7 @@ poise_regen = .08;
 // SPECIAL
 special_max = 500;
 special = 0;
-special_regen = .05;
+special_regen = 0;
 
 #endregion
 ////////////////////////////////////

@@ -25,7 +25,8 @@ else {
 
 if gamepad_input {
 	var hd = gamepad_axis_value(0, gp_axislh);
-	x_direction = ( abs(hd) > .5 ? sign(hd) : 0 );
+	x_direction = clamp( (abs(hd) > .5 ? sign(hd) : 0) + 
+		keyboard_check(key_right) - keyboard_check(key_left), -1, 1 );
 }
 else {
 	x_direction = keyboard_check(key_right) - keyboard_check(key_left);

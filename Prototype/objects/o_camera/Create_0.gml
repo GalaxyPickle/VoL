@@ -15,7 +15,7 @@ magic_number = -10;
 // less = faster
 glide_rate = 2;
 
-shake_rate = 5;
+shake_rate = 3;
 shaking = false;
 
 var vm = matrix_build_lookat(

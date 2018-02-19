@@ -23,3 +23,7 @@ else special_full = false;
 
 if special_full && alarm[0] < 0
 	alarm[0] = flash_special_time;
+	
+// track player object
+if global.player == noone && instance_exists(o_player)
+	global.player = instance_nearest(x, y, o_player);

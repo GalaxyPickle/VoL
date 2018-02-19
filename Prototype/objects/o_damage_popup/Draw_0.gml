@@ -5,7 +5,7 @@ var draw_font = f_menu;
 if !global.shader_outline {
 	draw_set_font(draw_font);
 	
-	if damage >= damage_size_max {
+	if damage >= damage_size_flash {
 		if flash
 			flash_color = c_white;
 		else flash_color = base_color;

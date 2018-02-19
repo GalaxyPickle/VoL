@@ -6,7 +6,7 @@
     "For3D": false,
     "HTile": false,
     "VTile": false,
-    "bbox_bottom": 191,
+    "bbox_bottom": 415,
     "bbox_left": 0,
     "bbox_right": 255,
     "bbox_top": 0,
@@ -41,6 +41,13 @@
                     "mvc": "1.0",
                     "FrameId": "07681260-98f7-427e-b74c-1308325788e3",
                     "LayerId": "6763b088-80c6-4399-9cb5-e3f412bad187"
+                },
+                {
+                    "id": "d5ebbebf-d717-4c60-9b4c-069ca6913f21",
+                    "modelName": "GMSpriteImage",
+                    "mvc": "1.0",
+                    "FrameId": "07681260-98f7-427e-b74c-1308325788e3",
+                    "LayerId": "1eecd383-5521-4c51-8ad4-96f5f1a80f6c"
                 }
             ]
         },
@@ -70,13 +77,20 @@
                     "mvc": "1.0",
                     "FrameId": "96bd07b0-f117-443e-97a8-98a12d996297",
                     "LayerId": "6763b088-80c6-4399-9cb5-e3f412bad187"
+                },
+                {
+                    "id": "019f0584-2a9c-4869-a310-38e52b18064d",
+                    "modelName": "GMSpriteImage",
+                    "mvc": "1.0",
+                    "FrameId": "96bd07b0-f117-443e-97a8-98a12d996297",
+                    "LayerId": "1eecd383-5521-4c51-8ad4-96f5f1a80f6c"
                 }
             ]
         }
     ],
     "gridX": 32,
     "gridY": 32,
-    "height": 192,
+    "height": 512,
     "layers": [
         {
             "id": "3c8bbba9-cca2-4c6d-8e41-d9143930355d",
@@ -85,7 +99,7 @@
             "SpriteId": "8490fda5-2990-4ddc-918d-976f53a8c850",
             "blendMode": 0,
             "isLocked": false,
-            "name": "Layer 1",
+            "name": "stones",
             "opacity": 100,
             "visible": true
         },
@@ -96,12 +110,23 @@
             "SpriteId": "8490fda5-2990-4ddc-918d-976f53a8c850",
             "blendMode": 0,
             "isLocked": false,
-            "name": "colors",
+            "name": "rocks",
+            "opacity": 100,
+            "visible": true
+        },
+        {
+            "id": "1eecd383-5521-4c51-8ad4-96f5f1a80f6c",
+            "modelName": "GMImageLayer",
+            "mvc": "1.0",
+            "SpriteId": "8490fda5-2990-4ddc-918d-976f53a8c850",
+            "blendMode": 0,
+            "isLocked": false,
+            "name": "stone dull",
             "opacity": 100,
             "visible": true
         }
     ],
-    "origin": 9,
+    "origin": 0,
     "originLocked": false,
     "playbackSpeed": 15,
     "playbackSpeedType": 0,
@@ -109,9 +134,9 @@
     "sepmasks": false,
     "swatchColours": null,
     "swfPrecision": 2.525,
-    "textureGroupId": "1225f6b0-ac20-43bd-a82e-be73fa0b6f4f",
+    "textureGroupId": "46d544c0-c96e-4bf5-bf26-0b1afd5a95ee",
     "type": 0,
     "width": 256,
-    "xorig": -31,
-    "yorig": 91
+    "xorig": 0,
+    "yorig": 0
 }

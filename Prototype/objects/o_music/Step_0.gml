@@ -1,5 +1,8 @@
 /// @description mute audio
 
+
+
+/*
 if keyboard_check_pressed(ord("M")) {
 	global.mute = !global.mute;	
 }

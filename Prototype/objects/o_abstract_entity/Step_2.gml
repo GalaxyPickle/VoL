@@ -3,6 +3,11 @@
 // if dead, DIE!!!
 if dead
 	current_state = states.death;
+	
+if just_landed {
+	starting = true;
+	current_state = states.recover;
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // now we can do the real FSM
