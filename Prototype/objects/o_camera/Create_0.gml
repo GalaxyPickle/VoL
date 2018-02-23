@@ -34,3 +34,6 @@ view_camera[0] = camera;
 follow = instance_exists(o_player) ? o_player : noone;
 x_to = x;
 y_to = y;
+
+global.view_x = x - global.game_width;
+global.view_y = y - global.game_height;

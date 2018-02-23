@@ -29,11 +29,28 @@ else {
 	show_debug_overlay(false);
 }
 
+// hitboxes
+if global.hitboxes {
+	layer_set_visible("layer_tile_collision", true);	
+}
+else {
+	layer_set_visible("layer_tile_collision", false);
+}
+
+if global.godmode {
+	global.ability_discharge = true;
+	global.ability_ascension = true;
+	global.ability_whirlwind = true;
+	global.ability_cracked = true;
+}
+
 // update debug values
 debug_message = 
 [
 	"FPS: " + string(fps),
 	"GODMODE: " + (global.godmode ? "active" : "inactive"),
+	"COMBO: " + string(global.combo),
+	"",
 	"Camera view y: " + string(o_camera.y - global.game_height),
 	"Camera view x: " + string(o_camera.x - global.game_width),
 	"",

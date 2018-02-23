@@ -61,6 +61,9 @@ else { // if the camera isn't shaking then glide to follow pos
 	y += (y_to - y) / glide_rate;
 }
 
+global.view_x = x - global.game_width;
+global.view_y = y - global.game_height;
+
 // update matrix for camera
 var vm = matrix_build_lookat(
 	x, y, magic_number,	// camera 3D pos in space

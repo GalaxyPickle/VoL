@@ -23,7 +23,6 @@ var showborder = false;	// show black 1px border?
 ///////////////////////////////
 // loop through 4 stats and draw them
 ///////////////////////////////
-draw_set_alpha(1);
 
 if flash_health
 	draw_set_alpha(alpha);
@@ -50,15 +49,20 @@ for (var i = 0; i < array_length_1d(player.stat_array); i++) {
 	draw_text(x1 + 1, y1 + 1, string(floor(current_array[2])) + "/" + string(floor(current_array[3])));
 	*/
 }
-// draw score
+// draw health
 draw_set_font(f_menu);
-draw_set_alpha(1);
+var vitc = c_red;
+draw_set_color(vitc);
+draw_text_outline( 40, 10, string(floor(player.vitality)),
+	2, c_black, 4);
 
-draw_set_color(c_red);
-draw_text( 40, 10, string(floor(player.vitality / player.vitality_max * 100)) + "%" );
+// only draw special bar if you have the ability
+if !global.ability_discharge
+	exit;
 // draw special
-draw_set_color(c_silver);
-draw_text( 40, 50, string(floor(player.special / player.special_max * 100)) + "%" );
+var spec = c_silver;
+draw_text_color( 40, 50, string(floor(player.special / player.special_max * 100)) + "%",
+	spec, spec, spec, spec, 1);
 
 if special_full {
 	var alpha_t = 1;

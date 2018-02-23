@@ -3,7 +3,7 @@
 start_interaction = false;
 
 // if player is in interactable range...
-if interactable && distance_to_object(global.player) < sight_range {
+if interactable && distance_to_object(global.player) < close_range {
 	// if I press the interact button...
 	if keyboard_check_pressed(global.key_interact) && !interacting {
 		interacting = true;

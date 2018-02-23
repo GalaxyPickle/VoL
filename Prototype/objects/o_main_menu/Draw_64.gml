@@ -6,23 +6,24 @@ anim = clamp(anim, 0, array_length_1d(menu) - 1);
 
 anim_n = reach_tween(anim_n, anim, tween_amount);
 
-draw_set_color(c_white);
 draw_set_font(f_menu);
 for (var i = 0; i < array_length_1d(menu); i++) {
 	
 	// draw golden current option selected
-	draw_set_color( i == anim ? c_yellow : c_white );
-	draw_text(draw_x_start, draw_y_start + (i - anim_n) * spacing, menu[i]);	
+	var c =  i == anim ? c_yellow : c_white;
+	draw_text_color(draw_x_start, draw_y_start + (i - anim_n) * spacing, menu[i],
+		c, c, c, c, 1);	
 }
 
 current_option = anim;
 
 // draw main menu name now
-draw_set_color(c_white);
 draw_set_font(f_menu_big);
 
 var title_start = 300, s = 10;
+var c = c_white;
+var c2 = c_gray;
 
-draw_text(title_start, s, title);
+draw_text_color(title_start, s, title, c, c, c, c, 1);
 draw_set_font(f_menu);
-draw_text_color(title_start + s, s + 100, subtitle, c_gray, c_gray, c_gray, c_gray, 1);
+draw_text_color(title_start + s, s + 100, subtitle, c2, c2, c2, c2, 1);

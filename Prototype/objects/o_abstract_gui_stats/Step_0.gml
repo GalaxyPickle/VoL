@@ -25,6 +25,6 @@ draw_variables =
 	["AI state: ", NPC ? AI_goal : "NaN"],
 	["on ground: ", on_ground ? "true" : "false"],
 	["on wall: ", on_wall ? "true" : "false"],
-	["just landed: ", just_landed ? "true" : "false"],
+	["walljump L: ", on_wall_jump_left ? "true" : "false"],
 	["nearest enemies: ", nearest_enemy],
 ];

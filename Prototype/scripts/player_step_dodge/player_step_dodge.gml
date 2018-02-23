@@ -16,8 +16,8 @@ if stamina < dodge_stamina_cost && starting {
 }
 
 invincible = true;
-
 sprite_index = sprite_dodge;
+image_speed = 1;
 
 if starting {
 	image_index = 0;

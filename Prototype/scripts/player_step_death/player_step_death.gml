@@ -1,5 +1,7 @@
 /// @description step state for SPECIAL
 
+image_speed = 1;
+
 if starting {
 	image_index = 0;
 	velocity = [0, 0];

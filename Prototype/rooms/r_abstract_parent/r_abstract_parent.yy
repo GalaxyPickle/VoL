@@ -679,13 +679,39 @@
                     "y": 0
                 },
                 {
+                    "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
+                    "name": "layer_instance_between",
+                    "id": "c08f787c-0e90-47f8-82ec-5e20f7d5251b",
+                    "depth": 2000,
+                    "grid_x": 32,
+                    "grid_y": 32,
+                    "hierarchyFrozen": false,
+                    "hierarchyVisible": true,
+                    "inheritLayerDepth": false,
+                    "inheritLayerSettings": false,
+                    "inheritSubLayers": false,
+                    "inheritVisibility": false,
+                    "instances": [
+
+                    ],
+                    "layers": [
+
+                    ],
+                    "m_parentID": "00000000-0000-0000-0000-000000000000",
+                    "m_serialiseFrozen": false,
+                    "modelName": "GMRInstanceLayer",
+                    "mvc": "1.0",
+                    "userdefined_depth": false,
+                    "visible": true
+                },
+                {
                     "__type": "GMRAssetLayer_Model:#YoYoStudio.MVCFormat",
                     "name": "layer_asset_bg_between",
                     "id": "4fe1d0c9-8ce8-433b-83c2-67ec8de88b1d",
                     "assets": [
 
                     ],
-                    "depth": 2000,
+                    "depth": 2100,
                     "grid_x": 32,
                     "grid_y": 32,
                     "hierarchyFrozen": false,
@@ -708,7 +734,7 @@
                     "__type": "GMRTileLayer_Model:#YoYoStudio.MVCFormat",
                     "name": "layer_tile_bg_decoration",
                     "id": "f2fc11b7-0e96-4d59-87d4-d018cc79b115",
-                    "depth": 2100,
+                    "depth": 2200,
                     "grid_x": 32,
                     "grid_y": 32,
                     "hierarchyFrozen": false,
@@ -743,7 +769,7 @@
                     "__type": "GMRTileLayer_Model:#YoYoStudio.MVCFormat",
                     "name": "layer_tile_bg_top",
                     "id": "7d381347-ef3b-44b1-817e-f4d7bf791931",
-                    "depth": 2200,
+                    "depth": 2300,
                     "grid_x": 32,
                     "grid_y": 32,
                     "hierarchyFrozen": false,
@@ -801,7 +827,7 @@
                     "__type": "GMRTileLayer_Model:#YoYoStudio.MVCFormat",
                     "name": "layer_tile_bg",
                     "id": "d1c0bc2b-d3fc-4f66-8d19-197705b150f5",
-                    "depth": 2300,
+                    "depth": 2400,
                     "grid_x": 32,
                     "grid_y": 32,
                     "hierarchyFrozen": false,
@@ -866,7 +892,7 @@
         {
             "name": "background",
             "id": "aa469fa3-8d0c-4e62-8bd4-196ffbb9ea4e",
-            "depth": 2400,
+            "depth": 2500,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
@@ -883,7 +909,7 @@
                     "assets": [
 
                     ],
-                    "depth": 2500,
+                    "depth": 2600,
                     "grid_x": 32,
                     "grid_y": 32,
                     "hierarchyFrozen": false,
@@ -909,7 +935,7 @@
                     "assets": [
 
                     ],
-                    "depth": 2600,
+                    "depth": 2700,
                     "grid_x": 32,
                     "grid_y": 32,
                     "hierarchyFrozen": false,
@@ -935,7 +961,7 @@
                     "assets": [
 
                     ],
-                    "depth": 2700,
+                    "depth": 2800,
                     "grid_x": 32,
                     "grid_y": 32,
                     "hierarchyFrozen": false,
@@ -961,7 +987,7 @@
                     "assets": [
 
                     ],
-                    "depth": 2800,
+                    "depth": 2900,
                     "grid_x": 32,
                     "grid_y": 32,
                     "hierarchyFrozen": false,
@@ -987,7 +1013,7 @@
                     "animationFPS": 15,
                     "animationSpeedType": "0",
                     "colour": { "Value": 4281545523 },
-                    "depth": 2900,
+                    "depth": 3000,
                     "grid_x": 32,
                     "grid_y": 32,
                     "hierarchyFrozen": false,

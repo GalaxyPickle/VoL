@@ -2,12 +2,14 @@
 
 // end special mode if sprite current sub-frame == total sub-frames for sprite
 //	exit immediately if special is not ready
-if image_index >= image_number - 1 || (starting && special < special_max) {
+if image_index >= image_number - 1 || (starting && special < special_max) ||
+	!global.ability_discharge {
 	current_state = states.idle;
 	exit;
 }
 
 sprite_index = sprite_special;
+image_speed = 1;
 
 // draw laser delayed
 if starting {

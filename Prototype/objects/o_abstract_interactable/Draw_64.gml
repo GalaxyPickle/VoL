@@ -23,26 +23,28 @@ if interacting {
 	#region
 	
 	draw_set_alpha(.8);
-	draw_set_color(c_orange);
 	
 	// lerp it up from the bottom of the screen
 	//var t_h = lerp(target_height_1, global.window_height - yheight - border_h, 1);
-	draw_roundrect(border_w, global.window_height - yheight - border_h, 
-		global.window_width - border_w, global.window_height - border_h, false);
+	draw_roundrect_color(border_w, global.window_height - yheight - border_h, 
+		global.window_width - border_w, global.window_height - border_h, 
+		c_orange, c_orange, false);
 		
 	// 2. draw the chat box
-	draw_set_alpha(.8);
 	draw_set_color(c_black);
 	
 	// lerp it up
 	//var t_h2 = lerp(target_height_2, global.window_height - yheight - border_h + t_margin, .1);
-	draw_roundrect(border_w + t_margin, global.window_height - yheight - border_h + t_margin, 
-		global.window_width - border_w - t_margin, global.window_height - border_h - t_margin, false);
+	draw_roundrect_color(border_w + t_margin, 
+		global.window_height - yheight - border_h + t_margin, 
+		global.window_width - border_w - t_margin, 
+		global.window_height - border_h - t_margin, c_black, c_black, false);
 			
 	// 3. draw the bg frame of the entity in question
-	draw_set_color(c_black);
-	draw_rectangle(portrait_border_w, global.window_height - yheight - border_h, 
-		border_w - portrait_border_w, global.window_height - border_h, false);
+	var pc = c_black;
+	draw_rectangle_color(portrait_border_w, global.window_height - yheight - border_h, 
+		border_w - portrait_border_w, global.window_height - border_h, 
+		pc, pc, pc, pc, false);
 			
 	// 4. draw the portrait
 	draw_sprite(sprite_portrait, 0, portrait_width / 2 + portrait_border_w,
@@ -159,11 +161,15 @@ else {
 	// reset chatbox
 	global.chatbox_up = false;
 	// if player is in interactable range...
-	if interactable && distance_to_object(global.player) < sight_range {
+	if interactable && distance_to_object(global.player) < close_range {
 		// draw next button sprites no matter what
 		draw_sprite(s_textbox_keys, 0,
 			global.window_width / 2, 
 			global.window_height - t_margin * 4);
+		draw_set_font(f_chat);
+		var tc = c_white;
+		draw_text_color(global.window_width / 2, global.window_height - t_margin * 8,
+			"Decipher", tc, tc, tc, tc, 1);
 	}
 }
 #endregion

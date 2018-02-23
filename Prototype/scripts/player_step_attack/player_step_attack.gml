@@ -59,18 +59,11 @@ if !on_ground &&
 	velocity[vec2_x] = clamp( velocity[vec2_x] + x_input, -max_velocity_x, max_velocity_x);	
 }
 	
-// exit immediately if stamina is not enough or landing or into air from ground
-if (stamina < current_attack_stats[2] && starting) ||
-	(
-		on_ground &&
-		(current_attack_stats == attack_air_1_stats || 
-		current_attack_stats == attack_air_2_stats) 
-	) ||
-	( 
-		!on_ground && 
-		(current_attack_stats == attack_ground_1_stats || 
-		current_attack_stats == attack_ground_2_stats )
-	)
+// exit immediately if landing or into air from ground
+if ( on_ground && 
+		(current_attack_stats == attack_air_1_stats || current_attack_stats == attack_air_2_stats) ) /*||
+	( !on_ground && 
+		(current_attack_stats == attack_ground_1_stats || current_attack_stats == attack_ground_2_stats) )*/
 {
 	combo = false;
 	current_state = states.idle;
@@ -99,12 +92,25 @@ if starting {
 	audio_play_sound_on(s_emit, current_attack_sound, false, 1);
 }
 
+// set sprite speed depending on combo amount
+image_speed = 1 + global.combo * 0.03;
+
+// increase damage based on combo amount
+var combo_mult = .02;
+var stats = current_attack_stats[1];
+stats =
+[ 
+	round(stats[0] + stats[0] * global.combo * combo_mult),	// 2% increase per combo amount 
+	round(stats[1] + stats[1] * global.combo * combo_mult) 
+];
+current_attack_stats[1] = stats;
+
 // check for enemy in range
 for (var i = 0; i < array_length_1d(nearest_enemy); i++) {
 	
 	var enemy = nearest_enemy[i];
 	
-	if enemy == undefined || enemy == pointer_null || enemy == noone
+	if enemy == undefined || enemy == pointer_null || enemy == noone || enemy.dead
 		continue;
 	
 	// returns [found?, sweetspot?, headshot?]
@@ -114,10 +120,20 @@ for (var i = 0; i < array_length_1d(nearest_enemy); i++) {
 		var found = hit_array[0];
 		var sweetspot = hit_array[1];
 		var headshot = hit_array[2];
+		
+		alarm[3] = room_speed * 3;
 	
 		// apply any damage to near enemies
-		if found && !enemy.invincible
+		if found && !enemy.invincible {
 			apply_damage_other(current_attack_stats, enemy, sweetspot, headshot);
+			
+			if (!global.ability_whirlwind && global.combo == global.combo_default_max) ||
+				global.ability_whirlwind && global.combo == global.combo_ability_max
+				continue;
+			
+			// check for combo and some crazy stuff
+			global.combo++;
+		}
 	}
 }
 

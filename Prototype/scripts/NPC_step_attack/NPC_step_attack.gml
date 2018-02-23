@@ -1,15 +1,15 @@
-/// @description code for player attacking executed every step
+/// @description code for NPC attacking executed every step
 
 var vel_x = 0;
 
 var ground_launch_velocity = image_xscale * TILE_SIZE - 1;
-var sprite = 0;
+var sprite = sprite_index;
 
 // set current attack based on combo info
-if on_ground {
+if on_ground && can_attack_ground {
 	
 	// no combo = ground 1 attack
-	if !combo {
+	if !combo || !can_combo {
 		current_point_array = attack_ground_1_point_array;
 		current_attack_stats = attack_ground_1_stats;
 		current_attack_sound = sound_attack_ground_1;
@@ -24,9 +24,20 @@ if on_ground {
 		sprite = sprite_attack_ground_2;
 	}
 }
+else { // in air
+	if can_attack_air {
+		current_point_array = attack_air_1_point_array;
+		current_attack_stats = attack_air_1_stats;
+		current_attack_sound = sound_attack_air_1;
+		
+		sprite = sprite_attack_air_1;
+	}
+	else sprite = sprite_air;
+}
 	
 // exit immediately if stamina is not enough
-if stamina < current_attack_stats[2] && starting {
+if (on_ground && !can_attack_ground) || (!on_ground && !can_attack_air) 
+{
 	combo = false;
 	current_state = states.idle;
 	
