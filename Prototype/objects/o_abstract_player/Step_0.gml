@@ -7,6 +7,6 @@ event_inherited();
 //////////////////////////////////////////////////////////////////////////////
 
 if special >= special_max
-	global.special = true;
+	global.laser = true;
 
 player_step_queue();

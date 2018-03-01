@@ -3,15 +3,6 @@
 // Inherit the parent event
 event_inherited();
 
-// setup particle system on create
-#region
-if one_shot {
-	
-	
-	one_shot = false;
-}
-#endregion
-
 // kill particle emitter once interaction complete
 if dialogue_read && !shutdown {
 	part_emitter_clear(global.ps, first_emitter);
@@ -22,3 +13,7 @@ if dialogue_read && !shutdown {
 
 if dialogue_read
 	image_index = 2;
+	
+// collection
+if !global.glyph_intro[type] && interacting
+	global.glyph_intro[type] = true;

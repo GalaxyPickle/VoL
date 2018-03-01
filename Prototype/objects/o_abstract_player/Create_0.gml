@@ -16,7 +16,7 @@ move = true;
 // lightsource
 lightsource = instance_create_layer(x, y, "layer_instance_lights", o_lightsource);
 with lightsource {
-	pl_light_init(300, c_white, .8);
+	pl_light_init(300, c_white, .7);
 }
 
 
@@ -275,7 +275,7 @@ sight_range = global.game_width / 3;
 // VITALITY
 vitality_max = 500;			// max health
 vitality = vitality_max;	// current health
-vitality_regen = .05;		// health regen rate per frame
+vitality_regen = .01;		// health regen rate per frame
 
 // STAMINA
 stamina_max = 100;

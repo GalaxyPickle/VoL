@@ -6,3 +6,5 @@ pl_set_blurring(false);
 pl_set_vivid(false);
 
 pl_add(o_lightsource);
+
+alarm[0] = room_speed / 10;

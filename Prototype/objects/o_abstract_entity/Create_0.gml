@@ -219,6 +219,9 @@ velocity = [0,0];
 var layer_id = layer_get_id("layer_tile_collision");
 collision_tile_map_id = layer_tilemap_get_id(layer_id);
 
+layer_id = layer_get_id("layer_tile_platform");
+platform_tile_map_id = layer_tilemap_get_id(layer_id);
+
 #endregion
 ////////////////////////////////////
 // entity stats

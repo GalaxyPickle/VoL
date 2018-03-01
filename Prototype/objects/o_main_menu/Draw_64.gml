@@ -1,7 +1,9 @@
 /// @description draw the menu
 
 // player surfs with arrows and clamp movment to options
-anim += keyboard_check_pressed(global.key_down) - keyboard_check_pressed(global.key_up);
+var hd = gamepad_axis_value(0, gp_axislh);
+anim += clamp( (abs(hd) > .5 ? sign(hd) : 0) + 
+	keyboard_check_pressed(global.key_down) - keyboard_check_pressed(global.key_up), -1, 1 );
 anim = clamp(anim, 0, array_length_1d(menu) - 1);
 
 anim_n = reach_tween(anim_n, anim, tween_amount);

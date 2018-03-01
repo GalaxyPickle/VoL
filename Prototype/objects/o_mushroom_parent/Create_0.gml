@@ -6,6 +6,9 @@ event_inherited();
 draw_my_healthbars = false;
 AI = AI_type.friendly_follow;
 
+interactable = true;
+message = global.message_default;
+
 enemy = false;
 
 ////////////////////////////////////

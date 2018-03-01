@@ -12,9 +12,9 @@ with lightsource {
 	pl_light_init(100, c_orange, .5);
 }
 
-
+// other stuff
 interactable = true;
-one_shot = true;
+type = global.glyph_intro[@ 0];
 
 c_start = c_orange;
 c_end = c_orange;

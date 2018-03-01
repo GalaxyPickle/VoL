@@ -11,7 +11,7 @@
         "c6bc4aa3-d943-414e-aeca-266d96f0e4c1"
     ],
     "filterType": "GMObject",
-    "folderName": "one shot",
+    "folderName": "popups",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

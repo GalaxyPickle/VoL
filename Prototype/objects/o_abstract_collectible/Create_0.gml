@@ -3,14 +3,22 @@
 c_start = c_white;
 c_end = c_white;
 
-one_shot = true;
-
 within_range = false;
 sight_range = 25;
 
-outline_col = c_blue;
+outline_col = c_white;
 outline_thickness = 1;
 outline_init();
+
+type = 0;
+
+light_color = c_white;
+
+lightsource = instance_create_layer(x + sprite_get_width(sprite_index) / 2, 
+	y + sprite_get_height(sprite_index) / 2, "layer_instance_lights", o_lightsource);
+with lightsource {
+	pl_light_init(100, other.light_color, .6);
+}
 
 // particles
 // make a particle type to use with the system

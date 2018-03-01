@@ -30,11 +30,13 @@ else {
 }
 
 // hitboxes
-if global.hitboxes {
-	layer_set_visible("layer_tile_collision", true);	
-}
-else {
-	layer_set_visible("layer_tile_collision", false);
+if show_tiles == false {
+	if global.hitboxes {
+		layer_set_visible("layer_tile_collision", true);	
+	}
+	else {
+		layer_set_visible("layer_tile_collision", false);
+	}
 }
 
 if global.godmode {
@@ -55,6 +57,19 @@ debug_message =
 	"Camera view x: " + string(o_camera.x - global.game_width),
 	"",
 	"Gamepad: " + (gamepad_is_connected(0) ? "connected" : "disconnected"),
+	"",
+	"Mushrooms: " + string(global.mushrooms),
+	"",
+	"Gates: <not implemented yet>",
+	"",
+	"Glyph Intro: " + string(global.glyph_intro),
+	"Glyph Sundering: " + string(global.glyph_sundering),
+	"",
+	"Discharge: " + string(global.ability_discharge),
+	"Ascension: " + string(global.ability_ascension),
+	"Whirlwind: " + string(global.ability_whirlwind),
+	"Cracked: " + string(global.ability_cracked),
+	"",
 ];
 
 

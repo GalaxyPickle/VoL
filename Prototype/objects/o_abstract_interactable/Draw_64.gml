@@ -89,7 +89,7 @@ if interacting {
 		var i = 1;
 		var delay = 4;
 		
-		if keyboard_check(global.key_interact) {
+		if keyboard_check(global.key_interact) || gamepad_button_check(0, global.gp_key_interact) {
 			delay = 0;	
 		}
 		
@@ -109,13 +109,14 @@ if interacting {
 		var tY = global.window_height - yheight - border_h + t_margin * 3;
 	
 		// next message
-		if keyboard_check_pressed(global.key_interact) && interacting && !start_interaction
+		if ( keyboard_check_pressed(global.key_interact) || 
+			gamepad_button_check_pressed(0, global.gp_key_interact) ) && interacting && !start_interaction
 		{
 			// if we have more messages, go to the next one
 			if message_current_finished && message_current < message_end - 1 {
 				message_current++;
 				cutoff = 0;
-				audio_play_sound(a_message_popup, 1, false);
+				//audio_play_sound(a_message_popup, 1, false);
 			}
 			// else we're finished
 			else {
@@ -165,11 +166,11 @@ else {
 		// draw next button sprites no matter what
 		draw_sprite(s_textbox_keys, 0,
 			global.window_width / 2, 
-			global.window_height - t_margin * 4);
+			global.window_height - t_margin * 8);
 		draw_set_font(f_chat);
 		var tc = c_white;
-		draw_text_color(global.window_width / 2, global.window_height - t_margin * 8,
-			"Decipher", tc, tc, tc, tc, 1);
+		draw_text_color(global.window_width / 2,	
+			global.window_height - t_margin * 8, "Decipher", tc, tc, tc, tc, 1);
 	}
 }
 #endregion

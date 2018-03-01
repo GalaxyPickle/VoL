@@ -1,5 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description show particle fancies
 
 if !global.high_graphics {
 	draw_self();

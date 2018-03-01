@@ -10,7 +10,7 @@ can_combo = true;
 can_attack_ground = true;
 can_attack_air = true;
 
-enemy_list = [o_player, o_beetle, o_mushroom_parent];
+enemy_list = [o_player, o_mushroom_parent];
 
 ////////////////////////////////////
 // sprite setting

@@ -31,6 +31,9 @@ else
 
 for (var i = 0; i < array_length_1d(player.stat_array); i++) {
 	
+	if i == 1
+		continue;
+	
 	var current_array = player.stat_array[i];
 
 	y1 = y_start_spacing + (spacing_y + height) * i
@@ -50,18 +53,22 @@ for (var i = 0; i < array_length_1d(player.stat_array); i++) {
 	*/
 }
 // draw health
+var ypos = 10;
+var yspac = 40;
 draw_set_font(f_menu);
 var vitc = c_red;
-draw_set_color(vitc);
-draw_text_outline( 40, 10, string(floor(player.vitality)),
-	2, c_black, 4);
+draw_text_outline_color( 40, ypos, string(floor(player.vitality)),
+	2, c_white, 4, vitc, 1);
+
+// draw combo below health
+draw_text_outline_color( 40, ypos + yspac, "x" + string(global.combo), 2, c_white, 4, c_lime, 1);
 
 // only draw special bar if you have the ability
 if !global.ability_discharge
 	exit;
 // draw special
 var spec = c_silver;
-draw_text_color( 40, 50, string(floor(player.special / player.special_max * 100)) + "%",
+draw_text_color( 40, ypos + yspac * 2, string(floor(player.special / player.special_max * 100)) + "%",
 	spec, spec, spec, spec, 1);
 
 if special_full {

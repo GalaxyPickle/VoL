@@ -17,7 +17,7 @@ global.message_default =
 ];
 
 ////////////////////////////////////////
-// LORE GLYPH MESSAGES
+// LORE GLYPH MESSAGES - Intro
 ////////////////////////////////////////
 global.message_glyph_lore_intro_A = 
 [
@@ -50,4 +50,24 @@ global.message_glyph_lore_intro_D =
 		"with a blow so mighty that the Mother Earth wailed in pain.",
 	"The seas boiled and raged; the mountains split and the blood of the Earth poured forth; " +
 		"the Earth and land was struck asunder and what was once whole was separate."
+];
+
+////////////////////////////////////////
+// LORE GLYPH MESSAGES - Sundering
+////////////////////////////////////////
+global.message_glyph_lore_sundering_A = 
+[
+	""
+];
+global.message_glyph_lore_sundering_B = 
+[
+	""
+];
+global.message_glyph_lore_sundering_C = 
+[
+	""
+];
+global.message_glyph_lore_sundering_D = 
+[
+	""
 ];

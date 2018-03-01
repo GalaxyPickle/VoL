@@ -60,10 +60,8 @@ if !on_ground &&
 }
 	
 // exit immediately if landing or into air from ground
-if ( on_ground && 
-		(current_attack_stats == attack_air_1_stats || current_attack_stats == attack_air_2_stats) ) /*||
-	( !on_ground && 
-		(current_attack_stats == attack_ground_1_stats || current_attack_stats == attack_ground_2_stats) )*/
+if ( on_ground && (sprite_index == sprite_attack_air_1 || sprite_index == sprite_attack_air_2) ) ||
+	( !on_ground && (sprite_index == sprite_attack_ground_1 || sprite_index == sprite_attack_ground_2) )
 {
 	combo = false;
 	current_state = states.idle;

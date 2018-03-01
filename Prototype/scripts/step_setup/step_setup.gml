@@ -29,7 +29,7 @@ else {
 
 // on ground?
 on_ground = tile_collide_at_points(collision_tile_map_id,
-	[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]);
+		[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]);
 	
 // sliding on walls?
 on_wall_left = tile_collide_at_points(collision_tile_map_id,
@@ -53,6 +53,28 @@ on_wall_bottom_right = tile_collide_at_points(collision_tile_map_id,
 	[ [bbox_right, bbox_bottom - TILE_SIZE / 2] ]);
 	
 on_wall = on_wall_left || on_wall_right || on_wall_bottom_left || on_wall_bottom_right;
+
+/////////////////////////////////////////////////////
+// one-way platforms
+/////////////////////////////////////////////////////
+
+// Vertical collisions
+// Falling
+if velocity[vel_y] > 0 {
+	
+	var tile_bottom = tile_collide_at_points(platform_tile_map_id,
+		[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]);
+	if tile_bottom {
+		y = bbox_bottom & ~(TILE_SIZE-1);
+		y -= bbox_bottom-y;
+		velocity[@ vel_y] = 0;
+	}
+}
+
+
+////////////////////////////////////////////
+// falling
+////////////////////////////////////////////
 
 if on_ground {
 	
@@ -105,15 +127,15 @@ if on_ground {
 	else if current_state == states.attack {
 		velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction);
 	}
+	else if current_state == states.dodge {
+		velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction / 10);
+	}
 }
 // friction regardless of on ground or not
 else {
 	if !move || x_direction == 0 || current_state != states.idle {
 		velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction / 10);
 	}
-}
-if current_state == states.dodge {
-	velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction / 10);
 }
 
 // CLAMP IT
