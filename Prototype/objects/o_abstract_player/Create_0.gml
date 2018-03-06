@@ -5,19 +5,24 @@ event_inherited();
 NPC = false;
 gamepad_input = false;
 
-// set a light source on the player
-light_source = instance_create_layer(x, y, "layer_instance_lights", o_light_source);
-light_source.owner = self;
-light_source.tilemap = collision_tile_map_id;
-light_source.radius = 300;
-
-enemy_list = [o_reptilian_large, o_worm];
+enemy_list = [o_reptilian_large, o_worm, o_beetle, o_dummy];
 
 sprite_special_effect = s_player_laser_front;
 special_damage = 500;
 
 draw_my_healthbars = false;
 move = true;
+
+// lightsource
+lightsource = instance_create_layer(x, y, "layer_instance_lights", o_lightsource);
+light_radius = 300;
+with lightsource {
+	pl_light_init(other.light_radius, c_white, .7);
+	pl_active = false;
+}
+// special lightsource
+//lightsource_special = instance_create_layer(x, y, "layer_instance_lights", o_lightsource);
+
 
 ////////////////////////////////////
 // sprite setting
@@ -189,38 +194,38 @@ special_stats = [
 	[TILE_SIZE - 2, -10],
 	[500, 700],
 	0,
-	100,
+	1000,
 	0
 	];
 
 attack_ground_1_stats = [
 	[10, -5],	// velocity of attack to opponent if poise broken (default facing right)
-	[50, 80],	// default health damage of the attack (basic, sweet)
+	[20, 30],	// default health damage of the attack (basic, sweet)
 	0,			// default stamina cost of the attack
 	10,			// default poise damage of the attack
-	10,			// default special amount increase from a successful attack
+	1,			// default special amount increase from a successful attack
 	];
 attack_ground_2_stats = [
-	[10, -10],
-	[70, 100],
+	[15, -7],
+	[25, 35],
 	0,
 	20,
-	15,
+	3,
 	];
 	
 attack_air_1_stats = [
 	[5, 2],
-	[30, 60],
+	[10, 20],
 	0,
 	15,
-	25,
+	5,
 	];
 attack_air_2_stats = [
 	[5, 5],
-	[50, 70],
+	[15, 25],
 	0,
 	30,
-	35,
+	7,
 	];
 
 #endregion
@@ -259,8 +264,8 @@ gp_special = global.gp_key_special;
 // physics & collisions constants
 ////////////////////////////////////
 
-jump_speed_y = 10;
-max_velocity_x = 8;
+jump_speed_y = 9;
+max_velocity_x = 6;
 
 #endregion
 ////////////////////////////////////
@@ -269,11 +274,12 @@ max_velocity_x = 8;
 #region
 
 dodge_launch = TILE_SIZE - 16;
+sight_range = global.game_width / 3;
 
 // VITALITY
 vitality_max = 500;			// max health
 vitality = vitality_max;	// current health
-vitality_regen = .05;		// health regen rate per frame
+vitality_regen = .01;		// health regen rate per frame
 
 // STAMINA
 stamina_max = 100;
@@ -288,7 +294,7 @@ poise_regen = .08;
 // SPECIAL
 special_max = 500;
 special = 0;
-special_regen = 0;
+special_regen = 50;
 
 #endregion
 ////////////////////////////////////

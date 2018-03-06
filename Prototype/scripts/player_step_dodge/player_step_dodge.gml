@@ -3,7 +3,7 @@
 var vel_x = 0;
 
 // exit immediately if stamina is not enough
-if stamina < dodge_stamina_cost && starting {
+if false {
 	
 	if !on_ground
 		sprite_index = sprite_air;
@@ -16,22 +16,17 @@ if stamina < dodge_stamina_cost && starting {
 }
 
 invincible = true;
-
 sprite_index = sprite_dodge;
+image_speed = 1;
 
 if starting {
 	image_index = 0;
-	velocity[vel_x] = dodge_launch * image_xscale;
-	
-	// take stamina out for dodging
-	stamina -= dodge_stamina_cost;
+	if on_ground
+		velocity[vel_x] = dodge_launch * image_xscale;
 	
 	// play sound
 	audio_play_sound_on(s_emit, sound_dodge, false, 1);
 }
-
-// cancel out stamina regen
-stamina -= stamina_regen;
 
 // end attack_mode if sprite current sub-frame == total sub-frames for sprite
 if image_index >= image_number - 1 {

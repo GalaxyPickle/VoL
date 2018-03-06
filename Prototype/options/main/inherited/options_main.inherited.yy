@@ -43,8 +43,8 @@
                     "mvc": "1.0",
                     "groupName": "entity",
                     "targets": 29263750006690030,
-                    "autocrop": true,
-                    "border": 2,
+                    "autocrop": false,
+                    "border": 1,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
                     "mipsToGenerate": 0,
                     "scaled": true
@@ -77,7 +77,7 @@
 }←1225f6b0-ac20-43bd-a82e-be73fa0b6f4f|{
     "targets": 29263750006690030,
     "mipsToGenerate": 0,
-    "border": 0,
+    "border": 2,
     "scaled": true,
     "autocrop": true
 }←7fa50043-cea6-4cd0-9521-a8ba8c6ea9f0|{

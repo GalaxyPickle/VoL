@@ -10,4 +10,5 @@ else {
 	AI_goal = AI_states.seek;	
 }
 
-AI_goal = AI_states.wander;
+if AI == AI_type.immovable
+	AI_goal = AI_states.wait;

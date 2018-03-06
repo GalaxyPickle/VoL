@@ -23,14 +23,17 @@ var showborder = false;	// show black 1px border?
 ///////////////////////////////
 // loop through 4 stats and draw them
 ///////////////////////////////
-draw_set_alpha(1);
 
 if flash_health
 	draw_set_alpha(alpha);
 else
 	draw_set_alpha(lerp(draw_get_alpha(), 1, flash_time));
 
+/*
 for (var i = 0; i < array_length_1d(player.stat_array); i++) {
+	
+	if i == 1
+		continue;
 	
 	var current_array = player.stat_array[i];
 
@@ -44,21 +47,31 @@ for (var i = 0; i < array_length_1d(player.stat_array); i++) {
 	maxcol = mincol;
 
 	draw_healthbar(x1, y1, x2, y2, amount, backcol, mincol, maxcol, direction_, showback, showborder);
-	/*
-	draw_set_color(c_white);
-	draw_set_font(f_debug);
-	draw_text(x1 + 1, y1 + 1, string(floor(current_array[2])) + "/" + string(floor(current_array[3])));
-	*/
 }
-// draw score
-draw_set_font(f_menu);
-draw_set_alpha(1);
+*/
 
-draw_set_color(c_red);
-draw_text( 40, 10, string(floor(player.vitality / player.vitality_max * 100)) + "%" );
+// draw health
+var ypos = 10;
+var yspac = 40;
+draw_set_font(f_menu);
+var vitc = c_red;
+draw_text_outline_color( 40, ypos, string(floor(player.vitality)),
+	2, c_white, 4, vitc, 1);
+
+// draw combo below health
+draw_text_outline_color( 40, ypos + yspac, "x" + string(global.combo), 2, c_white, 4, c_lime, 1);
+
+// only draw special bar if you have the ability
+
+
+
+/*
+if !global.ability_discharge
+	exit;
 // draw special
-draw_set_color(c_silver);
-draw_text( 40, 50, string(floor(player.special / player.special_max * 100)) + "%" );
+var spec = c_silver;
+draw_text_color( 40, ypos + yspac * 2, string(floor(player.special / player.special_max * 100)) + "%",
+	spec, spec, spec, spec, 1);
 
 if special_full {
 	var alpha_t = 1;

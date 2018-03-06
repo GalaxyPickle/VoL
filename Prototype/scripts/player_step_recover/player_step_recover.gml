@@ -1,6 +1,7 @@
 /// @description healing ability for player step script
 
 sprite_index = sprite_recover;
+image_speed = 1;
 
 if starting {
 	image_index = 0;

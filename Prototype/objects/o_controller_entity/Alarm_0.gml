@@ -1,0 +1,1 @@
+/// @description deactivate NPCS outside view

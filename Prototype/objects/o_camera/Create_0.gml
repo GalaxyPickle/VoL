@@ -13,7 +13,13 @@ display_reset(0, false);
 // set camera view matrices
 magic_number = -10;
 // less = faster
-glide_rate = 2;
+glide_rate_base = 16;
+glide_rate = glide_rate_base;
+glide_rate_y = 8;
+
+follow_xscale = 1;
+can_pan = true;
+alarm[0] = global.dt_steady * 1 / 2; // .5 sec
 
 shake_rate = 3;
 shaking = false;
@@ -34,3 +40,6 @@ view_camera[0] = camera;
 follow = instance_exists(o_player) ? o_player : noone;
 x_to = x;
 y_to = y;
+
+global.view_x = x - global.game_width;
+global.view_y = y - global.game_height;

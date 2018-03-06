@@ -8,6 +8,10 @@ event_inherited();
 interactable = false;
 
 NPC = true;
+enemy = true;
+
+value = 10;
+weight = 10;
 
 ////////////////////////////////////
 // HITBOXES
@@ -15,8 +19,10 @@ NPC = true;
 #region
 
 // hitbox NOT COLLISIONS WITH TERRAIN sprite
-sprite_hitbox = s_enemy_default;
-sprite_hitbox_head = s_enemy_default;
+sprite_hitbox = sprite_index;
+sprite_hitbox_head = s_empty;
+
+prone = false;
 
 hitbox_left = x;
 hitbox_right = x;
@@ -29,7 +35,7 @@ hitbox_head_top = y;
 hitbox_head_bottom = y;
 
 // how far up to set the head hitbox of each entity
-head_hitbox_offset = 32;
+head_hitbox_offset = 0;
 
 #endregion
 ////////////////////////////////////
@@ -38,29 +44,29 @@ head_hitbox_offset = 32;
 #region
 
 // movement sprites
-sprite_rest = s_enemy_default;
-sprite_run = s_enemy_default;
-sprite_air = s_enemy_default;
-sprite_walljump = s_enemy_default;
-sprite_jump = s_enemy_default;
-sprite_recover = s_enemy_default;
+sprite_rest = sprite_index;
+sprite_run = sprite_index;
+sprite_air = sprite_index;
+sprite_walljump = sprite_index;
+sprite_jump = sprite_index;
+sprite_recover = sprite_index;
 
 // other event sprites
-sprite_pain = s_enemy_default;
-sprite_dodge = s_enemy_default;
-sprite_special = s_enemy_default;
-sprite_special_effect = s_enemy_default;
+sprite_pain = sprite_index;
+sprite_dodge = sprite_index;
+sprite_special = sprite_index;
+sprite_special_effect = sprite_index;
 
 // attack sprites
-sprite_attack_ground_1 = s_enemy_default;
-sprite_attack_ground_2 = s_enemy_default;
+sprite_attack_ground_1 = sprite_index;
+sprite_attack_ground_2 = sprite_index;
 
-sprite_attack_air_1 = s_enemy_default;
-sprite_attack_air_2 = s_enemy_default;
+sprite_attack_air_1 = sprite_index;
+sprite_attack_air_2 = sprite_index;
 
 // death/fail sprites
-sprite_death = s_enemy_default;
-sprite_corpse = s_enemy_default;
+sprite_death = sprite_index;
+sprite_corpse = a_empty;
 
 #endregion
 ////////////////////////////////////
@@ -189,11 +195,16 @@ key_special = false;
 ////////////////////////////////////
 #region
 
-max_velocity_y = TILE_SIZE * 3 / 4;
+max_velocity_y = TILE_SIZE / 2;
 horizontal_acceleration = global.ACCELERATION;
 horizontal_friction = global.FRICTION;
 
+jump_speed_y = 10;
+max_velocity_x = 5;
+
 on_ground = false;
+on_platform = false;
+dropping = false;
 just_landed = false;
 recovered = false;
 show_recover_cloud = false;
@@ -201,6 +212,7 @@ show_recover_cloud = false;
 on_wall = false;
 on_wall_left = false;
 on_wall_right = false;
+on_wall_jump = false;
 on_wall_bottom_left = false;
 on_wall_bottom_right = false;
 
@@ -212,6 +224,9 @@ velocity = [0,0];
 var layer_id = layer_get_id("layer_tile_collision");
 collision_tile_map_id = layer_tilemap_get_id(layer_id);
 
+layer_id = layer_get_id("layer_tile_platform");
+platform_tile_map_id = layer_tilemap_get_id(layer_id);
+
 #endregion
 ////////////////////////////////////
 // entity stats
@@ -219,16 +234,16 @@ collision_tile_map_id = layer_tilemap_get_id(layer_id);
 #region
 
 enemy_list = [];					// list of all enemies this entity has in the game
-nearest_enemy = [];					// list of all enemies in "attack_range"
+nearest_enemy = [];					// list of all enemies in "close_range"
 									//	when an enemy is farther away it is removed from list
 									//	+ vise versa
 
-attack_range = 100; // pixels away for "enemy in range" to trigger
+close_range = 100; // pixels away for "enemy in range" to trigger
 sight_range = 1000;
 
 pause_input_start = false;
 pause_input = false;	// during moves or something you can pause movement
-pause_input_length = room_speed / 6; // 1 second
+pause_input_length = room_speed / 5;
 
 just_hit = false;
 starting = false;
@@ -240,9 +255,6 @@ dead = false;
 
 start_special = false;
 special_damage = 100;
-
-jump_speed_y = 10;
-max_velocity_x = 5;
 
 // stamina costs for non attack moves
 jump_stamina_cost = 0;

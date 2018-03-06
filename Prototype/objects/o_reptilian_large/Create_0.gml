@@ -3,6 +3,15 @@
 // Inherit the parent event
 event_inherited();
 
+can_dodge = true;
+can_jump = true;
+can_special = true;
+can_combo = true;
+can_attack_ground = true;
+can_attack_air = true;
+
+enemy_list = [o_player, o_mushroom_parent];
+
 ////////////////////////////////////
 // sprite setting
 ////////////////////////////////////
@@ -10,7 +19,7 @@ event_inherited();
 
 sprite_hitbox = s_hitbox_reptilian_upright;
 sprite_hitbox_head = s_hitbox_reptilian_head;
-head_hitbox_offset = 40;
+head_hitbox_offset = 35;
 
 // movement sprites
 sprite_rest = s_reptilian_rest;
@@ -167,7 +176,8 @@ attack_air_1_stats = [
 
 draw_my_healthbars = true;
 
-attack_range = 110;
+close_range = 110;
+sight_range = 1000;
 jump_stamina_cost = 0;
 
 // VITALITY

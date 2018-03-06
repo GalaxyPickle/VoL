@@ -7,6 +7,10 @@ key_godmode = vk_f3;
 key_hitbox = ord("H");
 key_text = ord("T");
 
+if layer_get_visible("layer_tile_collision")
+	show_tiles = true;
+else show_tiles = false;
+
 helper_text = 
 [
 	"F1 - Toggle Debug Info",
@@ -24,11 +28,4 @@ helper_text =
 	"Dodge: Key D - Button B",
 	"Special: Key S - Button Y",
 	"",
-];
-
-
-debug_message = 
-[
-	"FPS: " + string(fps),
-	"GODMODE: " + (global.godmode ? "ACTIVE" : "INACTIVE"),
 ];

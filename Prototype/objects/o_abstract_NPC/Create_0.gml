@@ -3,7 +3,16 @@
 // Inherit the parent event
 event_inherited();
 
+ds_list_add(global.NPC_list, id);
+
 enemy_list = [o_player];	// list of all enemies this entity has in the game
+
+can_dodge = false;
+can_jump = false;
+can_special = false;
+can_combo = false;
+can_attack_ground = false;
+can_attack_air = false;
 
 enum AI_type {
 	enemy_boss,	
@@ -11,6 +20,7 @@ enum AI_type {
 	enemy_cautious,
 	friendly_follow,
 	friendly_meander,
+	immovable
 }
 
 script_enemy_boss = AI_step_boss_goal;

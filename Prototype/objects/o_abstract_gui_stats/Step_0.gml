@@ -20,11 +20,13 @@ switch (current_state) {
 draw_variables = 
 [ 
 	["x: ", x], 
-	["y: ", y], 
-	["state: ", current_state_string],
-	["AI state: ", NPC ? AI_goal : "NaN"],
-	["on ground: ", on_ground ? "true" : "false"],
-	["on wall: ", on_wall ? "true" : "false"],
-	["just landed: ", just_landed ? "true" : "false"],
-	["nearest enemies: ", nearest_enemy],
+	["y: ", y],
+	["vx: ", velocity[0]],
+	["vy: ", velocity[1]],
+	//["state: ", current_state_string],
+	//["AI state: ", NPC ? AI_goal : "NaN"],
+	//["on ground: ", on_ground ? "true" : "false"],
+	//["on wall: ", on_wall ? "true" : "false"],
+	//["walljump L: ", on_wall_jump_left ? "true" : "false"],
+	//["nearest enemies: ", nearest_enemy],
 ];

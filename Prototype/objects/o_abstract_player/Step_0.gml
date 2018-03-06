@@ -1,10 +1,15 @@
 /// @description FSM
 
+event_inherited();
+
 //////////////////////////////////////////////////////////////////////////////
 // get input for dodge, attack, and special
 //////////////////////////////////////////////////////////////////////////////
 
 if special >= special_max
-	global.special = true;
+	global.laser = true;
+	
+// set sound listener to be at camera position
+audio_listener_position(x, y, 0);
 
 player_step_queue();

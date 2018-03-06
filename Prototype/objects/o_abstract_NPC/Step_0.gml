@@ -17,11 +17,11 @@ if alarm[3] < 0
 
 // next off execute the proper AI
 switch AI_goal {
-	case AI_states.fight: AI_fight_enemy();
+	case AI_states.fight: AI_fight_goal();
 		break;
-	case AI_states.run: AI_flee_enemy();
+	case AI_states.run: AI_flee_goal();
 		break;
-	case AI_states.seek: AI_follow_enemy();
+	case AI_states.seek: AI_seek_goal();
 		break;
 	case AI_states.spice: AI_spice();
 		break;

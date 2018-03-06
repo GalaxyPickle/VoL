@@ -44,6 +44,24 @@ sprite_set_speed(s_mushroom_parent_rest, .03, spritespeed_framespergameframe);
 sprite_set_speed(s_mushroom_parent_run, .3, spritespeed_framespergameframe);
 
 //////////////////////////////////////////////
+// BEETLE BOI
+//////////////////////////////////////////////
+
+// movement sprites
+sprite_set_speed(s_beetle_rest, .05, spritespeed_framespergameframe);
+sprite_set_speed(s_beetle_run, .3, spritespeed_framespergameframe);
+sprite_set_speed(s_beetle_air, .3, spritespeed_framespergameframe);
+
+//////////////////////////////////////////////
+// MUSHROOM CHILDREN
+//////////////////////////////////////////////
+
+sprite_set_speed(s_mushroom_blue, .03, spritespeed_framespergameframe);
+sprite_set_speed(s_mushroom_red, .03, spritespeed_framespergameframe);
+sprite_set_speed(s_mushroom_green, .03, spritespeed_framespergameframe);
+sprite_set_speed(s_mushroom_white, .03, spritespeed_framespergameframe);
+
+//////////////////////////////////////////////
 // WORM
 //////////////////////////////////////////////
 

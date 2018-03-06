@@ -1,8 +1,5 @@
 /// @description set up options
 
-global.gameover = false;
-global.pause = false;
-
 title = "Veins of Light";
 subtitle = DEV_NAME + " v" + VERSION;
 start_room = r_demo_level;
