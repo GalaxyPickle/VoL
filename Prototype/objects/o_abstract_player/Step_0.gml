@@ -8,5 +8,8 @@ event_inherited();
 
 if special >= special_max
 	global.laser = true;
+	
+// set sound listener to be at camera position
+audio_listener_position(x, y, 0);
 
 player_step_queue();

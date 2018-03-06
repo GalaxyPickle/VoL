@@ -4,8 +4,10 @@
 // debug mode + settings
 ////////////////////////////////////////////
 
+// delta time thingy
+instance_create(x, y, obj_SteadyDeltaTime);
+
 // debug info
-global.debug = true;
 global.text = false;
 global.hitboxes = false;
 global.godmode = false;
@@ -25,6 +27,9 @@ global.mute = false;
 if gamepad_is_supported()
 	global.gamepad = true;
 else global.gamepad = false;
+
+global.view_x = 0;
+global.view_y = 0;
 
 ////////////////////////////////////////////////////////
 // misc progression and collectibles
@@ -49,6 +54,11 @@ global.glyph_sundering = [false, false, false, false];
 /////////////////////////////////////////////////
 // GLOBAL STATS for abilities
 /////////////////////////////////////////////////
+
+global.sunyata = false;
+
+
+//////////// OLD ///////////
 
 // all the unlockable abilities
 // discharge is firing a lazer beam from your sword when your special bar is maxxed

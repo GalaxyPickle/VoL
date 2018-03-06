@@ -14,10 +14,10 @@ for (var i = 0; i < ds_list_size(global.light_list); i++) {
 	var dist = point_distance(global.player.x, global.player.y, instance.x, instance.y);
 	
 	if dist > global.game_width / 2 + instance._pl_radius {
-		instance_deactivate_object(instance);
+		instance.pl_active = false;
 	}
-	// we're within range bois, let player know there's an enemy
+	// we're within range bois
 	else {
-		instance_activate_object(instance);
+		instance.pl_active = true;
 	}
 }

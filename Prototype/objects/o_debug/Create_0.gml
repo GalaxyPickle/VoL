@@ -29,10 +29,3 @@ helper_text =
 	"Special: Key S - Button Y",
 	"",
 ];
-
-
-debug_message = 
-[
-	"FPS: " + string(fps),
-	"GODMODE: " + (global.godmode ? "ACTIVE" : "INACTIVE"),
-];

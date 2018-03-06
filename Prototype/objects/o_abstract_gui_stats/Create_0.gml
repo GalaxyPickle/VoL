@@ -12,3 +12,5 @@ outline_thickness = 1;
 /////////////////////////
 // outline
 outline_init();
+
+scr_shader_overlay_init();

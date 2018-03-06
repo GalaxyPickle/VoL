@@ -1,0 +1,23 @@
+Converting GML script: ${project_dir}/objects/obj_SteadyDeltaTime/Create_0.gml
+Converted description /// @description  README
+
+Converting GML script: ${project_dir}/objects/obj_SteadyDeltaTime/Step_1.gml
+Converted description /// @description  Manage Delta Timing Update
+
+Converting GML script: ${project_dir}/objects/obj_SDT_DemoControl/Draw_0.gml
+Converted description /// @description  Draw Instructions
+
+Converting GML script: ${project_dir}/objects/obj_SDT_DemoControl/KeyRelease_114.gml
+Converted description /// @description  Set Minimum Required FPS
+
+Converting GML script: ${project_dir}/objects/obj_SDT_DemoControl/KeyRelease_113.gml
+Converted description /// @description  Set Delta Scale
+
+Converting GML script: ${project_dir}/objects/obj_SDT_DemoControl/KeyRelease_112.gml
+Converted description /// @description  Set Room Speed
+
+Converting GML script: ${project_dir}/objects/obj_SDT_DemoSubject/Create_0.gml
+Converted description /// @description  Setup
+
+Converting GML script: ${project_dir}/objects/obj_SDT_DemoSubject/Step_0.gml
+Converted description /// @description  Move Using Delta Time

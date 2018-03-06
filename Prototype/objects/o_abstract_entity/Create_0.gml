@@ -195,11 +195,16 @@ key_special = false;
 ////////////////////////////////////
 #region
 
-max_velocity_y = TILE_SIZE * 3 / 4;
+max_velocity_y = TILE_SIZE / 2;
 horizontal_acceleration = global.ACCELERATION;
 horizontal_friction = global.FRICTION;
 
+jump_speed_y = 10;
+max_velocity_x = 5;
+
 on_ground = false;
+on_platform = false;
+dropping = false;
 just_landed = false;
 recovered = false;
 show_recover_cloud = false;
@@ -250,9 +255,6 @@ dead = false;
 
 start_special = false;
 special_damage = 100;
-
-jump_speed_y = 10;
-max_velocity_x = 5;
 
 // stamina costs for non attack moves
 jump_stamina_cost = 0;

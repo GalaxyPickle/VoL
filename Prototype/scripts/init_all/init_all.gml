@@ -22,11 +22,13 @@ global.view_y = 0;
 
 window_center();
 
+global.debug = false;
+
 // tile size
 #macro TILE_SIZE 32
 
 // physics stuff
-global.GRAVITY = 0.4;
+global.GRAVITY = 0.35;
 global.FRICTION = 0.5;
 global.ACCELERATION = 0.5;
 

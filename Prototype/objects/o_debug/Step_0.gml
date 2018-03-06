@@ -32,10 +32,12 @@ else {
 // hitboxes
 if show_tiles == false {
 	if global.hitboxes {
-		layer_set_visible("layer_tile_collision", true);	
+		layer_set_visible("layer_tile_collision", true);
+		layer_set_visible("layer_tile_platform", true);
 	}
 	else {
 		layer_set_visible("layer_tile_collision", false);
+		layer_set_visible("layer_tile_platform", false);
 	}
 }
 
@@ -50,11 +52,12 @@ if global.godmode {
 debug_message = 
 [
 	"FPS: " + string(fps),
+	"APP SURF: " + string( application_surface_is_enabled() ? "true" : "false"),
 	"GODMODE: " + (global.godmode ? "active" : "inactive"),
 	"COMBO: " + string(global.combo),
 	"",
-	"Camera view y: " + string(o_camera.y - global.game_height),
-	"Camera view x: " + string(o_camera.x - global.game_width),
+	"Camera view y: " + string(instance_exists(o_camera) ? o_camera.y - global.game_height : 666),
+	"Camera view x: " + string(instance_exists(o_camera) ? o_camera.x - global.game_width : 666),
 	"",
 	"Gamepad: " + (gamepad_is_connected(0) ? "connected" : "disconnected"),
 	"",

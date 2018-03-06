@@ -4,7 +4,8 @@
 // Update lights
 for (var i = 0; i < ds_list_size(_pl_lightObjects); i++) {
     with (ds_list_find_value(_pl_lightObjects , i)) {
-        pl_light_update();
+		if pl_active
+			pl_light_update();
     }
 }
 
@@ -26,7 +27,8 @@ surface_set_target(_pl_lightmap);
     draw_set_blend_mode(bm_add);
     for (var i = 0; i < ds_list_size(_pl_lightObjects); i++) {
         with (ds_list_find_value(_pl_lightObjects , i)) {
-            pl_light_draw();
+			if pl_active
+				pl_light_draw();
         }
     }
 

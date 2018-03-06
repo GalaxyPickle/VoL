@@ -7,10 +7,12 @@ var vector2_y = 1;
 var jump_key_pressed = keyboard_check_pressed(key_jump) || gamepad_button_check_pressed(0, gp_jump);
 var jump_key_released = keyboard_check_released(key_jump) || gamepad_button_check_released(0, gp_jump);
 var jump_key_held = keyboard_check(key_jump) || gamepad_button_check(0, gp_jump);
+var down_key_held = keyboard_check(key_down) || gamepad_axis_value(0, gp_axislv) <= -.5;
 
 // horizontal movement
-if !pause_input
+if !pause_input {
 	velocity[vector2_x] = clamp( velocity[vector2_x] + x_input, -max_velocity_x, max_velocity_x);
+}
 	
 image_speed = 1;
 
@@ -72,7 +74,7 @@ else if on_wall_jump_left || on_wall_jump_right {
 else {
 	// set jump sprite
 	sprite_index = sprite_air;
-	
+
 	// double jump if you have the ability
 	if global.ability_ascension && global.double_jump && jump_key_pressed {
 		
@@ -84,5 +86,5 @@ else {
 	}
 }
 if !on_ground && !jump_key_held {
-	velocity[vector2_y] += jump_speed_y / TILE_SIZE;
+	//velocity[vector2_y] += jump_speed_y / TILE_SIZE;
 }

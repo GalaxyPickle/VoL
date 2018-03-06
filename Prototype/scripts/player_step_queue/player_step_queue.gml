@@ -35,9 +35,6 @@ if ds_queue_size(input_queue) < queue_max {
 
 	else if dodge_key_pressed
 		ds_queue_enqueue(input_queue, states.dodge);
-
-	else if special_key_pressed
-		ds_queue_enqueue(input_queue, states.special);
 }
 
 if !ds_queue_empty(input_queue) && just_landed {
@@ -53,4 +50,15 @@ if current_state == states.idle && !ds_queue_empty(input_queue) {
 	
 	current_state = ds_queue_dequeue(input_queue);
 	starting = true;
+}
+
+if !global.sunyata && special_key_pressed && special > 0 {
+	global.sunyata = true;
+	audio_play_sound(a_special_shift, 1, false);
+}
+else if global.sunyata && special_key_pressed {
+	global.sunyata = false;	
+}
+else if global.sunyata && special <= 0 {
+	global.sunyata = false;	
 }

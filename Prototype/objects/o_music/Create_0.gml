@@ -1,4 +1,5 @@
 /// @description play and mute audio/music
+/*
 
 global.music = a_song_demo_hardcore;
 

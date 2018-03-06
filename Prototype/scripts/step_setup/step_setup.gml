@@ -27,9 +27,22 @@ else {
 // 1. collision checks
 ////////////////////////////////////////////////////////////////////////////
 
+// on platform?
+on_platform = tile_collide_at_points(platform_tile_map_id,
+		[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) && velocity[vel_y] >= 0;
+		
+if ( !NPC && (keyboard_check(global.key_down) || gamepad_axis_value(0, gp_axislv) >= .5) ) || 
+	(NPC && key_down) || dropping {
+	if on_platform && velocity[vel_y] == 0 {
+		alarm[5] = room_speed / 4;
+		dropping = true;
+	}
+	on_platform = false;
+}
+
 // on ground?
 on_ground = tile_collide_at_points(collision_tile_map_id,
-		[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]);
+		[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) || on_platform;
 	
 // sliding on walls?
 on_wall_left = tile_collide_at_points(collision_tile_map_id,
@@ -60,17 +73,17 @@ on_wall = on_wall_left || on_wall_right || on_wall_bottom_left || on_wall_bottom
 
 // Vertical collisions
 // Falling
-if velocity[vel_y] > 0 {
-	
+if on_platform && velocity[vel_y] > 0
+{	
 	var tile_bottom = tile_collide_at_points(platform_tile_map_id,
-		[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]);
+			[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]);
+		
 	if tile_bottom {
 		y = bbox_bottom & ~(TILE_SIZE-1);
 		y -= bbox_bottom-y;
-		velocity[@ vel_y] = 0;
+		velocity[vel_y] = 0;
 	}
 }
-
 
 ////////////////////////////////////////////
 // falling
@@ -139,28 +152,32 @@ else {
 }
 
 // CLAMP IT
-clamp(velocity[vel_x], -TILE_SIZE + 2, TILE_SIZE - 2);
+clamp(velocity[@ vel_x], -TILE_SIZE / 2, TILE_SIZE / 2);
 
 //////////////////////////
 // Physics 2
 //////////////////////////
 
 // keep away from other entities
-if true {
-	var o = object_index;
-	// if close by, shoot away from the entity
-	if o != self && distance_to_point(o.x, o.y) < 10 && 
-	( (!move && !o.move) ) {
-		if x < o.x
-			velocity[vel_x] += -1;
-		else if x > o.x
-			velocity[vel_x] += 1;
-	}
+var o = object_index;
+// if close by, shoot away from the entity
+if o != self && distance_to_point(o.x, o.y) < 10 && 
+( (!move && !o.move) ) {
+	if x < o.x
+		velocity[vel_x] += -1;
+	else if x > o.x
+		velocity[vel_x] += 1;
 }
 
+var max_vel_y = TILE_SIZE * 3 / 8;
+
 // apply gravity
-if velocity[vel_y] < max_velocity_y && !on_ground
+if velocity[vel_y] <= max_vel_y && !on_ground {
 	velocity[vel_y] += global.GRAVITY;
+}
+
+// CLAMP IT
+clamp(velocity[@ vel_y], -max_vel_y, max_vel_y);
 
 // move and contact tiles!
 move_and_contact_tiles(collision_tile_map_id, TILE_SIZE, velocity);

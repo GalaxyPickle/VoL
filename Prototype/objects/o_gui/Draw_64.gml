@@ -29,6 +29,7 @@ if flash_health
 else
 	draw_set_alpha(lerp(draw_get_alpha(), 1, flash_time));
 
+/*
 for (var i = 0; i < array_length_1d(player.stat_array); i++) {
 	
 	if i == 1
@@ -46,12 +47,9 @@ for (var i = 0; i < array_length_1d(player.stat_array); i++) {
 	maxcol = mincol;
 
 	draw_healthbar(x1, y1, x2, y2, amount, backcol, mincol, maxcol, direction_, showback, showborder);
-	/*
-	draw_set_color(c_white);
-	draw_set_font(f_debug);
-	draw_text(x1 + 1, y1 + 1, string(floor(current_array[2])) + "/" + string(floor(current_array[3])));
-	*/
 }
+*/
+
 // draw health
 var ypos = 10;
 var yspac = 40;
@@ -64,6 +62,10 @@ draw_text_outline_color( 40, ypos, string(floor(player.vitality)),
 draw_text_outline_color( 40, ypos + yspac, "x" + string(global.combo), 2, c_white, 4, c_lime, 1);
 
 // only draw special bar if you have the ability
+
+
+
+/*
 if !global.ability_discharge
 	exit;
 // draw special

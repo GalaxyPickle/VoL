@@ -15,9 +15,13 @@ move = true;
 
 // lightsource
 lightsource = instance_create_layer(x, y, "layer_instance_lights", o_lightsource);
+light_radius = 300;
 with lightsource {
-	pl_light_init(300, c_white, .7);
+	pl_light_init(other.light_radius, c_white, .7);
+	pl_active = false;
 }
+// special lightsource
+//lightsource_special = instance_create_layer(x, y, "layer_instance_lights", o_lightsource);
 
 
 ////////////////////////////////////
@@ -260,8 +264,8 @@ gp_special = global.gp_key_special;
 // physics & collisions constants
 ////////////////////////////////////
 
-jump_speed_y = 10;
-max_velocity_x = 8;
+jump_speed_y = 9;
+max_velocity_x = 6;
 
 #endregion
 ////////////////////////////////////
@@ -290,7 +294,7 @@ poise_regen = .08;
 // SPECIAL
 special_max = 500;
 special = 0;
-special_regen = 0;
+special_regen = 50;
 
 #endregion
 ////////////////////////////////////
