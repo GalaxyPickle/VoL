@@ -15,10 +15,10 @@ instance_create_layer(x, y, helper_layer, o_pause_menu);
 // make other controllers
 instance_create_layer(x, y, light_layer, o_controller_light);
 instance_create_layer(x, y, helper_layer, o_controller_entity);
-instance_create_layer(x, y, helper_layer, o_controller_surface);
+instance_create_layer(x, y, top_layer, o_controller_surface);
+instance_create_layer(x, y, helper_layer, o_controller_sunyata);
 
 // make wave special fx controller
-//instance_create_layer(x, y, light_layer, obj_controller_wave);
 
 // minimap
 //instance_create_layer(x, y, light_layer, o_minimap);

@@ -8,3 +8,5 @@ pl_set_vivid(false);
 pl_add(o_lightsource);
 
 alarm[0] = 1;
+
+sun = false;

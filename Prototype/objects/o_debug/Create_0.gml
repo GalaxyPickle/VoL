@@ -7,9 +7,7 @@ key_godmode = vk_f3;
 key_hitbox = ord("H");
 key_text = ord("T");
 
-if layer_get_visible("layer_tile_collision")
-	show_tiles = true;
-else show_tiles = false;
+show_tiles = false;
 
 helper_text = 
 [

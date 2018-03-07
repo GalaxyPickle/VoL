@@ -10,6 +10,8 @@ interactable = false;
 NPC = true;
 enemy = true;
 
+ghost_mode = false;
+
 value = 10;
 weight = 10;
 
@@ -223,9 +225,12 @@ velocity = [0,0];
 // get the tilemap id
 var layer_id = layer_get_id("layer_tile_collision");
 collision_tile_map_id = layer_tilemap_get_id(layer_id);
-
 layer_id = layer_get_id("layer_tile_platform");
 platform_tile_map_id = layer_tilemap_get_id(layer_id);
+layer_id = layer_get_id("layer_tile_ghost_collision");
+collision_ghost_tile_map_id = layer_tilemap_get_id(layer_id);
+layer_id = layer_get_id("layer_tile_ghost_platform");
+platform_ghost_tile_map_id = layer_tilemap_get_id(layer_id);
 
 #endregion
 ////////////////////////////////////

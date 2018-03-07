@@ -34,10 +34,14 @@ if show_tiles == false {
 	if global.hitboxes {
 		layer_set_visible("layer_tile_collision", true);
 		layer_set_visible("layer_tile_platform", true);
+		layer_set_visible("layer_tile_ghost_collision", true);
+		layer_set_visible("layer_tile_ghost_platform", true);
 	}
 	else {
 		layer_set_visible("layer_tile_collision", false);
 		layer_set_visible("layer_tile_platform", false);
+		layer_set_visible("layer_tile_ghost_collision", false);
+		layer_set_visible("layer_tile_ghost_platform", false);
 	}
 }
 
@@ -52,12 +56,14 @@ if global.godmode {
 debug_message = 
 [
 	"FPS: " + string(fps),
-	"APP SURF: " + string( application_surface_is_enabled() ? "true" : "false"),
+	"App Surf: " + string( application_surface_is_enabled() ? "true" : "false"),
+	"Player Surf: " + string( surface_exists(global.player_surface) ? "true" : "false"),
+	"",
 	"GODMODE: " + (global.godmode ? "active" : "inactive"),
 	"COMBO: " + string(global.combo),
 	"",
-	"Camera view y: " + string(instance_exists(o_camera) ? o_camera.y - global.game_height : 666),
-	"Camera view x: " + string(instance_exists(o_camera) ? o_camera.x - global.game_width : 666),
+	"Camera view y: " + string(global.view_y),
+	"Camera view x: " + string(global.view_x),
 	"",
 	"Gamepad: " + (gamepad_is_connected(0) ? "connected" : "disconnected"),
 	"",

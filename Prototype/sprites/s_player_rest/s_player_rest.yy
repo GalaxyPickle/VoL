@@ -6,10 +6,10 @@
     "For3D": false,
     "HTile": false,
     "VTile": false,
-    "bbox_bottom": 68,
+    "bbox_bottom": 69,
     "bbox_left": 1,
     "bbox_right": 46,
-    "bbox_top": 0,
+    "bbox_top": 1,
     "bboxmode": 0,
     "colkind": 1,
     "coltolerance": 0,
@@ -160,7 +160,7 @@
     ],
     "gridX": 0,
     "gridY": 0,
-    "height": 70,
+    "height": 71,
     "layers": [
         {
             "id": "0d3fb154-26c5-414f-8a66-fa5e4b4f3732",
@@ -265,7 +265,7 @@
             ]
         }
     ],
-    "origin": 9,
+    "origin": 4,
     "originLocked": false,
     "playbackSpeed": 2,
     "playbackSpeedType": 0,
@@ -277,5 +277,5 @@
     "type": 0,
     "width": 48,
     "xorig": 24,
-    "yorig": 34
+    "yorig": 35
 }

@@ -23,6 +23,7 @@ draw_variables =
 	["y: ", y],
 	["vx: ", velocity[0]],
 	["vy: ", velocity[1]],
+	["ghost: ", ghost_mode],
 	//["state: ", current_state_string],
 	//["AI state: ", NPC ? AI_goal : "NaN"],
 	//["on ground: ", on_ground ? "true" : "false"],

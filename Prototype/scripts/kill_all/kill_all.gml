@@ -1,14 +1,33 @@
 /// @desc clean it all up boiiiiiiii
 
+///////////////////////////////////////////////
+// PARTICLES
+///////////////////////////////////////////////
+
 // kill all particles emitters and the particle system
-part_emitter_destroy_all(global.ps);
-part_system_destroy(global.ps);
+if part_system_exists(global.ps) {
+	part_emitter_destroy_all(global.ps);
+	part_system_destroy(global.ps);
+}
+
+/////////////////////////////////////////////
+// DS TYPES
+/////////////////////////////////////////////
 
 // kill the NPC list
-ds_list_destroy(global.NPC_list);
+if ds_exists(global.NPC_list, ds_type_list)
+	ds_list_destroy(global.NPC_list);
 // kill light list
-ds_list_destroy(global.light_list);
+if ds_exists(global.light_list, ds_type_list)
+	ds_list_destroy(global.light_list);
 
-// kill the glyph collection ds map
-/*
-ds_map_destroy(global.glyph_collection);
+///////////////////////////////////////////
+// SURFACES
+///////////////////////////////////////////
+
+// kill player surface
+if surface_exists(global.player_surface)
+	surface_free(global.player_surface);
+// kill ghost surface
+if surface_exists(global.ghost_surface)
+	surface_free(global.ghost_surface);

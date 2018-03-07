@@ -13,6 +13,8 @@ special_damage = 500;
 draw_my_healthbars = false;
 move = true;
 
+changed = false;
+
 // lightsource
 lightsource = instance_create_layer(x, y, "layer_instance_lights", o_lightsource);
 light_radius = 300;
@@ -20,9 +22,6 @@ with lightsource {
 	pl_light_init(other.light_radius, c_white, .7);
 	pl_active = false;
 }
-// special lightsource
-//lightsource_special = instance_create_layer(x, y, "layer_instance_lights", o_lightsource);
-
 
 ////////////////////////////////////
 // sprite setting

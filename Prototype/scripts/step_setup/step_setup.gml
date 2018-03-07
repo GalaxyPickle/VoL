@@ -28,8 +28,15 @@ else {
 ////////////////////////////////////////////////////////////////////////////
 
 // on platform?
-on_platform = tile_collide_at_points(platform_tile_map_id,
-		[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) && velocity[vel_y] >= 0;
+on_platform = 
+	( 
+	tile_collide_at_points(platform_tile_map_id,
+		[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) 
+	||
+	( tile_collide_at_points(platform_ghost_tile_map_id,
+		[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) && ghost_mode )
+	) 
+	&& velocity[vel_y] >= 0;
 		
 if ( !NPC && (keyboard_check(global.key_down) || gamepad_axis_value(0, gp_axislv) >= .5) ) || 
 	(NPC && key_down) || dropping {
@@ -42,7 +49,7 @@ if ( !NPC && (keyboard_check(global.key_down) || gamepad_axis_value(0, gp_axislv
 
 // on ground?
 on_ground = tile_collide_at_points(collision_tile_map_id,
-		[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) || on_platform;
+	[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) || on_platform;
 	
 // sliding on walls?
 on_wall_left = tile_collide_at_points(collision_tile_map_id,
@@ -52,12 +59,11 @@ on_wall_right = tile_collide_at_points(collision_tile_map_id,
 	
 // close enough yet not too far to jump off of wall
 var dist = TILE_SIZE - 1;
-on_wall_jump_left = 
-	tile_collide_at_points(collision_tile_map_id,
-		[ [bbox_left-1 - dist, bbox_top], [bbox_left-1 - dist, bbox_top + abs(bbox_bottom - bbox_top) / 2] ]);
-on_wall_jump_right = 
-	tile_collide_at_points(collision_tile_map_id,
-		[ [bbox_right + dist, bbox_top], [bbox_right + dist, bbox_top + abs(bbox_bottom - bbox_top) / 2] ]);
+
+on_wall_jump_left = tile_collide_at_points(collision_tile_map_id,
+	[ [bbox_left-1 - dist, bbox_top], [bbox_left-1 - dist, bbox_top + abs(bbox_bottom - bbox_top) / 2] ]);
+on_wall_jump_right = tile_collide_at_points(collision_tile_map_id,
+	[ [bbox_right + dist, bbox_top], [bbox_right + dist, bbox_top + abs(bbox_bottom - bbox_top) / 2] ]);
 
 // stuck on little rock or wall by foot?
 on_wall_bottom_left = tile_collide_at_points(collision_tile_map_id,
@@ -76,7 +82,9 @@ on_wall = on_wall_left || on_wall_right || on_wall_bottom_left || on_wall_bottom
 if on_platform && velocity[vel_y] > 0
 {	
 	var tile_bottom = tile_collide_at_points(platform_tile_map_id,
-			[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]);
+			[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) ||
+		( tile_collide_at_points(platform_ghost_tile_map_id,
+			[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) && ghost_mode );
 		
 	if tile_bottom {
 		y = bbox_bottom & ~(TILE_SIZE-1);

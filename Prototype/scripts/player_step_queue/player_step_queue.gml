@@ -52,13 +52,18 @@ if current_state == states.idle && !ds_queue_empty(input_queue) {
 	starting = true;
 }
 
+// sunyata
+if global.sunyata {
+	ghost_mode = true;
+}
+else ghost_mode = false;
+
 if !global.sunyata && special_key_pressed && special > 0 {
 	global.sunyata = true;
 	audio_play_sound(a_special_shift, 1, false);
+	changed = false;
 }
-else if global.sunyata && special_key_pressed {
-	global.sunyata = false;	
-}
-else if global.sunyata && special <= 0 {
-	global.sunyata = false;	
+else if global.sunyata && (special_key_pressed || special <= 0) {
+	global.sunyata = false;
+	changed = false;
 }

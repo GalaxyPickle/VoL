@@ -79,8 +79,8 @@ else { // if the camera isn't shaking then glide to follow pos
 }
 #endregion
 
-global.view_x = x - global.game_width;
-global.view_y = y - global.game_height;
+global.view_x = x - global.game_width / 2;
+global.view_y = y - global.game_height / 2;
 
 // update matrix for camera
 var vm = matrix_build_lookat(
