@@ -19,13 +19,9 @@ if !surface_exists(global.ghost_surface)
 
 surface_set_target(global.ghost_surface);
 
-outline_start(2, c_aqua);
-
 draw_tilemap(layer_tilemap_get_id(ghost_id), 0, 0);
 draw_tilemap(layer_tilemap_get_id(ghost_id_2), 0, 0);
 
 draw_arrow(100, 100, 200, 200, 20);
-
-outline_end();
 
 surface_reset_target()

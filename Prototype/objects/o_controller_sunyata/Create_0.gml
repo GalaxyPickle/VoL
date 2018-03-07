@@ -1,3 +1,1 @@
 /// @description ...
-
-outline_init();
