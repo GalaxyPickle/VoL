@@ -2,6 +2,8 @@
 
 event_inherited();
 
+global.player = self;
+
 NPC = false;
 gamepad_input = false;
 
@@ -21,6 +23,7 @@ light_radius = 300;
 with lightsource {
 	pl_light_init(other.light_radius, c_white, .7);
 	pl_active = false;
+	player = true;
 }
 
 ////////////////////////////////////
@@ -72,7 +75,7 @@ sound_land = a_player_land;					// one-shot when hitting ground
 sound_take_damage = a_player_hit;				// an "OOF!" or hurt sound when hit
 sound_poise_break = a_player_pain;				// a REALLY hurt sound when collapsing back
 sound_recovery = a_player_footstep;				// healing sound?
-sound_dodge = a_player_footstep;					// dodge sound
+sound_dodge = a_player_roll;					// dodge sound
 sound_death = a_player_footstep;					// DEATH sound
 
 // attack sounds

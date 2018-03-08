@@ -5,9 +5,12 @@ if alarm[0] > -1
 
 // for each NPC, deactivate if outside of view and sight range
 for (var i = 0; i < ds_list_size(global.NPC_list); i++) {
+	
 	var instance = global.NPC_list[| i];
-	if instance == -1 || instance == undefined || instance == noone || instance == pointer_null
+	if string(instance) == "<undefined>" || instance == undefined || 
+		instance == noone || instance == pointer_null {
 		continue;
+	}
 	
 	var dist = point_distance(global.player.x, global.player.y, instance.x, instance.y);
 	

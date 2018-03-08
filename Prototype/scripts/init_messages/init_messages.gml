@@ -19,6 +19,24 @@ global.message_default =
 ////////////////////////////////////////
 // LORE GLYPH MESSAGES - Intro
 ////////////////////////////////////////
+global.message_intro = 
+[
+	"Nightmares of a great peril trouble my sleep. " + 
+		"Visions of an ancient tomb, built around a mighty being, " +
+		"larger than the mind can comprehend. " + 
+		"It slumbers since the dawn of time, undisturbed until this... familiar... danger.",
+		
+	"I have journeyed for many moons to this place of resting, visions guiding me. " +
+		"I carry the Blade of Kyzanaji, namesake of my family. " +
+		"It remains untarnished after millenia, sharper than a razor.",
+		
+	"Kyzanaji's Blade are linked to my dreams and the mighty being, this I know. " +
+		"The powers of the Blade have yet to be revealed to me. I can feel them waiting to be unleashed.",
+		
+	"It pushes me onwards. To what, I do not know, only that the danger will be great. " +
+		"What I do know is that if I fail, doom will fall upon all like the waves fall upon the shore..."
+]
+
 global.message_glyph_lore_intro_A = 
 [
 	"Long, long ago, when Our Mother the Earth was whole and perfect, " +

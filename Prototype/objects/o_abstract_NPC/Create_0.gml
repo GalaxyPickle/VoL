@@ -3,7 +3,7 @@
 // Inherit the parent event
 event_inherited();
 
-ds_list_add(global.NPC_list, id);
+ds_list_add(global.NPC_list, self);
 
 enemy_list = [o_player];	// list of all enemies this entity has in the game
 

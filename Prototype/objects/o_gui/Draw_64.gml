@@ -1,7 +1,7 @@
 /// @description draw player health and stamina
 
-var height = 10;			// height of stat bars
-var spacing_y = 30;		// how far apart to draw stat bars
+var height = 5;			// height of stat bars
+var spacing_y = 5;		// how far apart to draw stat bars
 var y_start_spacing = 20;
 var x_start_spacing = 130;
 
@@ -12,13 +12,13 @@ var x2 = x_start_spacing;
 var y2 = y1 + height;
 
 var amount = 0;			// current amount of the bar
-var backcol = c_dkgray;	// back color of the healthbar
+var backcol = c_black;	// back color of the healthbar
 var mincol = c_white;	// min color health
 var maxcol = c_white;	// max color health
 
 var direction_ = 0;		// anchored in left direction (0)
 var showback = true;	// show bg?
-var showborder = false;	// show black 1px border?
+var showborder = true;	// show black 1px border?
 
 ///////////////////////////////
 // loop through 4 stats and draw them
@@ -29,7 +29,7 @@ if flash_health
 else
 	draw_set_alpha(lerp(draw_get_alpha(), 1, flash_time));
 
-/*
+
 for (var i = 0; i < array_length_1d(player.stat_array); i++) {
 	
 	if i == 1
@@ -48,8 +48,9 @@ for (var i = 0; i < array_length_1d(player.stat_array); i++) {
 
 	draw_healthbar(x1, y1, x2, y2, amount, backcol, mincol, maxcol, direction_, showback, showborder);
 }
-*/
 
+
+/*
 // draw health
 var ypos = 10;
 var yspac = 40;
@@ -60,6 +61,7 @@ draw_text_outline_color( 40, ypos, string(floor(player.vitality)),
 
 // draw combo below health
 draw_text_outline_color( 40, ypos + yspac, "x" + string(global.combo), 2, c_white, 4, c_lime, 1);
+*/
 
 // only draw special bar if you have the ability
 

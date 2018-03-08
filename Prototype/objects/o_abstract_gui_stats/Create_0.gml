@@ -4,12 +4,14 @@ event_inherited();
 
 draw_variables = [];
 draw_my_healthbars = true;
-outline_color = c_black;
-outline_thickness = 1;
+
+interact_text = "Commune";
 
 /////////////////////////
 // SHADERS
 /////////////////////////
+outline_color = c_black;
+outline_thickness = 1;
 // outline
 outline_init();
 

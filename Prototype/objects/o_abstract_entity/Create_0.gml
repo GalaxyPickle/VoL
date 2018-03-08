@@ -288,6 +288,9 @@ special_max = 100;
 special = 0;
 special_regen = .1;
 
+ghost_count = 0;
+ghost_base = room_speed;
+
 #endregion
 ////////////////////////////////
 // GUI stat listing
@@ -320,7 +323,7 @@ poise_ = [
 	];
 special_ = [
 	"Special",
-	c_silver,
+	c_aqua,
 	special,		// current special ability charge
 	special_max,	// special needed to activate one instance
 	special_regen,	// special regen rate?

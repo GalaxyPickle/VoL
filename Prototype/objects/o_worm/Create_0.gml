@@ -2,7 +2,6 @@
 // Inherit the parent event
 event_inherited();
 
-enemy = false;
 enemy_list = [];
 
 weight = 1;

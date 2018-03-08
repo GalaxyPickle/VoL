@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "o_upgrade_platform",
     "eventList": [
-        
+        {
+            "id": "6606ab7e-a653-45cb-9d14-546cf7c231ce",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "5655ef55-e871-45f1-99f0-38bef71752e9"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,

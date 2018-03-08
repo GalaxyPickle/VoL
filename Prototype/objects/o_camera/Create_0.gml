@@ -21,7 +21,7 @@ follow_xscale = 1;
 can_pan = true;
 alarm[0] = global.dt_steady * 1 / 2; // .5 sec
 
-shake_rate = 3;
+shake_rate = 5;
 shaking = false;
 
 var vm = matrix_build_lookat(

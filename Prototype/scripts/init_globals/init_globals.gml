@@ -38,7 +38,7 @@ global.view_y = 0;
 score = 0;
 health = 0;
 // player object
-global.player = noone;
+global.player = false;
 global.chatbox_up = false;
 
 // collectible mushrooms

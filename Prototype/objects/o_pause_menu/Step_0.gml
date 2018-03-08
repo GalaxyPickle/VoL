@@ -38,7 +38,8 @@ if global.pause && ( keyboard_check_released(global.key_enter) ||
 }
 
 if keyboard_check_pressed(global.key_escape) ||
-	gamepad_button_check_pressed(0, global.gp_key_enter) {
+	gamepad_button_check_pressed(0, global.gp_key_enter) 
+{
 	global.pause = !global.pause;
 	
 	// if paused take a screenshot of the game and set it as the bg

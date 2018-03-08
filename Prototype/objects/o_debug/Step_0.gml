@@ -52,12 +52,30 @@ if global.godmode {
 	global.ability_cracked = true;
 }
 
+var lights = 0;
+var active_lights = 0;
+
+// for every instance in the room of the current enemy...
+if instance_exists(o_lightsource) {
+	for (var j = 0; j < instance_number(o_lightsource); j++) {
+		
+		// if the enemy is in range, add it to my nearest_enemy array
+		var light = instance_find(o_lightsource, j);
+		if light.pl_active
+			active_lights++;
+			
+		lights++;
+	}
+}
+
 // update debug values
 debug_message = 
 [
 	"FPS: " + string(fps),
-	"App Surf: " + string( application_surface_is_enabled() ? "true" : "false"),
-	"Player Surf: " + string( surface_exists(global.player_surface) ? "true" : "false"),
+	"Lights: " + string(lights) + " / Active: " + string(active_lights),
+	//"DT: " + string(alarm[0]),
+	//"Time: " + string(current_time),
+	//"Delta Time: " + string(delta_time),
 	"",
 	"GODMODE: " + (global.godmode ? "active" : "inactive"),
 	"COMBO: " + string(global.combo),
@@ -73,11 +91,6 @@ debug_message =
 	"",
 	"Glyph Intro: " + string(global.glyph_intro),
 	"Glyph Sundering: " + string(global.glyph_sundering),
-	"",
-	"Discharge: " + string(global.ability_discharge),
-	"Ascension: " + string(global.ability_ascension),
-	"Whirlwind: " + string(global.ability_whirlwind),
-	"Cracked: " + string(global.ability_cracked),
 	"",
 ];
 

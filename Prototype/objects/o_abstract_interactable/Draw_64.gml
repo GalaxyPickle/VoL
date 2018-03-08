@@ -170,7 +170,7 @@ else {
 		draw_set_font(f_chat);
 		var tc = c_white;
 		draw_text_color(global.window_width / 2,	
-			global.window_height - t_margin * 8, "Decipher", tc, tc, tc, tc, 1);
+			global.window_height - t_margin * 8, interact_text, tc, tc, tc, tc, 1);
 	}
 }
 #endregion
