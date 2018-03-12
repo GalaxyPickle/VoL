@@ -1,8 +1,11 @@
 /// @description set up options
 
+if object_exists(o_player)
+	instance_destroy(o_player);
+
 title = "Veins of Light";
 subtitle = DEV_NAME + " v" + VERSION;
-start_room = r_demo_level;
+start_room = r_intro_area;
 
 // array of options
 menu[0] = "Start";

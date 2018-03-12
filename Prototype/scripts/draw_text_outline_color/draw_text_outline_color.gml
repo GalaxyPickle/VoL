@@ -8,8 +8,8 @@
 /// @param outcol
 /// @param outfidelity
 
-/// @param color
-/// @param alpha
+/// @param text_color
+/// @param text_alpha
 
 //Created by Andrew McCluskey http://nalgames.com/
 //x,y: Coordinates to draw

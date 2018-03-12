@@ -16,3 +16,7 @@ outline_thickness = 1;
 outline_init();
 
 scr_shader_overlay_init();
+alarm[6] = room_speed / 16;
+flash_entity = false;
+
+init_thermal_shader();

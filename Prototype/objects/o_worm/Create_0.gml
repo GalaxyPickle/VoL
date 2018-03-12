@@ -57,7 +57,7 @@ max_velocity_x = .1;
 draw_my_healthbars = false;
 
 close_range = 5;
-sight_range = 200;
+sight_range = 5;
 
 // VITALITY
 vitality_max = 10;			// max health

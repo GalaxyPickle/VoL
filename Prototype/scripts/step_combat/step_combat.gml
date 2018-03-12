@@ -3,7 +3,11 @@
 // slight invincibility after being hit
 if just_hit {
 	invincible = true;
-	alarm[0] = room_speed / 4; // 1/4 second invinciblity
+	if current_state != states.pain
+		alarm[0] = room_speed / 4; // 1/4 second invinciblity
+	else
+		alarm[0] = stun_time + room_speed / 2;
+		
 	just_hit = false;
 	
 	starting = true;

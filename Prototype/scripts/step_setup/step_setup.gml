@@ -27,6 +27,31 @@ else {
 // 1. collision checks
 ////////////////////////////////////////////////////////////////////////////
 
+// danger collisions
+in_danger = move_and_check_contact_tiles(danger_tile_map_id, velocity);
+
+if in_danger && !invincible && !ghost_mode {
+	var vit_dmg = 100;
+	
+	just_hit = true;
+	current_state = states.pain;
+	starting = true;
+	vitality -= vit_dmg;
+	velocity = [-image_xscale * 3, -3];
+	
+	var layer_id = layer_get_id("layer_instance_popups");
+	var particle_layer = layer_get_id("layer_instance_particles");
+	
+	// popups
+	var damage_popup = instance_create_layer(x, hitbox_head_top, layer_id, o_damage_popup);
+	damage_popup.damage = vit_dmg;
+	damage_popup.positive = false;
+	
+	// particles
+	particle_fluffy_burst(x, y, pt_shape_disk, 5, c_red, c_maroon, 120,
+		image_xscale == 1 ? 45 : 135, 3, 10 + random(10));
+}
+
 // on platform?
 on_platform = 
 	( 

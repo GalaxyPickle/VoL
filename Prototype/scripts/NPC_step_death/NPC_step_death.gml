@@ -15,6 +15,10 @@ if image_index >= image_number - 1 {
 		var index = ds_list_find_index(global.NPC_list, id);
 		ds_list_replace(global.NPC_list, index, noone);
 		
-		instance_destroy();
+		corpse = true;
+		instance_deactivate_object(self);
+		
+		var corpse = layer_sprite_create("layer_asset_corpse", x, bbox_bottom, sprite_corpse);
+		layer_sprite_xscale(corpse, image_xscale);
 	}
 }

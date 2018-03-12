@@ -12,9 +12,15 @@ draw_set_font(f_menu);
 for (var i = 0; i < array_length_1d(menu); i++) {
 	
 	// draw golden current option selected
-	var c =  i == anim ? c_yellow : c_white;
-	draw_text_color(draw_x_start, draw_y_start + (i - anim_n) * spacing, menu[i],
-		c, c, c, c, 1);	
+	var c = c_white; //(i == anim ? c_yellow : c_white);
+	if i == anim {
+		draw_text_outline_color(draw_x_start, draw_y_start + (i - anim_n) * spacing, menu[i],
+			2, c_aqua, 16, c_black, 1);
+	}
+	else {
+		draw_text_color(draw_x_start, draw_y_start + (i - anim_n) * spacing, menu[i],
+			c, c, c, c, 1);	
+	}
 }
 
 current_option = anim;

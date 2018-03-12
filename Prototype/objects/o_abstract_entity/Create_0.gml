@@ -222,15 +222,23 @@ x_direction = 0; // 1 = right, 0 = no input/last direction, -1 = left
 
 velocity = [0,0];
 
-// get the tilemap id
+// normal terrain
 var layer_id = layer_get_id("layer_tile_collision");
 collision_tile_map_id = layer_tilemap_get_id(layer_id);
+
 layer_id = layer_get_id("layer_tile_platform");
 platform_tile_map_id = layer_tilemap_get_id(layer_id);
+
+// ghost terrain
 layer_id = layer_get_id("layer_tile_ghost_collision");
 collision_ghost_tile_map_id = layer_tilemap_get_id(layer_id);
+
 layer_id = layer_get_id("layer_tile_ghost_platform");
 platform_ghost_tile_map_id = layer_tilemap_get_id(layer_id);
+
+// danger terrain
+layer_id = layer_get_id("layer_tile_danger");
+danger_tile_map_id = layer_tilemap_get_id(layer_id);
 
 #endregion
 ////////////////////////////////////
@@ -245,6 +253,7 @@ nearest_enemy = [];					// list of all enemies in "close_range"
 
 close_range = 100; // pixels away for "enemy in range" to trigger
 sight_range = 1000;
+stun_time = room_speed;
 
 pause_input_start = false;
 pause_input = false;	// during moves or something you can pause movement
@@ -257,6 +266,7 @@ combo = false;
 move = false;
 invincible = false;
 dead = false;
+corpse = false;
 
 start_special = false;
 special_damage = 100;

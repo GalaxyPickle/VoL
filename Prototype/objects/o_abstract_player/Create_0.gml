@@ -277,6 +277,7 @@ max_velocity_x = 6;
 
 dodge_launch = TILE_SIZE - 16;
 sight_range = global.game_width / 3;
+stun_time = room_speed / 2;
 
 // VITALITY
 vitality_max = 500;			// max health

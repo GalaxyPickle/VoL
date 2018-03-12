@@ -1,7 +1,20 @@
 /// @description surf
 
+var sun_p = sun;
+sun = global.sunyata;
+
 draw_set_alpha(1);
 if global.sunyata {
+	
+	if sun != sun_p {
+		surface_set_target(global.player_surface);
+		draw_clear_alpha(c_black, 0);
+		surface_reset_target();
+
+		surface_set_target(global.ghost_surface);
+		draw_clear_alpha(c_black, 0);
+		surface_reset_target();
+	}
 	
 	var xx = (global.player.x - global.view_x) * 2;
 	var yy = (global.player.y - global.view_y) * 2;
@@ -46,10 +59,18 @@ if global.sunyata {
 	draw_tilemap(layer_tilemap_get_id(ghost_id), 0, 0);
 	draw_tilemap(layer_tilemap_get_id(ghost_id_2), 0, 0);
 	
-	if surface_exists(global.player_surface)
-		draw_surface(global.player_surface, 0, 0);
-	
 	if surface_exists(global.ghost_surface)
 		draw_surface_stretched(global.ghost_surface, 0, 0, global.window_width, global.window_height);
+	
+	if surface_exists(global.player_surface)
+		draw_surface(global.player_surface, 0, 0);
+		
+	surface_set_target(global.player_surface);
+	draw_clear_alpha(c_black, 0);
+	surface_reset_target();
+
+	surface_set_target(global.ghost_surface);
+	draw_clear_alpha(c_black, 0);
+	surface_reset_target();
 }
 else draw_surface(application_surface, 0, 0);

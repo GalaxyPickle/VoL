@@ -31,3 +31,5 @@ draw_variables =
 	//["walljump L: ", on_wall_jump_left ? "true" : "false"],
 	//["nearest enemies: ", nearest_enemy],
 ];
+
+var_time_var += 0.04;

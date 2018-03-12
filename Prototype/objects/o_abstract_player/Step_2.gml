@@ -32,7 +32,6 @@ if !surface_exists(global.player_surface)
 	global.player_surface = surface_create(global.window_width, global.window_height);
 	
 surface_set_target(global.player_surface);
-draw_clear_alpha(c_black, 0);
 
 // draw the player
 outline_start(1, c_aqua, sprite_index, 4);

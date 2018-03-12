@@ -6,7 +6,8 @@
     "children": [
         "f9fb77c6-0e59-49fd-89ef-491f9b801463",
         "b6914fd9-fe03-4563-abc5-f1b5b2922bf8",
-        "a57a7dd1-1903-4549-bf14-e835e1bfb661"
+        "a57a7dd1-1903-4549-bf14-e835e1bfb661",
+        "00abd88e-5e36-4e86-8fb1-d372d0dac46a"
     ],
     "filterType": "GMSprite",
     "folderName": "decoration",

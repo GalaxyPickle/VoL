@@ -1,9 +1,8 @@
-/// @description draw red outline for sunyata
-
+/// @description sunyata outline
 // Inherit the parent event
 event_inherited();
 
-// draw the player
+// sunyata draw
 if global.sunyata {
 	if enemy var col = c_red;
 	else var col = c_blue;

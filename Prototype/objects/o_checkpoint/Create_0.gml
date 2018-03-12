@@ -1,8 +1,6 @@
 /// @description lights and particles
 
-grow = false;
 radius = 250;
-
 activated = false;
 
 lightsource = instance_create_layer(x + sprite_get_width(sprite_index) / 2, 
@@ -24,13 +22,13 @@ part_type_shape(first_particle, pt_shape_square);
 // set the scale of the particle
 part_type_scale(first_particle, .2, .2);
 // set the start size
-part_type_size(first_particle, .1, .2, 0, 0);
+part_type_size(first_particle, .5, .3, -0.005, .2);
 // set the color over time
 part_type_color2(first_particle, c_start, c_end);
 // set the alpha over time
 part_type_alpha3(first_particle, 1, 1, 0);
 // set the speed over time
-part_type_speed(first_particle, .5, 1, 0, 0);
+part_type_speed(first_particle, .5, 1, 0, .2);
 // set the direction in degrees
 part_type_direction(first_particle, 90, 90, 0, 0);
 // set the gravity and direction in degrees
@@ -44,13 +42,14 @@ part_type_blend(first_particle, true);
 
 var base_x = 64;
 var base_y = 32;
+var c = 4;
 
 // create an emitter
 first_emitter = part_emitter_create(global.ps);
 // set the emitter region
 part_emitter_region(global.ps, first_emitter,
-	x + base_x - 2, x + base_x + 2,
-	y + base_y - 2, y + base_y + 2,
+	x + base_x - c, x + base_x + c,
+	y + base_y - c, y + base_y + c,
 	ps_shape_diamond, ps_distr_invgaussian);
 
 // make a burst from the emitter

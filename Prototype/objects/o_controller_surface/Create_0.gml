@@ -1,7 +1,10 @@
+sun = false;
+
 application_surface_draw_enable(false);
 application_surface_enable(true);
 
 surf = -1;
+mother_surf = -1;
 
 uni_time_wave = shader_get_uniform(shd_wave,"time");
 uni_mouse_pos_wave = shader_get_uniform(shd_wave,"mouse_pos");
