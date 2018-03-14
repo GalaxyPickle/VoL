@@ -12,10 +12,12 @@ if follow == noone
 	follow = instance_exists(o_player) ? o_player : noone;
 else {
 	// camera shake when player is hit
-	if follow.current_state == states.pain {
-		shaking = true;
+	if follow == o_player {
+		if follow.current_state == states.pain {
+			shaking = true;
+		}
+		else shaking = false;
 	}
-	else shaking = false;
 }
 
 // if at border of a room, clamp it boi
@@ -78,6 +80,9 @@ else { // if the camera isn't shaking then glide to follow pos
 	y += (y_to - y) / glide_rate_y;
 }
 #endregion
+
+x = clamp(x, global.game_width / 2, room_width - global.game_width / 2);
+y = clamp(y, global.game_height / 2, room_height - global.game_height / 2);
 
 global.view_x = x - global.game_width / 2;
 global.view_y = y - global.game_height / 2;

@@ -6,6 +6,13 @@ with lightsource {
 	pl_light_init(150, c_white, .6);
 }
 
+s_emit = audio_emitter_create();
+// keep emitter pos at glyph
+audio_emitter_position(s_emit, x, y, 0);
+audio_emitter_falloff(s_emit, 10, 50, 1);
+
+sound = audio_play_sound_on(s_emit, a_torch_burn, true, 1);
+
 //////////////////////////////////////////////////
 // make a particle type to use with the system
 first_particle = part_type_create();
@@ -34,12 +41,12 @@ part_type_life(first_particle, 30, 60);
 part_type_blend(first_particle, true);
 
 // create an emitter
-first_emitter = part_emitter_create(global.ps);
+first_emitter = part_emitter_create(global.ps_behind);
 // set the emitter region
-part_emitter_region(global.ps, first_emitter,
+part_emitter_region(global.ps_behind, first_emitter,
 	x + sprite_get_width(sprite_index) / 4, x + sprite_get_width(sprite_index) * 3 / 4,
 	y + sprite_get_height(sprite_index) / 2 - 2, y + sprite_get_height(sprite_index) / 2 + 2,
 	ps_shape_ellipse, ps_distr_linear);
 
 // make a burst from the emitter
-part_emitter_stream(global.ps, first_emitter, first_particle, 1);
+part_emitter_stream(global.ps_behind, first_emitter, first_particle, 1);

@@ -8,14 +8,11 @@ if keyboard_check_released(global.key_enter) || keyboard_check_released(global.k
 		case 0:	// start game
 			room_goto(start_room);
 			break;
-		
-		case 1: // load?
+			
+		case 1: // settings?
 			break;
 			
-		case 2: // settings?
-			break;
-			
-		case 3: // quit game
+		case 2: // quit game
 			game_end();
 			break;
 	}

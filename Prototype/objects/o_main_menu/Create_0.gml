@@ -5,13 +5,12 @@ if object_exists(o_player)
 
 title = "Veins of Light";
 subtitle = DEV_NAME + " v" + VERSION;
-start_room = r_intro_area;
+start_room = r_first_room;
 
 // array of options
 menu[0] = "Start";
-menu[1] = "Load";
-menu[2] = "Settings";
-menu[3] = "Quit";
+menu[1] = "Options";
+menu[2] = "Quit";
 
 current_option = menu[0];
 

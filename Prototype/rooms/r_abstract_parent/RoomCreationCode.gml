@@ -2,7 +2,6 @@
 // setup
 ////////////////////////////////////////
 
-window_center();
 // flush texture page
 draw_texture_flush();
 

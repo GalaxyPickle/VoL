@@ -9,6 +9,14 @@ if part_system_exists(global.ps) {
 	part_emitter_destroy_all(global.ps);
 	part_system_destroy(global.ps);
 }
+if part_system_exists(global.ps_behind) {
+	part_emitter_destroy_all(global.ps_behind);
+	part_system_destroy(global.ps_behind);
+}
+if part_system_exists(global.ps_ghost) {
+	part_emitter_destroy_all(global.ps_ghost);
+	part_system_destroy(global.ps_ghost);
+}
 
 /////////////////////////////////////////////
 // DS TYPES

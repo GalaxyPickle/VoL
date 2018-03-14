@@ -46,7 +46,7 @@ part_type_orientation(first_particle, 0, 359, 10, 0, true);
 // particle life in game frames
 part_type_life(first_particle, p_lifespan - p_lifespan / 10, p_lifespan + p_lifespan / 10);
 // blend the particles
-part_type_blend(first_particle, true);
+part_type_blend(first_particle, false);
 
 // create an emitter
 first_emitter = part_emitter_create(global.ps);

@@ -85,7 +85,7 @@ if message_end > 0 {
 	var delay = 4;
 		
 	if keyboard_check(global.key_interact) || gamepad_button_check(0, global.gp_key_interact) {
-		delay = 0;	
+		delay = 0;
 	}
 		
 	// if there's more characters to write in the string...
@@ -114,13 +114,11 @@ if message_end > 0 {
 			//audio_play_sound(a_message_popup, 1, false);
 		}
 		// else we're finished
-		else {
-			if message_current_finished {
-				interacting = false;
-				cutoff = 0;
-				//done_interacting = true;
-				dialogue_read = true;
-			}
+		if message_current == message_end - 1 {
+			interacting = false;
+			cutoff = 0;
+			//done_interacting = true;
+			dialogue_read = true;
 		}
 	}
 	

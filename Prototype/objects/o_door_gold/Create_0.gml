@@ -1,9 +1,6 @@
-/// @description setup vars
+/// @description ready false install lock
 
-keys = [];
-gate = 0;
+// Inherit the parent event
+event_inherited();
 
-open = false;
-
-opening = false;
-finished_opening = false;
+ready = false;
