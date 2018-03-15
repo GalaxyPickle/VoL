@@ -9,7 +9,7 @@ with lightsource {
 s_emit = audio_emitter_create();
 // keep emitter pos at glyph
 audio_emitter_position(s_emit, x, y, 0);
-audio_emitter_falloff(s_emit, 10, 50, 1);
+audio_emitter_falloff(s_emit, 10, 30, 1);
 
 sound = audio_play_sound_on(s_emit, a_torch_burn, true, 1);
 

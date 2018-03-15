@@ -17,7 +17,7 @@ else {
 		AI_goal = AI_states.spice;
 	}
 	else if distance_to_object(AI_goal_object) < close_range {
-		AI_goal = AI_states.fight;	
+		AI_goal = AI_states.fight;
 	}
 	else if distance_to_object(AI_goal_object) > close_range {
 		AI_goal = AI_states.seek;	

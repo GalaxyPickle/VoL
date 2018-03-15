@@ -55,6 +55,13 @@
                     "mvc": "1.0",
                     "FrameId": "9a33a7da-a5c9-4880-8ecd-5ce554ca9f81",
                     "LayerId": "5b034e66-fde8-4cea-bdb3-8bb48faf93f1"
+                },
+                {
+                    "id": "db0a3886-47ec-4a32-b366-c27db45dd106",
+                    "modelName": "GMSpriteImage",
+                    "mvc": "1.0",
+                    "FrameId": "9a33a7da-a5c9-4880-8ecd-5ce554ca9f81",
+                    "LayerId": "91bed7c7-0b13-490a-a059-3ba44fc7780a"
                 }
             ]
         }
@@ -75,17 +82,6 @@
             "visible": true
         },
         {
-            "id": "82d3d0cf-fc0a-44da-b38f-c85bc473969d",
-            "modelName": "GMImageLayer",
-            "mvc": "1.0",
-            "SpriteId": "e8407bc8-e825-410e-af86-33c709888c7e",
-            "blendMode": 0,
-            "isLocked": false,
-            "name": "inner arm",
-            "opacity": 100,
-            "visible": true
-        },
-        {
             "id": "dd0b37aa-88ee-4d95-a51e-6f42d4ada630",
             "modelName": "GMImageLayer",
             "mvc": "1.0",
@@ -93,6 +89,28 @@
             "blendMode": 0,
             "isLocked": false,
             "name": "skele",
+            "opacity": 100,
+            "visible": true
+        },
+        {
+            "id": "91bed7c7-0b13-490a-a059-3ba44fc7780a",
+            "modelName": "GMImageLayer",
+            "mvc": "1.0",
+            "SpriteId": "e8407bc8-e825-410e-af86-33c709888c7e",
+            "blendMode": 3,
+            "isLocked": false,
+            "name": "Layer 1",
+            "opacity": 51,
+            "visible": true
+        },
+        {
+            "id": "82d3d0cf-fc0a-44da-b38f-c85bc473969d",
+            "modelName": "GMImageLayer",
+            "mvc": "1.0",
+            "SpriteId": "e8407bc8-e825-410e-af86-33c709888c7e",
+            "blendMode": 0,
+            "isLocked": false,
+            "name": "inner arm",
             "opacity": 100,
             "visible": true
         },

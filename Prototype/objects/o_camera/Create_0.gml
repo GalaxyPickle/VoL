@@ -41,5 +41,5 @@ follow = instance_exists(o_player) ? o_player : noone;
 x_to = x;
 y_to = y;
 
-global.view_x = x - global.game_width;
-global.view_y = y - global.game_height;
+global.view_x = x - global.game_width / 2;
+global.view_y = y - global.game_height / 2;

@@ -73,6 +73,7 @@ debug_message =
 [
 	"FPS: " + string(fps),
 	"Lights: " + string(lights) + " / Active: " + string(active_lights),
+	"Room: " + string(room) + " / Name: " + string(room_get_name(room)),
 	//"DT: " + string(alarm[0]),
 	//"Time: " + string(current_time),
 	//"Delta Time: " + string(delta_time),

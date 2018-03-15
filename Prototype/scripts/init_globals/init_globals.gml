@@ -39,6 +39,10 @@ score = 0;
 health = 0;
 // player object
 global.player = false;
+global.px = 0;
+global.py = 0;
+global.special = 0;
+
 global.chatbox_up = false;
 
 // collectible mushrooms

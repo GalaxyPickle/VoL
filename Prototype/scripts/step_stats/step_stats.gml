@@ -48,8 +48,12 @@ if !invincible {
 	if poise < poise_max
 		poise += poise_regen;
 	// special
-	if special < special_max
+	if special < special_max && !ghost_mode
 		special += special_regen;
+}
+
+if ghost_mode {
+	special -= .2;	
 }
 
 // set array for gui debug info

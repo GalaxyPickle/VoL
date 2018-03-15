@@ -50,18 +50,18 @@ for (var i = 0; i < array_length_1d(player.stat_array); i++) {
 }
 
 
-/*
+
 // draw health
 var ypos = 10;
 var yspac = 40;
-draw_set_font(f_menu);
+draw_set_font(f_chat);
 var vitc = c_red;
 draw_text_outline_color( 40, ypos, string(floor(player.vitality)),
 	2, c_white, 4, vitc, 1);
 
 // draw combo below health
 draw_text_outline_color( 40, ypos + yspac, "x" + string(global.combo), 2, c_white, 4, c_lime, 1);
-*/
+
 
 // only draw special bar if you have the ability
 

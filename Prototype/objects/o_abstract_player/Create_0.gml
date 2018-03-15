@@ -282,7 +282,7 @@ stun_time = room_speed / 2;
 // VITALITY
 vitality_max = 500;			// max health
 vitality = vitality_max;	// current health
-vitality_regen = .01;		// health regen rate per frame
+vitality_regen = .001;		// health regen rate per frame
 
 // STAMINA
 stamina_max = 100;
@@ -297,7 +297,7 @@ poise_regen = .08;
 // SPECIAL
 special_max = 500;
 special = 0;
-special_regen = 50;
+special_regen = 0;
 
 #endregion
 ////////////////////////////////////

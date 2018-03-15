@@ -1,5 +1,6 @@
 /// @description 
 
+/*
 audio_emitter_free(s_emit);
 
 part_emitter_destroy(global.ps, first_emitter);

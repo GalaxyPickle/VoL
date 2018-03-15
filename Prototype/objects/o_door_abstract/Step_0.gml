@@ -76,6 +76,9 @@ if fade {
 		fade = false;
 		timer = 1;
 		
+		global.px = goto_position[0];
+		global.py = goto_position[1];
+		
 		room_goto(goto_room);
 	}
 }
