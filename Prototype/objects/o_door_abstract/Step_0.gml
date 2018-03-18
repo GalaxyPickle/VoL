@@ -36,7 +36,7 @@ if open && !finished_opening {
 		audio_stop_sound(a_stone_grind);
 	audio_play_sound(a_slam, 1, false);
 	
-	// fade music out
+	// fade music out for room transition
 	if audio_is_playing(global.music)
 		audio_sound_gain(global.music, 0, room_speed);
 	
@@ -76,8 +76,8 @@ if fade {
 		fade = false;
 		timer = 1;
 		
-		global.px = goto_position[0];
-		global.py = goto_position[1];
+		global.player.x = goto_position[0];
+		global.player.y = goto_position[1];
 		
 		room_goto(goto_room);
 	}

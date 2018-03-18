@@ -1,7 +1,7 @@
 /// @description draw player health and stamina
 
-var height = 5;			// height of stat bars
-var spacing_y = 5;		// how far apart to draw stat bars
+var height = 8;			// height of stat bars
+var spacing_y = 16;		// how far apart to draw stat bars
 var y_start_spacing = 20;
 var x_start_spacing = 130;
 
@@ -17,23 +17,25 @@ var mincol = c_white;	// min color health
 var maxcol = c_white;	// max color health
 
 var direction_ = 0;		// anchored in left direction (0)
-var showback = true;	// show bg?
-var showborder = true;	// show black 1px border?
+var showback = false;	// show bg?
+var showborder = false;	// show black 1px border?
+
+var col_arr = [$008CFF, $$008CFF, c_lime];
 
 ///////////////////////////////
-// loop through 4 stats and draw them
+// loop through 3 stats and draw them
 ///////////////////////////////
+
+
 
 if flash_health
 	draw_set_alpha(alpha);
 else
 	draw_set_alpha(lerp(draw_get_alpha(), 1, flash_time));
 
+draw_set_font(f_menu);
 
 for (var i = 0; i < array_length_1d(player.stat_array); i++) {
-	
-	if i == 1
-		continue;
 	
 	var current_array = player.stat_array[i];
 
@@ -43,24 +45,24 @@ for (var i = 0; i < array_length_1d(player.stat_array); i++) {
 
 	amount = (current_array[2] / current_array[3]) * 100;
 	
-	mincol = current_array[1];
+	mincol = col_arr[i];
 	maxcol = mincol;
 
-	draw_healthbar(x1, y1, x2, y2, amount, backcol, mincol, maxcol, direction_, showback, showborder);
+	draw_healthbar(x1 + 4, y1 + 4, x2, y2 - 4, 
+		amount, backcol, mincol, maxcol, direction_, showback, showborder);
+	
+	// draw the healthbar cage
+	draw_sprite(s_gui_hp_cage_beg, 0, x1, y1);
+	draw_sprite_ext(s_gui_hp_cage_mid, 0, x1 + spacing_y, y1, x2 - x1 - spacing_y, 1, 0, c_white, 1);
+	draw_sprite_ext(s_gui_hp_cage_beg, 0, x2 - spacing_y + 4, y1, -1, 1, 0, c_white, 1);
+	
+	// draw the text for numberss
+	draw_text_outline_color( 40, 10, string(floor(current_array[2])),
+	2, c_white, 4, mincol, 1);
 }
 
-
-
-// draw health
-var ypos = 10;
-var yspac = 40;
-draw_set_font(f_chat);
-var vitc = c_red;
-draw_text_outline_color( 40, ypos, string(floor(player.vitality)),
-	2, c_white, 4, vitc, 1);
-
 // draw combo below health
-draw_text_outline_color( 40, ypos + yspac, "x" + string(global.combo), 2, c_white, 4, c_lime, 1);
+//draw_text_outline_color( 40, ypos + yspac, "x" + string(global.combo), 2, c_white, 4, c_lime, 1);
 
 
 // only draw special bar if you have the ability

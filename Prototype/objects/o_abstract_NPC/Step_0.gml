@@ -19,7 +19,7 @@ if alarm[3] < 0
 switch AI_goal {
 	case AI_states.fight: AI_fight_goal();
 		break;
-	case AI_states.run: AI_flee_goal();
+	case AI_states.flee: AI_flee_goal();
 		break;
 	case AI_states.seek: AI_seek_goal();
 		break;

@@ -35,13 +35,11 @@ global.view_y = 0;
 // misc progression and collectibles
 ////////////////////////////////////////////////////////
 
-score = 0;
-health = 0;
 // player object
 global.player = false;
-global.px = 0;
-global.py = 0;
 global.special = 0;
+score = 0;
+health = 0;
 
 global.chatbox_up = false;
 
@@ -49,7 +47,6 @@ global.chatbox_up = false;
 global.mushrooms = [0, 0, 0, 0];
 
 // boss progression - abilities used for this
-global.gates = [];
 
 // story progression?
 global.glyph_intro = [false, false, false, false];

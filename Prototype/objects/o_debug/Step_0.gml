@@ -88,8 +88,6 @@ debug_message =
 	"",
 	"Mushrooms: " + string(global.mushrooms),
 	"",
-	"Gates: <not implemented yet>",
-	"",
 	"Glyph Intro: " + string(global.glyph_intro),
 	"Glyph Sundering: " + string(global.glyph_sundering),
 	"",

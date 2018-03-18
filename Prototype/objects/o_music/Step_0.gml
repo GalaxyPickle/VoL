@@ -7,8 +7,8 @@ else audio_sound_pitch(global.music, 1);
 
 
 // muting music
-if keyboard_check_pressed(ord("M")) {
-	global.mute = !global.mute;	
+if keyboard_check_pressed(ord("M")) && !audio_is_playing(a_hooray_full) {
+	global.mute = !global.mute;		
 }
 
 // if mute is on, mute music

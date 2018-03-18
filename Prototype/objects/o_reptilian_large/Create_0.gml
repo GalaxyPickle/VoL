@@ -3,12 +3,12 @@
 // Inherit the parent event
 event_inherited();
 
-can_dodge = true;
+can_dodge = false;
 can_jump = true;
 can_special = true;
 can_combo = true;
 can_attack_ground = true;
-can_attack_air = true;
+can_attack_air = false;
 
 enemy_list = [o_player, o_mushroom_parent];
 
@@ -78,15 +78,15 @@ sound_attack_charge_air_1 = a_test;
 ////////////////////////////////////
 #region
 
-// frames = 10; criticals = 6-7
-var g1_frame6_basic = [ -16, 0, 40, 28, 96, -20 ];
-var g1_frame6_sweet = [ 
+// frames = 12; criticals = 8-9
+var g1_frame8_basic = [ -16, 0, 40, 28, 96, -20 ];
+var g1_frame8_sweet = [ 
 	[ -8, 40, 48, 42, 96, 16 ],
 	[ 48, 42, 96, 16, 112, -24 ],
 	[ 96, 16, 112, -24, 96, -24 ]
 	];
-var g1_frame7_basic = [ 32, 8, 102, -20, 72, -50 ];
-var g1_frame7_sweet = [
+var g1_frame9_basic = [ 32, 8, 102, -20, 72, -50 ];
+var g1_frame9_sweet = [
 	[ 112, 0, 112, -32, 80, -64 ],
 	[ 112, -32, 80, -64, 72, -50 ],
 	];
@@ -97,8 +97,10 @@ attack_ground_1_point_array = [
 	[],
 	[],
 	[],
-	[ g1_frame6_basic, g1_frame6_sweet ],
-	[ g1_frame7_basic, g1_frame7_sweet ],
+	[],
+	[],
+	[ g1_frame8_basic, g1_frame8_sweet ],
+	[ g1_frame9_basic, g1_frame9_sweet ],
 	[],
 	[],
 	[]
@@ -134,7 +136,7 @@ attack_ground_2_point_array = [
 //////////////////////////////////
 #region
 
-jump_speed_y = 14;
+jump_speed_y = 6;
 max_velocity_x = 9;
 dodge_launch = TILE_SIZE - 16;
 
@@ -181,7 +183,7 @@ sight_range = 1000;
 jump_stamina_cost = 0;
 
 // VITALITY
-vitality_max = 2000;			// max health
+vitality_max = 4000;			// max health
 vitality = vitality_max;		// current health
 vitality_regen = .1;			// health regen rate per frame
 
@@ -191,14 +193,14 @@ stamina = stamina_max;
 stamina_regen = .6;
 
 // POISE
-poise_max = 45;
+poise_max = 100;
 poise = poise_max;
-poise_regen = .08;
+poise_regen = .1;
 
 // SPECIAL
 special_max = 500;
 special = 0;
-special_regen = .1;
+special_regen = .5;
 
 #endregion
 ///////////////////////////////////////////////

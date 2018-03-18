@@ -168,7 +168,7 @@ attack_air_1_point_array = [
 	];
 	
 // air 2
-// frames = 6; critical = 3
+// frames = 7; critical = 3
 var a2_frame3_basic = [ 26, 20, 48, 48, 64, 32 ];
 var a2_frame3_sweet = [
 	[ 32, 42, 36, 56, 64, 58 ],
@@ -180,6 +180,7 @@ attack_air_2_point_array = [
 	[],
 	[],
 	[ a2_frame3_basic, a2_frame3_sweet ],
+	[],
 	[],
 	[],
 	[]

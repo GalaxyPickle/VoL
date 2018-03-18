@@ -12,6 +12,8 @@ width = global.window_width / s_width;
 height = global.window_height / s_width;
 timer = 1;
 
+music_playing = false;
+
 //////////////////////////////
 // opening door
 //////////////////////////////
