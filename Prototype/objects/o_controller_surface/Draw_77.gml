@@ -52,12 +52,13 @@ if global.sunyata {
 	draw_surface(surf, 0, 0);
 	shader_reset();
 	
-	
 	var ghost_id = layer_get_id("layer_tile_ghost_base");
 	var ghost_id_2 = layer_get_id("layer_tile_ghost_base_top");
 	
-	draw_tilemap(layer_tilemap_get_id(ghost_id), 0, 0);
-	draw_tilemap(layer_tilemap_get_id(ghost_id_2), 0, 0);
+	if layer_tilemap_exists(ghost_id, layer_tilemap_get_id(ghost_id)) {
+		draw_tilemap(layer_tilemap_get_id(ghost_id), 0, 0);
+		draw_tilemap(layer_tilemap_get_id(ghost_id_2), 0, 0);
+	}
 	
 	if surface_exists(global.ghost_surface)
 		draw_surface_stretched(global.ghost_surface, 0, 0, global.window_width, global.window_height);

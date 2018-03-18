@@ -103,11 +103,11 @@ if vitality_damage > 0 {
 	damage_popup.sweetspot = sweetspot;
 }
 
-if self_special_increase > 0 {
+if !NPC && self_special_increase > 0 {
 	// show the special popup!
 	var special_popup = instance_create_layer(x, hitbox_head_top, layer_id, o_damage_popup);
 	special_popup.damage = self_special_increase;
-	special_popup.base_color = c_silver;
+	special_popup.base_color = c_lime;
 	special_popup.positive = true;
 }
 

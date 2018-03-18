@@ -179,7 +179,7 @@ if on_ground {
 }
 // friction regardless of on ground or not
 else {
-	if !move || x_direction == 0 || current_state != states.idle {
+	if !move || x_direction == 0 || (current_state != states.idle && current_state != states.dodge) {
 		velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction / 10);
 	}
 }

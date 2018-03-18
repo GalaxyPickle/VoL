@@ -1,6 +1,6 @@
 /// @description draw player health and stamina
 
-var height = 8;			// height of stat bars
+var height = 10;			// height of stat bars
 var spacing_y = 16;		// how far apart to draw stat bars
 var y_start_spacing = 20;
 var x_start_spacing = 130;
@@ -20,7 +20,7 @@ var direction_ = 0;		// anchored in left direction (0)
 var showback = false;	// show bg?
 var showborder = false;	// show black 1px border?
 
-var col_arr = [$008CFF, $$008CFF, c_lime];
+var col_arr = [$FF8C00, $008CFF, c_lime];
 
 ///////////////////////////////
 // loop through 3 stats and draw them
@@ -33,11 +33,14 @@ if flash_health
 else
 	draw_set_alpha(lerp(draw_get_alpha(), 1, flash_time));
 
-draw_set_font(f_menu);
+draw_set_font(f_gui_small);
 
 for (var i = 0; i < array_length_1d(player.stat_array); i++) {
 	
 	var current_array = player.stat_array[i];
+	
+	if i == 1
+		continue;
 
 	y1 = y_start_spacing + (spacing_y + height) * i
 	x2 = x1 + current_array[3];
@@ -48,16 +51,16 @@ for (var i = 0; i < array_length_1d(player.stat_array); i++) {
 	mincol = col_arr[i];
 	maxcol = mincol;
 
-	draw_healthbar(x1 + 4, y1 + 4, x2, y2 - 4, 
+	draw_healthbar(x1 + 3, y1 + 3, x2, y2, 
 		amount, backcol, mincol, maxcol, direction_, showback, showborder);
 	
 	// draw the healthbar cage
-	draw_sprite(s_gui_hp_cage_beg, 0, x1, y1);
-	draw_sprite_ext(s_gui_hp_cage_mid, 0, x1 + spacing_y, y1, x2 - x1 - spacing_y, 1, 0, c_white, 1);
-	draw_sprite_ext(s_gui_hp_cage_beg, 0, x2 - spacing_y + 4, y1, -1, 1, 0, c_white, 1);
+	draw_sprite_ext(s_gui_hp_cage_beg, 0, x1, y1, 1, 1, 0, c_white, 1);
+	draw_sprite_ext(s_gui_hp_cage_mid, 0, x1 + spacing_y + 3, y1, x2 - x1 - spacing_y * 2, 1, 0, c_white, 1);
+	draw_sprite_ext(s_gui_hp_cage_beg, 0, x2 + 3, y1, -1, 1, 0, c_white, 1);
 	
 	// draw the text for numberss
-	draw_text_outline_color( 40, 10, string(floor(current_array[2])),
+	draw_text_outline_color( 80, height + 30 * i, string(floor(current_array[2])),
 	2, c_white, 4, mincol, 1);
 }
 
@@ -84,6 +87,7 @@ if special_full {
 	
 	draw_text_color(40, 90, "SWORD CHARGED", c_red, c_silver, c_red, c_silver, alpha_t);
 }
+
 
 
 

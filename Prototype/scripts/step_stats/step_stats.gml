@@ -53,7 +53,7 @@ if !invincible {
 }
 
 if ghost_mode {
-	special -= .2;	
+	special -= .1;	
 }
 
 // set array for gui debug info
