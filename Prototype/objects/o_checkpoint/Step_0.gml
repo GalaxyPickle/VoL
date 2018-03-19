@@ -4,6 +4,12 @@ if !activated
 	image_speed = 0;
 
 if !activated && place_meeting(x, y, global.player) {
+	
+	// update the gui
+	with (o_gui) {
+		checkpoints++;
+	}
+	
 	activated = true;
 	with lightsource _pl_color = c_lime;
 	audio_play_sound(a_choir_1, 1, false);

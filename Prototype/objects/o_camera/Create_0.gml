@@ -37,9 +37,14 @@ camera_set_proj_mat(camera, pm);
 view_camera[0] = camera;
 
 // make camera follow player, otherwise no one
-follow = instance_exists(o_player) ? o_player : noone;
+follow = noone;
 x_to = x;
 y_to = y;
 
 global.view_x = x - global.game_width / 2;
 global.view_y = y - global.game_height / 2;
+
+if instance_exists(o_player) {
+	x = o_player.x;
+	y = o_player.y;
+}

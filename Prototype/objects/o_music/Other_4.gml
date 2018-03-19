@@ -5,26 +5,34 @@ if audio_is_playing(global.music)
 
 var play = true;
 var song = -1;
-var play_ambiance = true;
+play_ambiance = true;
 
 // choose song based on room
 switch room_get_name(room) {
 	// MAIN MENU
 	case "r_main_menu":
-		song = a_song_demo_hardcore;
+		play = false;
 		break;
 		
 	// INTRO AREA
 	case "r_first_room":
+		play = false;
+		break;
+		
+	case "r_second_room":
+		song = a_song_cavern_exploration;
+		play_ambiance = false;
 		break;
 	
 	// demo level
 	case "r_demo_level":
 		song = a_song_cavern_exploration;
+		play_ambiance = false;
 		break;
 		
 	// DEFAULT
 	default:
+		play = false;
 		break;
 	
 }

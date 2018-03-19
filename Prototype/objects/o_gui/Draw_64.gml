@@ -20,7 +20,7 @@ var direction_ = 0;		// anchored in left direction (0)
 var showback = false;	// show bg?
 var showborder = false;	// show black 1px border?
 
-var col_arr = [$FF8C00, $008CFF, c_lime];
+var col_arr = [$FF8C00, c_fuchsia];
 
 ///////////////////////////////
 // loop through 3 stats and draw them
@@ -38,9 +38,6 @@ draw_set_font(f_gui_small);
 for (var i = 0; i < array_length_1d(player.stat_array); i++) {
 	
 	var current_array = player.stat_array[i];
-	
-	if i == 1
-		continue;
 
 	y1 = y_start_spacing + (spacing_y + height) * i
 	x2 = x1 + current_array[3];
@@ -64,14 +61,34 @@ for (var i = 0; i < array_length_1d(player.stat_array); i++) {
 	2, c_white, 4, mincol, 1);
 }
 
+////////////////////////////////////////////
+// draw the mushroom and checkpoint status
+////////////////////////////////////////////
+
+// lock symbol
+if instance_exists(o_lock) {
+	draw_sprite_ext(s_door_lock, 0, 
+		global.window_width - 250, height + sprite_get_height(s_door_lock) / 2, 2, 2, 0, c_white, 1);
+}
+
+// mushrooms
+var mush_w = 64;
+
+draw_sprite_ext(s_gui_mushroom_blue, 0, global.window_width - mush_w, 0, 2, 2, 0, c_white, 1);
+draw_text_outline_color( global.window_width - mush_w, mush_w,
+	string(mushrooms) + "/" + string(mushrooms_max), 2, c_white, 4, c_black, 1);
+
+// statues
+draw_sprite_ext(s_gui_checkpoint_eye, 0, global.window_width - mush_w * 2, 0, 2, 2, 0, c_white, 1);
+draw_text_outline_color( global.window_width - mush_w * 2, mush_w,
+	string(checkpoints) + "/" + string(checkpoints_max), 2, c_white, 4, c_black, 1);
+
+
+
 // draw combo below health
 //draw_text_outline_color( 40, ypos + yspac, "x" + string(global.combo), 2, c_white, 4, c_lime, 1);
 
-
 // only draw special bar if you have the ability
-
-
-
 /*
 if !global.ability_discharge
 	exit;
