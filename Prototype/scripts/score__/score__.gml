@@ -1,1 +1,0 @@
-score = argument0;

@@ -1,3 +1,0 @@
-/// @description kill
-
-kill = false;

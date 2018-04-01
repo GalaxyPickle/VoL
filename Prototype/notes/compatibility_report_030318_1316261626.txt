@@ -1,15 +1,0 @@
-Converting GML script: ${project_dir}/objects/obj_ex_camera_demo_camera/Create_0.gml
-Converted description /// @description  IMPORTANT: Initialize exCamera FIRST, setup Camera next
-
-Converting GML script: ${project_dir}/objects/obj_ex_camera_demo_camera/Alarm_0.gml
-Converted description /// @description  Reset camera follow back to object
-
-Converting GML script: ${project_dir}/objects/obj_ex_camera_demo_camera/Step_0.gml
-Converted description /// @description  Follow player and play Effects
-
-Converting GML script: ${project_dir}/objects/obj_ex_camera_demo_camera/Mouse_50.gml
-Converted description /// @description  Test Effects (Mobile)/// @function  Test Effects 
-/// @param Mobile
-
-Converting GML script: ${project_dir}/objects/obj_ex_camera_demo_camera/Other_5.gml
-Converted description /// @description  Cleanup Camera

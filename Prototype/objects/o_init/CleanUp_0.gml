@@ -1,3 +1,0 @@
-/// @description
-
-kill_all();
