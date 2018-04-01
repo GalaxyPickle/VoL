@@ -1,6 +1,7 @@
 /// @description setup vars
 
 interactable = true;
+interact_text = "Interact";
 
 move_arrow = false;
 sight_range = 200;

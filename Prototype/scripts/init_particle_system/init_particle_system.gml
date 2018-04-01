@@ -1,7 +1,14 @@
 /// @description init the particle systems and the system for holding / running them
 
 global.ps = part_system_create();
-part_system_depth(global.ps, 500);
+part_system_depth(global.ps, 1100);
+
+global.ps_behind = part_system_create();
+part_system_depth(global.ps_behind, 2700);
+
+global.ps_ghost = part_system_create();
+part_system_depth(global.ps_ghost, 1100);
+part_system_automatic_draw(global.ps_ghost, false);
 /*
 // make a particle type to use with the system
 pt_short_fire = part_type_create();

@@ -1,10 +1,7 @@
-/// @description play and mute audio/music
-/*
+/// @description init vars
 
-global.music = a_song_demo_hardcore;
+play_ambiance = true;
 
-global.music_intro = a_song_cavern_exploration;
-if audio_is_playing(global.music_intro)
-	audio_stop_sound(global.music_intro);
-audio_play_sound(global.music_intro, 1, true);
-audio_sound_gain(a_song_cavern_exploration, .8, 0);
+audio_stop_all();
+
+//global.music = audio_play_sound(a_song_menu, 1, true);

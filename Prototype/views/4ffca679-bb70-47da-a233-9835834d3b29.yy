@@ -10,7 +10,8 @@
         "4da46cc1-62bc-4a00-b6c4-500ecbf47934",
         "99e827e7-7911-493c-9546-a67d462cb5fc",
         "184544a0-7ecc-4ffb-bf8c-2a520cbe7ac0",
-        "9ae55840-af25-4ad5-a8d1-deb9dd5f612b"
+        "9ae55840-af25-4ad5-a8d1-deb9dd5f612b",
+        "d23ad850-6f09-451d-b343-1f2140c569b4"
     ],
     "filterType": "GMScript",
     "folderName": "extensions",

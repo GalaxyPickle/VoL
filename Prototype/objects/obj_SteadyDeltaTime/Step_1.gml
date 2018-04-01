@@ -3,7 +3,7 @@
 // Store previous internal delta time
 dtPrevious = dt;
 // Update internal delta time
-dt = delta_time/1000000;
+dt = delta_time/10000;
 
 // Prevent delta time from exhibiting sporadic behaviour
 if (dt > 1/minFPS)

@@ -21,6 +21,7 @@ if on_ground && can_attack_ground {
 	/////////////////////////////////////////////
 	// if I'm being attacked
 	/////////////////////////////////////////////
+	/*
 	if AI_goal_object.current_state == states.attack { 
 		if roll_chance(.5) && can_dodge {
 			NPC_step_queue(states.dodge);
@@ -32,10 +33,15 @@ if on_ground && can_attack_ground {
 		}
 		exit;
 	}
+	*/
+	if AI_goal_object.x < x
+		x_direction = -1;
+	else if AI_goal_object.x > x
+		x_direction = 1;
 	/////////////////////////////////////////////
 	// if enemy is idling get 'em
 	/////////////////////////////////////////////
-	if roll_chance(.4) {
+	if roll_chance(1) {
 		NPC_step_queue(states.attack);
 	}
 	else {

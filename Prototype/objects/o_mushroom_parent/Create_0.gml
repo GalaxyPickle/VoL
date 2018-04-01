@@ -4,9 +4,9 @@
 event_inherited();
 
 draw_my_healthbars = false;
-AI = AI_type.friendly_follow;
+AI = AI_type.friendly_meander;
 
-interactable = true;
+interactable = false;
 message = global.message_default;
 
 enemy = false;
@@ -83,8 +83,8 @@ sound_attack_charge_air_1 = a_test;
 //////////////////////////////////
 #region
 
-jump_speed_y = 7;
-max_velocity_x = 5;
+jump_speed_y = 6;
+max_velocity_x = 3;
 
 #endregion
 //////////////////////////////////

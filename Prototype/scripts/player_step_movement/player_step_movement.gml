@@ -85,6 +85,6 @@ else {
 		audio_play_sound_on(s_emit, sound_jump, false, 1);
 	}
 }
-if !on_ground && !jump_key_held {
-	//velocity[vector2_y] += jump_speed_y / TILE_SIZE;
+if !on_ground && !jump_key_held && velocity[vector2_y] < 0 {
+	velocity[vector2_y] = lerp(velocity[vector2_y], 0, .1);
 }

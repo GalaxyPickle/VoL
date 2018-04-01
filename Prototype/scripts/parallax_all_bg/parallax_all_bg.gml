@@ -2,13 +2,13 @@
 
 // get all parallax layer ids
 var bg = layer_get_id("layer_bg");
-var bg_p = .9;
+var bg_p = .8;
 var back = layer_get_id("layer_asset_bg_back");
-var back_p = .3;
+var back_p = .6;
 var middle = layer_get_id("layer_asset_bg_middle");
-var middle_p = .5;
+var middle_p = .4;
 var front = layer_get_id("layer_asset_bg_front");
-var front_p = .7;
+var front_p = .2;
 
 var parallax_list = [ [bg, bg_p], [back, back_p], [middle, middle_p], [front, front_p] ];
 

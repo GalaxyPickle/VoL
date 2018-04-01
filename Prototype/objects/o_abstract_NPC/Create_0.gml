@@ -3,7 +3,9 @@
 // Inherit the parent event
 event_inherited();
 
-ds_list_add(global.NPC_list, id);
+alarm[8] = room_speed;
+
+ds_list_add(global.NPC_list, self);
 
 enemy_list = [o_player];	// list of all enemies this entity has in the game
 
@@ -23,7 +25,7 @@ enum AI_type {
 	immovable
 }
 
-script_enemy_boss = AI_step_boss_goal;
+script_enemy_boss = AI_step_boss_goal_reptilian;
 script_enemy_aggressive = AI_step_enemy_goal;
 script_enemy_cautious = AI_step_enemy_goal;
 script_friendly_follow = AI_step_friend_goal;
@@ -39,7 +41,7 @@ enum AI_states {
 	wander,
 	seek,
 	fight,
-	run,
+	flee,
 	spice,
 	wait
 }

@@ -163,6 +163,8 @@ else {
 	global.chatbox_up = false;
 	// if player is in interactable range...
 	if interactable && distance_to_object(global.player) < close_range {
+		
+		draw_set_alpha(1);
 		// draw next button sprites no matter what
 		draw_sprite(s_textbox_keys, 0,
 			global.window_width / 2, 
@@ -170,7 +172,7 @@ else {
 		draw_set_font(f_chat);
 		var tc = c_white;
 		draw_text_color(global.window_width / 2,	
-			global.window_height - t_margin * 8, "Decipher", tc, tc, tc, tc, 1);
+			global.window_height - t_margin * 8, interact_text, tc, tc, tc, tc, 1);
 	}
 }
 #endregion

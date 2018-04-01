@@ -2,6 +2,8 @@
 
 event_inherited();
 
+global.player = self;
+
 NPC = false;
 gamepad_input = false;
 
@@ -13,16 +15,16 @@ special_damage = 500;
 draw_my_healthbars = false;
 move = true;
 
+changed = false;
+
 // lightsource
 lightsource = instance_create_layer(x, y, "layer_instance_lights", o_lightsource);
 light_radius = 300;
 with lightsource {
 	pl_light_init(other.light_radius, c_white, .7);
 	pl_active = false;
+	player = true;
 }
-// special lightsource
-//lightsource_special = instance_create_layer(x, y, "layer_instance_lights", o_lightsource);
-
 
 ////////////////////////////////////
 // sprite setting
@@ -73,7 +75,7 @@ sound_land = a_player_land;					// one-shot when hitting ground
 sound_take_damage = a_player_hit;				// an "OOF!" or hurt sound when hit
 sound_poise_break = a_player_pain;				// a REALLY hurt sound when collapsing back
 sound_recovery = a_player_footstep;				// healing sound?
-sound_dodge = a_player_footstep;					// dodge sound
+sound_dodge = a_player_roll;					// dodge sound
 sound_death = a_player_footstep;					// DEATH sound
 
 // attack sounds
@@ -166,7 +168,7 @@ attack_air_1_point_array = [
 	];
 	
 // air 2
-// frames = 6; critical = 3
+// frames = 7; critical = 3
 var a2_frame3_basic = [ 26, 20, 48, 48, 64, 32 ];
 var a2_frame3_sweet = [
 	[ 32, 42, 36, 56, 64, 58 ],
@@ -178,6 +180,7 @@ attack_air_2_point_array = [
 	[],
 	[],
 	[ a2_frame3_basic, a2_frame3_sweet ],
+	[],
 	[],
 	[],
 	[]
@@ -275,11 +278,12 @@ max_velocity_x = 6;
 
 dodge_launch = TILE_SIZE - 16;
 sight_range = global.game_width / 3;
+stun_time = room_speed / 2;
 
 // VITALITY
 vitality_max = 500;			// max health
 vitality = vitality_max;	// current health
-vitality_regen = .01;		// health regen rate per frame
+vitality_regen = .001;		// health regen rate per frame
 
 // STAMINA
 stamina_max = 100;
@@ -294,7 +298,7 @@ poise_regen = .08;
 // SPECIAL
 special_max = 500;
 special = 0;
-special_regen = 50;
+special_regen = 0;
 
 #endregion
 ////////////////////////////////////

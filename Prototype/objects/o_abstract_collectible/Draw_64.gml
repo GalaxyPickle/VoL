@@ -2,6 +2,7 @@
 
 // if player is in interactable range...
 if within_range {
+	draw_set_alpha(1);
 	var t_margin = 5;
 	// draw interaaction keys
 	draw_sprite(s_textbox_keys, 0,

@@ -7,7 +7,9 @@ else gamepad_input = false;
 
 var attack_key_pressed = keyboard_check_pressed(key_attack) || gamepad_button_check_pressed(0, gp_attack);
 var dodge_key_pressed = keyboard_check_pressed(key_dodge) || gamepad_button_check_pressed(0, gp_dodge);
+
 var special_key_pressed = keyboard_check_pressed(key_special) || gamepad_button_check_pressed(0, gp_special);
+var special_key_held = keyboard_check(key_special) || gamepad_button_check(0, gp_special);
 
 //////////////////////////////////////////////////////////////////////////////
 // 1. get direction
@@ -52,13 +54,28 @@ if current_state == states.idle && !ds_queue_empty(input_queue) {
 	starting = true;
 }
 
-if !global.sunyata && special_key_pressed && special > 0 {
+// sunyata
+if global.sunyata {
+	ghost_mode = true;
+}
+else ghost_mode = false;
+
+if special_key_held {
+	ghost_count++;
+}
+else ghost_count --;
+
+ghost_count = clamp(ghost_count, 0, ghost_base);
+
+if !global.sunyata && ghost_count >= ghost_base && special > 0 {
 	global.sunyata = true;
 	audio_play_sound(a_special_shift, 1, false);
+	changed = false;
+	ghost_count = 0;
 }
-else if global.sunyata && special_key_pressed {
-	global.sunyata = false;	
-}
-else if global.sunyata && special <= 0 {
-	global.sunyata = false;	
+else if global.sunyata && (special_key_pressed || special <= 0) {
+	global.sunyata = false;
+	changed = false;
+	ghost_count = 0;
+	audio_play_sound(a_special_unshift, 1, false);
 }

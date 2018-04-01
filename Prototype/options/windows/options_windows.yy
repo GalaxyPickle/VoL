@@ -8,9 +8,9 @@
     "option_windows_company_info": "Fungi Studios",
     "option_windows_copy_exe_to_dest": false,
     "option_windows_copyright_info": "(c) 2018 Fungi Studios",
-    "option_windows_description_info": "",
+    "option_windows_description_info": "Enter the tomb of an ancient entity and defeat the evil that lurks within...",
     "option_windows_display_cursor": true,
-    "option_windows_display_name": "Made in GameMaker Studio 2",
+    "option_windows_display_name": "Veins of Light Alpha",
     "option_windows_enable_steam": false,
     "option_windows_executable_name": "${project_name}",
     "option_windows_icon": "${options_dir}\\windows\\icons\\icon.ico",
@@ -21,7 +21,7 @@
     "option_windows_nsis_file": "${base_options_dir}\\windows\\installer\\nsis_script.nsi",
     "option_windows_product_info": "Veins of Light pre-alpha",
     "option_windows_resize_window": false,
-    "option_windows_save_location": 0,
+    "option_windows_save_location": 1,
     "option_windows_scale": 0,
     "option_windows_sleep_margin": 10,
     "option_windows_splash_screen": "${base_options_dir}\\windows\\splash\\splash.png",
@@ -29,9 +29,9 @@
     "option_windows_texture_page": "2048x2048",
     "option_windows_use_splash": true,
     "option_windows_version": {
-        "build": 1,
+        "build": 0,
         "major": 0,
-        "minor": 1,
+        "minor": 2,
         "revision": 0
     },
     "option_windows_vsync": false

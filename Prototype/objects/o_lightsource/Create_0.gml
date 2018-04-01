@@ -5,5 +5,6 @@ ds_list_add(global.light_list, id);
 radius = 50;
 color = c_white;
 alpha = 1;
+player = false;
 
 pl_light_init(radius, color, alpha);

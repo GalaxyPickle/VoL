@@ -48,8 +48,12 @@ if !invincible {
 	if poise < poise_max
 		poise += poise_regen;
 	// special
-	if special < special_max
+	if special < special_max && !ghost_mode
 		special += special_regen;
+}
+
+if ghost_mode {
+	special -= .1;	
 }
 
 // set array for gui debug info
@@ -58,7 +62,7 @@ stamina_[2] = stamina;
 poise_[2] = poise;
 special_[2] = special;
 
-stat_array = [vitality_, poise_, special_];
+stat_array = [vitality_, special_];
 
 /////////////////////////////////////////////////////////////////////////////
 // lastly, set sprite direction

@@ -27,9 +27,41 @@ else {
 // 1. collision checks
 ////////////////////////////////////////////////////////////////////////////
 
+// danger collisions
+in_danger = move_and_check_contact_tiles(danger_tile_map_id, velocity);
+
+if in_danger && !invincible && !ghost_mode && !dead {
+	var vit_dmg = 100;
+	
+	just_hit = true;
+	current_state = states.pain;
+	starting = true;
+	vitality -= vit_dmg;
+	velocity = [-image_xscale * 3, -3];
+	
+	var layer_id = layer_get_id("layer_instance_popups");
+	var particle_layer = layer_get_id("layer_instance_particles");
+	
+	// popups
+	var damage_popup = instance_create_layer(x, hitbox_head_top, layer_id, o_damage_popup);
+	damage_popup.damage = vit_dmg;
+	damage_popup.positive = false;
+	
+	// particles
+	particle_fluffy_burst(x, y, pt_shape_disk, 5, c_red, c_maroon, 120,
+		image_xscale == 1 ? 45 : 135, 3, 10 + random(10));
+}
+
 // on platform?
-on_platform = tile_collide_at_points(platform_tile_map_id,
-		[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) && velocity[vel_y] >= 0;
+on_platform = 
+	( 
+	tile_collide_at_points(platform_tile_map_id,
+		[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) 
+	||
+	( tile_collide_at_points(platform_ghost_tile_map_id,
+		[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) && ghost_mode )
+	) 
+	&& velocity[vel_y] >= 0;
 		
 if ( !NPC && (keyboard_check(global.key_down) || gamepad_axis_value(0, gp_axislv) >= .5) ) || 
 	(NPC && key_down) || dropping {
@@ -42,7 +74,7 @@ if ( !NPC && (keyboard_check(global.key_down) || gamepad_axis_value(0, gp_axislv
 
 // on ground?
 on_ground = tile_collide_at_points(collision_tile_map_id,
-		[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) || on_platform;
+	[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) || on_platform;
 	
 // sliding on walls?
 on_wall_left = tile_collide_at_points(collision_tile_map_id,
@@ -52,12 +84,11 @@ on_wall_right = tile_collide_at_points(collision_tile_map_id,
 	
 // close enough yet not too far to jump off of wall
 var dist = TILE_SIZE - 1;
-on_wall_jump_left = 
-	tile_collide_at_points(collision_tile_map_id,
-		[ [bbox_left-1 - dist, bbox_top], [bbox_left-1 - dist, bbox_top + abs(bbox_bottom - bbox_top) / 2] ]);
-on_wall_jump_right = 
-	tile_collide_at_points(collision_tile_map_id,
-		[ [bbox_right + dist, bbox_top], [bbox_right + dist, bbox_top + abs(bbox_bottom - bbox_top) / 2] ]);
+
+on_wall_jump_left = tile_collide_at_points(collision_tile_map_id,
+	[ [bbox_left-1 - dist, bbox_top], [bbox_left-1 - dist, bbox_top + abs(bbox_bottom - bbox_top) / 2] ]);
+on_wall_jump_right = tile_collide_at_points(collision_tile_map_id,
+	[ [bbox_right + dist, bbox_top], [bbox_right + dist, bbox_top + abs(bbox_bottom - bbox_top) / 2] ]);
 
 // stuck on little rock or wall by foot?
 on_wall_bottom_left = tile_collide_at_points(collision_tile_map_id,
@@ -76,7 +107,9 @@ on_wall = on_wall_left || on_wall_right || on_wall_bottom_left || on_wall_bottom
 if on_platform && velocity[vel_y] > 0
 {	
 	var tile_bottom = tile_collide_at_points(platform_tile_map_id,
-			[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]);
+			[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) ||
+		( tile_collide_at_points(platform_ghost_tile_map_id,
+			[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) && ghost_mode );
 		
 	if tile_bottom {
 		y = bbox_bottom & ~(TILE_SIZE-1);
@@ -146,7 +179,7 @@ if on_ground {
 }
 // friction regardless of on ground or not
 else {
-	if !move || x_direction == 0 || current_state != states.idle {
+	if !move || x_direction == 0 || (current_state != states.idle && current_state != states.dodge) {
 		velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction / 10);
 	}
 }

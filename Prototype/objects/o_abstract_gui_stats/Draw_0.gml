@@ -2,11 +2,16 @@
 
 event_inherited();
 
-if !global.high_graphics {
+if invincible && !ghost_mode {
+	//setting up shader
+	if flash_entity {
+		shader_set(sh_color_overlay);
+		scr_shader_set_color(c_dkgray, .8);
+	}
 	draw_self();
-	exit;
+	shader_reset();
 }
-else {
+else if !global.sunyata {
 	outline_start(outline_thickness, outline_color, sprite_index, 4);
 	draw_self();
 	outline_end();

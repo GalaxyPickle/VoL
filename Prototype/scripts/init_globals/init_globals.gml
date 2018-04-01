@@ -35,17 +35,19 @@ global.view_y = 0;
 // misc progression and collectibles
 ////////////////////////////////////////////////////////
 
+// player object
+global.player = false;
+global.special = 0;
 score = 0;
 health = 0;
-// player object
-global.player = noone;
+
 global.chatbox_up = false;
 
 // collectible mushrooms
 global.mushrooms = [0, 0, 0, 0];
 
 // boss progression - abilities used for this
-global.gates = [];
+global.boss_killed_reptilian = false;
 
 // story progression?
 global.glyph_intro = [false, false, false, false];

@@ -13,7 +13,7 @@ if starting {
 	audio_play_sound_on(s_emit, sound_poise_break, false, 1);
 }
 
-if !invincible {
+if alarm[0] < room_speed / 2 {
 	poise = poise_max;
 	current_state = states.idle;
 }

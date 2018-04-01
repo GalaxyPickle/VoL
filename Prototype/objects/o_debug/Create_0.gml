@@ -1,5 +1,7 @@
 /// @description set debug array text
 
+//alarm[0] = 60;
+
 key_debug = vk_f1;
 key_room_restart = vk_f2;
 key_godmode = vk_f3;
@@ -7,9 +9,7 @@ key_godmode = vk_f3;
 key_hitbox = ord("H");
 key_text = ord("T");
 
-if layer_get_visible("layer_tile_collision")
-	show_tiles = true;
-else show_tiles = false;
+show_tiles = false;
 
 helper_text = 
 [

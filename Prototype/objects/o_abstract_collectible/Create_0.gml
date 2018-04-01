@@ -20,14 +20,22 @@ with lightsource {
 	pl_light_init(100, other.light_color, .6);
 }
 
+////////////////// sounds ///////////////
+s_emit = audio_emitter_create();
+// keep emitter pos at glyph
+audio_emitter_position(s_emit, x + sprite_width / 2, y + sprite_height / 2, 0);
+audio_emitter_falloff(s_emit, 10, 100, 1);
+
+sound = audio_play_sound_on(s_emit, a_tinkle, true, 1);
+
 // particles
 // make a particle type to use with the system
 first_particle = part_type_create();
 
 // set the shape of the particle
-part_type_sprite(first_particle, pt_shape_cross, false, false, false);
+part_type_shape(first_particle, pt_shape_pixel);
 // set the scale of the particle
-part_type_scale(first_particle, 10, 10);
+part_type_scale(first_particle, 30, 30);
 // set the start size
 part_type_size(first_particle, .1, .2, 0, 0);
 // set the color over time

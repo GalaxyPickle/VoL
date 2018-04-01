@@ -1,8 +1,8 @@
 /// @description flash alpha of stats for health
 
 // track player object
-if global.player == noone && instance_exists(o_player)
-	global.player = instance_nearest(x, y, o_player);
+if player == noone && instance_exists(o_player)
+	player = instance_nearest(x, y, o_player);
 
 if alpha <= 0
 	flash = false;

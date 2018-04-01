@@ -1,8 +1,10 @@
 /// @description call FSM switch
 
 // if dead, DIE!!!
-if dead
+if dead && NPC {
 	current_state = states.death;
+	starting = true;	
+}
 	
 if just_landed {
 	starting = true;
