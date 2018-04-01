@@ -4,8 +4,11 @@
     "mvc": "1.1",
     "name": "aa7c5c8a-224b-49e9-862f-2eda4c5eeecb",
     "children": [
-        "ef628b2d-2bb5-4318-bd94-661e0c7007c0",
-        "3bc58e47-a3ff-4f0f-90f2-849e2c64dc86"
+        "208245fb-e220-47d5-87ed-fed337cc9ec5",
+        "5d884b21-7afb-497c-b98a-554036c2b610",
+        "ec22459b-e9e8-4abc-8dad-46a1ba02edfe",
+        "ff9d9bc8-4b12-4870-af63-605429addf06",
+        "6d1c1583-d312-4eb2-b051-fa7818932180"
     ],
     "filterType": "GMShader",
     "folderName": "shaders",

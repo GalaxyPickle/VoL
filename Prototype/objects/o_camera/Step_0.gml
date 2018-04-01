@@ -1,5 +1,7 @@
 /// @description smooth movement follow player
 
+// smooth follow player
+#region
 var can_follow_left = true;
 var can_follow_right = true;
 var can_follow_up = true;
@@ -10,10 +12,12 @@ if follow == noone
 	follow = instance_exists(o_player) ? o_player : noone;
 else {
 	// camera shake when player is hit
-	if follow.current_state == states.pain {
-		shaking = true;
+	if follow == o_player {
+		if follow.current_state == states.pain {
+			shaking = true;
+		}
+		else shaking = false;
 	}
-	else shaking = false;
 }
 
 // if at border of a room, clamp it boi
@@ -46,20 +50,42 @@ if (follow != noone) {
 		y_to = room_height - global.game_height / 2;
 	else 
 		y_to = follow.y;
+		
+	// make camera show view once player has stopped moving
+	var follow_xscale_previous = follow_xscale;
+	follow_xscale = follow.image_xscale;
 	
+	// if I turned recently don't let the camera move
+	if follow_xscale != follow_xscale_previous {
+		alarm[0] = room_speed; // .5 sec
+		can_pan = false;
+	}
+	// if player is facing same way still,,, then make camera show more
+	if can_pan {
+		glide_rate = glide_rate_base * 2;
+		x_to = follow.x + global.game_width * 1 / 4 * follow_xscale;
+	}
+	else glide_rate = glide_rate_base;
 }
 
 // if shaking, then SHAKE IT BABE
 if shaking {
-	x = clamp( follow.x + irandom_range(-shake_rate, shake_rate), 
+	x = clamp( x + irandom_range(-shake_rate, shake_rate), 
 		global.game_width / 2, room_width - global.game_width / 2 );
-	y = clamp( follow.y + irandom_range(-shake_rate, shake_rate), 
+	y = clamp( y + irandom_range(-shake_rate, shake_rate), 
 		global.game_height / 2, room_height - global.game_height / 2 );
 }
 else { // if the camera isn't shaking then glide to follow pos
 	x += (x_to - x) / glide_rate;
-	y += (y_to - y) / glide_rate;
+	y += (y_to - y) / glide_rate_y;
 }
+#endregion
+
+x = clamp(x, global.game_width / 2, room_width - global.game_width / 2);
+y = clamp(y, global.game_height / 2, room_height - global.game_height / 2);
+
+global.view_x = x - global.game_width / 2;
+global.view_y = y - global.game_height / 2;
 
 // update matrix for camera
 var vm = matrix_build_lookat(
@@ -68,9 +94,6 @@ var vm = matrix_build_lookat(
 	0, 1, 0);	// set the camera to point towards the canvas
 	
 camera_set_view_mat(camera, vm);
-
-// set sound listener to be at camera position
-audio_listener_position(x, y, 0);
 
 // apply parallax effect for all bg layers
 parallax_all_bg();

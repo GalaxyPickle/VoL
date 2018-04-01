@@ -2,13 +2,17 @@
 // Inherit the parent event
 event_inherited();
 
+enemy_list = [];
+
+weight = 1;
+value = 1;
+
 ////////////////////////////////////
 // sprite setting
 ////////////////////////////////////
 #region
 
 sprite_hitbox = s_bbox_worm;
-sprite_hitbox_head = s_bbox_worm;
 head_hitbox_offset = 0;
 
 // movement sprites
@@ -52,8 +56,8 @@ max_velocity_x = .1;
 
 draw_my_healthbars = false;
 
-attack_range = 5;
-sight_range = 200;
+close_range = 5;
+sight_range = 5;
 
 // VITALITY
 vitality_max = 10;			// max health

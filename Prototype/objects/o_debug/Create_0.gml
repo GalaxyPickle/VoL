@@ -1,11 +1,15 @@
 /// @description set debug array text
 
+//alarm[0] = 60;
+
 key_debug = vk_f1;
 key_room_restart = vk_f2;
 key_godmode = vk_f3;
 
 key_hitbox = ord("H");
 key_text = ord("T");
+
+show_tiles = false;
 
 helper_text = 
 [
@@ -24,11 +28,4 @@ helper_text =
 	"Dodge: Key D - Button B",
 	"Special: Key S - Button Y",
 	"",
-];
-
-
-debug_message = 
-[
-	"FPS: " + string(fps),
-	"GODMODE: " + (global.godmode ? "ACTIVE" : "INACTIVE"),
 ];

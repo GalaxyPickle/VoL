@@ -1,17 +1,15 @@
 /// @description set up options
 
-global.gameover = false;
-global.pause = false;
+if object_exists(o_player)
+	instance_destroy(o_player);
 
 title = "Veins of Light";
-subtitle = DEV_NAME + " v" + VERSION;
-start_room = r_demo_level;
+subtitle = DEV_NAME + " v" + VERSION + "\n*gamepad recommended*";
+start_room = r_intro;
 
 // array of options
 menu[0] = "Start";
-menu[1] = "Load";
-menu[2] = "Settings";
-menu[3] = "Quit";
+menu[1] = "Quit";
 
 current_option = menu[0];
 

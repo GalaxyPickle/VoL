@@ -3,12 +3,13 @@
 start_interaction = false;
 
 // if player is in interactable range...
-if interactable && distance_to_object(global.player) < sight_range {
+if interactable && distance_to_object(global.player) < close_range {
 	// if I press the interact button...
-	if keyboard_check_pressed(global.key_interact) && !interacting {
+	if ( keyboard_check_pressed(global.key_interact) || 
+		gamepad_button_check_pressed(0, global.gp_key_interact) ) && !interacting {
 		interacting = true;
 		start_interaction = true;
-		audio_play_sound(a_message_popup, 1, false);
+		//audio_play_sound(a_message_popup, 1, false);
 	}
 }
 else {

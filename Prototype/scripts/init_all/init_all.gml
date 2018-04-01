@@ -4,54 +4,36 @@
 // universal vars
 /////////////////////////////////////////
 
-#macro DEV_NAME "pre-alpha"
-#macro VERSION "0.1.3"
+#macro DEV_NAME "alpha"
+#macro VERSION "0.2.0"
 
 // game resolution
-global.window_width = 1440; //1280
-global.window_height = 850; //720
+global.window_width = 1280; //laptop size 1440;
+global.window_height = 720; //laptop size 850;
 
 global.zoom = 2;
-global.game_speed = 60;
+global.game_speed = 60;		// fps
 
 global.game_width = global.window_width / global.zoom;
 global.game_height = global.window_height / global.zoom;
 
+global.view_x = 0;
+global.view_y = 0;
+
 window_center();
+
+global.debug = false;
 
 // tile size
 #macro TILE_SIZE 32
 
 // physics stuff
-global.GRAVITY = 0.4;
+global.GRAVITY = 0.35;
 global.FRICTION = 0.5;
 global.ACCELERATION = 0.5;
 
-// debug mode stuff
-global.debug = false;
-global.text = false;
-global.hitboxes = false;
-global.godmode = false;
-
-// make all random calls different each game run
-randomize();
-
-global.pause = false;
-global.gameover = false;
-global.mute = false;
-
-score = 0;
-global.special = false;
-
-// player object
-global.player = noone;
-global.chatbox_up = false;
-
-// settings
-global.shader_outline = false;
-if gamepad_is_supported()
-	global.gamepad = true;
-else global.gamepad = false;
+// init all global vars and settings
+init_globals();
 
 // initialize surfaces for drawing
 init_surfaces();

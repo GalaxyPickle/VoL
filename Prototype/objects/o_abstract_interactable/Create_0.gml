@@ -1,15 +1,17 @@
 /// @description setup vars
 
 interactable = true;
+interact_text = "Interact";
 
 move_arrow = false;
-sight_range = 50;
+sight_range = 200;
+close_range = 50;
 
 interacting = false;
 dialogue_read = false;
 start_interaction = true;
 
-interaction_arrow = s_arrow_lore;
+interaction_arrow = s_arrow_default;
 sprite_portrait = s_empty;
 
 message = global.message_default;

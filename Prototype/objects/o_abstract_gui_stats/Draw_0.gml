@@ -2,22 +2,17 @@
 
 event_inherited();
 
-if !global.shader_outline {
-	draw_self();
-	exit;
-}
-
-// draw an outline around me
-var upixelH = shader_get_uniform(sh_outline, "pixelH");
-var upixelW = shader_get_uniform(sh_outline, "pixelW");
-var texelW = texture_get_texel_width(sprite_get_texture(s_player_air, 0));
-var texelH = texture_get_texel_height(sprite_get_texture(s_player_air, 0));
-
-if shader_is_compiled(sh_outline) {
-	shader_set(sh_outline);
-	shader_set_uniform_f(upixelW, texelW);
-	shader_set_uniform_f(upixelH, texelH);
+if invincible && !ghost_mode {
+	//setting up shader
+	if flash_entity {
+		shader_set(sh_color_overlay);
+		scr_shader_set_color(c_dkgray, .8);
+	}
 	draw_self();
 	shader_reset();
 }
-else show_debug_message("sh_outline failed");
+else if !global.sunyata {
+	outline_start(outline_thickness, outline_color, sprite_index, 4);
+	draw_self();
+	outline_end();
+}

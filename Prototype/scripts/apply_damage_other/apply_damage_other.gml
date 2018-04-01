@@ -82,16 +82,16 @@ if !NPC {
 var layer_id = layer_get_id("layer_instance_popups");
 var particle_layer = layer_get_id("layer_instance_particles");
 
-/*
+
 /////////////////////////////////////////////////////////////
 // show the particle explosion!!!!
 if headshot
 	var part_top = o_other.hitbox_head_top;
 else var part_top = o_other.y;
+	
+particle_fluffy_burst(o_other.x, part_top, pt_shape_disk, 5, c_red, c_maroon, 120,
+	image_xscale == 1 ? 45 : 135, 3, 10 + random(10));
 
-var particle_blast = instance_create_layer(o_other.x, 
-	part_top, particle_layer, o_particle_blast);
-*/
 
 /////////////////////////////////////////////////////////////
 if vitality_damage > 0 {
@@ -103,11 +103,11 @@ if vitality_damage > 0 {
 	damage_popup.sweetspot = sweetspot;
 }
 
-if self_special_increase > 0 {
+if !NPC && self_special_increase > 0 {
 	// show the special popup!
 	var special_popup = instance_create_layer(x, hitbox_head_top, layer_id, o_damage_popup);
 	special_popup.damage = self_special_increase;
-	special_popup.base_color = c_silver;
+	special_popup.base_color = c_fuchsia;
 	special_popup.positive = true;
 }
 

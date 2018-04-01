@@ -5,7 +5,6 @@ if keyboard_check_pressed(key_debug) {
 	global.debug = !global.debug;
 }
 if keyboard_check_pressed(key_room_restart) {
-	score = 0;
 	audio_stop_all();
 	room_restart();
 }
@@ -29,15 +28,68 @@ else {
 	show_debug_overlay(false);
 }
 
+// hitboxes
+if show_tiles == false {
+	if global.hitboxes {
+		layer_set_visible("layer_tile_collision", true);
+		layer_set_visible("layer_tile_platform", true);
+		layer_set_visible("layer_tile_ghost_collision", true);
+		layer_set_visible("layer_tile_ghost_platform", true);
+	}
+	else {
+		layer_set_visible("layer_tile_collision", false);
+		layer_set_visible("layer_tile_platform", false);
+		layer_set_visible("layer_tile_ghost_collision", false);
+		layer_set_visible("layer_tile_ghost_platform", false);
+	}
+}
+
+if global.godmode {
+	global.ability_discharge = true;
+	global.ability_ascension = true;
+	global.ability_whirlwind = true;
+	global.ability_cracked = true;
+}
+
+var lights = 0;
+var active_lights = 0;
+
+// for every instance in the room of the current enemy...
+if instance_exists(o_lightsource) {
+	for (var j = 0; j < instance_number(o_lightsource); j++) {
+		
+		// if the enemy is in range, add it to my nearest_enemy array
+		var light = instance_find(o_lightsource, j);
+		if light.pl_active
+			active_lights++;
+			
+		lights++;
+	}
+}
+
 // update debug values
 debug_message = 
 [
 	"FPS: " + string(fps),
+	"Lights: " + string(lights) + " / Active: " + string(active_lights),
+	"Room: " + string(room) + " / Name: " + string(room_get_name(room)),
+	//"DT: " + string(alarm[0]),
+	//"Time: " + string(current_time),
+	//"Delta Time: " + string(delta_time),
+	"",
 	"GODMODE: " + (global.godmode ? "active" : "inactive"),
-	"Camera view y: " + string(o_camera.y - global.game_height),
-	"Camera view x: " + string(o_camera.x - global.game_width),
+	"COMBO: " + string(global.combo),
+	"",
+	"Camera view y: " + string(global.view_y),
+	"Camera view x: " + string(global.view_x),
 	"",
 	"Gamepad: " + (gamepad_is_connected(0) ? "connected" : "disconnected"),
+	"",
+	"Mushrooms: " + string(global.mushrooms),
+	"",
+	"Glyph Intro: " + string(global.glyph_intro),
+	"Glyph Sundering: " + string(global.glyph_sundering),
+	"",
 ];
 
 

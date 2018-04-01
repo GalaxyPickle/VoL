@@ -1,5 +1,5 @@
 {
-    "id": "7589b4a5-d5ce-4980-84d1-88ed65c4de98",
+    "id": "d8277fd2-964e-434e-b9d1-82218ba19ecd",
     "modelName": "GMScript",
     "mvc": "1.0",
     "name": "player_step_special",

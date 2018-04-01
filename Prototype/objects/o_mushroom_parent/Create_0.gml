@@ -4,16 +4,21 @@
 event_inherited();
 
 draw_my_healthbars = false;
-AI = AI_type.friendly_follow;
+AI = AI_type.friendly_meander;
+
+interactable = false;
+message = global.message_default;
+
+enemy = false;
 
 ////////////////////////////////////
 // sprite setting
 ////////////////////////////////////
 #region
 
-sprite_hitbox = s_hitbox_player_upright;
-sprite_hitbox_head = s_hitbox_reptilian_head;
-head_hitbox_offset = 40;
+sprite_hitbox = s_mushroom_bbox;
+sprite_hitbox_head = s_mushroom_bbox;
+head_hitbox_offset = 0;
 
 // movement sprites
 sprite_rest = s_mushroom_parent_rest;
@@ -78,8 +83,8 @@ sound_attack_charge_air_1 = a_test;
 //////////////////////////////////
 #region
 
-jump_speed_y = 7;
-max_velocity_x = 5;
+jump_speed_y = 6;
+max_velocity_x = 3;
 
 #endregion
 //////////////////////////////////
@@ -95,7 +100,7 @@ max_velocity_x = 5;
 ///////////////////////////////////////////////
 #region
 
-attack_range = 20; // pixels away for "enemy in range" to trigger
+close_range = 20; // pixels away for "enemy in range" to trigger
 sight_range = 200;
 jump_stamina_cost = 5;
 

@@ -1,7 +1,6 @@
 /// @description draw debug and healthbars
 
 draw_set_font(f_debug);
-draw_set_alpha(1);
 
 if global.hitboxes {
 	debug_draw_hitboxes();

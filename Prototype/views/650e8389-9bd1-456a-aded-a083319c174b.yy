@@ -4,9 +4,10 @@
     "mvc": "1.1",
     "name": "650e8389-9bd1-456a-aded-a083319c174b",
     "children": [
-        "ad1ca1f6-681e-4c70-9f9a-b7d3b71ccfa0",
         "f9fb77c6-0e59-49fd-89ef-491f9b801463",
-        "a57a7dd1-1903-4549-bf14-e835e1bfb661"
+        "b6914fd9-fe03-4563-abc5-f1b5b2922bf8",
+        "a57a7dd1-1903-4549-bf14-e835e1bfb661",
+        "00abd88e-5e36-4e86-8fb1-d372d0dac46a"
     ],
     "filterType": "GMSprite",
     "folderName": "decoration",
