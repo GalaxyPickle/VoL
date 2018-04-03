@@ -1,6 +1,6 @@
 This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
 
-Basically, you can't sell, redistribute, or create derivative works from this software without express and explicit written permission from the owner and creator - me - Alex Lang.
+Basically, you can't sell, redistribute, claim credit for, or create derivative works from this software and any assets contained therein (including audio, images, sound, code, etc.) without express and explicit written permission from the owner and creator - me - Alex Lang.
 
 You can do anything else you want with it as long as you don't try to sell it or distribute it - modification, forking, contributing, etc.
 
