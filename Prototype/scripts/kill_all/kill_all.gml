@@ -28,6 +28,9 @@ if ds_exists(global.NPC_list, ds_type_list)
 // kill light list
 if ds_exists(global.light_list, ds_type_list)
 	ds_list_destroy(global.light_list);
+// kill active list
+if ds_exists(global.active_list, ds_type_list)
+	ds_list_destroy(global.active_list);
 
 ///////////////////////////////////////////
 // SURFACES
@@ -39,3 +42,4 @@ if surface_exists(global.player_surface)
 // kill ghost surface
 if surface_exists(global.ghost_surface)
 	surface_free(global.ghost_surface);
+	

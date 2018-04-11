@@ -1,10 +1,6 @@
 /// @description set audio for rooms
 
-//if audio_is_playing(global.music)
-	//audio_stop_sound(global.music);
-	
-if audio_is_playing(a_torch_burn)
-	audio_stop_sound(a_torch_burn);
+global.mute = false;
 
 var play = true;
 var song = -1;

@@ -13,12 +13,15 @@ if global.gameover {
 			surface_get_width(application_surface), 
 			surface_get_height(application_surface), 
 			false, true, 0, 0);	
-	
-		instance_deactivate_all(true);
 	}
 	
 	if keyboard_check_pressed(global.key_enter) || gamepad_button_check_pressed(0, global.gp_key_enter)
+	{
 		room_goto(r_main_menu);
+		layer_destroy_instances("layer_instance_NPC");
+		layer_destroy_instances("layer_instance_between");
+		audio_stop_all();
+	}
 
 	exit;
 }

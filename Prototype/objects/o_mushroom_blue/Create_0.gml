@@ -12,3 +12,7 @@ light_color = c_blue;
 with lightsource {
 	pl_light_set_color(other.light_color);
 }
+
+if ds_list_find_index(global.active_list, id) != -1 {
+	alarm[1] = 3;
+}

@@ -14,6 +14,19 @@ global.godmode = false;
 
 global.NPC_list = ds_list_create();
 global.light_list = ds_list_create();
+global.active_list = ds_list_create();
+
+// room lists
+global.room_mushrooms = ds_list_create();
+var room_list = 
+[
+	"r_first_room", 
+	"r_second_room", 
+	"r_boss_room"
+];
+for (var i = 0; i < array_length_1d(room_list); i++) {
+	global.room_mushrooms[| room_list[i]] = 0;
+}
 
 // make all random calls different each game run
 randomize();
@@ -42,9 +55,6 @@ score = 0;
 health = 0;
 
 global.chatbox_up = false;
-
-// collectible mushrooms
-global.mushrooms = [0, 0, 0, 0];
 
 // boss progression - abilities used for this
 global.boss_killed_reptilian = false;

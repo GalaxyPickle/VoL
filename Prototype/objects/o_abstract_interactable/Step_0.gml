@@ -13,6 +13,8 @@ if interactable && distance_to_object(global.player) < close_range {
 	}
 }
 else {
+	if interacting && global.chatbox_up
+		global.chatbox_up = false;
 	interacting = false;
 }
 

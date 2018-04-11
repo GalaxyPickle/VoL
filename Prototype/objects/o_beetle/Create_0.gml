@@ -46,7 +46,7 @@ sprite_corpse = s_beetle_corpse;
 #region
 
 // movement
-sound_idle = a_test;							// not moving
+sound_idle = a_empty;							// not moving
 sound_run = a_beetle_run;				// moving L/R
 sound_jump = a_beetle_jump;					// one-shot when leaving ground
 sound_land = a_reptilian_land;					// one-shot when hitting ground
@@ -56,19 +56,19 @@ footstep_time = room_speed / 3;
 // recovery and stuff
 sound_take_damage = a_enemy_hit;				// an "OOF!" or hurt sound when hit
 sound_poise_break = a_beetle_pain;			// a REALLY hurt sound when collapsing back
-sound_recovery = a_test;						// healing sound?
+sound_recovery = a_empty;						// healing sound?
 sound_dodge = a_player_footstep;							// dodge sound
 sound_death = a_beetle_death;					// DEATH sound
 
 // attack sounds
 sound_attack_ground_1 = a_claw_slice_1;			// woosh of weapon sound
-sound_attack_charge_ground_1 = a_test;			// the charged up woosh of weapon sound
+sound_attack_charge_ground_1 = a_empty;			// the charged up woosh of weapon sound
 
 sound_attack_ground_2 = a_claw_slice_2;
-sound_attack_charge_ground_2 = a_test;
+sound_attack_charge_ground_2 = a_empty;
 
 sound_attack_air_1 = a_beetle_attack_air;
-sound_attack_charge_air_1 = a_test;
+sound_attack_charge_air_1 = a_empty;
 
 #endregion
 ////////////////////////////////////

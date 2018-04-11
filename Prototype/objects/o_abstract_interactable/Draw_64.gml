@@ -125,6 +125,7 @@ if interacting {
 					cutoff = 0;
 					done_interacting = true;
 					dialogue_read = true;
+					global.chatbox_up = false;
 				}
 			}
 		}

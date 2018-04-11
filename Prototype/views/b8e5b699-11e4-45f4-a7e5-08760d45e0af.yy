@@ -8,7 +8,7 @@
         "2cbffd5e-1857-456b-ac47-864e41f30ee4"
     ],
     "filterType": "GMObject",
-    "folderName": "worm",
+    "folderName": "worms",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

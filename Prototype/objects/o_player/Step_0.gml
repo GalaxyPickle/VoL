@@ -16,5 +16,5 @@ if vitality <= 0 && !start_gameover {
 	}
 	
 	global.mute = true;
-	audio_play_sound(a_song_metal_lol, 1, true);
+	audio_play_sound(a_song_metal_lol, 1, false);
 }
