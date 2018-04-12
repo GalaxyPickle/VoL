@@ -5,6 +5,6 @@ event_inherited();
 
 ready = false;
 
-// add it to the active list 
-if ds_list_find_index(global.active_list, id) != -1
+// see if it's active already
+if check_if_activated()
 	ready = true;

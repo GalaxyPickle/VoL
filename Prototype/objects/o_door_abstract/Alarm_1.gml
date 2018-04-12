@@ -16,8 +16,7 @@ if check == array_length_1d(keys) {
 	alarm[2] = room_speed;
 	
 	// add it to the active list 
-	if ds_list_find_index(global.active_list, id) == -1
-		ds_list_add(global.active_list, id);
+	add_to_activated();
 }
 
 

@@ -1,5 +1,7 @@
 /// @description destroy psuedo 
 
+add_to_activated();
+
 var crunch_sound = [a_crunchy_eat_1, a_crunchy_eat_2, a_crunchy_eat_3];
 audio_play_sound( crunch_sound[irandom(array_length_1d(crunch_sound))], 1, false );
 audio_play_sound(a_guitar_nice, 1, false);

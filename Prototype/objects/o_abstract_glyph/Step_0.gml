@@ -12,8 +12,7 @@ if dialogue_read && !shutdown {
 	shutdown = true;
 	
 	// add it to the active list 
-	if ds_list_find_index(global.active_list, id) == -1
-		ds_list_add(global.active_list, id);
+	add_to_activated();
 }
 
 if dialogue_read

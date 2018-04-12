@@ -3269,6 +3269,25 @@
             }
         },
         {
+            "Key": "41b94018-1743-4281-b1e4-577c842068ea",
+            "Value": {
+                "id": "4ebb04d4-5dd9-41e9-974f-3a875892dfbc",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "views\/41b94018-1743-4281-b1e4-577c842068ea.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "424f1192-cc29-4f07-bab2-eec35d7a8302",
             "Value": {
                 "id": "5a8ac5b3-5ca9-44bc-9f51-bcbb96eb4b1d",
@@ -8548,6 +8567,25 @@
                 ],
                 "resourcePath": "objects\/o_abstract_entity\/o_abstract_entity.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "9876d2e9-e296-49a3-8293-098b22d00c2f",
+            "Value": {
+                "id": "9cc18e97-8ade-49e3-b0c5-1910a04c7076",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "scripts\/check_if_activated\/check_if_activated.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -13909,6 +13947,25 @@
             }
         },
         {
+            "Key": "f693f6ea-b2a6-40d0-99c9-661533403889",
+            "Value": {
+                "id": "34bdd90d-9482-45b1-86cb-970bf51d25f1",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "scripts\/add_to_activated\/add_to_activated.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "f72a2ae9-6618-4d2d-a101-17821bd98b07",
             "Value": {
                 "id": "c776d0ea-5097-4367-a8dd-f5bd61aac2e5",
@@ -14671,7 +14728,9 @@
         "d23ad850-6f09-451d-b343-1f2140c569b4",
         "65196c33-e867-4599-8595-defef1c5e4dc",
         "2f0a23e3-5cc9-4b59-83a4-be08127dfb88",
-        "2c154d33-b5b0-4b3c-95ad-3f17ea1f69b3"
+        "2c154d33-b5b0-4b3c-95ad-3f17ea1f69b3",
+        "9876d2e9-e296-49a3-8293-098b22d00c2f",
+        "f693f6ea-b2a6-40d0-99c9-661533403889"
     ],
     "tutorial": ""
 }

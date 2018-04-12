@@ -20,7 +20,14 @@ with lightsource {
 	pl_light_init(100, other.light_color, .6);
 }
 
+// CHECK IF ACTIVATED YOOOOOO
+if check_if_activated() {
+	alarm[1] = 3;
+}
+
+///////////////////////////////////////////////////////////
 ////////////////// sounds ///////////////
+
 s_emit = audio_emitter_create();
 // keep emitter pos at glyph
 audio_emitter_position(s_emit, x + sprite_width / 2, y + sprite_height / 2, 0);
@@ -28,6 +35,7 @@ audio_emitter_falloff(s_emit, 10, 100, 1);
 
 sound = audio_play_sound_on(s_emit, a_tinkle, true, 1);
 
+//////////////////////////////////////////////////////////////
 // particles
 // make a particle type to use with the system
 first_particle = part_type_create();

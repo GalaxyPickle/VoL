@@ -12,4 +12,5 @@ if starting {
 if alarm[0] < room_speed / 2 {
 	poise = poise_max;
 	current_state = states.idle;
+	current_state = states.idle;
 }

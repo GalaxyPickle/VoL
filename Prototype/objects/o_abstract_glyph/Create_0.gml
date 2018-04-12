@@ -76,7 +76,7 @@ part_emitter_stream(global.ps, first_emitter, first_particle, -5);
 ///////////////////
 // don't turn on if read already
 ///////////////////
-if ds_list_find_index(global.active_list, id) != -1 {
+if check_if_activated() {
 	
 	part_emitter_clear(global.ps, first_emitter);
 	audio_stop_sound(s_pulse);
