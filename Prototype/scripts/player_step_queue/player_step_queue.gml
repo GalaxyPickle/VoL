@@ -49,7 +49,6 @@ if alarm[11] == -1
 	
 // if idling, accept the first item from the input queue
 if current_state == states.idle && !ds_queue_empty(input_queue) {
-	
 	current_state = ds_queue_dequeue(input_queue);
 	starting = true;
 }
@@ -60,14 +59,8 @@ if global.sunyata {
 }
 else ghost_mode = false;
 
-if special_key_held {
-	ghost_count++;
-}
-else ghost_count --;
-
-ghost_count = clamp(ghost_count, 0, ghost_base);
-
-if !global.sunyata && ghost_count >= ghost_base && special > 0 {
+// switching
+if !global.sunyata && special_key_pressed {
 	global.sunyata = true;
 	audio_play_sound(a_special_shift, 1, false);
 	changed = false;

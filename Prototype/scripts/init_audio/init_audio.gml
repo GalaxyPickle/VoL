@@ -21,5 +21,6 @@ audio_listener_orientation(0, 0, -1000, 0, 1, 0);
 global.music = 0;
 
 // preset all audio levels
+/*
 audio_sound_gain(a_breath_ambiance, .15, 0);
 audio_sound_gain(a_song_cavern_exploration, .75, 0);

@@ -34,11 +34,17 @@ if global.pause && ( keyboard_check_pressed(global.key_enter) ||
 	switch current_option {	
 		case 0:	// resume game
 			global.pause = false;
+			audio_play_sound(a_menu_escape, 1, false);
 			instance_activate_all();
 			break;
 			
 		case 1: // quit
+			audio_play_sound(a_menu_harsh_select, 1, false);
 			room_goto(r_main_menu);
+			layer_destroy_instances("layer_instance_NPC");
+			layer_destroy_instances("layer_instance_between");
+			audio_stop_all();
+			
 			break;
 	}
 }
@@ -46,6 +52,7 @@ else {
 	if keyboard_check_pressed(global.key_escape) ||
 		gamepad_button_check_pressed(0, global.gp_key_enter) 
 	{
+		audio_play_sound(a_menu_escape, 1, false);
 		global.pause = !global.pause;
 	
 		// if paused take a screenshot of the game and set it as the bg

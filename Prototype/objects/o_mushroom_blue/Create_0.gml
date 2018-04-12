@@ -16,3 +16,4 @@ with lightsource {
 if ds_list_find_index(global.active_list, id) != -1 {
 	alarm[1] = 3;
 }
+

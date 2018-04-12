@@ -34,7 +34,7 @@ if open && !finished_opening {
 	// slam dat door foo
 	if audio_is_playing(a_stone_grind)
 		audio_stop_sound(a_stone_grind);
-	audio_play_sound(a_slam, 1, false);
+	audio_play_sound(a_door_slam, 1, false);
 	
 	// fade music out for room transition
 	if audio_is_playing(global.music)

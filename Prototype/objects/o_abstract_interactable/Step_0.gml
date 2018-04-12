@@ -4,6 +4,11 @@ start_interaction = false;
 
 // if player is in interactable range...
 if interactable && distance_to_object(global.player) < close_range {
+	
+	// do the bouncy arrow sound
+	//if move_arrow && !audio_is_playing(a_arrow_bounce)
+	//	audio_play_sound(a_arrow_bounce, 1, false);
+	
 	// if I press the interact button...
 	if ( keyboard_check_pressed(global.key_interact) || 
 		gamepad_button_check_pressed(0, global.gp_key_interact) ) && !interacting {

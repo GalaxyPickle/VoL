@@ -62,13 +62,10 @@ sound_death = a_empty;							// DEATH sound
 
 // attack sounds
 sound_attack_ground_1 = a_reptilian_footstep;			// woosh of weapon sound
-sound_attack_charge_ground_1 = a_empty;			// the charged up woosh of weapon sound
 
 sound_attack_ground_2 = a_reptilian_footstep;
-sound_attack_charge_ground_2 = a_empty;
 
 sound_attack_air_1 = a_reptilian_footstep;
-sound_attack_charge_air_1 = a_empty;
 
 #endregion
 ////////////////////////////////////

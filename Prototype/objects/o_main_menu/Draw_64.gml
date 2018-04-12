@@ -23,6 +23,10 @@ for (var i = 0; i < array_length_1d(menu); i++) {
 	}
 }
 
+// play menu sounds
+if current_option != anim
+	audio_play_sound(a_menu_switch, 1, false);
+
 current_option = anim;
 
 // draw main menu name now

@@ -90,6 +90,10 @@ if starting {
 	audio_play_sound_on(s_emit, current_attack_sound, false, 1);
 }
 
+///////////////////////////////////////////////////////
+// COMBO
+///////////////////////////////////////////////////////
+
 // set sprite speed depending on combo amount
 image_speed = 1 + global.combo * 0.03;
 
@@ -102,6 +106,8 @@ stats =
 	round(stats[1] + stats[1] * global.combo * combo_mult) 
 ];
 current_attack_stats[1] = stats;
+
+////////////////////////////////////////////////////////
 
 // check for enemy in range
 for (var i = 0; i < array_length_1d(nearest_enemy); i++) {
@@ -134,9 +140,6 @@ for (var i = 0; i < array_length_1d(nearest_enemy); i++) {
 		}
 	}
 }
-
-// cancel out stamina regen
-stamina -= stamina_regen;
 	
 // end attack_mode if sprite current sub-frame == total sub-frames for sprite
 if image_index >= image_number - 1 {

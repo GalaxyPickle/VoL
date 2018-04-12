@@ -31,9 +31,8 @@ if on_ground {
 	if x_direction != 0 {
 		sprite_index = sprite_run;
 		
-		if play_sound_footstep {
-			if !audio_is_playing(sound_step)
-				sound_step = audio_play_sound_on(s_emit, sound_run, false, 1);
+		if (floor(image_index) == 3 || floor(image_index) == 7) && !audio_is_playing(sound_run) {
+			audio_play_sound_on(s_emit, sound_run, false, 1);	
 		}
 	}
 	else {
@@ -66,7 +65,7 @@ else if on_wall_jump_left || on_wall_jump_right {
 			pause_input_start = true;
 			
 			// sound
-			audio_play_sound_on(s_emit, a_player_jump, false, 1);
+			audio_play_sound_on(s_emit, sound_jump, false, 1);
 		}
 	}
 }
@@ -85,6 +84,8 @@ else {
 		audio_play_sound_on(s_emit, sound_jump, false, 1);
 	}
 }
+
+// short hop
 if !on_ground && !jump_key_held && velocity[vector2_y] < 0 {
 	velocity[vector2_y] = lerp(velocity[vector2_y], 0, .1);
 }

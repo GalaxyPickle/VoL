@@ -66,33 +66,26 @@ sprite_death = s_enemy_default;
 #region
 
 // movement
-sound_idle = a_player_footstep;						// not moving
+sound_idle = a_empty;						// not moving
 sound_run = a_reptilian_footstep;				// moving L/R
 sound_jump = a_player_jump;					// one-shot when leaving ground
 sound_land = a_player_land;					// one-shot when hitting ground
 
 // recovery and stuff
-sound_take_damage = a_player_hit;				// an "OOF!" or hurt sound when hit
-sound_poise_break = a_player_pain;				// a REALLY hurt sound when collapsing back
-sound_recovery = a_player_footstep;				// healing sound?
+sound_pain = [a_player_pain_1, a_player_pain_2, a_player_pain_3];	// a REALLY hurt sound when collapsing back
+sound_recovery = a_player_land;				// healing sound?
 sound_dodge = a_player_roll;					// dodge sound
-sound_death = a_player_footstep;					// DEATH sound
+sound_death = a_player_death;					// DEATH sound
 
 // attack sounds
 sound_special_warmup = a_sword_laser_warmup;
 sound_special = a_laser_blast;
 
-sound_attack_ground_1 = a_sword_slice_1;			// woosh of weapon sound
-sound_attack_charge_ground_1 = a_player_footstep;	// the charged up woosh of weapon sound
+sound_attack_ground_1 = a_sword_ground_1;			// woosh of weapon sound
+sound_attack_ground_2 = a_sword_ground_2;
 
-sound_attack_ground_2 = a_sword_slice_2;
-sound_attack_charge_ground_2 = a_player_footstep;
-
-sound_attack_air_1 = a_sword_slice_1;
-sound_attack_charge_air_1 = a_player_footstep;
-
-sound_attack_air_2 = a_sword_slice_2;
-sound_attack_charge_air_2 = a_player_footstep;
+sound_attack_air_1 = a_sword_air_1;
+sound_attack_air_2 = a_sword_air_2;
 
 #endregion
 ////////////////////////////////////
