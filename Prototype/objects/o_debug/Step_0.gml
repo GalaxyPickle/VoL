@@ -72,7 +72,7 @@ debug_message =
 [
 	"FPS: " + string(fps),
 	"Lights: " + string(lights) + " / Active: " + string(active_lights),
-	"Room: " + string(room) + " / Name: " + string(room_get_name(room)),
+	"Room: " + string(room) + " / " + room_get_name(room),
 	//"DT: " + string(alarm[0]),
 	//"Time: " + string(current_time),
 	//"Delta Time: " + string(delta_time),
@@ -85,13 +85,10 @@ debug_message =
 	"",
 	"Gamepad: " + (gamepad_is_connected(0) ? "connected" : "disconnected"),
 	"",
-	"Mushrooms: " + string(global.mushrooms),
-	"",
 	"Glyph Intro: " + string(global.glyph_intro),
 	"Glyph Sundering: " + string(global.glyph_sundering),
 	"",
 ];
-
 
 // mouse click teleport player
 if instance_exists(o_player) {

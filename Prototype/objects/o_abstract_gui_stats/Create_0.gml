@@ -1,4 +1,4 @@
-/// @description 
+/// @description setup draw vars
 
 event_inherited();
 

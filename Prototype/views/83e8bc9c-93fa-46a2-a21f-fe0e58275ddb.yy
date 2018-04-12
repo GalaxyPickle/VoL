@@ -7,7 +7,7 @@
         "3794c01b-eb74-4ed1-b86c-f6ab991d5073"
     ],
     "filterType": "GMObject",
-    "folderName": "mushroom people",
+    "folderName": "friendly MUSHROOMS",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

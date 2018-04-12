@@ -87,7 +87,7 @@ if interacting {
 		var line = 0;
 		var space = 0;
 		var i = 1;
-		var delay = 4;
+		var delay = 1;
 		
 		if keyboard_check(global.key_interact) || gamepad_button_check(0, global.gp_key_interact) {
 			delay = 0;	
@@ -125,6 +125,7 @@ if interacting {
 					cutoff = 0;
 					done_interacting = true;
 					dialogue_read = true;
+					global.chatbox_up = false;
 				}
 			}
 		}
@@ -151,8 +152,10 @@ if interacting {
 				string_char_at(message[message_current], i));
 				
 			space++;
-			if !audio_is_playing(a_message_type) && !message_current_finished
-				audio_play_sound(a_message_type, 1, false);
+			
+			//if !audio_is_playing(a_message_type) && !message_current_finished
+			//	audio_play_sound(a_message_type, 1, false);
+			
 			i++;
 		}
 	}

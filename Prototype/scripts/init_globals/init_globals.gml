@@ -14,6 +14,7 @@ global.godmode = false;
 
 global.NPC_list = ds_list_create();
 global.light_list = ds_list_create();
+global.active_list = ds_list_create();
 
 // make all random calls different each game run
 randomize();
@@ -42,9 +43,6 @@ score = 0;
 health = 0;
 
 global.chatbox_up = false;
-
-// collectible mushrooms
-global.mushrooms = [0, 0, 0, 0];
 
 // boss progression - abilities used for this
 global.boss_killed_reptilian = false;

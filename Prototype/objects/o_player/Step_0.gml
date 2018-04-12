@@ -15,6 +15,10 @@ if vitality <= 0 && !start_gameover {
 		alarm[1] = room_speed * 2;	
 	}
 	
+	// play death sound
+	audio_play_sound(a_player_death, 1, false);
+	
+	// play gameoover music
 	global.mute = true;
-	audio_play_sound(a_song_metal_lol, 1, true);
+	audio_play_sound(a_song_metal_lol, 1, false);
 }

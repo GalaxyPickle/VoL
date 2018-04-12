@@ -14,6 +14,9 @@ for (var i = 0; i < array_length_1d(keys); i++) {
 if check == array_length_1d(keys) {
 	ready = true;
 	alarm[2] = room_speed;
+	
+	// add it to the active list 
+	add_to_activated();
 }
 
 

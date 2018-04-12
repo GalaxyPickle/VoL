@@ -11,7 +11,10 @@ if just_hit {
 	just_hit = false;
 	
 	// sound
-	audio_play_sound_on(s_emit, sound_take_damage, false, 1);
+	audio_play_sound_on(s_emit, sound_pain[irandom(array_length_1d(sound_pain) - 1)], false, 1);
+	
+	var sound_splatter = [a_splatter_1, a_splatter_2, a_splatter_3];
+	audio_play_sound_on(s_emit, irandom(array_length_1d(sound_splatter) - 1), false, 1);
 }
 
 nearest_enemy = [];

@@ -1,14 +1,11 @@
 /// @description set audio for rooms
 
-//if audio_is_playing(global.music)
-	//audio_stop_sound(global.music);
-	
-if audio_is_playing(a_torch_burn)
-	audio_stop_sound(a_torch_burn);
+global.mute = false;
 
 var play = true;
 var song = -1;
-play_ambiance = true;
+play_breath_ambiance = true;
+play_cave_ambiance = true;
 
 // choose song based on room
 switch room_get_name(room) {
@@ -24,17 +21,18 @@ switch room_get_name(room) {
 		
 	case "r_second_room":
 		song = a_song_cavern_exploration;
-		play_ambiance = false;
+		play_breath_ambiance = false;
 		break;
 		
 	case "r_boss_room":
-		play_ambiance = false;
+		play_breath_ambiance = false;
+		play_cave_ambiance = false;
 		break;
 	
 	// demo level
 	case "r_demo_level":
 		song = a_song_cavern_exploration;
-		play_ambiance = false;
+		play_breath_ambiance = false;
 		break;
 		
 	// DEFAULT
@@ -43,6 +41,8 @@ switch room_get_name(room) {
 		break;
 	
 }
+
+// play the music
 if play
 	global.music = audio_play_sound(song, 1, true);
 else {
@@ -50,5 +50,14 @@ else {
 		audio_stop_sound(global.music);
 }
 
+// play the breath intermitent ambiance
 if play_ambiance 
 	alarm[0] = room_speed * 15;
+
+// play the cave ambiance
+if play_cave_ambiance 
+	audio_play_sound(a_cave_ambiance_muted, 1, true);
+else {
+	if audio_is_playing(a_cave_ambiance_muted)
+		audio_stop_sound(a_cave_ambiance_muted);
+}

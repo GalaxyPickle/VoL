@@ -1,14 +1,14 @@
 {
-    "id": "d9ca3462-ba19-42fc-b97a-49d6a0d7dae1",
+    "id": "e1832efc-92d0-43ba-bde9-038af0532fc4",
     "modelName": "GMSound",
     "mvc": "1.0",
     "name": "a_breath_ambiance",
-    "audioGroupGuid": "bacdb657-c3f1-4431-a168-435ed0ec7518",
+    "audioGroupGuid": "ed784dd4-feb0-4afc-ac65-01b156688539",
     "bitDepth": 1,
     "bitRate": 128,
     "kind": 0,
     "preload": false,
     "sampleRate": 44100,
     "type": 2,
-    "volume": 0.25
+    "volume": 1
 }

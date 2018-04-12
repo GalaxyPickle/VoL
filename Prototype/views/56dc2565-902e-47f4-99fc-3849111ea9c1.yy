@@ -11,8 +11,7 @@
         "e8407bc8-e825-410e-af86-33c709888c7e",
         "d573bcd9-c6eb-4c03-bab4-88f707537df7",
         "e2631f06-a0c5-4423-abc5-c17cb128fb6a",
-        "e15d995d-7f0f-4b30-a8c9-c621c980cfb6",
-        "29cf48e4-d4ae-4cf8-98b5-002c95a4c0ec"
+        "e15d995d-7f0f-4b30-a8c9-c621c980cfb6"
     ],
     "filterType": "GMSprite",
     "folderName": "reptilian",

@@ -6,6 +6,7 @@ if keyboard_check_pressed(global.key_enter) || keyboard_check_pressed(global.key
 	
 	switch current_option {	
 		case 0:	// start game
+			audio_play_sound(a_door_slam, 1, false);
 			room_goto(start_room);
 			break;
 			

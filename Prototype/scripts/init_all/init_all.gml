@@ -5,7 +5,7 @@
 /////////////////////////////////////////
 
 #macro DEV_NAME "alpha"
-#macro VERSION "0.2.0"
+#macro VERSION "0.2.1"
 
 // game resolution
 global.window_width = 1280; //laptop size 1440;

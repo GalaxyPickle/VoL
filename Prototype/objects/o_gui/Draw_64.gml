@@ -57,7 +57,7 @@ for (var i = 0; i < array_length_1d(player.stat_array); i++) {
 	//draw_sprite_ext(s_gui_hp_cage_beg, 0, x2 + 3, y1, -1, 1, 0, c_white, 1);
 	
 	// draw the text for numberss
-	draw_text_outline_color( 80, height + 30 * i, string(floor(current_array[2])),
+	draw_text_outline_color( 80, height + 30 * i, current_array[2] <= 0 ? 0 : string(ceil(current_array[2])),
 	2, c_white, 4, mincol, 1);
 }
 

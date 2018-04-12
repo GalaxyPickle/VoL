@@ -23,6 +23,7 @@ if alarm[2] == -1 {
 // vitality
 if vitality < 0
 	dead = true;
+	
 if vitality > vitality_max
 	vitality = vitality_max;
 // stamina
