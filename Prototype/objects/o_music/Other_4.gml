@@ -51,13 +51,13 @@ else {
 }
 
 // play the breath intermitent ambiance
-if play_ambiance 
+if play_breath_ambiance 
 	alarm[0] = room_speed * 15;
 
 // play the cave ambiance
-if play_cave_ambiance 
+if play_cave_ambiance && !audio_is_playing(a_cave_ambiance_muted)
 	audio_play_sound(a_cave_ambiance_muted, 1, true);
-else {
+else if !play_cave_ambiance {
 	if audio_is_playing(a_cave_ambiance_muted)
 		audio_stop_sound(a_cave_ambiance_muted);
 }

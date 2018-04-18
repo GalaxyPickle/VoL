@@ -10,6 +10,7 @@ key_hitbox = ord("H");
 key_text = ord("T");
 
 show_tiles = false;
+show_info = false;
 
 helper_text = 
 [

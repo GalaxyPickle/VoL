@@ -73,16 +73,16 @@ else if on_wall_jump_left || on_wall_jump_right {
 else {
 	// set jump sprite
 	sprite_index = sprite_air;
+}
 
-	// double jump if you have the ability
-	if global.ability_ascension && global.double_jump && jump_key_pressed {
+// double jump if you have the ability
+if global.ability_ascension && global.double_jump && jump_key_pressed {
 		
-		velocity[vector2_y] = -jump_speed_y * 5 / 4;
+	velocity[vector2_y] = -jump_speed_y * 5 / 4;
 		
-		global.double_jump = false;
-		// sound
-		audio_play_sound_on(s_emit, sound_jump, false, 1);
-	}
+	//global.double_jump = false;
+	// sound
+	audio_play_sound_on(s_emit, sound_jump, false, 1);
 }
 
 // short hop

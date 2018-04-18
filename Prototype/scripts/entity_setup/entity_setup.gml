@@ -45,19 +45,17 @@ if !NPC
 	exit;
 	
 // set proper AI scripts or stats for AI type
-switch AI {
-	case AI_type.enemy_boss: script_AI_goal = script_enemy_boss;
-		break;
-	case AI_type.enemy_aggressive: script_AI_goal = script_enemy_aggressive;
-		break;
-	case AI_type.enemy_cautious: script_AI_goal = script_enemy_cautious;
-		break;
-	case AI_type.friendly_follow: script_AI_goal = script_friendly_follow;
-		break;
-	case AI_type.friendly_meander: script_AI_goal = script_friendly_meander;
-		break;
-}
-
+// BOSS
+if AI == AI_type.enemy_boss
+	script_AI_goal = script_boss
+	
+// ENEMY
+else if AI == AI_type.enemy_aggressive || AI == AI_type.enemy_cautious
+	script_AI_goal = script_enemy;
+	
+// FRIENDLY
+else if AI == AI_type.friendly_follow || AI == AI_type.friendly_meander || AI == AI_type.friendly_hide
+	script_AI_goal = script_friendly;
 
 
 

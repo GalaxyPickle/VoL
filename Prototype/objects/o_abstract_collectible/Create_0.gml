@@ -14,8 +14,8 @@ type = 0;
 
 light_color = c_white;
 
-lightsource = instance_create_layer(x + sprite_get_width(sprite_index) / 2, 
-	y + sprite_get_height(sprite_index) / 2, "layer_instance_lights", o_lightsource);
+lightsource = instance_create_layer(x + sprite_width / 2, 
+	y + sprite_height / 2, "layer_instance_lights", o_lightsource);
 with lightsource {
 	pl_light_init(100, other.light_color, .6);
 }
@@ -67,8 +67,8 @@ part_type_blend(first_particle, false);
 first_emitter = part_emitter_create(global.ps);
 // set the emitter region
 part_emitter_region(global.ps, first_emitter,
-	x - sprite_get_width(sprite_index) / 2, x + sprite_get_width(sprite_index) * 3 / 2,
-	y - sprite_get_height(sprite_index) / 2, y + sprite_get_height(sprite_index) * 3 / 2,
+	x - sprite_width / 2, x + sprite_width * 3 / 2,
+	y - sprite_height / 2, y + sprite_height * 3 / 2,
 	ps_shape_ellipse, ps_distr_invgaussian);
 
 // make a stream from the emitter

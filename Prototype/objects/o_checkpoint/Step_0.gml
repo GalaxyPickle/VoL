@@ -12,14 +12,13 @@ if !activated && place_meeting(x, y, global.player) {
 	
 	activated = true;
 	with lightsource _pl_color = c_lime;
-	audio_play_sound(a_choir_1, 1, false);
+	audio_play_sound(a_choir_ah, 1, false);
 	
 	// turn on particles
 	alarm[0] = 1;
 	
 	// add it to the active list 
-	if ds_list_find_index(global.active_list, id) == -1
-		ds_list_add(global.active_list, id);
+	add_to_activated();
 }
 
 if activated {

@@ -9,9 +9,13 @@ if part_system_exists(global.ps) {
 	part_emitter_destroy_all(global.ps);
 	part_system_destroy(global.ps);
 }
-if part_system_exists(global.ps_behind) {
-	part_emitter_destroy_all(global.ps_behind);
-	part_system_destroy(global.ps_behind);
+if part_system_exists(global.ps_between) {
+	part_emitter_destroy_all(global.ps_between);
+	part_system_destroy(global.ps_between);
+}
+if part_system_exists(global.ps_top) {
+	part_emitter_destroy_all(global.ps_top);
+	part_system_destroy(global.ps_top);
 }
 if part_system_exists(global.ps_ghost) {
 	part_emitter_destroy_all(global.ps_ghost);

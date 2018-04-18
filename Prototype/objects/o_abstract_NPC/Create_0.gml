@@ -22,16 +22,15 @@ enum AI_type {
 	enemy_cautious,
 	friendly_follow,
 	friendly_meander,
+	friendly_hide,
 	immovable
 }
 
-script_enemy_boss = AI_step_boss_goal_reptilian;
-script_enemy_aggressive = AI_step_enemy_goal;
-script_enemy_cautious = AI_step_enemy_goal;
-script_friendly_follow = AI_step_friend_goal;
-script_friendly_meander = AI_step_friend_goal;
+script_boss = AI_step_boss_goal_reptilian;
+script_enemy = AI_step_enemy_goal;
+script_friendly = AI_step_friend_goal;
 
-script_AI_goal = script_enemy_aggressive;
+script_AI_goal = script_enemy;
 
 AI_goal_object = noone;
 
