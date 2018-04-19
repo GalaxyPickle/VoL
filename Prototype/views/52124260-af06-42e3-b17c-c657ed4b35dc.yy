@@ -10,7 +10,7 @@
         "9393e9ec-8d3a-4fc1-90f6-e67a9f7e3cc1"
     ],
     "filterType": "GMSprite",
-    "folderName": "mushrooms!",
+    "folderName": "big mushrooms",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

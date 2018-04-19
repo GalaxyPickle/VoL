@@ -13,6 +13,7 @@ if on_ground && roll_chance(.0001)
 	key_jump = true;
 else if !on_ground && roll_chance(.90)
 	key_jump = true;
-	
+
+// can't jump
 if !can_jump
 	key_jump = false;

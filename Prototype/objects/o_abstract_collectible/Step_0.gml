@@ -11,3 +11,5 @@ if global.player != noone && distance_to_object(global.player) < sight_range {
 	}
 }
 else within_range = false;
+
+interact_conditions = within_range;

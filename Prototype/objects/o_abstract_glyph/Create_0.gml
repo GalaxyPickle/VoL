@@ -8,8 +8,8 @@ interact_text = "Decipher";
 ////////////////////////////////////////////////
 // lightsource
 ////////////////////////////////////////////////
-lightsource = instance_create_layer(x - 5 + sprite_get_width(sprite_index) / 2, 
-	y - 5 + sprite_get_height(sprite_index) / 2, "layer_instance_lights", o_lightsource);
+lightsource = instance_create_layer(x - 5 + sprite_width / 2, 
+	y - 5 + sprite_height / 2, "layer_instance_lights", o_lightsource);
 with lightsource {
 	pl_light_init(100, c_orange, .5);
 }
@@ -66,8 +66,8 @@ part_type_blend(first_particle, true);
 first_emitter = part_emitter_create(global.ps);
 // set the emitter region
 part_emitter_region(global.ps, first_emitter,
-	x - 4 - 10, x + sprite_get_width(sprite_index) - 4 + 10,
-	y - 4 - 10, y + sprite_get_height(sprite_index) - 4 + 10,
+	x - 4 - 10, x + sprite_width - 4 + 10,
+	y - 4 - 10, y + sprite_height - 4 + 10,
 	ps_shape_rectangle, ps_distr_invgaussian);
 
 // make a burst from the emitter

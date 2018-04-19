@@ -1,5 +1,5 @@
 /// @description play ambiance
-if !play_ambiance
+if !play_breath_ambiance
 	exit;
 	
 alarm[0] = room_speed * 90; // repeate every 1.5 minutes

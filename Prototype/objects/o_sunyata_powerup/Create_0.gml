@@ -33,8 +33,8 @@ part_type_blend(first_particle, true);
 first_emitter = part_emitter_create(global.ps);
 // set the emitter region
 part_emitter_region(global.ps, first_emitter,
-	x, x + sprite_get_width(sprite_index),
-	y, y + sprite_get_height(sprite_index),
+	x, x + sprite_width,
+	y, y + sprite_height,
 	ps_shape_rectangle, ps_distr_invgaussian);
 
 // make a burst from the emitter

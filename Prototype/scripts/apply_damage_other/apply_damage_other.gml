@@ -88,9 +88,10 @@ var particle_layer = layer_get_id("layer_instance_particles");
 if headshot
 	var part_top = o_other.hitbox_head_top;
 else var part_top = o_other.y;
-	
-particle_fluffy_burst(o_other.x, part_top, pt_shape_disk, 5, c_red, c_maroon, 120,
-	image_xscale == 1 ? 45 : 135, 3, 10 + random(10));
+
+if other.vitality > 0
+	particle_fluffy_burst(o_other.x, part_top, pt_shape_disk, 5, c_red, c_maroon, 120,
+		image_xscale == 1 ? 45 : 135, 3, 10 + random(10));
 
 
 /////////////////////////////////////////////////////////////
