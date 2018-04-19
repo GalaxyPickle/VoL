@@ -1,14 +1,13 @@
 /// @description init vars
 
+event_inherited();
+interact_message = "Consume";
+
 c_start = c_white;
 c_end = c_white;
 
 within_range = false;
 sight_range = 25;
-
-outline_col = c_white;
-outline_thickness = 1;
-outline_init();
 
 type = 0;
 

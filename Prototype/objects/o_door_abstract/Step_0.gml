@@ -3,6 +3,9 @@
 // keys
 //if !ready exit;
 
+interact_conditions = ready && place_meeting(x, y, global.player) && !global.chatbox_up && 
+	!open && !opening && !global.sunyata;
+
 ////////////////////////////////////////////////
 // start opening when player presses open
 ////////////////////////////////////////////////

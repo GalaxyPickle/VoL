@@ -1,5 +1,8 @@
 /// @description setup vars
 
+event_inherited();
+interact_message = "Enter";
+
 //////////////////////////////
 // transition to room
 //////////////////////////////
@@ -31,7 +34,3 @@ goto_position = [64, 64];
 open = false;
 opening = false;
 finished_opening = false;
-
-outline_init();
-move_arrow = false;
-alarm[3] = room_speed / 6;
