@@ -31,5 +31,9 @@ platform_ghost_tile_map_id = layer_tilemap_get_id(layer_id);
 layer_id = layer_get_id("layer_tile_danger");
 danger_tile_map_id = layer_tilemap_get_id(layer_id);
 
+// SOUND TERRAIN
+layer_id = layer_get_id("layer_tile_sound");
+sound_tile_map_id = layer_tilemap_get_id(layer_id);
+
 layer_id = layer_get_id("layer_instance_player");
 depth = layer_get_depth(layer_id);

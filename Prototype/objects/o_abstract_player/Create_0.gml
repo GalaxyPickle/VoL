@@ -26,6 +26,10 @@ with lightsource {
 	player = true;
 }
 
+// sound collisions
+var layer_id = layer_get_id("layer_tile_sound");
+sound_tile_map_id = layer_tilemap_get_id(layer_id);
+
 ////////////////////////////////////
 // sprite setting
 ////////////////////////////////////
@@ -67,9 +71,17 @@ sprite_death = s_enemy_default;
 
 // movement
 sound_idle = a_empty;						// not moving
-sound_run = a_reptilian_footstep;				// moving L/R
 sound_jump = a_player_jump;					// one-shot when leaving ground
 sound_land = a_player_land;					// one-shot when hitting ground
+
+sound_run = a_reptilian_footstep;				// moving L/R
+
+// run sounds for different terrain
+sound_run_stone = a_pop_1;
+sound_run_mush = a_pop_2;
+sound_run_metal = a_arrow_bounce;
+
+run_sounds = [sound_run, sound_run_stone, sound_run_mush, sound_run_metal];
 
 // recovery and stuff
 sound_pain = [a_player_pain_1, a_player_pain_2, a_player_pain_3];	// a REALLY hurt sound when collapsing back
@@ -274,14 +286,9 @@ sight_range = global.game_width / 3;
 stun_time = room_speed / 2;
 
 // VITALITY
-vitality_max = 500;			// max health
+vitality_max = 100;			// max health
 vitality = vitality_max;	// current health
 vitality_regen = .001;		// health regen rate per frame
-
-// STAMINA
-stamina_max = 100;
-stamina = stamina_max;
-stamina_regen = .5;
 
 // POISE
 poise_max = 40;
@@ -289,7 +296,7 @@ poise = poise_max;
 poise_regen = .08;
 
 // SPECIAL
-special_max = 500;
+special_max = 100;
 special = 0;
 special_regen = 0;
 

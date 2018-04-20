@@ -45,8 +45,8 @@ first_emitter = part_emitter_create(ps_sys);
 var dist = 10;
 // set the emitter region
 part_emitter_region(ps_sys, first_emitter,
-	x - sprite_width / 2 - dist, x + sprite_width / 2 + dist, 
-	y - sprite_height / 2 - dist, y + sprite_height / 2 + dist,
+	x - dist, x + sprite_width + dist, 
+	y - dist, y + sprite_height + dist,
 	ps_shape_diamond, ps_distr_invgaussian);
 
 // make a stream from the emitter

@@ -12,6 +12,8 @@ switch room_get_name(room) {
 	// MAIN MENU
 	case "r_main_menu":
 		play = false;
+		play_breath_ambiance = false;
+		play_cave_ambiance = false;
 		break;
 		
 	// INTRO AREA
@@ -38,6 +40,8 @@ switch room_get_name(room) {
 	// DEFAULT
 	default:
 		play = false;
+		play_breath_ambiance = false;
+		play_cave_ambiance = false;
 		break;
 	
 }

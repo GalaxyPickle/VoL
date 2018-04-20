@@ -42,9 +42,9 @@ if interacting {
 			
 	// 3. draw the bg frame of the entity in question
 	var pc = c_black;
-	draw_rectangle_color(portrait_border_w, global.window_height - yheight - border_h, 
+	draw_roundrect_color(portrait_border_w, global.window_height - yheight - border_h, 
 		border_w - portrait_border_w, global.window_height - border_h, 
-		pc, pc, pc, pc, false);
+		pc, pc, false);
 			
 	// 4. draw the portrait
 	draw_sprite(sprite_portrait, 0, portrait_width / 2 + portrait_border_w,
@@ -65,7 +65,7 @@ if interacting {
 		message_current_finished = true;
 		
 		// draw next button sprites no matter what
-		var spr = s_textbox_keys;
+		var spr = s_textbox_key_gamepad;
 		outline_start(1, c_black, spr, 4);
 		draw_sprite(spr, 0,
 			global.window_width - border_w + t_margin * 3, 
