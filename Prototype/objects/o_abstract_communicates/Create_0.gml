@@ -27,3 +27,5 @@ increment = 1;
 done_interacting = false;
 
 outline_init();
+
+message_sound = a_empty;

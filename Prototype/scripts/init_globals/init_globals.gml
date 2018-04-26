@@ -4,9 +4,6 @@
 // debug mode + settings
 ////////////////////////////////////////////
 
-// delta time thingy
-instance_create(x, y, obj_SteadyDeltaTime);
-
 // debug info
 global.text = false;
 global.hitboxes = false;
@@ -15,6 +12,11 @@ global.godmode = false;
 global.NPC_list = ds_list_create();
 global.light_list = ds_list_create();
 global.active_list = ds_list_create();
+
+global.cutscene_list = ds_list_create();
+
+global.room_list = ds_map_create();
+ds_map_add(global.room_list, r_first_room, "Entrance");
 
 // make all random calls different each game run
 randomize();
@@ -46,10 +48,13 @@ global.chatbox_up = false;
 
 // boss progression - abilities used for this
 global.boss_killed_reptilian = false;
+global.boss_killed_sword_guardian = false;
+global.boss_killed_scythe_guardian = false;
+global.boss_killed_demon_lord = false;
 
 // story progression?
-global.glyph_intro = [false, false, false, false];
-global.glyph_sundering = [false, false, false, false];
+global.chat_titan = false;
+global.chat_reptilian = false;
 
 /////////////////////////////////////////////////
 // GLOBAL STATS for abilities
@@ -75,7 +80,7 @@ global.ability_sunyata = true;
 // whirlwind
 global.combo = 0;
 global.combo_default_max = 5;
-global.combo_ability_max = 50;
+global.combo_ability_max = 5;
 
 // ascension
 global.double_jump = false;

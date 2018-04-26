@@ -19,9 +19,9 @@ changed = false;
 
 // lightsource
 lightsource = instance_create_layer(x, y, "layer_instance_lights", o_lightsource);
-light_radius = 300;
+light_radius = 200;
 with lightsource {
-	pl_light_init(other.light_radius, c_white, .7);
+	pl_light_init(other.light_radius, c_white, .5);
 	pl_active = false;
 	player = true;
 }
@@ -77,9 +77,9 @@ sound_land = a_player_land;					// one-shot when hitting ground
 sound_run = a_reptilian_footstep;				// moving L/R
 
 // run sounds for different terrain
-sound_run_stone = a_pop_1;
-sound_run_mush = a_pop_2;
-sound_run_metal = a_arrow_bounce;
+sound_run_stone = a_reptilian_footstep;
+sound_run_mush = a_footstep_mush;
+sound_run_metal = a_footstep_metal;
 
 run_sounds = [sound_run, sound_run_stone, sound_run_mush, sound_run_metal];
 
@@ -286,7 +286,7 @@ sight_range = global.game_width / 3;
 stun_time = room_speed / 2;
 
 // VITALITY
-vitality_max = 100;			// max health
+vitality_max = 200;			// max health
 vitality = vitality_max;	// current health
 vitality_regen = .001;		// health regen rate per frame
 

@@ -81,9 +81,6 @@ debug_message =
 	"FPS: " + string(fps),
 	"Lights: " + string(lights) + " / Active: " + string(active_lights),
 	"Room: " + string(room) + " / " + room_get_name(room),
-	//"DT: " + string(alarm[0]),
-	//"Time: " + string(current_time),
-	//"Delta Time: " + string(delta_time),
 	"",
 	"GODMODE: " + (global.godmode ? "active" : "inactive"),
 	"COMBO: " + string(global.combo),
@@ -92,9 +89,6 @@ debug_message =
 	"Camera view x: " + string(global.view_x),
 	"",
 	"Gamepad: " + (gamepad_is_connected(0) ? "connected" : "disconnected"),
-	"",
-	"Glyph Intro: " + string(global.glyph_intro),
-	"Glyph Sundering: " + string(global.glyph_sundering),
 	"",
 ];
 

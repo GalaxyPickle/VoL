@@ -119,7 +119,7 @@ if interacting {
 			if message_current_finished && message_current < message_end - 1 {
 				message_current++;
 				cutoff = 0;
-				//audio_play_sound(a_message_popup, 1, false);
+				//audio_play_sound(message_sound, 1, false);
 			}
 			// else we're finished
 			else {
@@ -169,8 +169,7 @@ else {
 	global.chatbox_up = false;
 	// if player is in interactable range...
 	if interactable && distance_to_object(global.player) < close_range {
-		
-		show_interact_message("Decipher");
+		show_interact_message(interact_text, .8);
 	}
 }
 #endregion

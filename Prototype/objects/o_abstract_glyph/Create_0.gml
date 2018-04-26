@@ -16,7 +16,6 @@ with lightsource {
 
 // other stuff
 interactable = true;
-type = global.glyph_intro[@ 0];
 
 c_start = c_orange;
 c_end = c_orange;

@@ -3,7 +3,7 @@
 var height = 10;		// height of stat bars
 var spacing_y = 16;		// how far apart to draw stat bars
 var y_start_spacing = 20;
-var x_start_spacing = 130;
+var x_start_spacing = 60;
 
 // healthbar vars
 var x1 = x_start_spacing;
@@ -66,41 +66,26 @@ for (var i = 0; i < array_length_1d(player.stat_array); i++) {
 #endregion
 
 var dist = 2;
-// draw HEALTH
-draw_text_outline_color( x_start_spacing - 35, height + 5,
-	player.vitality % 100 == 0  && player.vitality != 0 ? 99 : floor(player.vitality % 100),
-	2, c_white, 4, col_arr[0], 1);
 
-for (var i = 0; i < (player.vitality_max - 100) / 100; i++) {
-	draw_sprite(s_gui_hp_part_bg, 0, x_start_spacing + sprite_get_width(s_gui_hp_part_bg) * i * 1, 
-		y_start_spacing + dist);
-}
-for (var i = 0; i < (player.vitality - 100) / 100; i++) {
-	draw_sprite(s_gui_hp_part, 0, x_start_spacing + sprite_get_width(s_gui_hp_part_bg) * i * 1, 
-		y_start_spacing + dist);
-}
+// draw HEALTH
+draw_gui_healthbar(dist, x_start_spacing, y_start_spacing, s_gui_hp_symbol_bg,
+	s_gui_hp_symbol, player.vitality_max, player.vitality, 100, 0, 2);
+
 dist += 40;
 
 // draw SUNYATA
 if global.ability_sunyata {
-	draw_text_outline_color( x_start_spacing - 35, height + 45,
-		player.special % 100 == 0 && player.special != 0 ? 99 : floor(player.special % 100),
-		2, c_white, 4, col_arr[1], 1);
-
-	for (var i = 0; i < (player.special_max - 100) / 100; i++) {
-		draw_sprite(s_gui_hp_part_bg, 0, x_start_spacing + sprite_get_width(s_gui_hp_part_bg) * i * 1, 
-			y_start_spacing + dist);
-	}
-	for (var i = 0; i < (player.special - 100) / 100; i++) {
-		draw_sprite(s_gui_sun_part, 0, x_start_spacing + sprite_get_width(s_gui_hp_part_bg) * i * 1, 
-			y_start_spacing + dist);
-	}	
+	draw_gui_healthbar(dist, x_start_spacing, y_start_spacing, s_gui_sunyata_symbol_bg,
+		s_gui_sunyata_symbol, player.special_max, player.special, 100, 0, 6);
 }
 
-draw_set_alpha(1);
-draw_sprite(s_gui_hp_symbol, 0, x_start_spacing - 60, 30);
-if global.ability_sunyata
-	draw_sprite(s_gui_sunyata_symbol, 0, x_start_spacing - 60, 70);
+dist += 40;
+
+// draw COMBOOO
+if global.ability_whirlwind {
+	draw_gui_healthbar(dist, x_start_spacing, y_start_spacing, s_gui_whirlwind_bg,
+		s_gui_whirlwind, global.combo_default_max, global.combo, 1, 0, 0);
+}
 
 // draw the sunyata bars
 

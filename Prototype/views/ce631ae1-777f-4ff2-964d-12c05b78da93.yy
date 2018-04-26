@@ -8,7 +8,8 @@
         "abf2914e-91d5-4475-b899-d0eb3af23be4",
         "e1832efc-92d0-43ba-bde9-038af0532fc4",
         "d1762159-c1e9-4b6c-a20a-b3b02f735494",
-        "7a33715a-ba9c-451d-ab13-93944379f803"
+        "7a33715a-ba9c-451d-ab13-93944379f803",
+        "76b379ec-ff6d-4c4f-91a4-5c7b5d114b10"
     ],
     "filterType": "GMSound",
     "folderName": "ambiance",
