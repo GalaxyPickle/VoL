@@ -1,6 +1,7 @@
 /// @description draw an interaction popup if I'm interactable
 
-if (global.chatbox_up && !interacting) || !interactable || global.player == noone
+if (global.chatbox_up && !interacting) || !interactable || global.player == noone ||
+	global.pause
 	exit;
 	
 var border_w = 200;

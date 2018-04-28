@@ -23,6 +23,7 @@ randomize();
 
 // settings
 global.high_graphics = true;
+
 global.pause = false;
 global.gameover = false;
 global.mute = false;
@@ -41,6 +42,7 @@ global.view_y = 0;
 // player object
 global.player = false;
 global.special = 0;
+global.game_percent = 0;
 score = 0;
 health = 0;
 
@@ -48,13 +50,29 @@ global.chatbox_up = false;
 
 // boss progression - abilities used for this
 global.boss_killed_reptilian = false;
-global.boss_killed_sword_guardian = false;
-global.boss_killed_scythe_guardian = false;
+
+global.boss_killed_red = false;
+global.boss_killed_blue = false;
+global.boss_killed_yellow = false;
+
 global.boss_killed_demon_lord = false;
 
 // story progression?
 global.chat_titan = false;
 global.chat_reptilian = false;
+global.chat_demon_lord = false;
+
+// glyph stuff
+global.glyphs = 
+[
+	[false, false, false, false],
+	[false, false, false, false],
+	[false, false, false, false],
+	[false, false, false, false]
+];
+
+// gems
+global.gems = [false, false, false];
 
 /////////////////////////////////////////////////
 // GLOBAL STATS for abilities

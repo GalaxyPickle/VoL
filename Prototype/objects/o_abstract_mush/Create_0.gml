@@ -1,9 +1,9 @@
 /// @description init vars
 
 event_inherited();
-interact_message = "Consume";
+interact_text = "Consume";
 
-text = "Vitality Restored";
+text = "something restored";
 
 c_start = c_white;
 c_end = c_white;

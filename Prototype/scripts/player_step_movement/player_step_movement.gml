@@ -43,8 +43,8 @@ if on_ground {
 			var snd = tile_collide_at_points_sound(sound_tile_map_id,
 				[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]);
 				
-			audio_play_sound_on(s_emit, run_sounds[snd], false, 1);
-			show_debug_message("playing run sound: " + string(snd));
+			audio_play_sound_on(s_emit, run_sounds[snd >= 0 ? snd : 0], false, 1);
+			//show_debug_message("playing run sound: " + string(snd));
 		}
 	}
 	else {

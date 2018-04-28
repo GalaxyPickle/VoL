@@ -18,6 +18,9 @@ if place_meeting(x, y, global.player) {
 	
 	audio_play_sound(a_impact_creepy, 1, false);
 	
+	// increase completeness of game
+	global.game_percent++;
+	
 	// despawn forever
 	add_to_activated();
 		

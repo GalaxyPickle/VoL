@@ -4,13 +4,13 @@
 //if !ready exit;
 
 interact_conditions = ready && place_meeting(x, y, global.player) && !global.chatbox_up && 
-	!open && !opening && !global.sunyata;
+	!open && !opening && !global.sunyata && !global.pause;
 
 ////////////////////////////////////////////////
 // start opening when player presses open
 ////////////////////////////////////////////////
 
-if place_meeting(x ,y, global.player) && !opening && !open && ready && !global.sunyata && 
+if place_meeting(x, y, global.player) && !opening && !open && ready && !global.sunyata && !global.pause &&
 	( keyboard_check_pressed(global.key_interact) ||
 	gamepad_button_check_pressed(0, global.gp_key_interact) )
 {

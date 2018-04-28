@@ -3,7 +3,8 @@
 alpha = 0;
 text = "testing";
 height = 0;
-height_max = 25;
+height_max = 22;
+shutdown = false;
 
 max_a = 5 * room_speed;
 alarm[0] = max_a;

@@ -77,7 +77,7 @@ else {
 	
 	if surface_exists(global.ghost_surface) {
 		draw_surface_stretched_ext(global.ghost_surface, 0, 0, global.window_width, global.window_height,
-			c_white, .15);
+			c_white, .25);
 	}
 		
 	surface_set_target(global.ghost_surface);

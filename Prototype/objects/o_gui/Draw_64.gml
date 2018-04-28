@@ -105,7 +105,7 @@ draw_sprite_ext(s_gui_checkpoint_eye, 0, global.window_width - mush_w * 2, 0, 2,
 draw_text_outline_color( global.window_width - mush_w * 2, mush_w,
 	string(checkpoints) + "/" + string(checkpoints_max), 2, c_white, 4, c_black, 1);
 
-
+draw_set_alpha(1);
 
 // draw combo below health
 //draw_text_outline_color( 40, ypos + yspac, "x" + string(global.combo), 2, c_white, 4, c_lime, 1);

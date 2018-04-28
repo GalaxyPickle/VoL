@@ -5,6 +5,7 @@ event_inherited();
 
 c_start = c_aqua;
 c_end = c_white;
+text = "Vitality Restored";
 
 type = 0;
 

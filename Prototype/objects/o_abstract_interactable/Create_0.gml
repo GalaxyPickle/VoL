@@ -7,4 +7,4 @@ alarm[3] = room_speed / 6;
 
 // interact conditions
 interact_conditions = false;
-interact_message = "Interact";
+interact_text = "Interact";

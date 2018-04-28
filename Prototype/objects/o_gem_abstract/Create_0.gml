@@ -3,9 +3,11 @@
 event_inherited();
 interact_text = "Activate";
 
+text = "Gem of Power Activated";
+
 // gen
-ready = true;
 activated = false;
+type = 0;
 
 // light
 radius = 800;
@@ -19,3 +21,9 @@ alarm[0] = 1;
 
 within_range = false;
 sight_range = 30;
+
+// CHECK IF ACTIVATED YOOOOOO
+if check_if_activated() {
+	alarm[1] = 1;
+	activated = true;
+}

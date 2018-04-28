@@ -1,7 +1,7 @@
 /// @description setup vars
 
 event_inherited();
-interact_message = "Enter";
+interact_text = "Enter";
 
 //////////////////////////////
 // transition to room

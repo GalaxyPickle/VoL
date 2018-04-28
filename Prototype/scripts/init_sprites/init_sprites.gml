@@ -4,6 +4,8 @@
 // PLAYER
 //////////////////////////////////////////////
 
+/*
+
 // movement sprites
 sprite_set_speed(s_player_rest, .03, spritespeed_framespergameframe);
 sprite_set_speed(s_player_run, .2, spritespeed_framespergameframe);

@@ -3,7 +3,8 @@
 start_interaction = false;
 
 // if player is in interactable range...
-if interactable && distance_to_object(global.player) < close_range {
+if interactable && distance_to_object(global.player) < close_range &&
+	!global.sunyata && !global.pause {
 	
 	// do the bouncy arrow sound
 	//if move_arrow && !audio_is_playing(a_arrow_bounce)

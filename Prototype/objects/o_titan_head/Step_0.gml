@@ -10,6 +10,7 @@ if distance_to_object(global.player) < sight_range && !global.chat_titan && !see
 		follow = other;
 	}
 	seen = true;
+	audio_play_sound(a_mystery_plucks, 1, false);
 }
 
 if distance_to_object(global.player) < close_range {
@@ -17,7 +18,7 @@ if distance_to_object(global.player) < close_range {
 }
 else within_range = false;
 
-if dialogue_read {
+if dialogue_read && !global.chat_titan {
 	instance_destroy(Q);
 	global.chat_titan = true;
 }
