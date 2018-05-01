@@ -5188,6 +5188,25 @@
             }
         },
         {
+            "Key": "54eb09b2-8531-4bb0-8237-e670626de1b0",
+            "Value": {
+                "id": "084293a5-2bb8-4eb6-86d0-b9bd3a18ece7",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/s_player_shadow_dash\/s_player_shadow_dash.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "54f0c4c9-78c2-4249-98e3-09220133b05a",
             "Value": {
                 "id": "d602840a-2915-4656-b09c-0d9a95524256",

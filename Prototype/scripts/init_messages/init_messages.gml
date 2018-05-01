@@ -28,17 +28,17 @@ while (!file_text_eof(file)) {
 	var line = file_text_readln(file);
 	
 	if line == "" {
-		scr[j++] = sub;
+		scr = sub;
 		i = 0;
 	}
 	else
 		sub[i++] = line;
 }
 
-global.message_glyph_A1 = scr[0];
-global.message_glyph_A2 = scr[1];
-global.message_glyph_A3 = scr[2];
-global.message_glyph_A4 = scr[3];
+global.message_glyph_A1 = scr;
+global.message_glyph_A2 = scr;
+global.message_glyph_A3 = scr;
+global.message_glyph_A4 = scr;
 
 ////////////////////////////////////////
 // LORE GLYPH MESSAGES - Sundering

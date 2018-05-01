@@ -174,6 +174,17 @@ attack_air_1_point_array = [
 	
 // air 2
 // frames = 7; critical = 3
+var a2_frame1_basic = [ -48, 0, -64, -16, 0, -8 ];
+var a2_frame1_sweet = [
+	[ -72, 0, -80, -8, -72, -16 ],
+	[ -72, -16, -12, -16, -8, -12 ]
+	];
+var a2_frame2_basic = [ -16, -16, 48, 16, 64, 40 ];
+var a2_frame2_sweet = [
+	[ -16, -20, 32, -4, 60, 16 ],
+	[ 32, -4, 60, 16, 72, 44 ],
+	[ 60, 16, 72, 44, 60, 40 ]
+	];
 var a2_frame3_basic = [ 26, 20, 48, 48, 64, 32 ];
 var a2_frame3_sweet = [
 	[ 32, 42, 36, 56, 64, 58 ],
@@ -182,8 +193,8 @@ var a2_frame3_sweet = [
 	];
 
 attack_air_2_point_array = [
-	[],
-	[],
+	[ a2_frame1_basic, a2_frame1_sweet ],
+	[ a2_frame2_basic, a2_frame2_sweet ],
 	[ a2_frame3_basic, a2_frame3_sweet ],
 	[],
 	[],
