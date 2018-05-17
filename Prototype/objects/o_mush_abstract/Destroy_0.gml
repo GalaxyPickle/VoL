@@ -1,6 +1,6 @@
 /// @description
 
-audio_stop_sound(sound);
+//audio_stop_sound(sound);
 audio_emitter_free(s_emit);
 
 part_emitter_clear(ps_sys, first_emitter);

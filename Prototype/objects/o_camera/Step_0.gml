@@ -9,10 +9,10 @@ var can_follow_down = true;
 
 // smooth camera glide to follow (default player) pos
 if follow == noone
-	follow = instance_exists(o_player) ? o_player : noone;
+	follow = instance_exists(o_player) ? global.player : noone;
 else {
 	// camera shake when player is hit
-	if follow == o_player {
+	if follow == global.player {
 		if follow.current_state == states.pain {
 			shaking = true;
 		}
@@ -61,7 +61,7 @@ if (follow != noone) {
 		can_pan = false;
 	}
 	// if player is facing same way still,,, then make camera show more
-	if can_pan {
+	if can_pan && follow == global.player {
 		glide_rate = glide_rate_base * 2;
 		x_to = follow.x + global.game_width * 1 / 4 * follow_xscale;
 	}

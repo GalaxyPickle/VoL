@@ -19,7 +19,8 @@ instance_create_layer(x, y, top_layer, o_controller_surface);
 instance_create_layer(x, y, top_layer, o_controller_ghost);
 instance_create_layer(x, y, top_layer, o_controller_particle);
 
-// make wave special fx controller
-
-// minimap
-//instance_create_layer(x, y, light_layer, o_minimap);
+if ds_map_exists(global.room_list, room) {
+	var alert = instance_create(x, y, o_alert_popup_area);
+	with alert 
+		text = ds_map_find_value(global.room_list, room);
+}

@@ -31,8 +31,20 @@ if on_ground {
 	if x_direction != 0 {
 		sprite_index = sprite_run;
 		
-		if (floor(image_index) == 3 || floor(image_index) == 7) && !audio_is_playing(sound_run) {
-			audio_play_sound_on(s_emit, sound_run, false, 1);	
+		var run_playing = false;
+		for (var i = 0; i < array_length_1d(run_sounds); i++) {
+			if audio_is_playing(run_sounds[i]) {
+				run_playing = true;
+				break;
+			}
+		}
+		
+		if (floor(image_index) == 3 || floor(image_index) == 7) && !run_playing {
+			var snd = tile_collide_at_points_sound(sound_tile_map_id,
+				[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]);
+				
+			audio_play_sound_on(s_emit, run_sounds[snd >= 0 ? snd : 0], false, 1);
+			//show_debug_message("playing run sound: " + string(snd));
 		}
 	}
 	else {
@@ -40,7 +52,7 @@ if on_ground {
 	}
 	
 	// jumping
-	if jump_key_pressed {
+	if jump_key_pressed && !pause_input {
 		velocity[vector2_y] = -jump_speed_y;
 		stamina -= jump_stamina_cost;
 		

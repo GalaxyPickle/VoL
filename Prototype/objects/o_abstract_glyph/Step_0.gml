@@ -13,11 +13,13 @@ if dialogue_read && !shutdown {
 	
 	// add it to the active list 
 	add_to_activated();
+	
+	var arr = global.glyphs[row];
+	arr[col] = true;
+	global.glyphs[row] = arr;
+	
+	global.game_percent++;
 }
 
 if dialogue_read
 	image_index = 2;
-	
-// collection
-if !global.glyph_intro[type] && interacting
-	global.glyph_intro[type] = true;

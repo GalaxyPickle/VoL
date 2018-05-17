@@ -51,6 +51,11 @@ if headshot {
 	poise_damage *= 2;
 	self_special_increase *= 2;
 }
+
+if o_other.ghost_mode {
+	vitality_damage /= 2;
+	poise_damage /= 2;
+}
 	
 // now apply the damage to enemy
 o_other.vitality -= vitality_damage;

@@ -1,9 +1,9 @@
 /// @description draw player health and stamina
 
-var height = 10;			// height of stat bars
+var height = 10;		// height of stat bars
 var spacing_y = 16;		// how far apart to draw stat bars
 var y_start_spacing = 20;
-var x_start_spacing = 130;
+var x_start_spacing = 60;
 
 // healthbar vars
 var x1 = x_start_spacing;
@@ -20,7 +20,7 @@ var direction_ = 0;		// anchored in left direction (0)
 var showback = false;	// show bg?
 var showborder = false;	// show black 1px border?
 
-var col_arr = [$FF8C00, c_fuchsia];
+var col_arr = [$FF8C00, c_fuchsia, c_lime];
 
 ///////////////////////////////
 // loop through 3 stats and draw them
@@ -35,6 +35,8 @@ else
 
 draw_set_font(f_gui_small);
 
+#region
+/*
 for (var i = 0; i < array_length_1d(player.stat_array); i++) {
 	
 	var current_array = player.stat_array[i];
@@ -60,33 +62,50 @@ for (var i = 0; i < array_length_1d(player.stat_array); i++) {
 	draw_text_outline_color( 80, height + 30 * i, current_array[2] <= 0 ? 0 : string(ceil(current_array[2])),
 	2, c_white, 4, mincol, 1);
 }
+*/
+#endregion
+
+var dist = 2;
+
+// draw HEALTH
+draw_gui_healthbar(dist, x_start_spacing, y_start_spacing, s_gui_hp_symbol_bg,
+	s_gui_hp_symbol, player.vitality_max, player.vitality, 100, 0, 2);
+
+dist += 40;
+
+// draw SUNYATA
+if global.ability_sunyata {
+	draw_gui_healthbar(dist, x_start_spacing, y_start_spacing, s_gui_sunyata_symbol_bg,
+		s_gui_sunyata_symbol, player.special_max, player.special, 100, 0, 6);
+}
+
+dist += 40;
+
+// draw COMBOOO
+if global.ability_whirlwind {
+	draw_gui_healthbar(dist, x_start_spacing, y_start_spacing, s_gui_whirlwind_bg,
+		s_gui_whirlwind, global.combo_default_max, global.combo, 1, 0, 0);
+}
+
+// draw the sunyata bars
 
 ////////////////////////////////////////////
 // draw the mushroom and checkpoint status
 ////////////////////////////////////////////
 
-// lock symbol
-/*
-if instance_exists(o_lock) {
-	draw_sprite_ext(s_door_lock, 0, 
-		global.window_width - 250, height + sprite_get_height(s_door_lock) / 2, 2, 2, 0, c_white, 1);
-}
-*/
-
 // mushrooms
-draw_set_alpha(1);
 var mush_w = 64;
 
 draw_sprite_ext(s_gui_mushroom_blue, 0, global.window_width - mush_w, 0, 2, 2, 0, c_white, 1);
 draw_text_outline_color( global.window_width - mush_w, mush_w,
 	string(mushrooms) + "/" + string(mushrooms_max), 2, c_white, 4, c_black, 1);
 
-// statues
+// sentinels
 draw_sprite_ext(s_gui_checkpoint_eye, 0, global.window_width - mush_w * 2, 0, 2, 2, 0, c_white, 1);
 draw_text_outline_color( global.window_width - mush_w * 2, mush_w,
 	string(checkpoints) + "/" + string(checkpoints_max), 2, c_white, 4, c_black, 1);
 
-
+draw_set_alpha(1);
 
 // draw combo below health
 //draw_text_outline_color( 40, ypos + yspac, "x" + string(global.combo), 2, c_white, 4, c_lime, 1);

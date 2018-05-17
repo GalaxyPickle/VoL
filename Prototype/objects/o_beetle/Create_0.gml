@@ -56,7 +56,7 @@ footstep_time = room_speed / 3;
 // recovery and stuff
 sound_pain = [a_beetle_pain];
 sound_recovery = a_empty;						// healing sound?
-sound_dodge = a_player_footstep;							// dodge sound
+sound_dodge = a_empty;							// dodge sound
 sound_death = a_beetle_death;					// DEATH sound
 
 // attack sounds

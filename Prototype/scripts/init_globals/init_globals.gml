@@ -4,9 +4,6 @@
 // debug mode + settings
 ////////////////////////////////////////////
 
-// delta time thingy
-instance_create(x, y, obj_SteadyDeltaTime);
-
 // debug info
 global.text = false;
 global.hitboxes = false;
@@ -16,11 +13,17 @@ global.NPC_list = ds_list_create();
 global.light_list = ds_list_create();
 global.active_list = ds_list_create();
 
+global.cutscene_list = ds_list_create();
+
+global.room_list = ds_map_create();
+ds_map_add(global.room_list, r_first_room, "Entrance");
+
 // make all random calls different each game run
 randomize();
 
 // settings
 global.high_graphics = true;
+
 global.pause = false;
 global.gameover = false;
 global.mute = false;
@@ -39,6 +42,7 @@ global.view_y = 0;
 // player object
 global.player = false;
 global.special = 0;
+global.game_percent = 0;
 score = 0;
 health = 0;
 
@@ -47,9 +51,28 @@ global.chatbox_up = false;
 // boss progression - abilities used for this
 global.boss_killed_reptilian = false;
 
+global.boss_killed_red = false;
+global.boss_killed_blue = false;
+global.boss_killed_yellow = false;
+
+global.boss_killed_demon_lord = false;
+
 // story progression?
-global.glyph_intro = [false, false, false, false];
-global.glyph_sundering = [false, false, false, false];
+global.chat_titan = false;
+global.chat_reptilian = false;
+global.chat_demon_lord = false;
+
+// glyph stuff
+global.glyphs = 
+[
+	[false, false, false, false],
+	[false, false, false, false],
+	[false, false, false, false],
+	[false, false, false, false]
+];
+
+// gems
+global.gems = [false, false, false];
 
 /////////////////////////////////////////////////
 // GLOBAL STATS for abilities
@@ -68,14 +91,14 @@ global.ability_ascension = false;
 // whirlwind is a combo system that increases your attack speed based on successful hits
 global.ability_whirlwind = false;
 // cracked is TBD
-global.ability_cracked = false;
+global.ability_sunyata = true;
 
 // special stats
 
 // whirlwind
 global.combo = 0;
 global.combo_default_max = 5;
-global.combo_ability_max = 50;
+global.combo_ability_max = 5;
 
 // ascension
 global.double_jump = false;

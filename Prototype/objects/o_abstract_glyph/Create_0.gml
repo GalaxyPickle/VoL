@@ -5,6 +5,9 @@ event_inherited();
 
 interact_text = "Decipher";
 
+row = 0;
+col = 0;
+
 ////////////////////////////////////////////////
 // lightsource
 ////////////////////////////////////////////////
@@ -16,7 +19,6 @@ with lightsource {
 
 // other stuff
 interactable = true;
-type = global.glyph_intro[@ 0];
 
 c_start = c_orange;
 c_end = c_orange;

@@ -35,6 +35,13 @@ if ds_exists(global.light_list, ds_type_list)
 // kill active list
 if ds_exists(global.active_list, ds_type_list)
 	ds_list_destroy(global.active_list);
+// cutscene list
+if ds_exists(global.cutscene_list, ds_type_list)
+	ds_list_destroy(global.cutscene_list);
+	
+// room list
+if ds_exists(global.room_list, ds_type_map)
+	ds_map_destroy(global.room_list);
 
 ///////////////////////////////////////////
 // SURFACES

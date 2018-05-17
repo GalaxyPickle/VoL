@@ -28,19 +28,27 @@ else {
 	show_debug_overlay(false);
 }
 
-// hitboxes
+// hitboxes show only if "H" toggled
 if show_tiles == false {
+	
+	var hidden_tiles = 
+	[
+		"layer_tile_collision",
+		"layer_tile_platform",
+		"layer_tile_sound",
+		"layer_tile_ghost_collision",
+		"layer_tile_ghost_platform",
+	];
+	
 	if global.hitboxes {
-		layer_set_visible("layer_tile_collision", true);
-		layer_set_visible("layer_tile_platform", true);
-		layer_set_visible("layer_tile_ghost_collision", true);
-		layer_set_visible("layer_tile_ghost_platform", true);
+		for (var i = 0; i < array_length_1d(hidden_tiles); i++) {
+			layer_set_visible(hidden_tiles[i], true);	
+		}
 	}
 	else {
-		layer_set_visible("layer_tile_collision", false);
-		layer_set_visible("layer_tile_platform", false);
-		layer_set_visible("layer_tile_ghost_collision", false);
-		layer_set_visible("layer_tile_ghost_platform", false);
+		for (var i = 0; i < array_length_1d(hidden_tiles); i++) {
+			layer_set_visible(hidden_tiles[i], false);	
+		}
 	}
 }
 
@@ -73,9 +81,6 @@ debug_message =
 	"FPS: " + string(fps),
 	"Lights: " + string(lights) + " / Active: " + string(active_lights),
 	"Room: " + string(room) + " / " + room_get_name(room),
-	//"DT: " + string(alarm[0]),
-	//"Time: " + string(current_time),
-	//"Delta Time: " + string(delta_time),
 	"",
 	"GODMODE: " + (global.godmode ? "active" : "inactive"),
 	"COMBO: " + string(global.combo),
@@ -84,9 +89,6 @@ debug_message =
 	"Camera view x: " + string(global.view_x),
 	"",
 	"Gamepad: " + (gamepad_is_connected(0) ? "connected" : "disconnected"),
-	"",
-	"Glyph Intro: " + string(global.glyph_intro),
-	"Glyph Sundering: " + string(global.glyph_sundering),
 	"",
 ];
 

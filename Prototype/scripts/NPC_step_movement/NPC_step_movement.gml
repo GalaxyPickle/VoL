@@ -13,9 +13,9 @@ if on_ground {
 	if move && !on_wall {
 		sprite_index = sprite_run;
 		
-		if play_sound_footstep {
-			if !audio_is_playing(sound_step)
-				sound_step = audio_play_sound_on(s_emit, sound_run, false, 1);
+		var img = array_length_1d(image_number);
+		if (floor(image_index) == img / 2 || floor(image_index) == img - 1) && !audio_is_playing(sound_run) {
+			audio_play_sound_on(s_emit, sound_run, false, 1);
 		}
 	}
 	else {

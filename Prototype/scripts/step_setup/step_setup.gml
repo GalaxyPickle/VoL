@@ -31,7 +31,7 @@ else {
 in_danger = move_and_check_contact_tiles(danger_tile_map_id, velocity);
 
 if in_danger && !invincible && !ghost_mode && !dead {
-	var vit_dmg = 100;
+	var vit_dmg = vitality_max / 10;
 	
 	just_hit = true;
 	current_state = states.pain;

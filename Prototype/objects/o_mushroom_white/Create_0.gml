@@ -6,6 +6,8 @@ event_inherited();
 c_start = c_fuchsia;
 c_end = c_white;
 
+text = "Shadow Sight Restored";
+
 type = 3;
 
 light_color = c_white;
