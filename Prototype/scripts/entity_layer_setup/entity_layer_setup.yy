@@ -1,8 +1,8 @@
 {
-    "id": "2f0a23e3-5cc9-4b59-83a4-be08127dfb88",
+    "id": "e1e9f974-1cbe-4c16-9ea7-34cbb11bfc2c",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "layer_ghost_end",
+    "name": "entity_layer_setup",
     "IsCompatibility": false,
     "IsDnD": false
 }

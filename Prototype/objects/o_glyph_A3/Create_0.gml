@@ -7,4 +7,4 @@ col = 2;
 
 c_start = c_red;
 c_end = c_silver;
-message = global.message_glyph_A3;
+message = global.message_glyph[2];

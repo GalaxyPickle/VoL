@@ -8,7 +8,7 @@ global.message_default =
 
 // read intro story file
 var file = file_text_open_read(working_directory + "intro.txt");
-var scr = [], i = 0, j = 0, sub = [];
+var scr = [], i = 0;
 
 while (!file_text_eof(file)) {
 	scr[i++] = file_text_readln(file);
@@ -18,28 +18,29 @@ file_text_close(file);
 global.message_intro = scr;
 
 ////////////////////////////////////////
-// LORE GLYPH MESSAGES - Intro
+// LORE GLYPH MESSAGES
 ////////////////////////////////////////
-file = file_text_open_read(working_directory + "glyph.txt");
-var scr = [], i = 0, j = 0, sub = [];
+var gfile = file_text_open_read(working_directory + "glyph.txt");
+var scr = [], i = 0;
 
-// read the whole glyph file and put it into all the glyphs
-while (!file_text_eof(file)) {
-	var line = file_text_readln(file);
-	
-	if line == "" {
-		scr = sub;
-		i = 0;
+while (!file_text_eof(gfile)) {
+	scr[i++] = file_text_readln(gfile);
+}
+file_text_close(gfile);
+
+global.message_glyph = 0;
+
+var j = 0, k = 0, sub = [];
+
+// upload all glyphs into one mega array
+for (var i = 0; i < array_length_1d(scr); i++) {
+	if scr[i] == "\n" {
+		global.message_glyph[k++] = sub;
+		j = 0;
+		sub = 0;
 	}
 	else
-		sub[i++] = line;
+		sub[j++] = scr[i];
 }
-
-global.message_glyph_A1 = scr;
-global.message_glyph_A2 = scr;
-global.message_glyph_A3 = scr;
-global.message_glyph_A4 = scr;
-
-////////////////////////////////////////
-// LORE GLYPH MESSAGES - Sundering
-////////////////////////////////////////
+// last section
+global.message_glyph[k] = sub;

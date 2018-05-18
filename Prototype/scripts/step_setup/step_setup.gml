@@ -28,9 +28,10 @@ else {
 ////////////////////////////////////////////////////////////////////////////
 
 // danger collisions
-in_danger = move_and_check_contact_tiles(danger_tile_map_id, velocity);
+in_danger = ( move_and_check_contact_tiles(danger_tile_map_id, velocity) && !ghost_mode) ||
+	( move_and_check_contact_tiles(danger_ghost_tile_map_id, velocity) && ghost_mode);
 
-if in_danger && !invincible && !ghost_mode && !dead {
+if in_danger && !invincible && !dead {
 	var vit_dmg = vitality_max / 10;
 	
 	just_hit = true;
@@ -54,13 +55,16 @@ if in_danger && !invincible && !ghost_mode && !dead {
 
 // on platform?
 on_platform = 
-	( 
+	(
 	tile_collide_at_points(platform_tile_map_id,
 		[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) 
 	||
 	( tile_collide_at_points(platform_ghost_tile_map_id,
 		[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) && ghost_mode )
-	) 
+	||
+	( tile_collide_at_points(platform_normal_tile_map_id,
+		[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) && !ghost_mode )
+	)
 	&& velocity[vel_y] >= 0;
 		
 if ( !NPC && (keyboard_check(global.key_down) || gamepad_axis_value(0, gp_axislv) >= .5) ) || 
@@ -109,7 +113,9 @@ if on_platform && velocity[vel_y] > 0
 	var tile_bottom = tile_collide_at_points(platform_tile_map_id,
 			[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) ||
 		( tile_collide_at_points(platform_ghost_tile_map_id,
-			[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) && ghost_mode );
+			[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) && ghost_mode ) ||
+		( tile_collide_at_points(platform_normal_tile_map_id,
+			[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) && !ghost_mode );
 		
 	if tile_bottom {
 		y = bbox_bottom & ~(TILE_SIZE-1);

@@ -43,7 +43,7 @@
                     "mvc": "1.0",
                     "groupName": "bg",
                     "targets": 29263750006690030,
-                    "autocrop": true,
+                    "autocrop": false,
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
                     "mipsToGenerate": 0,
