@@ -40,6 +40,7 @@ if show_tiles == false {
 		"layer_tile_ghost_platform",
 		"layer_tile_normal_collision",
 		"layer_tile_normal_platform",
+		"layer_tile_danger_ghost"
 	];
 	
 	if global.hitboxes {
