@@ -296,20 +296,6 @@ dodge_launch = TILE_SIZE - 16;
 sight_range = global.game_width / 3;
 stun_time = room_speed / 2;
 
-// VITALITY
-vitality_max = 200;			// max health
-vitality = vitality_max;	// current health
-vitality_regen = .001;		// health regen rate per frame
-
-// POISE
-poise_max = 40;
-poise = poise_max;
-poise_regen = .08;
-
-// SPECIAL
-special_max = 100;
-special = 0;
-special_regen = 0;
 
 #endregion
 ////////////////////////////////////

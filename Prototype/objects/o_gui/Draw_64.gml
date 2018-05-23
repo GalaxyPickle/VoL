@@ -96,16 +96,23 @@ if global.ability_whirlwind {
 // mushrooms
 var mush_w = 64;
 
-draw_sprite_ext(s_gui_mushroom_blue, 0, global.window_width - mush_w, 0, 2, 2, 0, c_white, 1);
-draw_text_outline_color( global.window_width - mush_w, mush_w,
-	string(mushrooms) + "/" + string(mushrooms_max), 2, c_white, 4, c_black, 1);
+//draw_sprite_ext(s_gui_mushroom_blue, 0, global.window_width - mush_w, 0, 2, 2, 0, c_white, 1);
+//draw_text_outline_color( global.window_width - mush_w, mush_w,
+//	string(mushrooms) + "/" + string(mushrooms_max), 2, c_white, 4, c_black, 1);
+
+draw_set_halign(fa_middle);
+draw_set_valign(fa_center);
 
 // sentinels
-draw_sprite_ext(s_gui_checkpoint_eye, 0, global.window_width - mush_w * 2, 0, 2, 2, 0, c_white, 1);
-draw_text_outline_color( global.window_width - mush_w * 2, mush_w,
+draw_sprite_ext(s_gui_checkpoint_eye, 0, 
+	global.window_width - mush_w * 2, 0, 2, 2, 0, c_white, 1);
+draw_text_outline_color( global.window_width - mush_w * 2 + 
+	sprite_get_width(s_gui_checkpoint_eye) / 2, mush_w,
 	string(checkpoints) + "/" + string(checkpoints_max), 2, c_white, 4, c_black, 1);
 
 draw_set_alpha(1);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
 
 // draw combo below health
 //draw_text_outline_color( 40, ypos + yspac, "x" + string(global.combo), 2, c_white, 4, c_lime, 1);

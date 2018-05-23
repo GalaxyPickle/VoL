@@ -2,6 +2,7 @@
 // setup
 ////////////////////////////////////////
 
+#region
 // flush texture page
 draw_texture_flush();
 
@@ -28,3 +29,6 @@ var platform_id = layer_get_id("layer_tile_platform");
 
 layer_set_visible(ghost_id, false);
 layer_set_visible(ghost_id_2, false);
+
+#endregion
+

@@ -102,7 +102,7 @@ if global.pause {
 		for (var j = 0; j < array_length_1d(glyph); j++) {
 			if cur_row[j] == true {
 				draw_sprite_ext(glyph[j], 0, 
-					x + TILE_SIZE * 3 * j - TILE_SIZE * 4,
+					x + TILE_SIZE * 3 * j + TILE_SIZE * 2,
 					y + TILE_SIZE * dist - TILE_SIZE,
 					2, 2, 0, c_white, 1);
 			}

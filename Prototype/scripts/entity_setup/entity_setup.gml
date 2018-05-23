@@ -4,6 +4,10 @@
 // interactable stuff
 /////////////////////////////
 
+vitality = vitality_max;
+poise = poise_max;
+special = 0;
+
 // list of stats for easy updating each step
 // these arrays are set to the values of the above variables because
 //	the above vars are easier to read/use than the arrays below

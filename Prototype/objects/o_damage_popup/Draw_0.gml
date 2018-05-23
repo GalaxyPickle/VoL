@@ -1,6 +1,6 @@
 /// @desc draw shiet
 
-var draw_font = f_menu;
+var draw_font = f_chat;
 draw_set_font(draw_font);
 	
 if damage >= damage_size_flash {

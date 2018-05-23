@@ -210,25 +210,6 @@
             }
         },
         {
-            "Key": "03a57b6a-6c40-4232-b353-14e9d309ccfc",
-            "Value": {
-                "id": "c8817341-b167-4131-b774-e90b7ac76ee4",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "sprites\/s_bg_cavern_floor\/s_bg_cavern_floor.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "03e86cb6-683f-4868-a07e-cfacfe8eda6f",
             "Value": {
                 "id": "a90ee4e6-73ee-4d9a-a412-5f9b68d043ba",
@@ -1708,6 +1689,25 @@
                 ],
                 "resourcePath": "scripts\/pl_light_set_alpha\/pl_light_set_alpha.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "1cadfddc-8801-4455-88f5-36bd219ff325",
+            "Value": {
+                "id": "9b5504e1-9fb1-45ef-a638-bf82060a65bf",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "objects\/o_gameover\/o_gameover.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -5682,6 +5682,25 @@
             }
         },
         {
+            "Key": "585a4f42-5bba-4787-b336-7aedc0caba23",
+            "Value": {
+                "id": "48919d17-15a0-4ecc-99d0-2c388a8c9920",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/s_bg_title\/s_bg_title.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "588a6b6c-a9b2-47f8-b21c-b837bcd0f603",
             "Value": {
                 "id": "0e1f45fe-460a-4fbe-bd09-b37e4bd44dee",
@@ -6059,25 +6078,6 @@
                 ],
                 "resourcePath": "scripts\/TweenFinishDelay\/TweenFinishDelay.yy",
                 "resourceType": "GMScript"
-            }
-        },
-        {
-            "Key": "5d27fdc5-c1eb-4023-a86b-e5d3fb3d4abd",
-            "Value": {
-                "id": "72fe295e-2169-4f2b-b404-d75352bb8f99",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "objects\/o_menu_complicated\/o_menu_complicated.yy",
-                "resourceType": "GMObject"
             }
         },
         {
@@ -9213,6 +9213,25 @@
                 ],
                 "resourcePath": "scripts\/__ext_DSMap\/__ext_DSMap.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "8db69c53-59a2-4fd8-9815-6a3e3f3b089d",
+            "Value": {
+                "id": "8286a453-e368-4a69-a5af-9491366cdc26",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "rooms\/r_init_room\/r_init_room.yy",
+                "resourceType": "GMRoom"
             }
         },
         {
@@ -12503,25 +12522,6 @@
             }
         },
         {
-            "Key": "c40aef03-c96b-4791-a5d1-a4f42465de5b",
-            "Value": {
-                "id": "cfab3289-5827-401a-8f19-d2a37d7cf796",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "rooms\/r_demo_level\/r_demo_level.yy",
-                "resourceType": "GMRoom"
-            }
-        },
-        {
             "Key": "c4e922df-69b6-4081-8961-4431831318ba",
             "Value": {
                 "id": "6bdf1d5c-fcd2-4d95-ab5b-d733e04428e1",
@@ -13244,25 +13244,6 @@
             }
         },
         {
-            "Key": "d0221745-90e4-4ddc-b306-ffd1c0888e1a",
-            "Value": {
-                "id": "990cf5e8-fdd7-4768-a759-47706a01f687",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "datafiles_yy\/glyph.txt.yy",
-                "resourceType": "GMIncludedFile"
-            }
-        },
-        {
             "Key": "d08363f5-ef30-42be-9524-8f84a527072d",
             "Value": {
                 "id": "85026acb-0f39-4e91-be49-fda8a8803de6",
@@ -13355,6 +13336,25 @@
                 ],
                 "resourcePath": "sounds\/a_song_cavern_exploration\/a_song_cavern_exploration.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "d190576d-705b-421d-ae61-db6962b33cdd",
+            "Value": {
+                "id": "8e1d839a-75a8-45ba-b5c5-31db60130242",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "datafiles_yy\/glyph.txt.yy",
+                "resourceType": "GMIncludedFile"
             }
         },
         {

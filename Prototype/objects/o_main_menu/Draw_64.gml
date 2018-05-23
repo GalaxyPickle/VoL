@@ -1,5 +1,12 @@
 /// @description draw the menu
 
+draw_sprite(s_bg_title, 0, 0, 0);
+
+draw_sprite_ext(s_upgrade_blade, 0, draw_x_start + 50, draw_y_start - 25,
+	3, 3, 30, c_white, alpha);
+draw_sprite_ext(s_upgrade_blade, 0, draw_x_start - 50, draw_y_start - 25, 
+	-3, 3, -30, c_white, alpha);
+
 // player surfs with arrows and clamp movment to options
 var hd = gamepad_axis_value(0, gp_axislv);
 anim += clamp( (abs(hd) > .5 ? sign(hd) : 0) + 
@@ -8,28 +15,37 @@ anim = clamp(anim, 0, array_length_1d(menu) - 1);
 
 anim_n = reach_tween(anim_n, anim, tween_amount);
 
-draw_set_font(f_menu);
+draw_set_font(f_menu_big);
+draw_set_halign(fa_middle);
+draw_set_valign(fa_center);
 for (var i = 0; i < array_length_1d(menu); i++) {
 	
 	// draw golden current option selected
 	var c = c_white; //(i == anim ? c_yellow : c_white);
 	if i == anim {
 		draw_text_outline_color(draw_x_start, draw_y_start + (i - anim_n) * spacing, menu[i],
-			2, c_aqua, 16, c_black, 1);
+			2, c_yellow, 16, c_black, 1);
 	}
 	else {
 		draw_text_color(draw_x_start, draw_y_start + (i - anim_n) * spacing, menu[i],
 			c, c, c, c, 1);	
 	}
 }
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
 
 // play menu sounds
-if current_option != anim
+if current_option != anim && timer > 0 {
 	audio_play_sound(a_menu_switch, 1, false);
+	alpha = 0;
+}
 
 current_option = anim;
 
+timer++;
+
 // draw main menu name now
+/*
 draw_set_font(f_menu_big);
 
 var title_start = 300, s = 10;

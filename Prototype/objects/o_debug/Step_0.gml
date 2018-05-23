@@ -1,22 +1,26 @@
 /// @description debug overlay buttons
 
+if keyboard_check_pressed(key_start_debug) {
+	global.test = true;
+}
+
 // debug toggle buttons
 if keyboard_check_pressed(key_debug) {
 	global.debug = !global.debug;
 }
-if keyboard_check_pressed(key_room_restart) {
+if keyboard_check_pressed(key_room_restart) && global.test {
 	audio_stop_all();
 	room_restart();
 }
-if keyboard_check_pressed(key_godmode) {
+if keyboard_check_pressed(key_godmode) && global.test {
 	global.godmode = !global.godmode;
 }
 
 // debug hitbox and stats
-if keyboard_check_pressed(key_hitbox) {
+if keyboard_check_pressed(key_hitbox) && global.test {
 	global.hitboxes = !global.hitboxes;
 }
-if keyboard_check_pressed(key_text) {
+if keyboard_check_pressed(key_text) && global.test {
 	global.text = !global.text;
 }
 
@@ -96,7 +100,7 @@ debug_message =
 ];
 
 // mouse click teleport player
-if instance_exists(o_player) {
+if instance_exists(o_player) && global.test {
 	if mouse_check_button_pressed(mb_left) {
 		o_player.x = mouse_x;
 		o_player.y = mouse_y;

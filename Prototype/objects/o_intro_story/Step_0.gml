@@ -5,6 +5,10 @@ if !audio_is_playing(a_song_intro_score) || keyboard_check_pressed(global.key_en
 {
 	room_goto(first_room);
 	audio_stop_sound(a_song_intro_score);
+	
+	global.death_vitality = global.player_start_vitality;
+	global.death_sunyata = global.player_start_special;
+	global.active_list = ds_list_create();
 }
 
 // fade text in and out

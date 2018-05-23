@@ -15,3 +15,6 @@ if keyboard_check_pressed(global.key_enter) || keyboard_check_pressed(global.key
 			break;
 	}
 }
+
+if alpha < 1
+	alpha = lerp(alpha, 1, .05);

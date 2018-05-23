@@ -4,5 +4,5 @@
 event_inherited();
 
 with global.player {
-	special += special_max / 4;
+	special = special_max;
 }

@@ -39,4 +39,4 @@ alarm[0] = 1;
 
 finished = false;
 
-first_room = r_first_room;
+first_room = r_init_room;

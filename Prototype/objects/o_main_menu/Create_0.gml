@@ -1,15 +1,20 @@
 /// @description set up options
 
+timer = 0;
+
 if object_exists(o_player)
 	instance_destroy(o_player);
 
 title = "Veins of Light";
 subtitle = DEV_NAME + " v" + VERSION + "\n*gamepad recommended*";
-start_room = r_intro;
+
+start_room = r_init_room;
+if !global.died
+	start_room = r_intro;
 
 // array of options
-menu[0] = "Start";
-menu[1] = "Quit";
+menu[0] = "START";
+menu[1] = "QUIT";
 
 current_option = menu[0];
 
@@ -17,8 +22,9 @@ current_option = menu[0];
 anim = 0;
 anim_n = 0;
 tween_amount = 7;
+alpha = 1;
 
 // draw position for menu
-draw_x_start = 100;
-draw_y_start = 300;
-spacing = 50;
+draw_x_start = 200;
+draw_y_start = 400;
+spacing = 100;

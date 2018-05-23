@@ -131,12 +131,15 @@ for (var i = 0; i < array_length_1d(nearest_enemy); i++) {
 		if found && !enemy.invincible {
 			apply_damage_other(current_attack_stats, enemy, sweetspot, headshot);
 			
-			if (!global.ability_whirlwind && global.combo == global.combo_default_max) ||
-				global.ability_whirlwind && global.combo == global.combo_ability_max
+			if (!global.sunyata && global.combo == global.combo_default_max) ||
+				global.sunyata && global.combo == global.combo_ability_max
 				continue;
 			
 			// check for combo and some crazy stuff
 			global.combo++;
+			
+			if !global.sunyata && global.combo > global.combo_ability_max
+				global.combo = 0;
 		}
 	}
 }

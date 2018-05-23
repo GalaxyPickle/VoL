@@ -4,6 +4,7 @@ global.mute = false;
 
 var play = true;
 var song = -1;
+var fog = false;
 play_breath_ambiance = true;
 play_cave_ambiance = true;
 
@@ -19,6 +20,7 @@ switch room_get_name(room) {
 	// INTRO AREA
 	case "r_first_room":
 		play = false;
+		fog = true;
 		break;
 		
 	case "r_second_room":
@@ -65,3 +67,47 @@ else if !play_cave_ambiance {
 	if audio_is_playing(a_cave_ambiance_muted)
 		audio_stop_sound(a_cave_ambiance_muted);
 }
+
+if fog {
+	foggy = true;
+	
+	//////////////////////////////////////////////////
+	// make a particle type to use with the system
+	//////////////////////////////////////////////////
+	first_particle = part_type_create();
+
+	// set the shape of the particle
+	part_type_shape(first_particle, pt_shape_cloud);
+	// set the scale of the particle
+	part_type_scale(first_particle, 3, 1);
+	// set the start size
+	part_type_size(first_particle, 1, 2, 0, 0);
+	// set the color over time
+	part_type_color1(first_particle, c_gray);
+	// set the alpha over time
+	part_type_alpha3(first_particle, 0, 1, 0);
+	// set the speed over time
+	part_type_speed(first_particle, -1, 1, 0, 0);
+	// set the direction in degrees
+	part_type_direction(first_particle, 0, 0, 0, 0);
+	// set the gravity and direction in degrees
+	part_type_gravity(first_particle, 0, 0);
+	// orientation???
+	part_type_orientation(first_particle, 0, 0, 0, 0, true);
+	// particle life in game frames
+	part_type_life(first_particle, 360, 720);
+	// blend the particles
+	part_type_blend(first_particle, true);
+
+	// create an emitter
+	first_emitter = part_emitter_create(global.ps);
+	// set the emitter region
+	part_emitter_region(global.ps, first_emitter,
+		global.view_x, global.view_x + global.game_width,
+		global.view_y, global.view_y + global.game_height,
+		ps_shape_rectangle, ps_distr_linear);
+
+	// make a burst from the emitter
+	part_emitter_stream(global.ps, first_emitter, first_particle, -2);
+}
+else foggy = false;

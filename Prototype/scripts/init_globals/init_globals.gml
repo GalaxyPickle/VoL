@@ -13,16 +13,15 @@ global.NPC_list = ds_list_create();
 global.light_list = ds_list_create();
 global.active_list = ds_list_create();
 
-global.cutscene_list = ds_list_create();
+global.room_list_name = ds_map_create();
+ds_map_add(global.room_list_name, r_second_room, "Entrance");
 
-global.room_list = ds_map_create();
-ds_map_add(global.room_list, r_first_room, "Entrance");
+global.room_list_pos = ds_map_create();
+ds_map_add(global.room_list_pos, r_first_room, [790, 666]);
+ds_map_add(global.room_list_pos, r_second_room, [1420, 690]);
 
 // make all random calls different each game run
 randomize();
-
-// settings
-global.high_graphics = true;
 
 global.pause = false;
 global.gameover = false;
@@ -45,6 +44,14 @@ global.special = 0;
 global.game_percent = 0;
 score = 0;
 health = 0;
+
+global.player_start_vitality = 200;
+global.player_start_special = 0;
+
+global.died = false;
+global.death_vitality = 0;
+global.death_sunyata = 0;
+global.death_room = r_first_room;
 
 global.chatbox_up = false;
 
@@ -98,7 +105,7 @@ global.ability_sunyata = true;
 // whirlwind
 global.combo = 0;
 global.combo_default_max = 5;
-global.combo_ability_max = 5;
+global.combo_ability_max = 20;
 
 // ascension
 global.double_jump = false;

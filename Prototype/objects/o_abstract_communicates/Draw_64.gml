@@ -169,7 +169,8 @@ else {
 	// reset chatbox
 	global.chatbox_up = false;
 	// if player is in interactable range...
-	if interactable && distance_to_object(global.player) < close_range {
+	if interactable && distance_to_object(global.player) < close_range
+		&& !global.sunyata {
 		show_interact_message(interact_text, .8);
 	}
 }

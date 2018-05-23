@@ -9,7 +9,7 @@
             "modelName": "GMAutoTileSet",
             "mvc": "1.0",
             "closed_edge": false,
-            "name": "rocky basic",
+            "name": "rocky_basic",
             "tiles": [
                 15,
                 1,
@@ -152,6 +152,56 @@
                 160,
                 160,
                 160
+            ]
+        },
+        {
+            "id": "ac96b9a3-c55a-45c5-ba29-2087b8affa9b",
+            "modelName": "GMAutoTileSet",
+            "mvc": "1.0",
+            "closed_edge": false,
+            "name": "rocky_hot",
+            "tiles": [
+                255,
+                241,
+                242,
+                243,
+                244,
+                245,
+                246,
+                247,
+                248,
+                249,
+                250,
+                251,
+                252,
+                253,
+                254,
+                240
+            ]
+        },
+        {
+            "id": "3ff51088-17fc-4943-8cf2-6bdee6033f0d",
+            "modelName": "GMAutoTileSet",
+            "mvc": "1.0",
+            "closed_edge": false,
+            "name": "rocky_platform",
+            "tiles": [
+                252,
+                240,
+                240,
+                243,
+                240,
+                253,
+                240,
+                247,
+                240,
+                240,
+                254,
+                251,
+                240,
+                240,
+                240,
+                240
             ]
         },
         {

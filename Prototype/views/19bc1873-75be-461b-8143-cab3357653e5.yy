@@ -6,8 +6,8 @@
     "children": [
         "4418e062-5841-4f8d-9d58-e77446b3754d",
         "1be7c9af-67a2-4357-b59a-52cda8b624f9",
-        "03a57b6a-6c40-4232-b353-14e9d309ccfc",
-        "650e8389-9bd1-456a-aded-a083319c174b"
+        "650e8389-9bd1-456a-aded-a083319c174b",
+        "585a4f42-5bba-4787-b336-7aedc0caba23"
     ],
     "filterType": "GMSprite",
     "folderName": "bg",
