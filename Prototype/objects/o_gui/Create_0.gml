@@ -10,6 +10,8 @@ alpha = 1;
 alpha_default = 1;
 
 flash_max = 0.005;
+cur_combo = 0;
+rot = true;
 
 ///////////// special
 

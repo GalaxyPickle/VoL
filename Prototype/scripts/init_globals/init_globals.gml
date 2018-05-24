@@ -14,11 +14,11 @@ global.light_list = ds_list_create();
 global.active_list = ds_list_create();
 
 global.room_list_name = ds_map_create();
-ds_map_add(global.room_list_name, r_second_room, "Entrance");
+//ds_map_add(global.room_list_name, r_second_room, "Entrance");
 
 global.room_list_pos = ds_map_create();
-ds_map_add(global.room_list_pos, r_first_room, [790, 666]);
-ds_map_add(global.room_list_pos, r_second_room, [1420, 690]);
+ds_map_add(global.room_list_pos, r_first_room, [250, 250]);
+ds_map_add(global.room_list_pos, r_second_room, [368, 477]);
 
 // make all random calls different each game run
 randomize();
@@ -58,16 +58,8 @@ global.chatbox_up = false;
 // boss progression - abilities used for this
 global.boss_killed_reptilian = false;
 
-global.boss_killed_red = false;
-global.boss_killed_blue = false;
-global.boss_killed_yellow = false;
-
-global.boss_killed_demon_lord = false;
-
 // story progression?
 global.chat_titan = false;
-global.chat_reptilian = false;
-global.chat_demon_lord = false;
 
 // glyph stuff
 global.glyphs = 
@@ -86,7 +78,6 @@ global.gems = [false, false, false];
 /////////////////////////////////////////////////
 
 global.sunyata = false;
-
 
 //////////// OLD ///////////
 
@@ -115,3 +106,30 @@ global.laser = 0;
 global.laser_max = 0;
 
 // cracked???
+
+/*
+/////////////////////////////////////////////
+/// EXTERNAL LOAD //////////////////
+var fname = working_directory + "saves.txt";
+
+if file_exists(fname) {
+	var file = file_text_open_read(fname);
+	var scr = [], i = 0;
+
+	while (!file_text_eof(file)) {
+		scr[i++] = file_text_read_real(file);
+	}
+}
+else {
+	var file = file_text_open_write(fname);
+	
+	// have not died yet
+	file_text_write_real(file, 0);
+	// write health
+	file_text_write_real(file, global.player_start_vitality);
+	// write sunyata
+	file_text_write_real(file, global.player_start_special);
+	// write starting room
+	file_text_write_real(file, 5);
+}
+file_text_close(file);

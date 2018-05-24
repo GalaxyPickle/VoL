@@ -87,7 +87,12 @@ if starting {
 	image_index = 0;
 	
 	// play sound
-	audio_play_sound_on(s_emit, current_attack_sound, false, 1);
+	if on_ground
+		audio_play_sound_on(s_emit, current_attack_sound, false, 1);
+	else {
+		audio_sound_pitch(
+			audio_play_sound_on(s_emit, current_attack_sound, false, 1), 1.1);
+	}
 }
 
 ///////////////////////////////////////////////////////

@@ -10,3 +10,17 @@ var spr_D = [s_glyph_D1, s_glyph_D2, s_glyph_D3, s_glyph_D4];
 glyphs = [spr_A, spr_B, spr_C, spr_D];
 
 player = noone;
+
+/////// options /////////////
+
+// array of options
+menu[0] = "RESUME";
+menu[1] = "SAVE & QUIT";
+
+current_option = menu[0];
+
+// tween stuff
+anim = 0;
+anim_n = 0;
+tween_amount = 7;
+alpha = 1;

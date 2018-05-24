@@ -93,11 +93,11 @@ sound_death = a_player_death;					// DEATH sound
 sound_special_warmup = a_sword_laser_warmup;
 sound_special = a_laser_blast;
 
-sound_attack_ground_1 = a_sword_ground_1;			// woosh of weapon sound
-sound_attack_ground_2 = a_sword_ground_2;
+sound_attack_ground_1 = a_sword_1;			// woosh of weapon sound
+sound_attack_ground_2 = a_sword_2;
 
-sound_attack_air_1 = a_sword_air_1;
-sound_attack_air_2 = a_sword_air_2;
+sound_attack_air_1 = a_sword_1;
+sound_attack_air_2 = a_sword_2;
 
 #endregion
 ////////////////////////////////////

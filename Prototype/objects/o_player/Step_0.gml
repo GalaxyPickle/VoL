@@ -7,11 +7,6 @@ if vitality <= 0 {
 	pause_input = true;
 	vitality = -1;
 	
-	global.death_vitality = vitality_max;
-	global.death_sunyata = special_max;
-	global.death_room = room;
-	global.died = true;
-	
 	image_index = 0;
 	
 	if !start_gameover {

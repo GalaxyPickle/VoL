@@ -43,7 +43,7 @@ if global.pause {
 	global.game_percent += temp;
 	
 	// percent of last boss y0000
-	if global.boss_killed_demon_lord
+	if global.boss_killed_reptilian
 		global.game_percent += 18;
 	///////////////////////////////////////////
 	#endregion
@@ -115,6 +115,57 @@ if global.pause {
 	x = global.window_width / 2 + sprite_width / 2;
 	y = global.window_height / 2 + sprite_height / 2;
 	
+	//////////////////////////////////////////
+	// show quit / resume options
+	#region
+	
+	var xs = x - 15 * TILE_SIZE;
+	var ys = y - 10 * TILE_SIZE;
+	var spacing = 75;
+	
+	draw_sprite_ext(s_upgrade_blade, 0, xs + 50, ys - 15,
+	3, 3, 15, c_white, alpha);
+	draw_sprite_ext(s_upgrade_blade, 0, xs - 50, ys - 15, 
+		-3, 3, -15, c_white, alpha);
+
+	// player surfs with arrows and clamp movment to options
+	var hd = gamepad_axis_value(0, gp_axislv);
+	anim += clamp( (abs(hd) > .5 ? sign(hd) : 0) + 
+		keyboard_check_pressed(global.key_down) - keyboard_check_pressed(global.key_up), -1, 1 );
+	anim = clamp(anim, 0, array_length_1d(menu) - 1);
+
+	anim_n = reach_tween(anim_n, anim, tween_amount);
+
+	draw_set_font(f_menu_med);
+	draw_set_halign(fa_middle);
+	draw_set_valign(fa_center);
+	for (var i = 0; i < array_length_1d(menu); i++) {
+	
+		// draw golden current option selected
+		var c = c_white; //(i == anim ? c_yellow : c_white);
+		if i == anim {
+			draw_text_outline_color(xs, ys + (i - anim_n) * spacing, menu[i],
+				2, c_yellow, 16, c_black, 1);
+		}
+		else {
+			draw_text_color(xs, ys + (i - anim_n) * spacing, menu[i],
+				c, c, c, c, 1);	
+		}
+	}
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+
+	// play menu sounds
+	if current_option != anim {
+		audio_play_sound(a_menu_switch, 1, false);
+		alpha = 0;
+	}
+
+	current_option = anim;
+	
+	#endregion
+	
+	//////////////////////////////////
 	// draw gems
 	dist = 20;
 	var gems = [s_upgrade_gem_red, s_upgrade_gem_blue, s_upgrade_gem_yellow];

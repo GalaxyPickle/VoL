@@ -6,7 +6,7 @@ if gamepad_is_connected(0)
 else gamepad_input = false;
 
 var attack_key_pressed = keyboard_check_pressed(key_attack) || gamepad_button_check_pressed(0, gp_attack);
-var dodge_key_pressed = keyboard_check_pressed(key_dodge) || gamepad_button_check_pressed(0, gp_dodge);
+var dodge_key_pressed = keyboard_check_pressed(key_dodge) || gamepad_button_check_pressed(0, gp_dodge) || gamepad_button_check_pressed(0, gp_shoulderl);
 
 var special_key_pressed = keyboard_check_pressed(key_special) || gamepad_button_check_pressed(0, gp_special);
 var special_key_held = keyboard_check(key_special) || gamepad_button_check(0, gp_special);

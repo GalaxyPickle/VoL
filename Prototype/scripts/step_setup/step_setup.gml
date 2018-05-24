@@ -67,7 +67,7 @@ on_platform =
 	)
 	&& velocity[vel_y] >= 0;
 		
-if ( !NPC && (keyboard_check(global.key_down) || gamepad_axis_value(0, gp_axislv) >= .5) ) || 
+if ( !NPC && !global.pause && ( keyboard_check(global.key_down) || gamepad_axis_value(0, gp_axislv) >= .5 ) ) || 
 	(NPC && key_down) || dropping {
 	if on_platform && velocity[vel_y] == 0 {
 		alarm[5] = room_speed / 4;
@@ -185,7 +185,7 @@ if on_ground {
 }
 // friction regardless of on ground or not
 else {
-	if !move || x_direction == 0 || (current_state != states.idle && current_state != states.dodge) {
+	if !move || x_direction == 0 || (current_state != states.idle) {
 		velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction / 10);
 	}
 }

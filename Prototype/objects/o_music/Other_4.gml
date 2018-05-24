@@ -24,8 +24,8 @@ switch room_get_name(room) {
 		break;
 		
 	case "r_second_room":
-		song = a_song_cavern_exploration;
-		play_breath_ambiance = false;
+		play = false;
+		fog = true;
 		break;
 		
 	case "r_boss_room":

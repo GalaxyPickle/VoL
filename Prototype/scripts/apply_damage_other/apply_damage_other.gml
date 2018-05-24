@@ -53,8 +53,8 @@ if headshot {
 }
 
 if o_other.ghost_mode {
-	vitality_damage /= 2;
-	poise_damage /= 2;
+	vitality_damage *= .9;
+	poise_damage *= .9;
 }
 	
 // now apply the damage to enemy

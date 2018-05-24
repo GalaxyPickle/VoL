@@ -33,8 +33,6 @@ if flash_health
 else
 	draw_set_alpha(lerp(draw_get_alpha(), 1, flash_time));
 
-draw_set_font(f_gui_small);
-
 #region
 /*
 for (var i = 0; i < array_length_1d(player.stat_array); i++) {
@@ -82,32 +80,50 @@ if global.ability_sunyata {
 dist += 40;
 
 // draw COMBOOO
-if global.ability_whirlwind {
-	draw_gui_healthbar(dist, x_start_spacing, y_start_spacing, s_gui_whirlwind_bg,
-		s_gui_whirlwind, global.combo_default_max, global.combo, 1, 0, 0);
-}
-
-// draw the sunyata bars
+//if global.ability_whirlwind {
+//	draw_gui_healthbar(dist, x_start_spacing, y_start_spacing, s_gui_whirlwind_bg,
+//		s_gui_whirlwind, global.combo_default_max, global.combo, 1, 0, 0);
+//}
 
 ////////////////////////////////////////////
-// draw the mushroom and checkpoint status
+// draw the checkpoint status
 ////////////////////////////////////////////
 
-// mushrooms
-var mush_w = 64;
 
 //draw_sprite_ext(s_gui_mushroom_blue, 0, global.window_width - mush_w, 0, 2, 2, 0, c_white, 1);
 //draw_text_outline_color( global.window_width - mush_w, mush_w,
 //	string(mushrooms) + "/" + string(mushrooms_max), 2, c_white, 4, c_black, 1);
 
-draw_set_halign(fa_middle);
-draw_set_valign(fa_center);
+draw_set_halign(fa_center);
+
+// mushrooms
+var mush_w = 64;
+
+// draw COMBO when in shadow mode
+if player.ghost_mode {
+	var prev_combo = cur_combo;
+	cur_combo = global.combo;
+
+	if prev_combo != cur_combo
+		rot = !rot;
+
+	var size = .5 + cur_combo * .05;
+	var rotation = 0 + rot * cur_combo;
+
+	draw_set_font(f_menu_med);
+	draw_text_transformed_color(
+		global.window_width - mush_w * 4, mush_w, "COMBO x" + string(cur_combo), 
+		size, size, rotation,
+		c_fuchsia, c_fuchsia, c_fuchsia, c_fuchsia, 1);	
+}
+	
+draw_set_valign(fa_middle);
+draw_set_font(f_gui_small);
 
 // sentinels
 draw_sprite_ext(s_gui_checkpoint_eye, 0, 
-	global.window_width - mush_w * 2, 0, 2, 2, 0, c_white, 1);
-draw_text_outline_color( global.window_width - mush_w * 2 + 
-	sprite_get_width(s_gui_checkpoint_eye) / 2, mush_w,
+	global.window_width - mush_w, mush_w / 2, 2, 2, 0, c_white, 1);
+draw_text_outline_color( global.window_width - mush_w, mush_w,
 	string(checkpoints) + "/" + string(checkpoints_max), 2, c_white, 4, c_black, 1);
 
 draw_set_alpha(1);
