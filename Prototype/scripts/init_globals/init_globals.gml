@@ -18,7 +18,7 @@ ds_map_add(global.room_list_name, r_entrance_room, "ENTRANCE CAVE");
 ds_map_add(global.room_list_name, r_sunyata_room, "CHAMBER OF EYES");
 
 global.room_list_pos = ds_map_create();
-ds_map_add(global.room_list_pos, r_first_room, [250, 250]);
+ds_map_add(global.room_list_pos, r_first_room, [250, 500]);
 ds_map_add(global.room_list_pos, r_second_room, [368, 477]);
 ds_map_add(global.room_list_pos, r_entrance_room, [1300, 740]);
 
@@ -52,7 +52,9 @@ global.player_start_special = 0;
 
 global.died = false;
 global.death_vitality = 0;
+global.death_vitality_current = 0;
 global.death_sunyata = 0;
+global.death_sunyata_current = 0;
 global.death_room = r_first_room;
 
 global.chatbox_up = false;
@@ -108,30 +110,3 @@ global.laser = 0;
 global.laser_max = 0;
 
 // cracked???
-
-/*
-/////////////////////////////////////////////
-/// EXTERNAL LOAD //////////////////
-var fname = working_directory + "saves.txt";
-
-if file_exists(fname) {
-	var file = file_text_open_read(fname);
-	var scr = [], i = 0;
-
-	while (!file_text_eof(file)) {
-		scr[i++] = file_text_read_real(file);
-	}
-}
-else {
-	var file = file_text_open_write(fname);
-	
-	// have not died yet
-	file_text_write_real(file, 0);
-	// write health
-	file_text_write_real(file, global.player_start_vitality);
-	// write sunyata
-	file_text_write_real(file, global.player_start_special);
-	// write starting room
-	file_text_write_real(file, 5);
-}
-file_text_close(file);

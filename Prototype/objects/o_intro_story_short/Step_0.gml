@@ -1,13 +1,17 @@
 /// @description fade out
 
-if !audio_is_playing(a_song_intro_score) || keyboard_check_pressed(global.key_enter) || 
+if !audio_is_playing(intro) || keyboard_check_pressed(global.key_enter) || 
 	gamepad_button_check_pressed(0, global.gp_key_enter) 
 {
 	room_goto(first_room);
-	audio_stop_sound(a_song_intro_score);
+	audio_stop_sound(intro);
 	
 	global.death_vitality = global.player_start_vitality;
+	global.death_vitality_current = global.death_vitality;
+	
 	global.death_sunyata = global.player_start_special;
+	global.death_sunyata_current = global.death_sunyata;
+	
 	global.active_list = ds_list_create();
 }
 

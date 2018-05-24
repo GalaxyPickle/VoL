@@ -20,9 +20,7 @@ flash_special = false;
 flash_special_time = room_speed / 20;
 alarm[0] = flash_special_time;
 
-//////////////// checkpoints and mushrooms
-mushrooms_max = 0;
-mushrooms = 0;
+//////////////// checkpoints
 
 checkpoints_max = 0;
 checkpoints = 0;

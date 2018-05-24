@@ -2889,25 +2889,6 @@
             }
         },
         {
-            "Key": "300a8c92-4d35-4036-9a11-ea389a5ef5f8",
-            "Value": {
-                "id": "142ac128-5aa4-4706-bde1-95c0cc3a3552",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "objects\/o_intro_story\/o_intro_story.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "30298417-5518-446c-90c1-1551d276b429",
             "Value": {
                 "id": "d7ae7355-94cb-4c2e-b135-c27538a17d3f",
@@ -7145,6 +7126,25 @@
             }
         },
         {
+            "Key": "6b0b4c19-835c-45b9-9c9d-eb834b3a3e13",
+            "Value": {
+                "id": "ec1163fd-7760-4baf-b419-e22e70ef5fe1",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sounds\/a_song_intro_score_short\/a_song_intro_score_short.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "6b1c0bf3-8b89-4c82-b5a7-c0698d5062e6",
             "Value": {
                 "id": "39639bc7-efc0-4ae3-b55d-1fbc6d9378ce",
@@ -10451,6 +10451,25 @@
             }
         },
         {
+            "Key": "a31d009d-de5c-4bd9-8b41-0b877dbd28a2",
+            "Value": {
+                "id": "1d23038e-5ad9-495a-b7bd-6ca0bc929868",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "datafiles_yy\/intro_short.txt.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
             "Key": "a3334602-9aa2-4d91-834e-5ca7ba1446fd",
             "Value": {
                 "id": "acd9dbd2-b4bf-4efc-a117-2051184f75d8",
@@ -13678,6 +13697,25 @@
                 ],
                 "resourcePath": "sprites\/s_player_attack_ground_2\/s_player_attack_ground_2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "d341287c-2396-4ea1-987f-54be0530bae3",
+            "Value": {
+                "id": "965204bb-94be-4c65-82a9-4784e8b78feb",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "objects\/o_intro_story_short\/o_intro_story_short.yy",
+                "resourceType": "GMObject"
             }
         },
         {

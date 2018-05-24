@@ -1,9 +1,17 @@
 /// @description mute audio
 
+// slow down music for shadow vision
 if global.sunyata {
 	audio_sound_pitch(global.music, .5);
 }
 else audio_sound_pitch(global.music, 1);
+
+// if upgrade sound is playing, pause music
+if audio_is_playing(a_impact_creepy) && alarm[1] < 0 && alarm[2] < 0 {
+	alarm[1] = 3 * room_speed;
+	alarm[2] = 7 * room_speed;
+	global.mute = true;
+}
 
 // if mute is on, mute music
 if global.mute {

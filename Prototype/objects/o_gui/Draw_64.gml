@@ -122,13 +122,13 @@ if checkpoints_max > 0 {
 	// draw blank sentinel labels
 	for (var i = 0; i < checkpoints_max; i++) {
 		draw_sprite_ext(s_gui_checkpoint_eye_bg, 0, 
-			global.window_width - mush_w, mush_w / 2 + mush_w / 2 * i, 
+			global.window_width - mush_w, mush_w / 2 + mush_w * 3/4 * i, 
 			2, 2, 0, c_white, 1);
 	}
 	// draw filled in sentinel labels
 	for (var i = 0; i < checkpoints; i++) {
 		draw_sprite_ext(s_gui_checkpoint_eye, 0, 
-			global.window_width - mush_w, mush_w / 2 + mush_w / 2 * i, 
+			global.window_width - mush_w, mush_w / 2 + mush_w * 3/4 * i, 
 			2, 2, 0, c_white, 1);
 	}
 }

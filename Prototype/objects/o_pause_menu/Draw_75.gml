@@ -163,6 +163,7 @@ if global.pause {
 
 	current_option = anim;
 	
+	
 	#endregion
 	
 	//////////////////////////////////
@@ -180,4 +181,7 @@ if global.pause {
 		dist -= 5;
 	}
 }
-else global.chatbox_up = false;
+else { 
+	global.chatbox_up = false;
+	current_option = 0;
+}

@@ -6,6 +6,10 @@ else
 	exit;
 
 global.death_vitality = player.vitality_max;
+global.death_vitality_current = player.vitality;
+
 global.death_sunyata = player.special_max;
+global.death_sunyata_current = player.special;
+
 global.death_room = room;
 global.died = true;

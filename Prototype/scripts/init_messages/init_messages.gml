@@ -9,7 +9,7 @@ global.message_default =
 /////////////////////////////////
 // read intro story file
 /////////////////////////////////
-var file = file_text_open_read(working_directory + "intro.txt");
+var file = file_text_open_read(working_directory + "intro_short.txt");
 var scr = [], i = 0;
 
 while (!file_text_eof(file)) {

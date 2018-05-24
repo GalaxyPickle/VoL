@@ -8,7 +8,7 @@ var border_w = 200;
 var border_h = 10;
 var yheight = 200;
 var t_margin = 5;
-var xwidth = global.window_width - border_w * 2 - t_margin * 6;
+var xwidth = global.window_width - border_w * 2 - t_margin * 8;
 	
 var portrait_border_w = 10;
 var portrait_width = border_w - portrait_border_w * 2;
@@ -112,7 +112,7 @@ if interacting {
 		}
 		
 		// text pos
-		var tX = border_w + t_margin * 3;
+		var tX = border_w + t_margin * 4;
 		var tY = global.window_height - yheight - border_h + t_margin * 3;
 	
 		// next message
