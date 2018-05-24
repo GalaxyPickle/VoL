@@ -704,6 +704,25 @@
             }
         },
         {
+            "Key": "0dd4c050-cd70-4cc8-9c6a-90d9ba2aa998",
+            "Value": {
+                "id": "58515618-5964-4531-adf1-a8382a505d5a",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "datafiles_yy\/mush.txt.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
             "Key": "0f0395bb-567f-4d40-924d-80f41120c220",
             "Value": {
                 "id": "e2bc3fbc-b3b4-4d64-91e4-69e6cd5d36f8",
@@ -1613,6 +1632,25 @@
                 ],
                 "resourcePath": "sprites\/s_door_stone\/s_door_stone.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "1b59a4ce-2f8c-4258-9ca4-76be72177f0d",
+            "Value": {
+                "id": "cdcfd9f0-abb7-4a41-8985-01f52f2232bd",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "rooms\/r_sunyata_room\/r_sunyata_room.yy",
+                "resourceType": "GMRoom"
             }
         },
         {
@@ -3969,6 +4007,25 @@
                 ],
                 "resourcePath": "scripts\/TweenDestroyWhenDone\/TweenDestroyWhenDone.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "44eec455-c267-4d31-a73b-a919e35faca0",
+            "Value": {
+                "id": "2497ff99-b320-4b48-a9f8-591e50b30b3d",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/s_gui_checkpoint_eye_bg\/s_gui_checkpoint_eye_bg.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -7123,6 +7180,25 @@
                 ],
                 "resourcePath": "scripts\/pl_light_set_radius\/pl_light_set_radius.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "6ba5f529-2269-4afe-bd4e-b1b1e53a5b56",
+            "Value": {
+                "id": "a1b7ed2f-e9d2-496d-9721-ffe43085139f",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "rooms\/r_entrance_room\/r_entrance_room.yy",
+                "resourceType": "GMRoom"
             }
         },
         {

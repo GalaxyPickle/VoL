@@ -14,11 +14,13 @@ global.light_list = ds_list_create();
 global.active_list = ds_list_create();
 
 global.room_list_name = ds_map_create();
-//ds_map_add(global.room_list_name, r_second_room, "Entrance");
+ds_map_add(global.room_list_name, r_entrance_room, "ENTRANCE CAVE");
+ds_map_add(global.room_list_name, r_sunyata_room, "CHAMBER OF EYES");
 
 global.room_list_pos = ds_map_create();
 ds_map_add(global.room_list_pos, r_first_room, [250, 250]);
 ds_map_add(global.room_list_pos, r_second_room, [368, 477]);
+ds_map_add(global.room_list_pos, r_entrance_room, [1300, 740]);
 
 // make all random calls different each game run
 randomize();

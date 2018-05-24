@@ -6,7 +6,9 @@ global.message_default =
 	"Goodbye World!"
 ];
 
+/////////////////////////////////
 // read intro story file
+/////////////////////////////////
 var file = file_text_open_read(working_directory + "intro.txt");
 var scr = [], i = 0;
 
@@ -44,3 +46,31 @@ for (var i = 0; i < array_length_1d(scr); i++) {
 }
 // last section
 global.message_glyph[k] = sub;
+
+////////////////////////////////////////
+// TIP MUSHY DIALOGUE
+////////////////////////////////////////
+var tfile = file_text_open_read(working_directory + "mush.txt");
+var scr = [], i = 0;
+
+while (!file_text_eof(tfile)) {
+	scr[i++] = file_text_readln(tfile);
+}
+file_text_close(tfile);
+
+global.message_mush = 0;
+
+var j = 0, k = 0, sub = [];
+
+// upload all mush messages into one mega array
+for (var i = 0; i < array_length_1d(scr); i++) {
+	if scr[i] == "\n" {
+		global.message_mush[k++] = sub;
+		j = 0;
+		sub = 0;
+	}
+	else
+		sub[j++] = scr[i];
+}
+// last section
+global.message_mush[k] = sub;

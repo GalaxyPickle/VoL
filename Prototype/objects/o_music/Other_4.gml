@@ -28,6 +28,12 @@ switch room_get_name(room) {
 		fog = true;
 		break;
 		
+	case "r_entrance_room":
+		play_breath_ambiance = false;
+		play_cave_ambiance = false;
+		song = a_song_cavern_exploration;
+		break;
+		
 	case "r_boss_room":
 		play_breath_ambiance = false;
 		play_cave_ambiance = false;

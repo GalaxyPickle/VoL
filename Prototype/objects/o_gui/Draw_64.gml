@@ -116,42 +116,21 @@ if player.ghost_mode {
 		size, size, rotation,
 		c_fuchsia, c_fuchsia, c_fuchsia, c_fuchsia, 1);	
 }
-	
-draw_set_valign(fa_middle);
-draw_set_font(f_gui_small);
 
-// sentinels
-draw_sprite_ext(s_gui_checkpoint_eye, 0, 
-	global.window_width - mush_w, mush_w / 2, 2, 2, 0, c_white, 1);
-draw_text_outline_color( global.window_width - mush_w, mush_w,
-	string(checkpoints) + "/" + string(checkpoints_max), 2, c_white, 4, c_black, 1);
+if checkpoints_max > 0 {
 
-draw_set_alpha(1);
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-
-// draw combo below health
-//draw_text_outline_color( 40, ypos + yspac, "x" + string(global.combo), 2, c_white, 4, c_lime, 1);
-
-// only draw special bar if you have the ability
-/*
-if !global.ability_discharge
-	exit;
-// draw special
-var spec = c_silver;
-draw_text_color( 40, ypos + yspac * 2, string(floor(player.special / player.special_max * 100)) + "%",
-	spec, spec, spec, spec, 1);
-
-if special_full {
-	var alpha_t = 1;
-	if flash_special
-		alpha_t = 0;
-	
-	draw_text_color(40, 90, "SWORD CHARGED", c_red, c_silver, c_red, c_silver, alpha_t);
+	// draw blank sentinel labels
+	for (var i = 0; i < checkpoints_max; i++) {
+		draw_sprite_ext(s_gui_checkpoint_eye_bg, 0, 
+			global.window_width - mush_w, mush_w / 2 + mush_w / 2 * i, 
+			2, 2, 0, c_white, 1);
+	}
+	// draw filled in sentinel labels
+	for (var i = 0; i < checkpoints; i++) {
+		draw_sprite_ext(s_gui_checkpoint_eye, 0, 
+			global.window_width - mush_w, mush_w / 2 + mush_w / 2 * i, 
+			2, 2, 0, c_white, 1);
+	}
 }
 
-
-
-
-
-
+draw_set_alpha(1);

@@ -66,7 +66,10 @@ if interacting {
 		message_current_finished = true;
 		
 		// draw next button sprites no matter what
-		var spr = s_textbox_key_gamepad;
+		var spr = s_textbox_key_keyboard;
+		if gamepad_is_connected(0)
+			spr = s_textbox_key_gamepad;
+			
 		outline_start(1, c_black, spr, 4);
 		draw_sprite(spr, 0,
 			global.window_width - border_w + t_margin * 3, 
