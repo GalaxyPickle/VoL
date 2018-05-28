@@ -20,8 +20,6 @@ global.game_height = global.window_height / global.zoom;
 global.view_x = 0;
 global.view_y = 0;
 
-window_center();
-
 global.debug = false;
 global.test = true;
 

@@ -4,6 +4,7 @@
 event_inherited();
 
 start_gameover = false;
+check_door = true;
 
 // VITALITY
 vitality_max = global.death_vitality;	// max health

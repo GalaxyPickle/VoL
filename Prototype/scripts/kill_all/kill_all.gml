@@ -40,9 +40,6 @@ if ds_exists(global.active_list, ds_type_list)
 if ds_exists(global.room_list_name, ds_type_map)
 	ds_map_destroy(global.room_list_name);
 	
-if ds_exists(global.room_list_pos, ds_type_map)
-	ds_map_destroy(global.room_list_pos);
-
 ///////////////////////////////////////////
 // SURFACES
 ///////////////////////////////////////////

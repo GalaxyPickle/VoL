@@ -5,6 +5,7 @@ if draw_gameover && ( keyboard_check_pressed(global.key_enter) ||
 {
 	save_progress();
 	quit_to_menu();
+	instance_destroy();
 }
 
 if alpha > 1 || alpha < 0

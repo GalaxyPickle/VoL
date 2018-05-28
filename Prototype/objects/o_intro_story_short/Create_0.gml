@@ -11,6 +11,9 @@ current_message = -1;
 display_text = message[0];
 alpha = 0;
 
+alpha_skip = 1;
+alpha_switch = false;
+
 // seconds for each subtitle
 timer = 
 [

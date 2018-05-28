@@ -3,6 +3,8 @@
 var spacing = 10;
 if global.debug {
 	draw_set_font(f_debug);
+	draw_set_halign(fa_middle);
+	draw_set_valign(fa_center);
 	
 	// static debug text
 	var tc = c_orange;

@@ -6,13 +6,7 @@ if !audio_is_playing(intro) || keyboard_check_pressed(global.key_enter) ||
 	room_goto(first_room);
 	audio_stop_sound(intro);
 	
-	global.death_vitality = global.player_start_vitality;
-	global.death_vitality_current = global.death_vitality;
-	
-	global.death_sunyata = global.player_start_special;
-	global.death_sunyata_current = global.death_sunyata;
-	
-	global.active_list = ds_list_create();
+	reset_progression();
 }
 
 // fade text in and out

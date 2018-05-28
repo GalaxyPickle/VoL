@@ -14,9 +14,13 @@ if !global.died
 
 // array of options
 menu[0] = "START";
-if global.died
-	menu[0] = "CONTINUE";
 menu[1] = "QUIT";
+
+if global.died {
+	menu[0] = "CONTINUE";
+	menu[1] = "NEW GAME";
+	menu[2] = "QUIT";
+}
 
 current_option = menu[0];
 

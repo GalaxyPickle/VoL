@@ -10,6 +10,7 @@ play_cave_ambiance = true;
 
 // choose song based on room
 switch room_get_name(room) {
+	
 	// MAIN MENU
 	case "r_main_menu":
 		play = false;
@@ -22,18 +23,22 @@ switch room_get_name(room) {
 		play = false;
 		fog = true;
 		break;
-		
+	
+	// SHORT PASSAGE TO ENTRANCE CAVE
 	case "r_second_room":
 		play = false;
 		fog = true;
 		break;
-		
+	
+	// ENTRANCE CAVE
 	case "r_entrance_room":
 		play_breath_ambiance = false;
 		play_cave_ambiance = false;
 		song = a_song_cavern_exploration;
 		break;
-		
+	
+	//////////////////////////////////
+	////////////// OLD ///////////////
 	case "r_boss_room":
 		play_breath_ambiance = false;
 		play_cave_ambiance = false;
@@ -55,8 +60,10 @@ switch room_get_name(room) {
 }
 
 // play the music
-if play
-	global.music = audio_play_sound(song, 1, true);
+if play {
+	if !audio_is_playing(song)
+		global.music = audio_play_sound(song, 1, true);
+}
 else {
 	if audio_is_playing(global.music)
 		audio_stop_sound(global.music);
