@@ -5,31 +5,6 @@
     "name": "t_basic",
     "auto_tile_sets": [
         {
-            "id": "c6387727-5034-4758-814c-a54bcb488bb8",
-            "modelName": "GMAutoTileSet",
-            "mvc": "1.0",
-            "closed_edge": false,
-            "name": "basic",
-            "tiles": [
-                15,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                0
-            ]
-        },
-        {
             "id": "8f93d930-5c94-4c99-8fcf-980698b8cde0",
             "modelName": "GMAutoTileSet",
             "mvc": "1.0",
@@ -51,6 +26,31 @@
                 0,
                 0,
                 0,
+                0
+            ]
+        },
+        {
+            "id": "c6387727-5034-4758-814c-a54bcb488bb8",
+            "modelName": "GMAutoTileSet",
+            "mvc": "1.0",
+            "closed_edge": false,
+            "name": "basic",
+            "tiles": [
+                15,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
                 0
             ]
         }

@@ -10717,6 +10717,25 @@
             }
         },
         {
+            "Key": "a5daba20-1560-41e9-b179-c09b5283d539",
+            "Value": {
+                "id": "de3567c1-ee4e-4730-9f23-1a71381c59f5",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "objects\/o_mushroom_white_forever\/o_mushroom_white_forever.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "a5f23b91-6f49-4082-a33e-08b642118617",
             "Value": {
                 "id": "84a08532-8956-44e4-a05e-b20be436f975",

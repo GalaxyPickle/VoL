@@ -90,7 +90,7 @@ global.ability_ascension = false;
 // whirlwind is a combo system that increases your attack speed based on successful hits
 global.ability_whirlwind = false;
 // cracked is TBD
-global.ability_sunyata = true;
+global.ability_sunyata = false;
 
 // special stats
 
