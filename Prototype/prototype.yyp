@@ -10185,6 +10185,25 @@
             }
         },
         {
+            "Key": "9cc8b9dc-1769-4b18-84d1-8cfeae80d895",
+            "Value": {
+                "id": "615280d8-9b9e-4526-99e2-71abe698904c",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "rooms\/r_titan_room\/r_titan_room.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "9d98c391-13e2-4b10-bc11-e997aabf1ec8",
             "Value": {
                 "id": "c9c7c7d7-e2e7-414e-b595-758b24c76770",
@@ -14419,6 +14438,25 @@
                 ],
                 "resourcePath": "shaders\/sh_color_overlay\/sh_color_overlay.yy",
                 "resourceType": "GMShader"
+            }
+        },
+        {
+            "Key": "dbb9cec8-b97a-4f24-ba8f-94e32ad58bd6",
+            "Value": {
+                "id": "fcc5a57b-e262-4d4d-8ec5-d0576fb5ed92",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "fonts\/font6\/font6.yy",
+                "resourceType": "GMFont"
             }
         },
         {

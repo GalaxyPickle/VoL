@@ -41,6 +41,7 @@ if interacting {
 		global.window_width - border_w - t_margin, 
 		global.window_height - border_h - t_margin, c_black, c_black, false);
 			
+	/*
 	// 3. draw the bg frame of the entity in question
 	var pc = c_black;
 	draw_roundrect_color(portrait_border_w, global.window_height - yheight - border_h, 
@@ -51,6 +52,7 @@ if interacting {
 	draw_sprite(sprite_portrait, 0, portrait_width / 2 + portrait_border_w,
 		global.window_height - (yheight - border_h) / 2);
 	
+	*/
 	#endregion
 	///////////////////////////////////////////
 	// 5. now we can draw some text stuff

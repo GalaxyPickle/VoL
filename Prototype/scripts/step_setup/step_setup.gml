@@ -211,7 +211,7 @@ if o != self && distance_to_point(o.x, o.y) < 10 &&
 var max_vel_y = TILE_SIZE * 3 / 8;
 
 // apply gravity
-if velocity[vel_y] <= max_vel_y && !on_ground {
+if velocity[vel_y] <= max_vel_y && !on_ground && !(ghost_mode && current_state == states.dodge) {
 	velocity[vel_y] += global.GRAVITY;
 }
 

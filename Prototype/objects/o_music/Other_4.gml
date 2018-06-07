@@ -36,6 +36,19 @@ switch room_get_name(room) {
 		play_cave_ambiance = false;
 		song = a_song_cavern_exploration;
 		break;
+		
+	// ENTRANCE CAVE
+	case "r_sunyata_room":
+		play_cave_ambiance = false;
+		play = false;
+		break;
+		
+	// ENTRANCE CAVE
+	case "r_titan_room":
+		play_breath_ambiance = false;
+		play_cave_ambiance = false;
+		song = a_song_cavern_exploration;
+		break;
 	
 	//////////////////////////////////
 	////////////// OLD ///////////////
