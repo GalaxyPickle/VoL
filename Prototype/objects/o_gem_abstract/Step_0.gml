@@ -13,8 +13,15 @@ if global.player != noone && distance_to_object(global.player) < sight_range &&
 		global.gems[type] = true;
 		
 		alarm[1] = 1;
+		alarm[4] = room_speed;
 		
 		add_to_activated();
+		
+		var alert = instance_create(x, y, o_alert_popup);
+		with alert
+			text = other.text;
+			
+		audio_play_sound(a_crystal_activation, 1, false);
 	}
 }
 else within_range = false;

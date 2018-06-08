@@ -1,23 +1,23 @@
 {
-    "id": "86988452-b451-4c99-a066-7d59315e2a9c",
+    "id": "82693669-d7b3-4c4e-84ee-0c6dd6957e66",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "o_beetle_hard",
+    "name": "o_glyph_C1",
     "eventList": [
         {
-            "id": "23c7ad90-52e3-4366-a20b-c3ea59baf073",
+            "id": "a31bcda7-0069-4d98-8e4c-99cea52a51c4",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 0,
-            "m_owner": "86988452-b451-4c99-a066-7d59315e2a9c"
+            "m_owner": "82693669-d7b3-4c4e-84ee-0c6dd6957e66"
         }
     ],
-    "maskSpriteId": "ae29c3d4-58ca-4940-8009-4f22e91a0ca4",
+    "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "d772f468-211a-4f89-bf9c-e2cb8104f205",
+    "parentObjectId": "d297adc5-c3d7-45a8-9c43-9e6d375bc49c",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,
@@ -33,6 +33,6 @@
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "b3b07b28-fd45-4ad7-a88e-a13f62f84faf",
+    "spriteId": "248d00c3-d03a-49a1-aad2-b1711dded273",
     "visible": true
 }

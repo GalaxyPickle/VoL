@@ -18,9 +18,9 @@ if global.pause {
 	global.game_percent = 0;
 	
 	// percent of health
-	global.game_percent += player.vitality_max / 100;
+	global.game_percent += (player.vitality_max / 100) * 2;
 	// percent of sunyata
-	global.game_percent += player.special_max / 100;
+	global.game_percent += (player.special_max / 100) * 2;
 	
 	// percent of glyphs
 	var temp = 0;
@@ -44,7 +44,7 @@ if global.pause {
 	
 	// percent of last boss y0000
 	if global.boss_killed_reptilian
-		global.game_percent += 18;
+		global.game_percent += 22;
 	///////////////////////////////////////////
 	#endregion
 	
@@ -57,14 +57,14 @@ if global.pause {
 	var spr = s_gui_hp_symbol;
 	for (var i = 0; i < player.vitality_max / 100; i++) {
 		draw_sprite_ext(spr, 0, 
-			x - TILE_SIZE * 2, y + TILE_SIZE * 2 * (i + 1), 
+			x - TILE_SIZE * 2, y + TILE_SIZE * (5 + (i * 3)), 
 			2, 2, 0, c_white, 1);
 	}
 	// sunyata
 	var spr = s_gui_sunyata_symbol;
 	for (var i = 0; i < player.special_max / 100; i++) {
 		draw_sprite_ext(spr, 0, 
-			x - TILE_SIZE * 5, y + TILE_SIZE * 2 * (i + 1), 
+			x - TILE_SIZE * 5, y + TILE_SIZE * (5 + (i * 3)), 
 			2, 2, 0, c_white, 1);
 	}	
 	
@@ -77,7 +77,7 @@ if global.pause {
 	// percent complete!!!
 	// draw the percent bar
 	draw_healthbar(x + TILE_SIZE * 14, y + TILE_SIZE * 1.5, 
-		x + TILE_SIZE * 30, y + TILE_SIZE * 2.5 - 1, global.game_percent, c_black,
+		x + TILE_SIZE * 35, y + TILE_SIZE * 2.5 - 1, global.game_percent, c_black,
 		c_red, c_lime, 0, false, false);
 	
 	// text
@@ -93,7 +93,7 @@ if global.pause {
 	
 	//////////////////////////////////////////
 	// draw the glyph collection
-	var dist = 5;
+	var dist = 6;
 	for (var i = 0; i < array_length_1d(glyphs); i++) {
 		
 		var glyph = glyphs[i];
@@ -103,11 +103,11 @@ if global.pause {
 			if cur_row[j] == true {
 				draw_sprite_ext(glyph[j], 0, 
 					x + TILE_SIZE * 3 * j + TILE_SIZE * 2,
-					y + TILE_SIZE * dist - TILE_SIZE,
+					y + TILE_SIZE * dist,
 					2, 2, 0, c_white, 1);
 			}
 		}
-		dist += 4;
+		dist += 5;
 	}
 	
 	/////////////////////////////////////////

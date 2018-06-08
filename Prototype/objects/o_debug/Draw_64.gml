@@ -1,5 +1,8 @@
 /// @description show controls and stuff
 
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+
 var spacing = 10;
 if global.debug {
 	draw_set_font(f_debug);

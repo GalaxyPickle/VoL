@@ -8,7 +8,8 @@
         "55b2130a-d4d4-4e7d-80c5-d2957f8dcd33",
         "528fd379-035b-4946-824d-86dfe92b0bb4",
         "b3c6c715-2cb6-4b19-af72-2248ddd77e5f",
-        "20d7e829-682a-403b-9e1a-ad09c2fe35ad"
+        "20d7e829-682a-403b-9e1a-ad09c2fe35ad",
+        "53e04067-3195-4e78-b854-f2c8154fcfa1"
     ],
     "filterType": "GMSound",
     "folderName": "one shot",

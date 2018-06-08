@@ -12,7 +12,11 @@
         "388eb8c0-4fdb-4636-aa32-bbee398231a2",
         "ccb96dac-c806-4bee-9ee4-796e029a3f73",
         "bb5a3b7c-b6cb-4418-99ea-b7e6dd5e3041",
-        "06ec3481-5616-4a19-bed4-271e481b7011"
+        "06ec3481-5616-4a19-bed4-271e481b7011",
+        "82693669-d7b3-4c4e-84ee-0c6dd6957e66",
+        "9fa32821-4f13-467f-9456-fbe7decddad8",
+        "56a84403-bee3-461b-b70e-4e8c1b3ed5eb",
+        "aeaf60b6-e371-422f-9836-5fcfbc016686"
     ],
     "filterType": "GMObject",
     "folderName": "glyphs",

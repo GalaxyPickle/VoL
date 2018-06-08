@@ -7,7 +7,7 @@ var spr_B = [s_glyph_B1, s_glyph_B2, s_glyph_B3, s_glyph_B4];
 var spr_C = [s_glyph_C1, s_glyph_C2, s_glyph_C3, s_glyph_C4];
 var spr_D = [s_glyph_D1, s_glyph_D2, s_glyph_D3, s_glyph_D4];
 	
-glyphs = [spr_A, spr_B, spr_C, spr_D];
+glyphs = [spr_A, spr_C, spr_B, spr_D];
 
 player = noone;
 

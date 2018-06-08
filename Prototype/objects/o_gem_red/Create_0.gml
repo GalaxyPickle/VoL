@@ -9,5 +9,5 @@ color = c_red;
 type = 0;
 
 // particles
-c_start = c_orange;
+c_start = c_red;
 c_end = c_maroon;

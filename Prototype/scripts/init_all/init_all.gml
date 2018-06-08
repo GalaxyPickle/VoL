@@ -21,7 +21,7 @@ global.view_x = 0;
 global.view_y = 0;
 
 global.debug = false;
-global.test = true;
+global.test = false;
 
 // tile size
 #macro TILE_SIZE 32

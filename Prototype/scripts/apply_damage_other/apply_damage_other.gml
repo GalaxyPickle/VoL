@@ -62,7 +62,7 @@ o_other.vitality -= vitality_damage;
 o_other.poise -= poise_damage;
 
 // and apply special increase to self
-special += self_special_increase;
+special += 0;//self_special_increase;
 
 // lastly, set enemy to invincible so they don't get hit every frame for a million damage
 o_other.just_hit = true;
