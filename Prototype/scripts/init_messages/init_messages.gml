@@ -74,3 +74,31 @@ for (var i = 0; i < array_length_1d(scr); i++) {
 }
 // last section
 global.message_mush[k] = sub;
+
+////////////////////////////////////////
+// TITAN DIALOGUE
+////////////////////////////////////////
+var nfile = file_text_open_read(working_directory + "titan.txt");
+var scr = [], i = 0;
+
+while (!file_text_eof(nfile)) {
+	scr[i++] = file_text_readln(nfile);
+}
+file_text_close(nfile);
+
+global.message_titan = 0;
+
+var j = 0, k = 0, sub = [];
+
+// upload all mush messages into one mega array
+for (var i = 0; i < array_length_1d(scr); i++) {
+	if scr[i] == "\n" {
+		global.message_titan[k++] = sub;
+		j = 0;
+		sub = 0;
+	}
+	else
+		sub[j++] = scr[i];
+}
+// last section
+global.message_titan[k] = sub;

@@ -3,7 +3,7 @@
 event_inherited();
 
 row = 1;
-col = 2;
+col = 3;
 
 c_start = c_blue;
 c_end = c_yellow;

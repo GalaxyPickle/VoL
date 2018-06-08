@@ -17,6 +17,7 @@ global.room_list_name = ds_map_create();
 ds_map_add(global.room_list_name, r_entrance_room, "ENTRANCE CAVE");
 ds_map_add(global.room_list_name, r_sunyata_room, "CHAMBER OF EYES");
 ds_map_add(global.room_list_name, r_titan_room, "THE LAST HAVEN");
+ds_map_add(global.room_list_name, r_titan_room, "CHAMBER OF TRIALS");
 
 global.death_room_pos = [0, 0];
 
