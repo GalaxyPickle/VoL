@@ -31,20 +31,20 @@ if global.pause {
 				temp++;
 		}
 	}
-	global.game_percent += temp;
+	global.game_percent += temp * 2;
 	
 	// percent of gems
 	temp = 0;
 	for (var i = 0; i < array_length_1d(global.gems); i++) {
 		if global.gems[i] == true
-			temp += 16;
+			temp += 14;
 	}
 	
 	global.game_percent += temp;
 	
 	// percent of last boss y0000
 	if global.boss_killed_reptilian
-		global.game_percent += 22;
+		global.game_percent += 14;
 	///////////////////////////////////////////
 	#endregion
 	
@@ -103,7 +103,7 @@ if global.pause {
 			if cur_row[j] == true {
 				draw_sprite_ext(glyph[j], 0, 
 					x + TILE_SIZE * 3 * j + TILE_SIZE * 2,
-					y + TILE_SIZE * dist,
+					y + TILE_SIZE * dist - TILE_SIZE,
 					2, 2, 0, c_white, 1);
 			}
 		}
