@@ -7,7 +7,7 @@ global.player = self;
 NPC = false;
 gamepad_input = false;
 
-enemy_list = [o_reptilian_large, o_worm, o_beetle, o_dummy];
+enemy_list = [o_worm, o_beetle, o_dummy];
 
 sprite_special_effect = s_player_laser_front;
 special_damage = 500;

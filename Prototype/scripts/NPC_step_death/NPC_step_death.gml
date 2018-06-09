@@ -22,7 +22,9 @@ if image_index >= image_number - 1 {
 		var corpse = layer_sprite_create("layer_asset_corpse", x, bbox_bottom, sprite_corpse);
 		layer_sprite_xscale(corpse, image_xscale);
 		
-		if object_index == o_reptilian_large
+		if object_index == o_reptilian_large {
 			global.boss_killed_reptilian = true;
+			instance_create(x, y, o_outro_credits);
+		}
 	}
 }

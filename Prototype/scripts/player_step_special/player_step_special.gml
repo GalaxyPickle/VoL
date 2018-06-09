@@ -11,4 +11,4 @@ if special <= 0 || special_key_released {
 
 global.sunyata = true;
 
-special -= 2;
+special -= 1;

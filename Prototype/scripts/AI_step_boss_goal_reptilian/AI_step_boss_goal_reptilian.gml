@@ -16,7 +16,7 @@ else {
 	// if I just attacked, I have to rest
 	if AI_goal == AI_states.fight && vitality > vitality_max / 4 {
 		AI_goal = AI_states.wait;
-		alarm[8] = room_speed * 3;
+		alarm[8] = room_speed;
 		exit;
 	}
 }

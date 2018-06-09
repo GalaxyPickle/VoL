@@ -5,7 +5,8 @@
 key_debug = vk_f1;
 key_room_restart = vk_f2;
 key_godmode = vk_f3;
-key_start_debug = vk_f12;
+key_start_debug = vk_f5;
+key_goto_boss = vk_f4;
 
 key_hitbox = ord("H");
 key_text = ord("T");
@@ -16,9 +17,10 @@ show_info = false;
 helper_text = 
 [
 	"F1 - Toggle Debug Info",
-	"F12 - Enter Debug Mode",
 	"F2 - Debug Restart Gameroom",
 	"F3 - Debug Godmode Toggle",
+	"F4 - Skip to Boss",
+	"F5 - Enter Debug Mode",
 	"",
 	"Left Click - Debug Teleport Player",
 	"",

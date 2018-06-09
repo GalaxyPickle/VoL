@@ -799,6 +799,25 @@
             }
         },
         {
+            "Key": "1037caab-293f-42ad-84d6-1107c84dc433",
+            "Value": {
+                "id": "97a19771-d486-4eff-8278-d0cc747da028",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "objects\/o_outro_credits\/o_outro_credits.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "10b911eb-6dad-45ca-b274-d8af725cea12",
             "Value": {
                 "id": "f281e156-017a-42aa-b38d-72cd422db663",
@@ -5815,6 +5834,25 @@
             }
         },
         {
+            "Key": "584b5dd9-56fd-46dc-b532-3f44560d40ae",
+            "Value": {
+                "id": "6cd9135d-1d6b-4be7-b199-c32249584cc3",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "objects\/o_boss_chat_check\/o_boss_chat_check.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "584c37cb-91e3-4f89-b029-7e1144d19667",
             "Value": {
                 "id": "3786ccce-a156-4251-b566-86507f452765",
@@ -9308,25 +9346,6 @@
                 ],
                 "resourcePath": "scripts\/quit_to_menu\/quit_to_menu.yy",
                 "resourceType": "GMScript"
-            }
-        },
-        {
-            "Key": "8ced81db-77ef-4130-b01d-93fa5c3c1903",
-            "Value": {
-                "id": "c492ce74-c000-4975-81a0-d70bf839e983",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "objects\/o_boss_win_check\/o_boss_win_check.yy",
-                "resourceType": "GMObject"
             }
         },
         {

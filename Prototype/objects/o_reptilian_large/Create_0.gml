@@ -3,6 +3,16 @@
 // Inherit the parent event
 event_inherited();
 
+dialogue_read = false;
+interactable = true;
+message = 
+[
+	"Adama.",
+	"So it is true, your kind still exist. We thought you exterminated. A shame.",
+	"This temple shall be destroyed. And you will be destroyed. You will not achieve your last goal.",
+	"DIE!!!"
+];
+
 can_dodge = false;
 can_jump = true;
 can_special = true;
@@ -145,14 +155,14 @@ dodge_launch = TILE_SIZE - 16;
 // these are the velocities and damages of the respective attack
 attack_ground_1_stats = [
 	[10, -5],	// velocity of attack to opponent if poise broken (default facing right)
-	[10, 20],	// default health damage of the attack (basic, sweet)
+	[15, 20],	// default health damage of the attack (basic, sweet)
 	0,			// default stamina cost of the attack
-	20,			// default poise damage of the attack
+	15,			// default poise damage of the attack
 	10,			// default special amount increase from a successful attack
 	];
 attack_ground_2_stats = [
 	[20, -3],
-	[20, 30],
+	[25, 40],
 	0,
 	20,
 	15,
@@ -179,7 +189,7 @@ sight_range = 1000;
 jump_stamina_cost = 0;
 
 // VITALITY
-vitality_max = 4000;			// max health
+vitality_max = 10000;			// max health
 vitality = vitality_max;		// current health
 vitality_regen = .1;			// health regen rate per frame
 
@@ -191,7 +201,7 @@ stamina_regen = .6;
 // POISE
 poise_max = 100;
 poise = poise_max;
-poise_regen = .1;
+poise_regen = 1;
 
 // SPECIAL
 special_max = 500;

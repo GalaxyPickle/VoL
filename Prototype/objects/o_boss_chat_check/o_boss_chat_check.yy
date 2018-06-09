@@ -1,48 +1,28 @@
 {
-    "id": "8ced81db-77ef-4130-b01d-93fa5c3c1903",
+    "id": "584b5dd9-56fd-46dc-b532-3f44560d40ae",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "o_boss_win_check",
+    "name": "o_boss_chat_check",
     "eventList": [
         {
-            "id": "122012a0-e854-4c9e-b9ef-8a0502faa36c",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 0,
-            "m_owner": "8ced81db-77ef-4130-b01d-93fa5c3c1903"
-        },
-        {
-            "id": "988ff0d0-6ed5-46c7-84a1-3d1c47231cc8",
+            "id": "5b3ffcd2-12a6-4f3c-8671-178a54fb2f89",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 3,
-            "m_owner": "8ced81db-77ef-4130-b01d-93fa5c3c1903"
+            "m_owner": "584b5dd9-56fd-46dc-b532-3f44560d40ae"
         },
         {
-            "id": "6e5a1e33-5013-43b3-a87c-551e10ca2869",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 64,
-            "eventtype": 8,
-            "m_owner": "8ced81db-77ef-4130-b01d-93fa5c3c1903"
-        },
-        {
-            "id": "2f5aeba6-922f-4f76-8d03-4dce88c6f8a1",
+            "id": "fb47711f-e903-42b3-a9d0-910f6b872860",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
-            "eventtype": 2,
-            "m_owner": "8ced81db-77ef-4130-b01d-93fa5c3c1903"
+            "eventtype": 0,
+            "m_owner": "584b5dd9-56fd-46dc-b532-3f44560d40ae"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
