@@ -17,7 +17,7 @@
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
                     "mipsToGenerate": 0,
-                    "scaled": true
+                    "scaled": false
                 }
             },
             {
@@ -30,21 +30,6 @@
                     "targets": 29263750006690030,
                     "autocrop": false,
                     "border": 1,
-                    "groupParent": "00000000-0000-0000-0000-000000000000",
-                    "mipsToGenerate": 0,
-                    "scaled": true
-                }
-            },
-            {
-                "Key": 3,
-                "Value": {
-                    "id": "e08c118c-f300-46b9-8d89-23df6c6de703",
-                    "modelName": "GMTextureGroup",
-                    "mvc": "1.0",
-                    "groupName": "bg",
-                    "targets": 29263750006690030,
-                    "autocrop": false,
-                    "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
                     "mipsToGenerate": 0,
                     "scaled": true
@@ -63,7 +48,7 @@
     "targets": 29263750006690030,
     "mipsToGenerate": 0,
     "border": 2,
-    "scaled": true,
+    "scaled": false,
     "autocrop": true
 }←7fa50043-cea6-4cd0-9521-a8ba8c6ea9f0|{
     "audioGroups": {

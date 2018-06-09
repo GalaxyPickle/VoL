@@ -2,6 +2,9 @@
 
 timer = 0;
 
+audio_sound_gain(a_song_spring, 1, 1);
+audio_play_sound(a_song_spring, 1, true);
+
 if object_exists(o_player)
 	instance_destroy(o_player);
 

@@ -10717,6 +10717,25 @@
             }
         },
         {
+            "Key": "a364803d-d793-48ce-aeb0-63cbbaf60c07",
+            "Value": {
+                "id": "c50aed7b-8c17-48cc-a857-6de09b2b6cea",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "datafiles_yy\/titan.txt.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
             "Key": "a3e990d1-9e62-4c58-a185-6ee9965b6afd",
             "Value": {
                 "id": "ad62ef46-0f0a-4d1f-97be-bd69a4ac2b09",
@@ -15122,25 +15141,6 @@
                 ],
                 "resourcePath": "views\/e37b1054-504f-46f5-9e22-8c97a8ed503a.yy",
                 "resourceType": "GMFolder"
-            }
-        },
-        {
-            "Key": "e446dc25-9efb-4766-b1bc-776c8a14b871",
-            "Value": {
-                "id": "01d4feee-a21c-4ac4-bce1-2465532cb98a",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "datafiles_yy\/titan.txt.yy",
-                "resourceType": "GMIncludedFile"
             }
         },
         {

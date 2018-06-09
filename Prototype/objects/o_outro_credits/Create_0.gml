@@ -1,9 +1,9 @@
 /// @description start music and show subtitles
 
+
 audio_play_sound(a_door_slam, 1, false);
 
-if audio_is_playing(a_song_demo_hardcore)
-	audio_sound_gain(a_song_demo_hardcore, 8, room_speed * 55);
+audio_sound_gain(global.music, 0, 30 * 1000);
 
 // grab messages for intro
 message = ["x"];
@@ -18,7 +18,6 @@ alpha_switch = false;
 // seconds for each subtitle
 timer = 
 [
-	8,
 	8,
 	8,
 	8,

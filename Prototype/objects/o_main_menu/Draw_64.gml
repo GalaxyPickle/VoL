@@ -9,7 +9,7 @@ draw_sprite_ext(s_upgrade_blade, 0, draw_x_start - 50, draw_y_start - 15,
 
 // player surfs with arrows and clamp movment to options
 var hd = gamepad_axis_value(0, gp_axislv);
-anim += clamp( (abs(hd) > .5 ? sign(hd) : 0) + 
+anim += clamp( (abs(hd) > .5 && timer > room_speed / 2 ? sign(hd) : 0) + 
 	keyboard_check_pressed(global.key_down) - keyboard_check_pressed(global.key_up), -1, 1 );
 anim = clamp(anim, 0, array_length_1d(menu) - 1);
 
@@ -36,6 +36,7 @@ for (var i = 0; i < array_length_1d(menu); i++) {
 if current_option != anim && timer > 0 {
 	audio_play_sound(a_menu_switch, 1, false);
 	alpha = 0;
+	timer = 0;
 }
 
 current_option = anim;

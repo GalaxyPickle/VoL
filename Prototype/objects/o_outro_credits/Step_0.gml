@@ -1,5 +1,7 @@
 /// @description fade out
 
+
+
 if !instance_exists(o_player)
 	exit;
 
@@ -46,10 +48,9 @@ message =
 [
 	"The Demon who came to destroy you has been defeated",
 	"Now, The Last Hope may be awakened",
-	"Congratulations, You Win!",
-	string(global.game_percent) + "% Completed \n" + msg,
-	"Thank you for playing! \n" + "~ Made by Alex Lang ~",
-	"With help from Isananda"
+	"Congratulations, You Won!",
+	string(global.game_percent) + "% Complete\n" + msg,
+	"Thank you for playing!\n" + "~ Made by Alex Lang ~"
 ];
 
 // fade text in and out
@@ -59,7 +60,7 @@ if finished {
 	quit_to_menu();
 	
 	audio_stop_sound(a_song_demo_hardcore);
-	audio_stop_sound(a_song_spring);
+	global.music = audio_play_sound(a_song_spring, 1, true);
 	
 	exit;
 }
