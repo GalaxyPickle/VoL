@@ -14,6 +14,9 @@ alpha = 0;
 alpha_skip = 1;
 alpha_switch = false;
 
+xx = 0;
+alpha2 = 0;
+
 // seconds for each subtitle
 timer = 
 [

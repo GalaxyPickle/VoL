@@ -2,6 +2,11 @@
 
 if finished
 	exit;
+	
+// draw bg image!!!
+draw_sprite_ext(s_intro_art, 0, xx, 0, 1, 1, 0, c_white, alpha2);
+
+draw_sprite(s_intro_text_backdrop, 0, 0, global.window_height);
 
 // draw skip text
 draw_set_font(f_chat);

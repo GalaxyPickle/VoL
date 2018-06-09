@@ -7,8 +7,15 @@ if keyboard_check_pressed(key_start_debug) {
 if keyboard_check_pressed(key_goto_boss) && global.test {
 	audio_stop_all();
 	room_goto(r_boss_room);
+	
 	global.player.x = 1000;
-	global.player.y = 400;
+	global.player.y = 4900;
+	
+	global.player.vitality_max = 500;
+	global.player.special_max = 500;
+	
+	global.ability_sunyata = true;
+	
 	exit;
 }
 

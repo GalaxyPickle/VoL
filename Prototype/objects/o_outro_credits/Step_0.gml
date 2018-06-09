@@ -1,5 +1,9 @@
 /// @description fade out
 
+if !instance_exists(o_player)
+	exit;
+
+var player = instance_nearest(x, y, o_player);
 //////////////////////////////////////////
 // CALC GAME PERCENT COMPLETE
 global.game_percent = 0;
@@ -33,20 +37,19 @@ global.game_percent += temp;
 if global.boss_killed_reptilian
 	global.game_percent += 14;
 ///////////////////////////////////////////
+if global.game_percent >= 100
+	var msg = "Wow, impressive. Now you can boast to your friends!";
+else
+	var msg = "Aw, you missed some things! Try again!";
 
 message = 
 [
-	"The Demon who came to destroy you has been defeated!",
-	"Now, The Last Hope may be awakened!",
-	"You win!",
-	
-	string(global.game_percent) + " Percent Completed \n" +
-		global.game_percent >= 100 ?
-			"Wow, impressive. Now you can boast to your friends!"
-		:
-			"Aw, you missed some things! Try again!",
-	
-	"Thank you for playing! \n" + "~ Made by Alex Lang ~"
+	"The Demon who came to destroy you has been defeated",
+	"Now, The Last Hope may be awakened",
+	"Congratulations, You Win!",
+	string(global.game_percent) + "% Completed \n" + msg,
+	"Thank you for playing! \n" + "~ Made by Alex Lang ~",
+	"With help from Isananda"
 ];
 
 // fade text in and out
@@ -55,8 +58,8 @@ if finished {
 	reset_progression();
 	quit_to_menu();
 	
-	if audio_is_playing(a_song_demo_hardcore)
-		audio_stop_sound(a_song_demo_hardcore);
+	audio_stop_sound(a_song_demo_hardcore);
+	audio_stop_sound(a_song_spring);
 	
 	exit;
 }

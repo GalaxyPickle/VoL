@@ -22,3 +22,10 @@ else alpha = 1;
 
 if finished && alpha > 0
 	alpha -= .011;
+	
+// shift the image
+if xx < 1024
+	xx -= .5;
+if alpha2 < 1
+	alpha2 += .01
+

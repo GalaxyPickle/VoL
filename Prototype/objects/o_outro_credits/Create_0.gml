@@ -2,8 +2,11 @@
 
 audio_play_sound(a_door_slam, 1, false);
 
+if audio_is_playing(a_song_demo_hardcore)
+	audio_sound_gain(a_song_demo_hardcore, 8, room_speed * 55);
+
 // grab messages for intro
-message = [];
+message = ["x"];
 
 current_message = -1;
 display_text = message[0];
@@ -15,12 +18,12 @@ alpha_switch = false;
 // seconds for each subtitle
 timer = 
 [
-	5,
-	10,
-	15,
-	20,
-	25,
-	30
+	8,
+	8,
+	8,
+	8,
+	8,
+	8
 ];
 for (var i = 0; i < array_length_1d(timer); i++) {
 	timer[i] *= room_speed;	

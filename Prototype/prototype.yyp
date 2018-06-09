@@ -9102,6 +9102,25 @@
             }
         },
         {
+            "Key": "885a57f2-3b78-4282-b73d-1c2872772e2c",
+            "Value": {
+                "id": "113d5bb4-11f0-47f6-9e91-5a07635f45ca",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/s_intro_art\/s_intro_art.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "889d76fd-c790-491e-94ea-44389865a200",
             "Value": {
                 "id": "27e02bdd-1be6-4a7a-9d8d-8719172845f2",
@@ -14590,6 +14609,25 @@
                 ],
                 "resourcePath": "scripts\/scr_ease_in_bounce\/scr_ease_in_bounce.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "dcc26691-6c4e-4560-8b86-809c72a9017a",
+            "Value": {
+                "id": "314d9d8a-6c17-4c2c-b4e8-072462ad456c",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/s_intro_text_backdrop\/s_intro_text_backdrop.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
