@@ -2,6 +2,9 @@
 
 global.mute = false;
 
+audio_stop_sound(global.music);
+audio_stop_sound(a_song_cavern_exploration);
+
 var play = true;
 var song = -1;
 var fog = false;
@@ -49,7 +52,7 @@ switch room_get_name(room) {
 		play_cave_ambiance = false;
 		break;
 		
-	// TITAN ROOM
+	// TRIAL ROOM
 	case "r_trial_room":
 		play_breath_ambiance = false;
 		play_cave_ambiance = false;
