@@ -5,6 +5,6 @@ event_inherited();
 row = 1;
 col = 3;
 
-c_start = c_red;
-c_end = c_orange;
-message = global.message_glyph_lore_intro_D;
+c_start = c_blue;
+c_end = c_yellow;
+message = global.message_glyph[7];

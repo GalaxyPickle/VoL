@@ -19,7 +19,7 @@ for (var i = 0; i < ds_list_size(global.NPC_list); i++) {
 	
 	var dist = point_distance(global.player.x, global.player.y, instance.x, instance.y);
 	
-	if dist > global.game_width / 2 + TILE_SIZE && dist > instance.sight_range {
+	if dist > global.game_width + TILE_SIZE && dist > instance.sight_range {
 		instance_deactivate_object(instance);
 	}
 	// we're within range bois, let player know there's an enemy

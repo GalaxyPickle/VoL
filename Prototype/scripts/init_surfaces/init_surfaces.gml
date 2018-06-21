@@ -5,5 +5,5 @@
 ///////////////////////////////////////////////
 
 global.player_surface = -1;
-
 global.ghost_surface = -1;
+global.normal_surface = -1;

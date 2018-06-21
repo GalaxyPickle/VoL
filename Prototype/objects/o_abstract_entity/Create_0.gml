@@ -215,23 +215,7 @@ x_direction = 0; // 1 = right, 0 = no input/last direction, -1 = left
 
 velocity = [0,0];
 
-// normal terrain
-var layer_id = layer_get_id("layer_tile_collision");
-collision_tile_map_id = layer_tilemap_get_id(layer_id);
-
-layer_id = layer_get_id("layer_tile_platform");
-platform_tile_map_id = layer_tilemap_get_id(layer_id);
-
-// ghost terrain
-layer_id = layer_get_id("layer_tile_ghost_collision");
-collision_ghost_tile_map_id = layer_tilemap_get_id(layer_id);
-
-layer_id = layer_get_id("layer_tile_ghost_platform");
-platform_ghost_tile_map_id = layer_tilemap_get_id(layer_id);
-
-// danger terrain
-layer_id = layer_get_id("layer_tile_danger");
-danger_tile_map_id = layer_tilemap_get_id(layer_id);
+entity_layer_setup();
 
 #endregion
 ////////////////////////////////////

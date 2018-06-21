@@ -8,7 +8,7 @@ var border_w = 200;
 var border_h = 10;
 var yheight = 200;
 var t_margin = 5;
-var xwidth = global.window_width - border_w * 2 - t_margin * 6;
+var xwidth = global.window_width - border_w * 2 - t_margin * 8;
 	
 var portrait_border_w = 10;
 var portrait_width = border_w - portrait_border_w * 2;
@@ -41,6 +41,7 @@ if interacting {
 		global.window_width - border_w - t_margin, 
 		global.window_height - border_h - t_margin, c_black, c_black, false);
 			
+	/*
 	// 3. draw the bg frame of the entity in question
 	var pc = c_black;
 	draw_roundrect_color(portrait_border_w, global.window_height - yheight - border_h, 
@@ -51,6 +52,7 @@ if interacting {
 	draw_sprite(sprite_portrait, 0, portrait_width / 2 + portrait_border_w,
 		global.window_height - (yheight - border_h) / 2);
 	
+	*/
 	#endregion
 	///////////////////////////////////////////
 	// 5. now we can draw some text stuff
@@ -66,7 +68,10 @@ if interacting {
 		message_current_finished = true;
 		
 		// draw next button sprites no matter what
-		var spr = s_textbox_key_gamepad;
+		var spr = s_textbox_key_keyboard;
+		if gamepad_is_connected(0)
+			spr = s_textbox_key_gamepad;
+			
 		outline_start(1, c_black, spr, 4);
 		draw_sprite(spr, 0,
 			global.window_width - border_w + t_margin * 3, 
@@ -109,7 +114,7 @@ if interacting {
 		}
 		
 		// text pos
-		var tX = border_w + t_margin * 3;
+		var tX = border_w + t_margin * 4;
 		var tY = global.window_height - yheight - border_h + t_margin * 3;
 	
 		// next message
@@ -169,7 +174,8 @@ else {
 	// reset chatbox
 	global.chatbox_up = false;
 	// if player is in interactable range...
-	if interactable && distance_to_object(global.player) < close_range {
+	if interactable && distance_to_object(global.player) < close_range
+		&& !global.sunyata {
 		show_interact_message(interact_text, .8);
 	}
 }

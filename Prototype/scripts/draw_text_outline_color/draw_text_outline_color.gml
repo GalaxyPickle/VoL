@@ -22,7 +22,7 @@
 
 draw_set_color(argument4);
 
-for(var dto_i=45; dto_i<405; dto_i+=360/argument5)
+for (var dto_i=45; dto_i<405; dto_i+=360/argument5)
 {
     draw_text(argument0+lengthdir_x(argument3,dto_i),argument1+lengthdir_y(argument3,dto_i),
 		string_hash_to_newline(argument2));

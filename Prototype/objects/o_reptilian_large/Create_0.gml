@@ -3,14 +3,24 @@
 // Inherit the parent event
 event_inherited();
 
+dialogue_read = false;
+interactable = true;
+message = 
+[
+	"Adama.",
+	"So it is true, your kind still exist. We thought you exterminated. A shame.",
+	"This temple shall be destroyed. And you will be destroyed. You will not achieve your last goal.",
+	"DIE!!!"
+];
+
 can_dodge = false;
-can_jump = true;
+can_jump = false;
 can_special = true;
 can_combo = true;
 can_attack_ground = true;
 can_attack_air = false;
 
-enemy_list = [o_player, o_mushroom_parent];
+enemy_list = [];
 
 ////////////////////////////////////
 // sprite setting
@@ -56,7 +66,8 @@ sound_land = a_reptilian_land;					// one-shot when hitting ground
 footstep_time = room_speed / 3;
 
 // recovery and stuff
-sound_pain = [a_reptilian_pain_1, a_reptilian_pain_2, a_reptilian_pain_3];		// a REALLY hurt sound when collapsing back
+sound_pain = [a_reptilian_pain_1, a_reptilian_pain_2, a_reptilian_pain_3,
+	a_reptilian_growl_1, a_reptilian_growl_2];		// a REALLY hurt sound when collapsing back
 sound_recovery = a_empty;						// healing sound?
 sound_dodge = a_empty;							// dodge sound
 sound_death = a_reptilian_death;					// DEATH sound
@@ -145,9 +156,9 @@ dodge_launch = TILE_SIZE - 16;
 // these are the velocities and damages of the respective attack
 attack_ground_1_stats = [
 	[10, -5],	// velocity of attack to opponent if poise broken (default facing right)
-	[10, 20],	// default health damage of the attack (basic, sweet)
+	[10, 15],	// default health damage of the attack (basic, sweet)
 	0,			// default stamina cost of the attack
-	20,			// default poise damage of the attack
+	15,			// default poise damage of the attack
 	10,			// default special amount increase from a successful attack
 	];
 attack_ground_2_stats = [
@@ -179,7 +190,7 @@ sight_range = 1000;
 jump_stamina_cost = 0;
 
 // VITALITY
-vitality_max = 4000;			// max health
+vitality_max = 3000;			// max health
 vitality = vitality_max;		// current health
 vitality_regen = .1;			// health regen rate per frame
 
@@ -191,7 +202,7 @@ stamina_regen = .6;
 // POISE
 poise_max = 100;
 poise = poise_max;
-poise_regen = .1;
+poise_regen = 1;
 
 // SPECIAL
 special_max = 500;

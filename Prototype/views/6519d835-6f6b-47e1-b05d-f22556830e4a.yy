@@ -16,7 +16,9 @@
         "fcff19df-e6a6-4401-a915-2fd500ca9139",
         "a573561c-d5ef-4e2d-af97-9e403e9d09b5",
         "2ed03ea2-c9e2-45c4-96f0-21cc2ba44bcd",
-        "eb6bf6c0-9628-4780-98f5-c8281b05073c"
+        "eb6bf6c0-9628-4780-98f5-c8281b05073c",
+        "5db2ac92-5118-441e-a1f0-e4328c043f2b",
+        "d24d06d0-480a-4668-8449-1a5b5d1c1243"
     ],
     "filterType": "GMSprite",
     "folderName": "old",

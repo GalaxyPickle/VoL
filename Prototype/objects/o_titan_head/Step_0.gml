@@ -21,4 +21,5 @@ else within_range = false;
 if dialogue_read && !global.chat_titan {
 	instance_destroy(Q);
 	global.chat_titan = true;
+	message = global.message_titan[1];
 }

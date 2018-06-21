@@ -214,7 +214,7 @@
             ]
         }
     ],
-    "gridX": 16,
+    "gridX": 32,
     "gridY": 32,
     "height": 160,
     "layers": [

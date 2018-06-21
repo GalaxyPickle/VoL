@@ -7,7 +7,7 @@ global.player = self;
 NPC = false;
 gamepad_input = false;
 
-enemy_list = [o_reptilian_large, o_worm, o_beetle, o_dummy];
+enemy_list = [o_worm, o_beetle, o_dummy];
 
 sprite_special_effect = s_player_laser_front;
 special_damage = 500;
@@ -93,11 +93,11 @@ sound_death = a_player_death;					// DEATH sound
 sound_special_warmup = a_sword_laser_warmup;
 sound_special = a_laser_blast;
 
-sound_attack_ground_1 = a_sword_ground_1;			// woosh of weapon sound
-sound_attack_ground_2 = a_sword_ground_2;
+sound_attack_ground_1 = a_sword_1;			// woosh of weapon sound
+sound_attack_ground_2 = a_sword_2;
 
-sound_attack_air_1 = a_sword_air_1;
-sound_attack_air_2 = a_sword_air_2;
+sound_attack_air_1 = a_sword_1;
+sound_attack_air_2 = a_sword_2;
 
 #endregion
 ////////////////////////////////////
@@ -296,20 +296,6 @@ dodge_launch = TILE_SIZE - 16;
 sight_range = global.game_width / 3;
 stun_time = room_speed / 2;
 
-// VITALITY
-vitality_max = 200;			// max health
-vitality = vitality_max;	// current health
-vitality_regen = .001;		// health regen rate per frame
-
-// POISE
-poise_max = 40;
-poise = poise_max;
-poise_regen = .08;
-
-// SPECIAL
-special_max = 100;
-special = 0;
-special_regen = 0;
 
 #endregion
 ////////////////////////////////////

@@ -52,7 +52,7 @@ if on_ground {
 	}
 	
 	// jumping
-	if jump_key_pressed && !pause_input {
+	if jump_key_pressed && !pause_input && !global.pause {
 		velocity[vector2_y] = -jump_speed_y;
 		stamina -= jump_stamina_cost;
 		

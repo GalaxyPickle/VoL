@@ -11,6 +11,7 @@ audio_channel_num(128);
 audio_master_gain(1);
 
 // load FX & music
+audio_group_load(audiogroup_default);
 audio_group_load(audiogroup_music);
 audio_group_load(audiogroup_FX);
 audio_group_load(audiogroup_ambiance);

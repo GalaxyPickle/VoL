@@ -53,8 +53,8 @@ if headshot {
 }
 
 if o_other.ghost_mode {
-	vitality_damage /= 2;
-	poise_damage /= 2;
+	vitality_damage *= .9;
+	poise_damage *= .9;
 }
 	
 // now apply the damage to enemy
@@ -62,7 +62,7 @@ o_other.vitality -= vitality_damage;
 o_other.poise -= poise_damage;
 
 // and apply special increase to self
-special += self_special_increase;
+special += 0;//self_special_increase;
 
 // lastly, set enemy to invincible so they don't get hit every frame for a million damage
 o_other.just_hit = true;
@@ -108,7 +108,7 @@ if vitality_damage > 0 {
 	damage_popup.headshot = headshot;
 	damage_popup.sweetspot = sweetspot;
 }
-
+/*
 if !NPC && self_special_increase > 0 {
 	// show the special popup!
 	var special_popup = instance_create_layer(x, hitbox_head_top, layer_id, o_damage_popup);

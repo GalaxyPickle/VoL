@@ -9,6 +9,8 @@ text = "Gem of Power Activated";
 activated = false;
 type = 0;
 
+goto = [x, y];
+
 // light
 radius = 800;
 color = c_white;

@@ -7,7 +7,10 @@ if !global.chat_titan {
 	Q = instance_create(x, bbox_top, o_question_mark);	
 }
 
-message = global.message_default;
+message = global.message_titan[0];
+if global.chat_titan
+	message = global.message_titan[1];
+
 message_sound = a_titan_hmm;
 interact_text = "Examine";
 

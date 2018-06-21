@@ -6,7 +6,7 @@ event_inherited();
 draw_my_healthbars = false;
 AI = AI_type.friendly_meander;
 
-interactable = false;
+interactable = true;
 message = global.message_default;
 
 enemy = false;
@@ -45,9 +45,11 @@ sprite_death = s_mushroom_parent_rest;
 ////////////////////////////////////
 #region
 
+message_sound = a_mush_hmm;
+
 // movement
 sound_idle = a_empty;							// not moving
-sound_run = a_reptilian_footstep;				// moving L/R
+sound_run = a_empty;							// moving L/R
 sound_jump = a_reptilian_footstep;					// one-shot when leaving ground
 sound_land = a_reptilian_footstep;					// one-shot when hitting ground
 

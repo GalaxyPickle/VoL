@@ -12,6 +12,8 @@ if place_meeting(x, y, global.player) {
 		global.player.vitality = global.player.vitality_max;
 	}
 	else if type == 1 {
+		if !global.ability_sunyata
+			global.ability_sunyata = true;
 		global.player.special_max += 100;
 		global.player.special = global.player.special_max;
 	}

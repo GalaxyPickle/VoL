@@ -13,16 +13,16 @@ global.NPC_list = ds_list_create();
 global.light_list = ds_list_create();
 global.active_list = ds_list_create();
 
-global.cutscene_list = ds_list_create();
+global.room_list_name = ds_map_create();
+ds_map_add(global.room_list_name, r_entrance_room, "ENTRANCE CAVE");
+ds_map_add(global.room_list_name, r_sunyata_room, "CHAMBER OF EYES");
+ds_map_add(global.room_list_name, r_titan_room, "THE LAST HAVEN");
+ds_map_add(global.room_list_name, r_trial_room, "HALL OF TRIALS");
 
-global.room_list = ds_map_create();
-ds_map_add(global.room_list, r_first_room, "Entrance");
+global.death_room_pos = [0, 0];
 
 // make all random calls different each game run
 randomize();
-
-// settings
-global.high_graphics = true;
 
 global.pause = false;
 global.gameover = false;
@@ -46,21 +46,23 @@ global.game_percent = 0;
 score = 0;
 health = 0;
 
+global.player_start_vitality = 200;
+global.player_start_special = 0;
+
+global.died = false;
+global.death_vitality = 0;
+global.death_vitality_current = 0;
+global.death_sunyata = 0;
+global.death_sunyata_current = 0;
+global.death_room = r_first_room;
+
 global.chatbox_up = false;
 
 // boss progression - abilities used for this
 global.boss_killed_reptilian = false;
 
-global.boss_killed_red = false;
-global.boss_killed_blue = false;
-global.boss_killed_yellow = false;
-
-global.boss_killed_demon_lord = false;
-
 // story progression?
 global.chat_titan = false;
-global.chat_reptilian = false;
-global.chat_demon_lord = false;
 
 // glyph stuff
 global.glyphs = 
@@ -80,7 +82,6 @@ global.gems = [false, false, false];
 
 global.sunyata = false;
 
-
 //////////// OLD ///////////
 
 // all the unlockable abilities
@@ -91,14 +92,14 @@ global.ability_ascension = false;
 // whirlwind is a combo system that increases your attack speed based on successful hits
 global.ability_whirlwind = false;
 // cracked is TBD
-global.ability_sunyata = true;
+global.ability_sunyata = false;
 
 // special stats
 
 // whirlwind
 global.combo = 0;
-global.combo_default_max = 5;
-global.combo_ability_max = 5;
+global.combo_default_max = 1;
+global.combo_ability_max = 10;
 
 // ascension
 global.double_jump = false;
