@@ -31,9 +31,20 @@ if on_ground {
 	if x_direction != 0 {
 		sprite_index = sprite_run;
 		
-		if play_sound_footstep {
-			if !audio_is_playing(sound_step)
-				sound_step = audio_play_sound_on(s_emit, sound_run, false, 1);
+		var run_playing = false;
+		for (var i = 0; i < array_length_1d(run_sounds); i++) {
+			if audio_is_playing(run_sounds[i]) {
+				run_playing = true;
+				break;
+			}
+		}
+		
+		if (floor(image_index) == 3 || floor(image_index) == 7) && !run_playing {
+			var snd = tile_collide_at_points_sound(sound_tile_map_id,
+				[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]);
+				
+			audio_play_sound_on(s_emit, run_sounds[snd >= 0 ? snd : 0], false, 1);
+			//show_debug_message("playing run sound: " + string(snd));
 		}
 	}
 	else {
@@ -41,7 +52,7 @@ if on_ground {
 	}
 	
 	// jumping
-	if jump_key_pressed {
+	if jump_key_pressed && !pause_input && !global.pause {
 		velocity[vector2_y] = -jump_speed_y;
 		stamina -= jump_stamina_cost;
 		
@@ -66,7 +77,7 @@ else if on_wall_jump_left || on_wall_jump_right {
 			pause_input_start = true;
 			
 			// sound
-			audio_play_sound_on(s_emit, a_player_jump, false, 1);
+			audio_play_sound_on(s_emit, sound_jump, false, 1);
 		}
 	}
 }
@@ -74,17 +85,19 @@ else if on_wall_jump_left || on_wall_jump_right {
 else {
 	// set jump sprite
 	sprite_index = sprite_air;
-
-	// double jump if you have the ability
-	if global.ability_ascension && global.double_jump && jump_key_pressed {
-		
-		velocity[vector2_y] = -jump_speed_y * 5 / 4;
-		
-		global.double_jump = false;
-		// sound
-		audio_play_sound_on(s_emit, sound_jump, false, 1);
-	}
 }
+
+// double jump if you have the ability
+if global.ability_ascension && global.double_jump && jump_key_pressed {
+		
+	velocity[vector2_y] = -jump_speed_y * 5 / 4;
+		
+	//global.double_jump = false;
+	// sound
+	audio_play_sound_on(s_emit, sound_jump, false, 1);
+}
+
+// short hop
 if !on_ground && !jump_key_held && velocity[vector2_y] < 0 {
 	velocity[vector2_y] = lerp(velocity[vector2_y], 0, .1);
 }

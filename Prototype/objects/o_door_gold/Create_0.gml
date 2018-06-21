@@ -4,3 +4,7 @@
 event_inherited();
 
 ready = false;
+
+// see if it's active already
+if check_if_activated()
+	ready = true;

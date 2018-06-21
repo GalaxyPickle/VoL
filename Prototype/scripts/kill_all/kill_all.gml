@@ -9,9 +9,13 @@ if part_system_exists(global.ps) {
 	part_emitter_destroy_all(global.ps);
 	part_system_destroy(global.ps);
 }
-if part_system_exists(global.ps_behind) {
-	part_emitter_destroy_all(global.ps_behind);
-	part_system_destroy(global.ps_behind);
+if part_system_exists(global.ps_between) {
+	part_emitter_destroy_all(global.ps_between);
+	part_system_destroy(global.ps_between);
+}
+if part_system_exists(global.ps_top) {
+	part_emitter_destroy_all(global.ps_top);
+	part_system_destroy(global.ps_top);
 }
 if part_system_exists(global.ps_ghost) {
 	part_emitter_destroy_all(global.ps_ghost);
@@ -28,7 +32,14 @@ if ds_exists(global.NPC_list, ds_type_list)
 // kill light list
 if ds_exists(global.light_list, ds_type_list)
 	ds_list_destroy(global.light_list);
-
+// kill active list
+if ds_exists(global.active_list, ds_type_list)
+	ds_list_destroy(global.active_list);
+	
+// room list
+if ds_exists(global.room_list_name, ds_type_map)
+	ds_map_destroy(global.room_list_name);
+	
 ///////////////////////////////////////////
 // SURFACES
 ///////////////////////////////////////////
@@ -39,3 +50,4 @@ if surface_exists(global.player_surface)
 // kill ghost surface
 if surface_exists(global.ghost_surface)
 	surface_free(global.ghost_surface);
+	

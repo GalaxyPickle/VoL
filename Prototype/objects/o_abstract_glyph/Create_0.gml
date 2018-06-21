@@ -5,18 +5,20 @@ event_inherited();
 
 interact_text = "Decipher";
 
+row = 0;
+col = 0;
+
 ////////////////////////////////////////////////
 // lightsource
 ////////////////////////////////////////////////
-lightsource = instance_create_layer(x - 5 + sprite_get_width(sprite_index) / 2, 
-	y - 5 + sprite_get_height(sprite_index) / 2, "layer_instance_lights", o_lightsource);
+lightsource = instance_create_layer(x - 5 + sprite_width / 2, 
+	y - 5 + sprite_height / 2, "layer_instance_lights", o_lightsource);
 with lightsource {
 	pl_light_init(100, c_orange, .5);
 }
 
 // other stuff
 interactable = true;
-type = global.glyph_intro[@ 0];
 
 c_start = c_orange;
 c_end = c_orange;
@@ -36,6 +38,7 @@ outline_thickness = 1;
 
 //////////////////////////////////////////////////
 // make a particle type to use with the system
+//////////////////////////////////////////////////
 first_particle = part_type_create();
 
 // set the shape of the particle
@@ -65,9 +68,20 @@ part_type_blend(first_particle, true);
 first_emitter = part_emitter_create(global.ps);
 // set the emitter region
 part_emitter_region(global.ps, first_emitter,
-	x - 4 - 10, x + sprite_get_width(sprite_index) - 4 + 10,
-	y - 4 - 10, y + sprite_get_height(sprite_index) - 4 + 10,
+	x - 4 - 10, x + sprite_width - 4 + 10,
+	y - 4 - 10, y + sprite_height - 4 + 10,
 	ps_shape_rectangle, ps_distr_invgaussian);
 
 // make a burst from the emitter
 part_emitter_stream(global.ps, first_emitter, first_particle, -5);
+
+///////////////////
+// don't turn on if read already
+///////////////////
+if check_if_activated() {
+	
+	part_emitter_clear(global.ps, first_emitter);
+	audio_stop_sound(s_pulse);
+	shutdown = true;
+	dialogue_read = true;
+}

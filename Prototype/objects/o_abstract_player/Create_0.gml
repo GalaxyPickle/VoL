@@ -7,7 +7,7 @@ global.player = self;
 NPC = false;
 gamepad_input = false;
 
-enemy_list = [o_reptilian_large, o_worm, o_beetle, o_dummy];
+enemy_list = [o_worm, o_beetle, o_dummy];
 
 sprite_special_effect = s_player_laser_front;
 special_damage = 500;
@@ -19,12 +19,16 @@ changed = false;
 
 // lightsource
 lightsource = instance_create_layer(x, y, "layer_instance_lights", o_lightsource);
-light_radius = 300;
+light_radius = 200;
 with lightsource {
-	pl_light_init(other.light_radius, c_white, .7);
+	pl_light_init(other.light_radius, c_white, .5);
 	pl_active = false;
 	player = true;
 }
+
+// sound collisions
+var layer_id = layer_get_id("layer_tile_sound");
+sound_tile_map_id = layer_tilemap_get_id(layer_id);
 
 ////////////////////////////////////
 // sprite setting
@@ -66,33 +70,34 @@ sprite_death = s_enemy_default;
 #region
 
 // movement
-sound_idle = a_player_footstep;						// not moving
-sound_run = a_reptilian_footstep;				// moving L/R
+sound_idle = a_empty;						// not moving
 sound_jump = a_player_jump;					// one-shot when leaving ground
 sound_land = a_player_land;					// one-shot when hitting ground
 
+sound_run = a_reptilian_footstep;				// moving L/R
+
+// run sounds for different terrain
+sound_run_stone = a_reptilian_footstep;
+sound_run_mush = a_footstep_mush;
+sound_run_metal = a_footstep_metal;
+
+run_sounds = [sound_run, sound_run_stone, sound_run_mush, sound_run_metal];
+
 // recovery and stuff
-sound_take_damage = a_player_hit;				// an "OOF!" or hurt sound when hit
-sound_poise_break = a_player_pain;				// a REALLY hurt sound when collapsing back
-sound_recovery = a_player_footstep;				// healing sound?
+sound_pain = [a_player_pain_1, a_player_pain_2, a_player_pain_3];	// a REALLY hurt sound when collapsing back
+sound_recovery = a_player_land;				// healing sound?
 sound_dodge = a_player_roll;					// dodge sound
-sound_death = a_player_footstep;					// DEATH sound
+sound_death = a_player_death;					// DEATH sound
 
 // attack sounds
 sound_special_warmup = a_sword_laser_warmup;
 sound_special = a_laser_blast;
 
-sound_attack_ground_1 = a_sword_slice_1;			// woosh of weapon sound
-sound_attack_charge_ground_1 = a_player_footstep;	// the charged up woosh of weapon sound
+sound_attack_ground_1 = a_sword_1;			// woosh of weapon sound
+sound_attack_ground_2 = a_sword_2;
 
-sound_attack_ground_2 = a_sword_slice_2;
-sound_attack_charge_ground_2 = a_player_footstep;
-
-sound_attack_air_1 = a_sword_slice_1;
-sound_attack_charge_air_1 = a_player_footstep;
-
-sound_attack_air_2 = a_sword_slice_2;
-sound_attack_charge_air_2 = a_player_footstep;
+sound_attack_air_1 = a_sword_1;
+sound_attack_air_2 = a_sword_2;
 
 #endregion
 ////////////////////////////////////
@@ -169,6 +174,17 @@ attack_air_1_point_array = [
 	
 // air 2
 // frames = 7; critical = 3
+var a2_frame1_basic = [ -48, 0, -64, -16, 0, -8 ];
+var a2_frame1_sweet = [
+	[ -72, 0, -80, -8, -72, -16 ],
+	[ -72, -16, -12, -16, -8, -12 ]
+	];
+var a2_frame2_basic = [ -16, -16, 48, 16, 64, 40 ];
+var a2_frame2_sweet = [
+	[ -16, -20, 32, -4, 60, 16 ],
+	[ 32, -4, 60, 16, 72, 44 ],
+	[ 60, 16, 72, 44, 60, 40 ]
+	];
 var a2_frame3_basic = [ 26, 20, 48, 48, 64, 32 ];
 var a2_frame3_sweet = [
 	[ 32, 42, 36, 56, 64, 58 ],
@@ -177,8 +193,8 @@ var a2_frame3_sweet = [
 	];
 
 attack_air_2_point_array = [
-	[],
-	[],
+	[ a2_frame1_basic, a2_frame1_sweet ],
+	[ a2_frame2_basic, a2_frame2_sweet ],
 	[ a2_frame3_basic, a2_frame3_sweet ],
 	[],
 	[],
@@ -280,25 +296,6 @@ dodge_launch = TILE_SIZE - 16;
 sight_range = global.game_width / 3;
 stun_time = room_speed / 2;
 
-// VITALITY
-vitality_max = 500;			// max health
-vitality = vitality_max;	// current health
-vitality_regen = .001;		// health regen rate per frame
-
-// STAMINA
-stamina_max = 100;
-stamina = stamina_max;
-stamina_regen = .5;
-
-// POISE
-poise_max = 40;
-poise = poise_max;
-poise_regen = .08;
-
-// SPECIAL
-special_max = 500;
-special = 0;
-special_regen = 0;
 
 #endregion
 ////////////////////////////////////

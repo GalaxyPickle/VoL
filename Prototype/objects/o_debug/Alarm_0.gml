@@ -1,3 +1,3 @@
 /// @description 
 
-alarm[0] = global.dt_steady;
+show_info = false;

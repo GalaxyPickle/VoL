@@ -68,7 +68,7 @@ sprite_attack_air_2 = sprite_index;
 
 // death/fail sprites
 sprite_death = sprite_index;
-sprite_corpse = a_empty;
+sprite_corpse = s_empty;
 
 #endregion
 ////////////////////////////////////
@@ -91,8 +91,7 @@ play_sound_footstep = a_empty;
 footstep_time = room_speed / 4;
 
 // recovery and stuff
-sound_take_damage = a_empty;				// an "OOF!" or hurt sound when hit
-sound_poise_break = a_empty;				// a REALLY hurt sound when collapsing back
+sound_pain = [a_empty];					// a REALLY hurt sound when collapsing back
 sound_recovery = a_empty;				// healing sound?
 sound_dodge = a_empty;					// dodge sound
 sound_death = a_empty;					// DEATH sound
@@ -102,16 +101,10 @@ sound_special_warmup = a_empty;
 sound_special = a_empty;
 
 sound_attack_ground_1 = a_empty;			// woosh of weapon sound
-sound_attack_charge_ground_1 = a_empty;	// the charged up woosh of weapon sound
-
 sound_attack_ground_2 = a_empty;
-sound_attack_charge_ground_2 = a_empty;
 
-sound_attack_air_1 = a_empty;
-sound_attack_charge_air_1 = a_empty;
-
+sound_attack_air_1 = a_empty
 sound_attack_air_2 = a_empty;
-sound_attack_charge_air_2 = a_empty;
 
 current_attack_sound = sound_attack_ground_1;
 
@@ -222,23 +215,7 @@ x_direction = 0; // 1 = right, 0 = no input/last direction, -1 = left
 
 velocity = [0,0];
 
-// normal terrain
-var layer_id = layer_get_id("layer_tile_collision");
-collision_tile_map_id = layer_tilemap_get_id(layer_id);
-
-layer_id = layer_get_id("layer_tile_platform");
-platform_tile_map_id = layer_tilemap_get_id(layer_id);
-
-// ghost terrain
-layer_id = layer_get_id("layer_tile_ghost_collision");
-collision_ghost_tile_map_id = layer_tilemap_get_id(layer_id);
-
-layer_id = layer_get_id("layer_tile_ghost_platform");
-platform_ghost_tile_map_id = layer_tilemap_get_id(layer_id);
-
-// danger terrain
-layer_id = layer_get_id("layer_tile_danger");
-danger_tile_map_id = layer_tilemap_get_id(layer_id);
+entity_layer_setup();
 
 #endregion
 ////////////////////////////////////

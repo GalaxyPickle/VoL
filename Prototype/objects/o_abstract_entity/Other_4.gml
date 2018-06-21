@@ -1,3 +1,4 @@
 /// @description do automatic setup for entity
 
-entity_setup();
+if NPC
+	entity_setup();

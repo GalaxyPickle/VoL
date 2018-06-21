@@ -8,21 +8,6 @@
             {
                 "Key": 1,
                 "Value": {
-                    "id": "f3ddbf6d-1392-448c-89e0-ee773126a8b2",
-                    "modelName": "GMTextureGroup",
-                    "mvc": "1.0",
-                    "groupName": "player",
-                    "targets": 29263750006690030,
-                    "autocrop": false,
-                    "border": 2,
-                    "groupParent": "00000000-0000-0000-0000-000000000000",
-                    "mipsToGenerate": 0,
-                    "scaled": true
-                }
-            },
-            {
-                "Key": 2,
-                "Value": {
                     "id": "56c0b564-e08b-4bc9-afcb-8a1a262b6a97",
                     "modelName": "GMTextureGroup",
                     "mvc": "1.0",
@@ -32,11 +17,11 @@
                     "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
                     "mipsToGenerate": 0,
-                    "scaled": true
+                    "scaled": false
                 }
             },
             {
-                "Key": 3,
+                "Key": 2,
                 "Value": {
                     "id": "46d544c0-c96e-4bf5-bf26-0b1afd5a95ee",
                     "modelName": "GMTextureGroup",
@@ -45,21 +30,6 @@
                     "targets": 29263750006690030,
                     "autocrop": false,
                     "border": 1,
-                    "groupParent": "00000000-0000-0000-0000-000000000000",
-                    "mipsToGenerate": 0,
-                    "scaled": true
-                }
-            },
-            {
-                "Key": 4,
-                "Value": {
-                    "id": "e08c118c-f300-46b9-8d89-23df6c6de703",
-                    "modelName": "GMTextureGroup",
-                    "mvc": "1.0",
-                    "groupName": "bg",
-                    "targets": 29263750006690030,
-                    "autocrop": true,
-                    "border": 2,
                     "groupParent": "00000000-0000-0000-0000-000000000000",
                     "mipsToGenerate": 0,
                     "scaled": true
@@ -78,7 +48,7 @@
     "targets": 29263750006690030,
     "mipsToGenerate": 0,
     "border": 2,
-    "scaled": true,
+    "scaled": false,
     "autocrop": true
 }←7fa50043-cea6-4cd0-9521-a8ba8c6ea9f0|{
     "audioGroups": {
@@ -100,6 +70,16 @@
                     "modelName": "GMAudioGroup",
                     "mvc": "1.0",
                     "groupName": "audiogroup_music",
+                    "targets": 29263750006690030
+                }
+            },
+            {
+                "Key": 3,
+                "Value": {
+                    "id": "ed784dd4-feb0-4afc-ac65-01b156688539",
+                    "modelName": "GMAudioGroup",
+                    "mvc": "1.0",
+                    "groupName": "audiogroup_ambiance",
                     "targets": 29263750006690030
                 }
             }

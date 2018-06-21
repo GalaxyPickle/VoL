@@ -21,6 +21,10 @@ else if AI_goal_object.x > x
 	x_direction = 1;
 
 // Y
+// if i'm on a platform and player is beneath me
+if on_platform && goal.y - close_range / 2 > y
+	key_down = true;
+else key_down = false;
 
 // JUMPing and following player
 if !can_jump

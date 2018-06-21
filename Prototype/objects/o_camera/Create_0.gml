@@ -19,7 +19,7 @@ glide_rate_y = 8;
 
 follow_xscale = 1;
 can_pan = true;
-alarm[0] = global.dt_steady * 1 / 2; // .5 sec
+alarm[0] = 1;
 
 shake_rate = 5;
 shaking = false;

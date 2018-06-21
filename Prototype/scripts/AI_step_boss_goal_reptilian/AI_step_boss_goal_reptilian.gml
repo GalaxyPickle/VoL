@@ -16,7 +16,7 @@ else {
 	// if I just attacked, I have to rest
 	if AI_goal == AI_states.fight && vitality > vitality_max / 4 {
 		AI_goal = AI_states.wait;
-		alarm[8] = room_speed * 3;
+		alarm[8] = room_speed;
 		exit;
 	}
 }
@@ -31,7 +31,7 @@ else if vitality < vitality_max / 4 {
 		AI_goal = AI_states.fight;
 		alarm[8] = room_speed / 4;
 	}
-	else AI_goal = AI_states.flee;
+	else AI_goal = AI_states.seek;
 }
 else {
 	if roll_chance(1) && distance_to_object(AI_goal_object) < close_range {

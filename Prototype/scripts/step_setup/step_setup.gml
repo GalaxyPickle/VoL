@@ -28,10 +28,11 @@ else {
 ////////////////////////////////////////////////////////////////////////////
 
 // danger collisions
-in_danger = move_and_check_contact_tiles(danger_tile_map_id, velocity);
+in_danger = ( move_and_check_contact_tiles(danger_tile_map_id, velocity) && !ghost_mode) ||
+	( move_and_check_contact_tiles(danger_ghost_tile_map_id, velocity) && ghost_mode);
 
-if in_danger && !invincible && !ghost_mode && !dead {
-	var vit_dmg = 100;
+if in_danger && !invincible && !dead {
+	var vit_dmg = vitality_max / 10;
 	
 	just_hit = true;
 	current_state = states.pain;
@@ -54,16 +55,19 @@ if in_danger && !invincible && !ghost_mode && !dead {
 
 // on platform?
 on_platform = 
-	( 
+	(
 	tile_collide_at_points(platform_tile_map_id,
 		[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) 
 	||
 	( tile_collide_at_points(platform_ghost_tile_map_id,
 		[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) && ghost_mode )
-	) 
+	||
+	( tile_collide_at_points(platform_normal_tile_map_id,
+		[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) && !ghost_mode )
+	)
 	&& velocity[vel_y] >= 0;
 		
-if ( !NPC && (keyboard_check(global.key_down) || gamepad_axis_value(0, gp_axislv) >= .5) ) || 
+if ( !NPC && !global.pause && ( keyboard_check(global.key_down) || gamepad_axis_value(0, gp_axislv) >= .5 ) ) || 
 	(NPC && key_down) || dropping {
 	if on_platform && velocity[vel_y] == 0 {
 		alarm[5] = room_speed / 4;
@@ -109,7 +113,9 @@ if on_platform && velocity[vel_y] > 0
 	var tile_bottom = tile_collide_at_points(platform_tile_map_id,
 			[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) ||
 		( tile_collide_at_points(platform_ghost_tile_map_id,
-			[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) && ghost_mode );
+			[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) && ghost_mode ) ||
+		( tile_collide_at_points(platform_normal_tile_map_id,
+			[ [bbox_left, bbox_bottom], [bbox_right-1, bbox_bottom] ]) && !ghost_mode );
 		
 	if tile_bottom {
 		y = bbox_bottom & ~(TILE_SIZE-1);
@@ -179,7 +185,7 @@ if on_ground {
 }
 // friction regardless of on ground or not
 else {
-	if !move || x_direction == 0 || (current_state != states.idle && current_state != states.dodge) {
+	if !move || x_direction == 0 || (current_state != states.idle) {
 		velocity[vel_x] = lerp(velocity[vel_x], 0, horizontal_friction / 10);
 	}
 }
@@ -205,7 +211,7 @@ if o != self && distance_to_point(o.x, o.y) < 10 &&
 var max_vel_y = TILE_SIZE * 3 / 8;
 
 // apply gravity
-if velocity[vel_y] <= max_vel_y && !on_ground {
+if velocity[vel_y] <= max_vel_y && !on_ground && !(ghost_mode && current_state == states.dodge) {
 	velocity[vel_y] += global.GRAVITY;
 }
 

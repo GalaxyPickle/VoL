@@ -1,5 +1,7 @@
 /// @description draw debug and healthbars
 
+event_inherited();
+
 draw_set_font(f_debug);
 
 if global.hitboxes {

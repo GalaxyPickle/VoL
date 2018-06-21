@@ -1,9 +1,9 @@
-/// @description 
+/// @description setup draw vars
 
 event_inherited();
 
 draw_variables = [];
-draw_my_healthbars = true;
+draw_my_healthbars = false;
 
 interact_text = "Commune";
 

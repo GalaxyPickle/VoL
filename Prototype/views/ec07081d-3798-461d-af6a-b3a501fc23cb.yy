@@ -10,7 +10,9 @@
         "58045085-ed27-4b11-92dd-fc23d011af7c",
         "413459f4-af1c-42c4-a276-ae903ea7927a",
         "3f7b25d7-1567-4f00-aa20-69312a6b22b1",
-        "957550e0-ad29-42c6-9053-6e2e629c8fe7"
+        "957550e0-ad29-42c6-9053-6e2e629c8fe7",
+        "1404a09a-5feb-4a1a-8caa-bad8dd7ebf01",
+        "21e6882b-22d7-4abf-ac53-fe6751067dbc"
     ],
     "filterType": "GMSprite",
     "folderName": "tutorial",

@@ -3,7 +3,7 @@
     "modelName": "GMSound",
     "mvc": "1.0",
     "name": "a_tinkle",
-    "audioGroupGuid": "bacdb657-c3f1-4431-a168-435ed0ec7518",
+    "audioGroupGuid": "ed784dd4-feb0-4afc-ac65-01b156688539",
     "bitDepth": 1,
     "bitRate": 128,
     "kind": 0,

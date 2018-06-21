@@ -51,13 +51,18 @@ if headshot {
 	poise_damage *= 2;
 	self_special_increase *= 2;
 }
+
+if o_other.ghost_mode {
+	vitality_damage *= .9;
+	poise_damage *= .9;
+}
 	
 // now apply the damage to enemy
 o_other.vitality -= vitality_damage;
 o_other.poise -= poise_damage;
 
 // and apply special increase to self
-special += self_special_increase;
+special += 0;//self_special_increase;
 
 // lastly, set enemy to invincible so they don't get hit every frame for a million damage
 o_other.just_hit = true;
@@ -88,9 +93,10 @@ var particle_layer = layer_get_id("layer_instance_particles");
 if headshot
 	var part_top = o_other.hitbox_head_top;
 else var part_top = o_other.y;
-	
-particle_fluffy_burst(o_other.x, part_top, pt_shape_disk, 5, c_red, c_maroon, 120,
-	image_xscale == 1 ? 45 : 135, 3, 10 + random(10));
+
+if other.vitality > 0
+	particle_fluffy_burst(o_other.x, part_top, pt_shape_disk, 5, c_red, c_maroon, 120,
+		image_xscale == 1 ? 45 : 135, 3, 10 + random(10));
 
 
 /////////////////////////////////////////////////////////////
@@ -102,7 +108,7 @@ if vitality_damage > 0 {
 	damage_popup.headshot = headshot;
 	damage_popup.sweetspot = sweetspot;
 }
-
+/*
 if !NPC && self_special_increase > 0 {
 	// show the special popup!
 	var special_popup = instance_create_layer(x, hitbox_head_top, layer_id, o_damage_popup);

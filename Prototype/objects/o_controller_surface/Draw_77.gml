@@ -3,6 +3,9 @@
 var sun_p = sun;
 sun = global.sunyata;
 
+var xx = (global.player.x - global.view_x) * 2;
+var yy = (global.player.y - global.view_y) * 2;
+
 draw_set_alpha(1);
 if global.sunyata {
 	
@@ -15,9 +18,6 @@ if global.sunyata {
 		draw_clear_alpha(c_black, 0);
 		surface_reset_target();
 	}
-	
-	var xx = (global.player.x - global.view_x) * 2;
-	var yy = (global.player.y - global.view_y) * 2;
 
 	// draw application surface to surf
 	if !surface_exists(surf)
@@ -52,26 +52,50 @@ if global.sunyata {
 	draw_surface(surf, 0, 0);
 	shader_reset();
 	
-	var ghost_id = layer_get_id("layer_tile_ghost_base");
-	var ghost_id_2 = layer_get_id("layer_tile_ghost_base_top");
-	
-	if layer_tilemap_exists(ghost_id, layer_tilemap_get_id(ghost_id)) {
-		draw_tilemap(layer_tilemap_get_id(ghost_id), 0, 0);
-		draw_tilemap(layer_tilemap_get_id(ghost_id_2), 0, 0);
-	}
+	// draw all the surfaces
 	
 	if surface_exists(global.ghost_surface)
 		draw_surface_stretched(global.ghost_surface, 0, 0, global.window_width, global.window_height);
 	
+	if surface_exists(global.normal_surface) {
+		draw_surface_stretched_ext(global.normal_surface, 0, 0, global.window_width, global.window_height,
+			c_white, .25);
+	}
+	
 	if surface_exists(global.player_surface)
 		draw_surface(global.player_surface, 0, 0);
 		
-	surface_set_target(global.player_surface);
-	draw_clear_alpha(c_black, 0);
-	surface_reset_target();
-
+	// clear the alpha
 	surface_set_target(global.ghost_surface);
 	draw_clear_alpha(c_black, 0);
 	surface_reset_target();
+	
+	surface_set_target(global.normal_surface);
+	draw_clear_alpha(c_black, 0);
+	surface_reset_target();
+	
+	surface_set_target(global.player_surface);
+	draw_clear_alpha(c_black, 0);
+	surface_reset_target();
 }
-else draw_surface(application_surface, 0, 0);
+else {
+	// not sunyata mode
+	draw_surface(application_surface, 0, 0);
+	
+	if surface_exists(global.ghost_surface) {
+		draw_surface_stretched_ext(global.ghost_surface, 0, 0, global.window_width, global.window_height,
+			c_white, .25);
+	}
+	
+	if surface_exists(global.normal_surface)
+		draw_surface_stretched(global.normal_surface, 0, 0, global.window_width, global.window_height);
+
+	// clear the alpha
+	surface_set_target(global.ghost_surface);
+	draw_clear_alpha(c_black, 0);
+	surface_reset_target();
+	
+	surface_set_target(global.normal_surface);
+	draw_clear_alpha(c_black, 0);
+	surface_reset_target();
+}

@@ -6,7 +6,7 @@ event_inherited();
 draw_my_healthbars = false;
 AI = AI_type.friendly_meander;
 
-interactable = false;
+interactable = true;
 message = global.message_default;
 
 enemy = false;
@@ -45,9 +45,11 @@ sprite_death = s_mushroom_parent_rest;
 ////////////////////////////////////
 #region
 
+message_sound = a_mush_hmm;
+
 // movement
-sound_idle = a_test;							// not moving
-sound_run = a_reptilian_footstep;				// moving L/R
+sound_idle = a_empty;							// not moving
+sound_run = a_empty;							// moving L/R
 sound_jump = a_reptilian_footstep;					// one-shot when leaving ground
 sound_land = a_reptilian_footstep;					// one-shot when hitting ground
 
@@ -56,19 +58,16 @@ footstep_time = room_speed / 4;
 // recovery and stuff
 sound_take_damage = a_reptilian_footstep;				// an "OOF!" or hurt sound when hit
 sound_poise_break = a_reptilian_footstep;			// a REALLY hurt sound when collapsing back
-sound_recovery = a_test;						// healing sound?
-sound_dodge = a_test;							// dodge sound
-sound_death = a_test;							// DEATH sound
+sound_recovery = a_empty;						// healing sound?
+sound_dodge = a_empty;							// dodge sound
+sound_death = a_empty;							// DEATH sound
 
 // attack sounds
 sound_attack_ground_1 = a_reptilian_footstep;			// woosh of weapon sound
-sound_attack_charge_ground_1 = a_test;			// the charged up woosh of weapon sound
 
 sound_attack_ground_2 = a_reptilian_footstep;
-sound_attack_charge_ground_2 = a_test;
 
 sound_attack_air_1 = a_reptilian_footstep;
-sound_attack_charge_air_1 = a_test;
 
 #endregion
 ////////////////////////////////////

@@ -38,6 +38,7 @@ sprite_corpse = s_empty;
 #region
 
 sound_death = a_worm_death;	// DEATH sound
+sound_land = a_worm_land;
 
 #endregion
 //////////////////////////////////

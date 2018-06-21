@@ -4,6 +4,8 @@
 // PLAYER
 //////////////////////////////////////////////
 
+/*
+
 // movement sprites
 sprite_set_speed(s_player_rest, .03, spritespeed_framespergameframe);
 sprite_set_speed(s_player_run, .2, spritespeed_framespergameframe);
@@ -29,7 +31,6 @@ sprite_set_speed(s_player_attack_air_2, .3, spritespeed_framespergameframe);
 // movement sprites
 sprite_set_speed(s_reptilian_rest, .05, spritespeed_framespergameframe);
 sprite_set_speed(s_reptilian_run, .2, spritespeed_framespergameframe);
-sprite_set_speed(s_reptilian_dodge, .4, spritespeed_framespergameframe);
 
 // attack sprites
 sprite_set_speed(s_reptilian_attack_ground_1, .3, spritespeed_framespergameframe);

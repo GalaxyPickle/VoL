@@ -7,7 +7,7 @@
         "f0e88f29-1e5e-4152-9292-f0c6e44e5f9d"
     ],
     "filterType": "GMObject",
-    "folderName": "large reptilian",
+    "folderName": "bosses",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

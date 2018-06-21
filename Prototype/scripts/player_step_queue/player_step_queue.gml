@@ -6,7 +6,7 @@ if gamepad_is_connected(0)
 else gamepad_input = false;
 
 var attack_key_pressed = keyboard_check_pressed(key_attack) || gamepad_button_check_pressed(0, gp_attack);
-var dodge_key_pressed = keyboard_check_pressed(key_dodge) || gamepad_button_check_pressed(0, gp_dodge);
+var dodge_key_pressed = keyboard_check_pressed(key_dodge) || gamepad_button_check_pressed(0, gp_dodge) || gamepad_button_check_pressed(0, gp_shoulderl);
 
 var special_key_pressed = keyboard_check_pressed(key_special) || gamepad_button_check_pressed(0, gp_special);
 var special_key_held = keyboard_check(key_special) || gamepad_button_check(0, gp_special);
@@ -49,33 +49,30 @@ if alarm[11] == -1
 	
 // if idling, accept the first item from the input queue
 if current_state == states.idle && !ds_queue_empty(input_queue) {
-	
 	current_state = ds_queue_dequeue(input_queue);
 	starting = true;
 }
 
-// sunyata
-if global.sunyata {
-	ghost_mode = true;
-}
-else ghost_mode = false;
+////////////////////////////////////////////////////
+// SUNYATA
+////////////////////////////////////////////////////
 
-if special_key_held {
-	ghost_count++;
-}
-else ghost_count --;
+if global.ability_sunyata {
+	// sunyata
+	if global.sunyata {
+		ghost_mode = true;
+	}
+	else ghost_mode = false;
 
-ghost_count = clamp(ghost_count, 0, ghost_base);
-
-if !global.sunyata && ghost_count >= ghost_base && special > 0 {
-	global.sunyata = true;
-	audio_play_sound(a_special_shift, 1, false);
-	changed = false;
-	ghost_count = 0;
-}
-else if global.sunyata && (special_key_pressed || special <= 0) {
-	global.sunyata = false;
-	changed = false;
-	ghost_count = 0;
-	audio_play_sound(a_special_unshift, 1, false);
+	// switching
+	if !global.sunyata && special_key_pressed && special > 0 {
+		global.sunyata = true;
+		audio_play_sound(a_special_shift, 1, false);
+		changed = false;
+	}
+	else if global.sunyata && (special_key_pressed || special <= 0) {
+		global.sunyata = false;
+		changed = false;
+		audio_play_sound(a_special_unshift, 1, false);
+	}
 }

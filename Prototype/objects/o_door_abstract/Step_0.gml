@@ -3,11 +3,14 @@
 // keys
 //if !ready exit;
 
+interact_conditions = ready && place_meeting(x, y, global.player) && !global.chatbox_up && 
+	!open && !opening && !global.sunyata && !global.pause;
+
 ////////////////////////////////////////////////
 // start opening when player presses open
 ////////////////////////////////////////////////
 
-if place_meeting(x ,y, global.player) && !opening && !open && ready && !global.sunyata && 
+if place_meeting(x, y, global.player) && !opening && !open && ready && !global.sunyata && !global.pause &&
 	( keyboard_check_pressed(global.key_interact) ||
 	gamepad_button_check_pressed(0, global.gp_key_interact) )
 {
@@ -34,7 +37,7 @@ if open && !finished_opening {
 	// slam dat door foo
 	if audio_is_playing(a_stone_grind)
 		audio_stop_sound(a_stone_grind);
-	audio_play_sound(a_slam, 1, false);
+	audio_play_sound(a_door_slam, 1, false);
 	
 	// fade music out for room transition
 	if audio_is_playing(global.music)
